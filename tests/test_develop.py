@@ -2057,7 +2057,9 @@ def test_photo_search_picks_words_from_the_day(cfg):
     assert len(got) == 3 and len(set(got)) == 3            # 세 장이 다 달라야 한다
     assert got[0] == photos.DEFAULT_QUERY                  # 표지는 그날 전체를 받는다
     assert any("government" in q for q in got)             # 개각 → 정부청사
-    assert any("election" in q for q in got)               # 여론조사 → 투표
+    assert any("city hall" in q for q in got)              # 여론조사 → 시청 (투표·사람 사진은 안 쓴다)
+    # 사법·선거·집회도 서양 건물·사람 사진이 오는 낱말은 쓰지 않는다 (2026-09-08 실측)
+    assert not any(w in q for _, q in photos.QUERY_MAP for w in ("court", "voting", "election", "palace"))
     # 낱말마다 서울·한국이 들어가야 서양 주택 사진이 안 온다 (2026-09-08 실측)
     assert all("seoul" in q or "korea" in q for _, q in photos.QUERY_MAP)
 
@@ -2101,6 +2103,26 @@ def test_photo_search_does_not_repeat_yesterdays_picture(cfg, tmp_path, monkeypa
     assert [p.ident for p in got] == ["222"]
     assert got[0].credit == "오늘 그 사람" and got[0].path.exists()
     assert json.loads(ledger.read_text()) == ["111", "222"]      # 장부에 쌓인다
+
+
+def test_photo_fetch_skips_pictures_of_people(tmp_path, monkeypatch):
+    """설명글에 사람이 보이는 사진은 건너뛴다 — 정치 카드에 남의 얼굴이 붙으면 안 된다."""
+    from rebrief import photos
+
+    hits = [{"id": "1", "alt": "Senior man marking a ballot at a voting booth", "photographer": "a",
+             "src": {"landscape": "https://x/1.jpg"}},
+            {"id": "2", "alt": "View of Seoul's skyline featuring the National Assembly", "photographer": "b",
+             "src": {"landscape": "https://x/2.jpg"}}]
+    monkeypatch.setattr(photos, "_pexels", lambda q, key, per_page=40: hits)
+    monkeypatch.setattr(photos, "_get", lambda url, params: b"\x89PNG")
+    got = photos.fetch({"headline": "국회 본회의"}, cache_dir=tmp_path / "c", ledger=tmp_path / "l.json",
+                       count=1, key="k")
+    assert [p.ident for p in got] == ["2"]
+    # 전부 사람 사진뿐이면 그래도 한 장은 쓴다 — 표로 돌아가는 것보다 낫다
+    monkeypatch.setattr(photos, "_pexels", lambda q, key, per_page=40: hits[:1])
+    got = photos.fetch({"headline": "국회 본회의"}, cache_dir=tmp_path / "c2", ledger=tmp_path / "l2.json",
+                       count=1, key="k")
+    assert [p.ident for p in got] == ["1"]
 
 
 def test_cards_credit_the_photo_and_say_it_is_unrelated(cfg, tmp_path):

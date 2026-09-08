@@ -32,22 +32,42 @@ PEXELS_SEARCH = "https://api.pexels.com/v1/search"
 # 이슈의 성격에 따라 찾을 말을 바꿉니다. Pexels 는 영어로 찾아야 결과가 많이 나옵니다.
 # 한국어로 넣으면 몇 건 안 나오는 것을 확인하고 영어 낱말로 짝지어 두었습니다.
 QUERY_MAP: list[tuple[tuple[str, ...], str]] = [
-    (("국회", "본회의", "상임위", "법안", "필리버스터", "국정감사"), "national assembly building seoul"),
-    (("대통령", "대통령실", "국무회의", "개각", "총리"), "seoul government building"),
-    (("선거", "투표", "지지율", "여론조사", "선관위", "출마"), "korea election voting"),
-    (("검찰", "특검", "법원", "영장", "헌법재판소", "재판"), "seoul courthouse"),
-    (("시위", "집회", "광화문", "촛불"), "seoul gwanghwamun square"),
-    (("지방", "서울시", "시의회", "구청"), "seoul city hall"),
+    (("국회", "본회의", "상임위", "법안", "필리버스터", "국정감사", "원내대표"), "seoul yeouido national assembly"),
+    (("대통령", "대통령실", "국무회의", "개각", "총리", "정부"), "seoul government building"),
+    (("선거", "투표", "지지율", "여론조사", "선관위", "출마", "후보"), "seoul city hall"),
+    (("검찰", "특검", "법원", "영장", "헌법재판소", "재판", "수사"), "seoul gwanghwamun"),
+    (("시위", "집회", "광화문", "촛불"), "seoul gwanghwamun"),
+    (("지방", "서울시", "시의회", "구청", "지자체"), "seoul skyline han river"),
 ]
 # **낱말이 주제를 너무 곧이곧대로 좇으면 엉뚱한 사진이 옵니다.** estate-news 에서 '대출·금리'
 # 를 'korean won money' 로 찾았더니 버스 교통카드 단말기가 올라왔습니다 (2026-09-08).
 # 정치 글에는 국회의사당·정부청사·광장 같은 **건물과 장소** 사진이 무난합니다.
+# **모든 낱말을 서울의 장소에 묶습니다** (2026-09-08 사용자 지시, Pexels 에서 실측):
+#   · 'courthouse'·'supreme court' 는 'seoul'·'korea' 를 붙여도 미국 대법원·영국 궁이 옵니다
+#   · 'election voting' 은 투표용지 든 손·기표하는 노인 — 사람이 나옵니다
+#   · 'gyeongbokgung'·'gwanghwamun square' 는 한복 입은 관광객이 섞입니다
+#   · 'seoul yeouido national assembly'·'seoul government building'·'seoul city hall'·
+#     'seoul gwanghwamun'(밤의 광화문 문루)·'seoul skyline han river' 는 서울 건물·풍경만 옵니다
+# 그래서 사법·선거·집회도 건물 검색어로 돌립니다. 첫 실행(2026-09-08)에서 'seoul courthouse'
+# 가 서양식 석조 기둥 건물을 올린 뒤 고쳤습니다.
 # **사람 얼굴이 나오는 사진은 피합니다** — 스톡 사진 속 인물이 특정 정치인으로 오해될
-# 수 있고, 무관한 사람이 정치 기사 옆에 붙는 것도 문제입니다.
+# 수 있고, 무관한 사람이 정치 기사 옆에 붙는 것도 문제입니다. 검색어로 거른 뒤에도
+# 설명글(alt)에 사람이 보이면 `_shows_people` 이 한 번 더 뺍니다.
 # 표지에 쓰는 기본값. **낱말마다 '서울' 이나 '한국' 을 넣습니다** — 빼고 찾으면 서양 주택
 # 사진이 올라옵니다. 2026-09-08 에 실제로 '아파트 실내' 로 찾았더니 벽돌벽 로프트가
 # 표지에 붙었습니다. 'seoul' 을 넣은 뒤로는 서울 아파트 단지가 나옵니다.
-DEFAULT_QUERY = "national assembly building seoul"
+DEFAULT_QUERY = "seoul yeouido national assembly"
+
+
+# Pexels 의 설명글(alt)에 이 말이 있으면 사람이 찍힌 사진입니다. 설명글은 영어입니다.
+PEOPLE_WORDS = ("person", "people", "man ", "woman", "men ", "women", "tourist", "hand", "portrait",
+                "crowd", "face", "girl", "boy", "child", "couple", "visitor", "senior", "poses", "posing")
+
+
+def _shows_people(hit: dict) -> bool:
+    """설명글로 본 '사람 나옴'. 검색어로 못 거른 인물 사진을 한 번 더 뺀다 — 정치 카드에 얼굴은 안 된다."""
+    alt = f" {str(hit.get('alt') or '').lower()} "
+    return any(w in alt for w in PEOPLE_WORDS)
 
 
 @dataclass
@@ -131,6 +151,7 @@ def fetch(brief: dict, *, cache_dir: Path, ledger: Path, count: int = 3,
             continue
         # 장부에 없는 것부터 고르고, 한 장도 없으면 **그냥 앞의 것을 다시 씁니다.**
         # 되풀이를 막자고 사진을 아예 안 넣으면 카드가 표로 돌아갑니다 — 그게 더 나쁩니다.
+        hits = [h for h in hits if not _shows_people(h)] or hits
         fresh = [h for h in hits if str(h.get("id") or "") not in seen]
         for hit in fresh or hits:
             ident = str(hit.get("id") or "")
