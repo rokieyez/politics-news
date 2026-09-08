@@ -231,11 +231,11 @@ def filter_excluded(
 
 
 def filter_required(articles: list[Article], require_terms: list[str]) -> list[Article]:
-    """부동산 실무 용어가 하나도 없으면 버린다.
+    """필수 용어(`require_terms`)가 하나도 없으면 버린다.
 
-    구글뉴스는 부동산 키워드 검색에도 도박·코인 SEO 스팸을 섞어 내보낸다.
-    그런 글은 '부동산'이라는 말은 흉내 내도 전세·청약·재건축 같은 실무 용어까지
-    갖추지는 못하므로, 이 관문 하나로 대부분 걸러진다.
+    구글뉴스는 키워드 검색에 도박·코인 SEO 스팸을 섞어 내보낸다. 그런 글은 낱말은
+    흉내 내도 국회·법안·표결 같은 실무 용어까지 갖추지는 못하므로 이 관문으로 걸러진다.
+    기본값은 빈 목록이라(멀쩡한 기사가 걸려서) 설정에서 켜야 돈다.
     """
     if not require_terms:
         return articles
@@ -244,7 +244,7 @@ def filter_required(articles: list[Article], require_terms: list[str]) -> list[A
         if any(term in a.text_for_matching for term in require_terms)
     ]
     if len(kept) < len(articles):
-        log.info("부동산 기사가 아니어서 %d건 제외", len(articles) - len(kept))
+        log.info("필수 용어가 없어 %d건 제외", len(articles) - len(kept))
     return kept
 
 

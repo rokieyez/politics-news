@@ -107,11 +107,11 @@ class IssueBrief(BaseModel):
 
     title: str = Field(description="이슈 제목. 15자 내외의 명사형")
     one_liner: str = Field(description="이 이슈를 한 문장으로. 40자 내외")
-    category: str = Field(description="정책·규제 / 대출·금리 / 가격동향 / 공급·정비사업 / 청약·분양 / 전월세·임대 / 지역이슈 / 세금·절세 / 시장심리 중 하나")
+    category: str = Field(description="국회·입법 / 정당·공천 / 대통령실·정부 / 선거·여론조사 / 사법·수사 / 지방정치 / 외교·안보 중 하나")
     what_happened: list[str] = Field(description="확인된 사실만 3~5개. 각 항목은 한 문장")
     numbers: list[DataPoint] = Field(description="기사에 나온 수치. 없으면 빈 배열")
     why_it_matters: str = Field(description="시청자에게 어떤 의미인지 2~3문장")
-    who_is_affected: list[str] = Field(description="영향받는 집단. 예: '수도권 무주택 실수요자'")
+    who_is_affected: list[str] = Field(description="영향받는 집단. 예: '인사청문회를 앞둔 장관 후보자', '수도권 유권자'. 특정 진영을 비하하는 말은 쓰지 않음")
     caution: str = Field(description="확정이 아니거나 해석이 갈리는 지점. 없으면 '없음'")
     # 모델은 **번호**만 돌려줍니다. 구글뉴스 주소는 한 개가 220자라, 읽히고 다시 적히며
     # 값을 두 번 냅니다 (2026-09-07 브리핑 출력의 20%가 주소였습니다).
@@ -129,7 +129,7 @@ class DailyBrief(BaseModel):
     headline: str = Field(description="오늘 정치권을 한 줄로. 25자 내외. 사실만, 평가 없이")
     lead: str = Field(description="오늘의 흐름 요약 3~4문장")
     issues: list[IssueBrief]
-    market_temperature: str = Field(description="시장 온도를 한 문장으로. 근거 수치를 포함")
+    market_temperature: str = Field(description="그날 정치권의 온도를 한 문장으로. 표결 수·발언 시간 같은 근거를 포함하고, 어느 쪽을 편드는 평가는 넣지 않음")
     tomorrow_watch: list[str] = Field(description="내일·이번 주에 확인할 일정이나 지표 2~4개")
 
 
@@ -239,7 +239,7 @@ class PolicySummary(BaseModel):
     news_id: str = Field(description="입력에 주어진 번호를 그대로")
     lines: list[str] = Field(
         description="3줄. 각 줄은 마침표로 끝나는 완결된 문장(45자 내외). 무엇이 · 숫자 · 누구에게 영향")
-    who: str = Field(default="", description="이 발표가 특히 상관있는 사람. 예: '전세 임차인'. 없으면 빈 문자열")
+    who: str = Field(default="", description="이 발표가 특히 상관있는 사람. 예: '지방자치단체 공무원'. 없으면 빈 문자열")
 
 
 class PolicySummaries(BaseModel):

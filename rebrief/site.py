@@ -789,7 +789,7 @@ def _build_feed(cfg: Config, built: list[dict], dest: Path, limit: int = 20) -> 
         '<rss version="2.0"><channel>'
         f"<title>{_xml_escape(channel)}</title>"
         f"<link>{_xml_escape(base)}</link>"
-        "<description>매일 아침 부동산 뉴스 브리핑</description>"
+        "<description>매일 아침 정치 뉴스 브리핑</description>"
         "<language>ko</language>"
         + "".join(items) +
         "</channel></rss>\n"
