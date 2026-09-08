@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>김승원 신약 로비 의혹, 9월 9일 여야 공방 정리</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  /* 바탕색은 body 가 아니라 뒤에 깔린 고정 층(body::before)에 칠한다.
+     Chrome 은 '본문 복사' 때 글자 덩어리마다 조상(html·body 까지)의 배경색을 찾아
+     background-color 로 박아 넣는다. 그래서 body 에 회색을 칠하면 네이버에 붙였을 때
+     문단마다 연한 회색 형광펜이 깔린다 (2026-09-08 실측: 문단·제목 18곳에
+     rgb(245,246,248)). html·body·.card 를 전부 투명하게 두면 그 배경색이 사라진다.
+     .card 의 흰색도 같은 이유로 그림자·테두리로만 구분한다. */
+  html, body { background: transparent; }
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; background: #f5f6f8;
+  }
+  body {
+    margin: 0; padding: 0 16px 80px;
+    color: #1a1a1a;
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.8; font-size: 16px;
+  }
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    margin: 0 -16px 20px; padding: 12px 16px;
+    background: #03c75a; color: #fff;
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  }
+  .bar strong { margin-right: auto; font-size: 15px; }
+  .bar button {
+    border: 0; border-radius: 6px; padding: 8px 14px;
+    background: rgba(255,255,255,.18); color: #fff;
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    font-family: inherit;
+  }
+  .bar button:hover { background: rgba(255,255,255,.3); }
+  .bar button.done { background: #fff; color: #03c75a; }
+  .bar a.write {
+    border-radius: 6px; padding: 8px 14px; background: #fff; color: #03c75a;
+    font-size: 14px; font-weight: 700; text-decoration: none;
+  }
+  @media (max-width: 560px) {
+    /* 휴대폰에서는 제목 줄을 따로 두고 버튼을 꽉 채운다 */
+    .bar { gap: 6px; }
+    .bar strong { flex-basis: 100%; margin: 0 0 4px; font-size: 14px; }
+    .bar button, .bar a.write { flex: 1 1 0; text-align: center; padding: 10px 6px; font-size: 13px; }
+    .card { padding: 22px 16px; }
+    .title { font-size: 21px; }
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  /* 흰 바탕 대신 테두리 — 배경을 칠하면 복사본에 흰 형광펜이 실린다 (위 설명). */
+  .card { background: transparent; border: 1px solid #e4e7ea; border-radius: 10px; padding: 32px 28px; }
+  .title { font-size: 24px; font-weight: 700; line-height: 1.45; margin: 0 0 6px; }
+  .meta { color: #888; font-size: 13px; margin-bottom: 28px; }
+  /* 구분선은 **꼭지와 꼭지 사이**에 둔다 — 둘째 소제목부터 앞에 <hr> 이 온다
+     (render.section_dividers). 예전에는 h2 의 border-top 으로 그었는데, 네이버 에디터가
+     제목의 테두리를 받지 않고 얇은 회색 선으로 바꿨다 (2026-09-08). <hr> 로 보내면
+     에디터가 제 구분선 부품으로 바꾼다. 색은 네이버에서 고를 수 없어 회색이 된다 —
+     여기 초록은 미리보기용이다. */
+  #post h2 { font-size: 20px; font-weight: 700; margin: 8px 0 16px; }
+  #post hr { border: 0; border-top: 2px solid #03c75a; margin: 56px 0 26px; }
+  #post h3 { font-size: 17px; font-weight: 700; margin: 38px 0 10px; }
+  #post p { margin: 0 0 18px; }
+  #post ul, #post ol { margin: 0 0 18px; padding-left: 22px; }
+  #post li { margin-bottom: 8px; }
+  #post table { border-collapse: collapse; width: 100%; margin: 0 0 20px; font-size: 15px; }
+  #post th, #post td { border: 1px solid #ddd; padding: 9px 12px; text-align: left; }
+  #post th { background: #f2f4f6; font-weight: 700; }
+  #post blockquote {
+    margin: 0 0 18px; padding: 12px 16px;
+    background: #f7f8fa; border-left: 4px solid #03c75a; color: #444;
+  }
+  #post a { color: #0068c3; }
+  .imgslot {
+    margin: 0 0 20px; padding: 22px 16px; text-align: center;
+    border: 2px dashed #c9cdd2; border-radius: 8px;
+    background: #fafbfc; color: #6b7178; font-size: 14px;
+  }
+  .imgslot.has-file { border-color: #03c75a; background: #f2fbf5; color: #2c6e45; }
+  .photo-links { margin: -12px 0 20px; font-size: 13px; color: #6b7178; text-align: center; }
+  .photo-links a { color: #0068c3; }
+  .imgslot small { display: block; margin-top: 6px; font-size: 13px; color: #5a6a60; }
+  .preview { display: block; max-width: 100%; height: auto; margin: -8px 0 22px; border: 1px solid #e4e7ea; border-radius: 8px; }
+  .tags { margin: 36px 0 0; color: #0068c3; font-size: 15px; word-break: keep-all; }
+  .hint {
+    max-width: 720px; margin: 20px auto 0; padding: 16px 18px;
+    background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px;
+    font-size: 14px; line-height: 1.75; color: #5f4b16;
+  }
+  .hint ol { margin: 8px 0 0; padding-left: 20px; }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <strong>네이버 블로그 붙여넣기</strong>
+  <button type="button" data-copy="title">제목 복사</button>
+  <button type="button" data-copy="post">본문 복사</button>
+  <button type="button" data-copy="tags">태그 복사</button>
+  <a class="write" href="https://blog.naver.com/keyboardpolitics?Redirect=Write&amp;" target="_blank" rel="noopener">글쓰기 열기</a>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h1 class="title" id="title">김승원 신약 로비 의혹, 9월 9일 여야 공방 정리</h1>
+    <div class="meta">2026-09-09 · 정치</div>
+
+    <div id="post">
+<div class="imgslot has-file">📷 대표 이미지 — 검색 목록에 이 그림이 썸네일로 뜹니다<br><small>→ 파일 <b>img-0-cover.png</b> 을 <b>글 맨 위</b>에 올리고 상자는 지웁니다</small></div><img class="preview nocopy" src="img-0-cover.png" alt="대표 이미지"><p style="margin:0 0 14px;font-size:14px;color:#767676">이 글은 2026년 9월 9일 기준으로 정리한 내용입니다.</p><div style="background-color:#f2f8ff;border-left:4px solid #256abf;padding:14px 16px;margin:0 0 22px"><b style="font-size:15px">3줄 요약</b><ul style="margin:8px 0 0;padding-left:18px"><li style="margin-bottom:6px">한동훈 의원, 김승원 후보자 관련 브로커 녹취록 공개</li><li style="margin-bottom:6px">녹취 속 정부지원금 신청 규모는 150억원 언급</li><li style="margin-bottom:6px">국민의힘은 사퇴 촉구, 박지원 의원은 자격 문제 제기</li></ul></div><p>9월 8일 여의도의 하루는 <strong>김승원 신약 로비 의혹</strong>을 둘러싼 공방으로 채워졌습니다. 한동훈 무소속 의원이 통화 녹취록을 공개했고, 국민의힘은 후보자 사퇴를 요구했으며, 박지원 더불어민주당 의원은 이를 반박했습니다.</p>
+<p>먼저 짚어 둘 점이 있습니다. 지금 나온 내용은 수사나 재판으로 확정된 사실이 아니라 '의혹' 단계입니다.</p>
+<div class="imgslot">📷 이미지 — 국회 본관 앞 전경과 취재진이 모여 있는 모습</div><div class="photo-links nocopy">사진 찾기: <a href="https://unsplash.com/s/photos/korea-national-assembly-building" target="_blank" rel="noopener">언스플래시</a> · <a href="https://www.pexels.com/ko-kr/search/korea%20national%20assembly%20building/" target="_blank" rel="noopener">펙셀스</a> · <a href="https://pixabay.com/ko/images/search/korea%20national%20assembly%20building/" target="_blank" rel="noopener">픽사베이</a></div>
+<h2>김승원 신약 로비 의혹, 공개된 녹취록에는 무엇이 담겼나</h2>
+<p>한동훈 의원은 9월 8일 페이스북에 김승원 법무부 장관 후보자의 신약 청탁 의혹과 관련된 브로커 양모씨의 통화 녹취록을 올렸습니다. 한동훈 의원에 따르면 2021년 9월 양씨와 신약업체 제넨셀 대표 강모씨가 나눈 통화입니다.</p>
+<p>녹취록에서 양씨는 "식약처 원장이랑 최재성 국회의원이랑 되게 친해요", "한병도랑 최재성은 엄청 친하고, 한병도랑 송영길이 되게 친하다"고 말한 것으로 나타났습니다. 강씨는 <span class="hl" style="background-color:#fff59d"><strong>150억원</strong></span> 규모 정부지원금 신청과 관련해 "민주당 이런 분들이 한마디라도 해주면 조금 수월해지지 않을까 싶다"고 말한 것으로 담겼습니다.</p>
+<p>한동훈 의원은 "우연히 만난 최재성 전 수석에게 양씨가 도대체 왜 저런 은밀한 제넨셀 신약 진행 상황을 상의하는 것인가"라며 의혹을 제기했습니다. 다만 이는 브로커의 발언이고, 거론된 인사들이 실제로 개입했는지는 확인되지 않았습니다. 이들의 해명 역시 자료에서는 확인되지 않았습니다.</p>
+<hr><h2>양쪽의 말: 사퇴 요구와 자격 논란</h2>
+<p>국민의힘은 같은 날 김승원 후보자와 용혜인 의원의 사퇴를 촉구했습니다. 또 '김현지 인사농단' 의혹과 관련해 관련자가 국회 증언대에 서야 한다고 주장했습니다. 이 의혹의 구체적 근거와 민주당·용혜인 의원 측 반응은 확인되지 않았습니다.</p>
+<p>박지원 의원은 페이스북에서 한동훈 의원을 겨냥해 "법사위원으로 보임될 자격이 없음에도 청문위원이 되고 싶다고 앵벌이한다"고 적었습니다. 또 검사 11명이 <span class="hl" style="background-color:#fff59d"><strong>3년</strong></span>간 수사하고도 기소하지 않았다는 점을 들며, 당시 수사 자체를 특검(별도로 임명된 특별검사가 맡는 수사) 대상으로 삼아야 한다고 주장했습니다. 한동훈 의원 측의 직접 반론은 확인되지 않았습니다.</p>
+<div class="imgslot has-file">📷 이미지 — 녹취록에 등장한 정부지원금 신청 규모를 보여주는 수치 그래픽<br><small>→ 파일 <b>img-2-stat-card.png</b> 을 이 자리에 올리고 상자는 지웁니다</small></div><img class="preview nocopy" src="img-2-stat-card.png" alt="녹취록에 등장한 정부지원금 신청 규모를 보여주는 수치 그래픽">
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>수치</th>
+<th>말한 사람</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>제넨셀 정부지원금 신청 규모</td>
+<td>150억원</td>
+<td>녹취 속 강씨(한동훈 의원 공개)</td>
+</tr>
+<tr>
+<td>과거 수사 기간</td>
+<td>3년</td>
+<td>박지원 의원</td>
+</tr>
+<tr>
+<td>수사 참여 검사</td>
+<td>11명</td>
+<td>박지원 의원</td>
+</tr>
+</tbody>
+</table>
+<hr><h2>그 밖의 오늘 소식</h2>
+<ul>
+<li>뉴시스 그래픽뉴스, 이재명 대통령 긍정평가 <span class="hl" style="background-color:#fff59d"><strong>37.4%</strong></span>·8주째 하락</li>
+<li>해당 수치는 조사기관·기간·오차범위가 자료에 없어 확인 불가</li>
+<li>이재명 대통령, 마크롱 대통령과 회담…호르무즈 해협 공조 논의</li>
+<li>청와대 "파병 아닌 기여 방안을 논의했다"</li>
+<li>8일 정치 분야 대정부질문, 개각·개헌·대법관 제청 놓고 충돌</li>
+</ul>
+<div class="imgslot has-file">📷 이미지 — 대통령 국정수행 긍정평가 수치를 보여주는 그래픽<br><small>→ 파일 <b>img-3-stat-card.png</b> 을 이 자리에 올리고 상자는 지웁니다</small></div><img class="preview nocopy" src="img-3-stat-card.png" alt="대통령 국정수행 긍정평가 수치를 보여주는 그래픽">
+<hr><h2>오늘의 체크포인트</h2>
+<ol>
+<li>김승원 신약 로비 의혹은 녹취록 공개로 검증 범위가 넓어졌지만, 아직 확인되지 않은 의혹 단계입니다.</li>
+<li>국민의힘은 사퇴를, 박지원 의원은 과거 수사에 대한 특검을 각각 요구하며 주장이 맞서 있습니다.</li>
+<li>다음에 볼 것은 김승원 후보자에 대한 재수사 여부 결정과 인사청문 절차의 진행입니다.</li>
+</ol><div style="background-color:#f2f8ff;border-left:4px solid #256abf;padding:14px 16px;margin:26px 0 0"><b style="font-size:15px">그래서 나는?</b><ul style="margin:8px 0 0;padding-left:18px"><li style="margin-bottom:6px">뉴스만 훑는 유권자라면, 아직 &#x27;의혹&#x27; 단계라는 점부터 확인하세요</li><li style="margin-bottom:6px">인사청문회를 지켜보는 분이라면, 위원 명단과 일정이 달라질 수 있습니다</li><li style="margin-bottom:6px">여론조사 수치를 보는 분이라면, 조사기관과 오차범위를 함께 찾아보세요</li></ul></div><div style="margin:28px 0 0;padding:16px 18px"><b>직접 센 숫자 — 국회·여론조사 (최근 7일)</b><p style="margin:12px 0 4px"><b>이번 주 등록된 선거 여론조사 8건</b></p><ul style="margin:0;padding-left:18px;font-size:15px"><li>전국 정당지지도 정기(정례)조사 — 한길리서치 · 쿠키뉴스 의뢰 · 2026-09-05~07 · 1,018명 · 무선 ARS · 응답률 2.5% · 95% 신뢰수준에 ±3.1%p</li><li>전국 정기(정례)조사 정당지지도 대통령선거 — 조원씨앤아이 · 스트레이트뉴스 의뢰 · 2026-09-05~07 · 2,001명 · 무선 ARS · 응답률 4% · 95% 신뢰수준에 ±2.2%p</li><li>전국 정기(정례)조사 정당지지도 대통령선거 — 여론조사공정(주) · 펜앤마이크 의뢰 · 2026-09-06~07 · 1,015명 · 무선 ARS · 응답률 2.1% · 95% 신뢰수준에 ±3.1%p</li></ul><p style="margin:12px 0 0;font-size:13px;color:#888888">열린국회정보·중앙선거여론조사심의위원회 자료를 직접 셌습니다. 여론조사의 자세한 사항은 중앙선거여론조사심의위원회 홈페이지를 참조하세요.</p></div><p style="padding:14px 16px;margin:28px 0 0"><b>여러분은 이런 의혹 보도를 볼 때, 어디까지가 확인된 사실이고 어디부터가 주장인지 어떻게 구분해서 보시나요?</b><br><span style="font-size:14px;color:#666666">댓글로 알려 주시면 다음 글에 반영하겠습니다.</span></p>
+      <p class="tags" id="tags">#김승원 #김승원신약로비의혹 #법무부장관후보자 #인사청문회 #한동훈 #박지원 #국민의힘 #더불어민주당 #용혜인 #최재성 #한병도 #송영길 #제넨셀 #녹취록공개 #신약청탁의혹 #대정부질문 #국회 #정치브리핑 #이재명대통령 #대통령지지율 #국정수행긍정평가 #프랑스국빈방문 #마크롱 #호르무즈해협 #개헌 #개각 #대법관제청 #특검 #법제사법위원회 #정치뉴스정리</p>
+    </div>
+  </div>
+
+  <div class="hint">
+    <strong>쓰는 법</strong>
+    <ol>
+      <li><b>글쓰기 열기</b> → 네이버 블로그 글쓰기 화면이 새 탭에서 열립니다</li>
+      <li><b>제목 복사</b> → 제목 칸에 붙여넣기</li>
+      <li><b>본문 복사</b> → 본문 칸에 붙여넣기. 소제목·표·굵게가 그대로 살아납니다.</li>
+      <li>점선 상자(<span style="color:#6b7178">📷 이미지</span>) 자리에 사진을 넣고 상자는 지웁니다.
+        <b>초록 상자</b>는 자동 생성된 그림이 있는 자리입니다 — 상자에 적힌 파일명을 같은 폴더에서 찾아 올리세요.
+        미리보기 그림은 복사에 포함되지 않습니다.</li>
+      <li><span style="background-color:#fff59d">형광펜</span>은 오늘의 핵심 수치가 <b>처음 나온 자리</b>에만 칠합니다.
+        같은 수치가 다시 나와도 표시하지 않습니다 — 강조가 많으면 아무것도 강조가 아니니까요.
+        붙여넣으면 그대로 따라가고, 마음에 안 들면 에디터에서 지우세요.</li>
+      <li>맨 아래 해시태그는 그대로 두면 네이버가 태그로 인식합니다.</li>
+    </ol>
+    이 안내문은 복사에 포함되지 않습니다.
+  </div>
+</div>
+
+<script>
+// 버튼이 지정한 영역만 클립보드에 담는다. 안내문과 상단 바는 복사되지 않는다.
+document.querySelectorAll("[data-copy]").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var node = document.getElementById(btn.dataset.copy);
+    if (!node) return;
+
+    // 미리보기 이미지(.nocopy)는 빼고 복사한다. 상대 경로 <img> 가 붙여넣기에 섞이면
+    // 네이버 에디터에 깨진 그림이 생긴다. 복사용 사본을 만들어 그것만 선택한다.
+    // 사본은 언제나 body 바로 아래에 둔다 — Chrome 이 복사본에 조상의 배경색을 박아
+    // 넣으므로, 흰 .card 안에서 복사하면 문단마다 흰 형광펜이 실린다. html·body 는
+    // 투명이라 body 아래에서 복사하면 배경색이 붙지 않는다 (2026-09-08 실측).
+    var clone = node.cloneNode(true);
+    clone.querySelectorAll(".nocopy").forEach(function (el) { el.remove(); });
+    clone.style.position = "fixed"; clone.style.left = "-9999px"; clone.style.top = "0";
+    document.body.appendChild(clone);
+    var copyNode = clone;
+
+    // 서식을 살리려면 선택 영역을 만들어 복사해야 한다.
+    // execCommand 는 구식이지만 file:// 에서 서식 복사가 확실하게 되는 유일한 방법이다.
+    var range = document.createRange();
+    range.selectNodeContents(copyNode);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    sel.removeAllRanges();
+    var plainText = copyNode.innerText;
+    clone.remove();
+
+    if (!ok && navigator.clipboard) {
+      navigator.clipboard.writeText(plainText).then(flash, function () {
+        alert("복사에 실패했습니다. 직접 드래그해서 복사해 주세요.");
+      });
+      return;
+    }
+    flash();
+
+    function flash() {
+      var original = btn.textContent;
+      btn.textContent = "복사됨 ✓";
+      btn.classList.add("done");
+      setTimeout(function () {
+        btn.textContent = original;
+        btn.classList.remove("done");
+      }, 1400);
+    }
+  });
+});
+</script>
+</body>
+</html>

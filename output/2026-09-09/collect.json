@@ -1,0 +1,109 @@
+{
+  "date": "2026-09-09",
+  "collected_at": "2026-09-08T22:09:34+00:00",
+  "feeds": [
+    {
+      "id": "gnews_politics",
+      "ok": true,
+      "count": 100,
+      "error": null
+    },
+    {
+      "id": "gnews_assembly",
+      "ok": true,
+      "count": 76,
+      "error": null
+    },
+    {
+      "id": "gnews_parties",
+      "ok": true,
+      "count": 32,
+      "error": null
+    },
+    {
+      "id": "gnews_president",
+      "ok": true,
+      "count": 59,
+      "error": null
+    },
+    {
+      "id": "gnews_bills",
+      "ok": true,
+      "count": 22,
+      "error": null
+    },
+    {
+      "id": "gnews_polls",
+      "ok": true,
+      "count": 39,
+      "error": null
+    },
+    {
+      "id": "gnews_election",
+      "ok": true,
+      "count": 61,
+      "error": null
+    },
+    {
+      "id": "yna_politics",
+      "ok": true,
+      "count": 120,
+      "error": null
+    },
+    {
+      "id": "newsis_politics",
+      "ok": true,
+      "count": 100,
+      "error": null
+    },
+    {
+      "id": "hani_politics",
+      "ok": true,
+      "count": 30,
+      "error": null
+    },
+    {
+      "id": "khan_politics",
+      "ok": true,
+      "count": 50,
+      "error": null
+    },
+    {
+      "id": "chosun_politics",
+      "ok": true,
+      "count": 100,
+      "error": null
+    },
+    {
+      "id": "donga_politics",
+      "ok": true,
+      "count": 50,
+      "error": null
+    },
+    {
+      "id": "ohmynews_politics",
+      "ok": true,
+      "count": 20,
+      "error": null
+    },
+    {
+      "id": "sbs_politics",
+      "ok": true,
+      "count": 29,
+      "error": null
+    },
+    {
+      "id": "hankyung_politics",
+      "ok": true,
+      "count": 50,
+      "error": null
+    },
+    {
+      "id": "mk_politics",
+      "ok": true,
+      "count": 50,
+      "error": null
+    }
+  ],
+  "articles": 500
+}
