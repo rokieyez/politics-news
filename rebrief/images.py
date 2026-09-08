@@ -1161,7 +1161,7 @@ CARD_PAPER = ("#e9f0ea", "#0f2f2a", "#3f6a60", "#c3d4cb", "#7a5a12")
 
 # 일곱 장의 박자. 표지·목록은 짙은 초록, 숫자는 더 짙은 초록, 이슈는 상아빛.
 CARD_FACES = {"cover": CARD_DARK, "numbers": CARD_FLOOD, "issue": CARD_PAPER,
-              "rest": CARD_DARK, "watch": CARD_DARK, "vote": CARD_FLOOD}
+              "rest": CARD_DARK, "vote": CARD_FLOOD}
 
 CARD_LIGHT = "#ffffff"     # 소제목·사진 위 글씨. 어느 낯에서든 흰색이다.
 CARD_GRID = 60             # 제도 격자 한 칸
@@ -1970,11 +1970,12 @@ def cards(brief: dict, *, date: str = "", channel: str = "", key_numbers: list[d
           vote: dict | None = None) -> list[Image]:
     """하루치 브리핑을 유튜브 게시물용 카드 5~7장으로.
 
-    **모델을 새로 부르지 않습니다.** 이미 만들어 둔 브리핑(headline·issues·numbers·
-    tomorrow_watch)을 그대로 나눠 담습니다. 그래서 카드를 켜도 하루 비용이 늘지 않습니다.
+    **모델을 새로 부르지 않습니다.** 이미 만들어 둔 브리핑(headline·issues·numbers)을
+    그대로 나눠 담습니다. 그래서 카드를 켜도 하루 비용이 늘지 않습니다.
 
-    구성: 표지(남색) → 오늘의 숫자(짙은 남색) → 이슈 몇 장(밝은 청사진) → 그 밖의 소식(남색) →
-    내일 볼 것(남색). 짙음과 밝음이 교차하며 묶음에 박자를 만듭니다.
+    구성: 표지(짙은 초록) → (표결) → 오늘의 숫자(더 짙은 초록) → 이슈 몇 장(상아) → 그 밖의 소식(짙은 초록).
+    짙음과 밝음이 교차하며 묶음에 박자를 만듭니다. **「내일 볼 것」 카드는 만들지 않습니다**
+    (2026-09-09, 사용자 지시) — 브리핑의 tomorrow_watch 는 블로그·대본에만 남습니다.
     **장수는 그날 내용에 따라 정해집니다** — 이슈가 많으면 `max_cards` 까지 늘고,
     자료가 모자란 날은 네댓 장으로 줄어듭니다. 억지로 채우지 않습니다.
 
@@ -2002,7 +2003,6 @@ def cards(brief: dict, *, date: str = "", channel: str = "", key_numbers: list[d
         if text and text in headline:
             badge = text
             break
-    watch = [w for w in (brief.get("tomorrow_watch") or []) if w]
 
     # 장수를 먼저 정한다 — 쪽번호(02 / 07)를 찍어야 하므로.
     #
@@ -2010,7 +2010,7 @@ def cards(brief: dict, *, date: str = "", channel: str = "", key_numbers: list[d
     # 적은 날은 줄어듭니다. `max_cards` 는 상한일 뿐 목표가 아닙니다 — 억지로 채우면
     # 내용 없는 카드가 한 장 더 붙습니다.
     def layout(with_numbers: bool) -> tuple[int, list[dict]]:
-        fixed = 1 + int(with_numbers) + int(bool(watch)) + int(bool(vote))   # 표지·숫자·표결·내일 볼 것
+        fixed = 1 + int(with_numbers) + int(bool(vote))    # 표지·숫자·표결
         room = max(1, max_cards - fixed)                   # 이슈에 쓸 수 있는 장수
         n = min(len(issues), max(1, room - 1))             # '그 밖의 소식' 한 장을 남겨 둔다
         tail = issues[n:]
@@ -2040,8 +2040,6 @@ def cards(brief: dict, *, date: str = "", channel: str = "", key_numbers: list[d
     plan += ["issue"] * deep
     if rest:
         plan.append("rest")
-    if watch:
-        plan.append("watch")
     plan = plan[:max_cards]
     total = len(plan)
 
@@ -2072,6 +2070,4 @@ def cards(brief: dict, *, date: str = "", channel: str = "", key_numbers: list[d
         elif kind == "rest":
             out.append(_list_card("그 밖의 오늘 소식", [i["title"] for i in rest],
                                   "rest", n, total, date, channel))
-        elif kind == "watch":
-            out.append(_list_card("내일 볼 것", watch, "watch", n, total, date, channel))
     return out

@@ -2416,7 +2416,7 @@ def test_card_count_follows_the_day(cfg):
 
     counts = [len(images.cards(brief(n), date="2026-09-08")) for n in (1, 3, 5, 8)]
     assert counts == sorted(counts), f"이슈가 늘면 장수도 늘어야 한다: {counts}"
-    assert counts[0] < 5 and counts[-1] == 10        # 조용한 날은 줄고, 많은 날은 상한까지
+    assert counts[0] < 5 and counts[-1] >= 9         # 조용한 날은 줄고, 많은 날은 상한 가까이
     assert len(images.cards(brief(9), date="2026-09-08", max_cards=6)) == 6   # 상한을 지킨다
 
     # 한 건짜리 '그 밖의 소식' 카드는 만들지 않는다 — 제 카드를 준다
@@ -2435,7 +2435,9 @@ def test_cards_are_square_and_numbered(cfg):
     for img in got:
         assert 'width="1080" height="1080"' in img.svg      # 정사각 — 세로는 잘리는 화면이 있다
         assert f"/ {len(got):02d}" in img.svg               # 쪽번호(02 / 07)가 실제 장수와 맞는다
-    assert "내일 볼 것" in got[-1].svg
+    # 「내일 볼 것」 카드는 없다 (2026-09-09 사용자 지시). 마지막 장은 이슈나 그 밖의 소식이다.
+    assert not any("내일 볼 것" in img.svg for img in got)
+    assert got[-1].slug.endswith(("-issue", "-rest"))
 
     # 자료가 적은 날은 억지로 채우지 않고 줄어든다
     small = images.cards({"headline": "조용한 하루", "issues": [
