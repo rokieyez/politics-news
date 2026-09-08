@@ -261,7 +261,8 @@ class Renderer:
             "data.json", json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
         )
 
-    def cards(self, brief: DailyBrief, key_numbers: list | None = None) -> list[str]:
+    def cards(self, brief: DailyBrief, key_numbers: list | None = None,
+              civics: dict | None = None) -> list[str]:
         """유튜브 게시물용 카드뉴스. 만든 파일 이름들을 돌려준다.
 
         이미 만들어 둔 브리핑을 나눠 담는 것이라 **모델을 새로 부르지 않습니다.**
@@ -271,6 +272,9 @@ class Renderer:
         if not (cfg.get("enabled", True) and cfg.get("cards", True)):
             return []
         payload = brief.model_dump() if hasattr(brief, "model_dump") else dict(brief)
+        # 그날(전날) 본회의 표결이 있으면 카드 한 장 — civics 가 받은 표 수 그대로
+        vote = images_mod.pick_vote(((civics or {}).get("plenary") or {}).get("items"),
+                                    payload.get("issues"), self.date)
         made = images_mod.cards(
             payload,
             date=self.date,
@@ -278,6 +282,7 @@ class Renderer:
             key_numbers=[n.__dict__ if hasattr(n, "__dict__") else n for n in (key_numbers or [])],
             max_cards=int(cfg.get("cards_max", 7)),
             art=self._card_art(payload) if cfg.get("cards_art", True) else None,
+            vote=vote,
         )
         return [self._write_image(img, cfg, prefix="") for img in made]
 
@@ -461,7 +466,7 @@ class Renderer:
         import json as _json
 
         self._write_raw("civics.json", _json.dumps(data, ensure_ascii=False, indent=2) + "\n")
-        payload = {"bills": {}, "plenary": {}, "polls": [], "warnings": [], "sample": False, **data}
+        payload = {"bills": {}, "plenary": {}, "polls": [], "warnings": [], "sample": False, "tracked": [], **data}
         return self._write("civics.md", "civics.md.j2", **payload)
 
     def policy(self, docs: list, stats: dict | None = None) -> Path | None:
@@ -979,9 +984,23 @@ def civics_block_html(data: dict | None) -> str:
         items = "".join(f'<li>{_esc(p.get("title", ""))} — {_esc(p.get("summary", ""))}</li>' for p in polls[:3])
         parts.append(f'<p style="margin:12px 0 4px"><b>이번 주 등록된 선거 여론조사 {len(polls)}건</b></p>'
                      f'<ul style="margin:0;padding-left:18px;font-size:15px">{items}</ul>')
+    tracked = data.get("tracked") or []
+    if tracked:
+        rows = "".join(f'<li>{_esc(_tracked_line(t))}</li>' for t in tracked)
+        parts.append('<p style="margin:12px 0 4px"><b>오늘 이슈에 나온 법안은 지금 어디에</b></p>'
+                     f'<ul style="margin:0;padding-left:18px;font-size:15px">{rows}</ul>')
     parts.append('<p style="margin:12px 0 0;font-size:13px;color:#888888">열린국회정보·중앙선거여론조사심의위원회 '
                  '자료를 직접 셌습니다. 여론조사의 자세한 사항은 중앙선거여론조사심의위원회 홈페이지를 참조하세요.</p></div>')
     return "".join(parts)
+
+
+def _tracked_line(t: dict) -> str:
+    """'공소청법 — 발의 5건(계류 2) · 최근 「공소청법 일부개정법률안」(○○○ 의원 등, 2026-08-24) · 소관위 회부'"""
+    head = f'{t.get("query", "")} — 제22대 발의 {t.get("count", 0)}건'
+    if t.get("pending"):
+        head += f'(계류 {t["pending"]})'
+    tail = f' · 최근 「{t.get("name", "")}」({t.get("proposer", "")}, {t.get("date", "")}) · {t.get("stage", "")}'
+    return head + tail
 
 
 def civics_block_markdown(data: dict | None) -> str:
@@ -1001,6 +1020,9 @@ def civics_block_markdown(data: dict | None) -> str:
     if polls:
         lines.append(f"\n이번 주 등록된 선거 여론조사 {len(polls)}건\n")
         lines += [f'- {p.get("title", "")} — {p.get("summary", "")}' for p in polls[:3]]
+    if data.get("tracked"):
+        lines.append("\n오늘 이슈에 나온 법안은 지금 어디에\n")
+        lines += [f"- {_tracked_line(t)}" for t in data["tracked"]]
     lines.append("\n*열린국회정보·중앙선거여론조사심의위원회 자료를 직접 셌습니다. "
                  "여론조사의 자세한 사항은 중앙선거여론조사심의위원회 홈페이지를 참조하세요.*\n")
     return "\n".join(lines)

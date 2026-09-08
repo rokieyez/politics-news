@@ -12,7 +12,7 @@ from pathlib import Path
 from .cluster import build_clusters
 from .collect import FeedResult, collect
 from .config import Config
-from . import keynumbers
+from . import keynumbers, civics
 from .llm import ContentGenerator, LLMError, Usage
 from .models import Article, Cluster
 from .prompts import build_prompt_pack
@@ -258,6 +258,14 @@ def _generate_with_llm(
 
     result.llm_used = True
     _fill_source_urls(brief, issues, result)
+    # 오늘 이슈에 나온 법안이 지금 어느 단계인지 — 브리핑이 있어야 이슈 제목을 알므로 여기서.
+    # 모델을 부르지 않고 열린국회정보만 다시 묻는다. 망이 죽어도 글은 그대로 나간다.
+    if civics_data:
+        try:
+            if civics.track_issue_bills(civics_data, brief.issues):
+                renderer.civics(civics_data)
+        except Exception as exc:                 # 부가 정보라 실패해도 그날치를 막지 않는다
+            log.warning("법안 추적 실패: %s", exc)
     checks = _verify_numbers(cfg, brief, issues, result)
     made.update(brief=brief, checks=checks)
     made["repeats"] = _repeat_topics(cfg, brief, date_str)
@@ -278,7 +286,7 @@ def _generate_with_llm(
 
     slot_files = renderer.images(brief, history=history, post=post)
     # 유튜브 게시물용 카드뉴스. 브리핑을 나눠 담을 뿐이라 모델을 다시 부르지 않는다.
-    made["cards"] = renderer.cards(brief)
+    made["cards"] = renderer.cards(brief, civics=civics_data)
     keys: list = []
     if post is not None:
         # 오늘의 핵심 수치: 브리핑 datapoint 가운데 글에 실제로 쓰인 것. 블로그 카드·강조·썸네일 배지가 함께 쓴다.

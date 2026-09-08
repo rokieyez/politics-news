@@ -52,6 +52,13 @@
 {% else %}
 {{ since }} 이후 등록된 여론조사가 없거나 받지 못했습니다.
 {% endif %}
+{% if tracked %}
+
+## 오늘 이슈에 나온 법안은 지금 어디에
+{% for t in tracked %}
+- **{{ t.query }}** — 제22대 발의 {{ t.count }}건{% if t.pending %} (계류 {{ t.pending }}){% endif %} · 최근 [{{ t.name }}]({{ t.link }}) ({{ t.proposer }}, {{ t.date }}) · **{{ t.stage }}**
+{% endfor %}
+{% endif %}
 {% if warnings %}
 
 ## 받지 못한 것

@@ -2585,3 +2585,23 @@ def test_naver_html_separates_sections_with_hr_not_heading_borders(cfg, tmp_path
         "<p>a</p><h2>하나</h2><p>b</p><hr><h2>둘</h2><hr><h2 id=x>셋</h2>"
     html = to_naver_html("머리\n\n## 하나\n\n본문\n\n## 둘\n\n본문\n\n## 셋\n\n본문\n")
     assert html.count("<hr>") == 2 and html.index("<hr>") > html.index("<h2>하나</h2>")
+
+
+def test_vote_card_appears_only_for_a_fresh_plenary_vote(cfg):
+    """그날(전날) 본회의 표결이 있으면 표결 카드 한 장. 일주일 전 표결은 뉴스가 아니라 안 만든다."""
+    from rebrief import images
+
+    items = [{"name": "공소청법 일부개정법률안", "result": "원안가결", "date": "2026-09-07", "yes": 170, "no": 2, "blank": 5},
+             {"name": "농지법 일부개정법률안", "result": "수정가결", "date": "2026-09-01", "yes": 250, "no": 0, "blank": 1}]
+    issues = [{"title": "공소청법 통과", "one_liner": "x", "numbers": []}]
+    assert images.pick_vote(items, issues, "2026-09-08")["name"].startswith("공소청법")
+    assert images.pick_vote(items, issues, "2026-09-15") is None
+    brief = {"headline": "공소청법 본회의 통과", "issues": issues, "tomorrow_watch": ["내일 볼 것"]}
+    plain = images.cards(brief, date="2026-09-08", channel="c")
+    with_vote = images.cards(brief, date="2026-09-08", channel="c", vote=items[0])
+    assert len(with_vote) == len(plain) + 1
+    card = with_vote[1]
+    assert card.slug == "card-2-vote" and "본회의 표결" in card.svg and "170표" in card.svg
+    assert "#d" not in card.svg.lower().replace("#dcece5", "")[:0]   # 자리표 — 아래에서 색을 잰다
+    ground, ink, dim, rule, signal = images.CARD_FACES["vote"]
+    assert ground in card.svg and signal in card.svg

@@ -251,3 +251,73 @@ def test_checklist_flags_lopsided_mentions_and_blackout(cfg, monkeypatch):
 ])
 def test_poll_citation_gaps(body, missing):
     assert cl.poll_citations(body) == missing
+
+
+def test_poll_warning_is_waived_when_the_post_says_the_details_are_missing(cfg):
+    """글이 '조사 개요가 자료에 없다' 고 스스로 밝히면 ⚠️ 가 아니라 ✅ (2026-09-08 실제 글)."""
+    from rebrief import checklist as cl
+    from rebrief.models import BlogPost
+
+    body = ("연설에서는 대통령 지지율이 40%를 밑돌았다는 언급과 34.7%라는 특정 여론조사 수치도 나왔습니다. "
+            "다만 조사기관·조사기간·오차범위가 자료에 없어, 이 수치들은 연설 중 발언으로만 보는 것이 정확합니다.")
+    assert "자료에 없어" in cl.poll_self_disclosed(body)
+    post = BlogPost(title="t", slug="s", meta_description="d", tags=["정치"], focus_keyword="국회", body_markdown=body)
+    poll = {i.key: i for i in cl.build(cfg, post=post)}["poll"]
+    assert poll.level == cl.OK and "스스로 밝힘" in poll.title
+    bare = BlogPost(title="t", slug="s", meta_description="d", tags=["정치"], focus_keyword="국회",
+                    body_markdown="지지율이 34.7%로 나왔습니다.")
+    assert {i.key: i for i in cl.build(cfg, post=bare)}["poll"].level == cl.WARN
+
+
+def test_quote_balance_counts_who_is_speaking(cfg):
+    """언급은 고른데 옮긴 말은 한쪽뿐인 글을 잡는다."""
+    from rebrief import checklist as cl
+    from rebrief.models import BlogPost
+
+    sides = {"더불어민주당": ["더불어민주당", "민주당"], "국민의힘": ["국민의힘"]}
+    text = ("민주당은 국민의힘을 향해 발목잡기라고 비판했다. 민주당 원내대표는 처리를 촉구한다고 말했다. "
+            "국민의힘 의원들이 본회의장에 앉아 있었다. 민주당 대변인은 유감이라고 밝혔다. "
+            "민주당 관계자는 재검토하겠다고 강조했다. 국민의힘 대표는 반대한다고 반박했다.")
+    assert cl.quote_balance(text, sides) == {"더불어민주당": 4, "국민의힘": 1}
+    post = BlogPost(title="t", slug="s", meta_description="d", tags=["정치"], focus_keyword="국회", body_markdown=text)
+    item = {i.key: i for i in cl.build(cfg, post=post)}["balance"]
+    assert item.level == cl.WARN and "발언 인용이 한쪽" in item.title
+
+
+def test_law_names_and_bill_stage():
+    from rebrief import civics
+
+    names = civics.law_names(["檢개혁 후속입법 처리 연기", "공소청법·형사소송법 개정안 처리 방법을 두고 대립", "민법 개정"])
+    assert names == ["공소청법", "형사소송법", "민법"]           # 후속입법·방법은 법률이 아니다
+    assert civics.bill_stage({"PROC_RESULT": "대안반영폐기"}) == "대안반영폐기"
+    assert civics.bill_stage({"CMT_PRESENT_DT": "2026-09-01", "COMMITTEE_DT": "2026-08-25"}) == "소관위 상정"
+    assert civics.bill_stage({}) == "발의(계류)"
+
+
+def test_track_bills_reads_the_total_from_the_head_even_in_sample_mode(monkeypatch):
+    """견본 모드는 행이 5건으로 잘려도 list_total_count 는 맞다 (2026-09-08 실측)."""
+    from rebrief import civics
+
+    def fake_get(url, params=None):
+        assert params["BILL_NAME"] == "형사소송법" and "KEY" not in params
+        rows = [{"BILL_NAME": "형사소송법 일부개정법률안", "PROPOSE_DT": f"2026-09-0{i}", "PROPOSER": "○○○의원 등 10인",
+                 "COMMITTEE_DT": "2026-09-05", "DETAIL_LINK": "http://x"} for i in range(1, 6)]
+        return _Resp(data={civics.BILLS: [{"head": [{"list_total_count": 161}]}, {"row": rows}]})
+
+    monkeypatch.setattr(civics, "_get", fake_get)
+    got = civics.track_bills(["형사소송법"], key="")
+    assert got[0]["count"] == 161 and got[0]["pending"] is None and got[0]["stage"] == "소관위 회부"
+    assert got[0]["date"] == "2026-09-05"                      # 최신 발의가 앞에
+
+
+def test_tracked_bills_show_up_in_the_civics_page_and_blog_block(cfg, tmp_path):
+    from rebrief.render import Renderer, civics_block_html, civics_block_markdown
+
+    data = {"as_of": "2026-09-08", "days": 7, "since": "2026-09-01", "sample": False,
+            "bills": {"count": 3, "latest": [], "age_total": 10}, "plenary": {}, "polls": [], "warnings": [],
+            "tracked": [{"query": "공소청법", "count": 3, "pending": 2, "name": "공소청법 일부개정법률안",
+                         "proposer": "김승원의원 등 10인", "date": "2026-08-24", "stage": "소관위 상정",
+                         "committee": "법제사법위원회", "link": "http://x"}]}
+    md = Renderer(cfg, tmp_path, "2026-09-08").civics(data).read_text(encoding="utf-8")
+    assert "오늘 이슈에 나온 법안은 지금 어디에" in md and "**소관위 상정**" in md
+    assert "계류 2" in civics_block_html(data) and "소관위 상정" in civics_block_markdown(data)

@@ -95,6 +95,50 @@ def poll_citations(text: str) -> list[str]:
     return missing
 
 
+# 글이 스스로 "조사 개요가 자료에 없다" 고 밝힌 문장. 연설·발언 속 숫자를 옮기며 출처가 없음을
+# 적은 글은 인용이 아니라 발언 보도라, 조사 개요가 없다고 경고할 일이 아니다 (2026-09-08).
+POLL_DISCLAIMERS = ("자료에 없", "확인되지 않", "밝히지 않", "밝혀지지 않", "개요가 없", "개요는 없",
+                    "발언으로만", "언급으로만", "출처가 없", "출처는 없", "명시되지 않", "제시되지 않")
+POLL_SCOPE = ("조사기관", "조사 기관", "오차범위", "오차 범위", "조사 개요", "조사기간", "조사 기간", "여론조사")
+
+
+def poll_self_disclosed(text: str) -> str:
+    """조사 개요가 없다고 글이 밝혔으면 그 문장, 아니면 빈 문자열.
+
+    "다만 조사기관·조사기간·오차범위가 자료에 없어, 이 수치는 연설 중 발언으로만 보는 것이
+    정확합니다" 같은 문장이 있으면 글쓴이가 이미 독자에게 알린 것이다. 정직하게 쓴 글이
+    ⚠️ 를 받으면 경고가 무뎌진다 (2026-09-08 실제 글에서 그랬다).
+    """
+    for sent in _SENT.findall(" ".join((text or "").split())):
+        if any(s in sent for s in POLL_SCOPE) and any(d in sent for d in POLL_DISCLAIMERS):
+            return sent.strip()
+    return ""
+
+
+# 발언을 옮기는 서술어. 이 말이 든 문장에 나온 진영이 그 발언의 화자다.
+QUOTE_VERBS = re.compile(r"(?:라고|라며|다고|다며|고)\s*(?:말|밝|주장|강조|비판|반박|촉구|지적|설명|호소|요구|호언|경고|덧붙)"
+                         r"|(?:발언|연설|기자회견|브리핑)(?:에서|을 통해|했)")
+
+
+def quote_balance(text: str, sides: dict[str, list[str]]) -> dict[str, int]:
+    """진영별 **발언 인용** 문장 수. 언급 수와 다르다 — 한쪽 말만 옮기면 언급은 고르게 나와도 글은 그쪽 편이다.
+
+    발언 서술어(말했다·밝혔다·주장했다…)가 든 문장에서 **먼저 나온** 진영 별칭을 화자로 본다
+    ("민주당은 국민의힘을 비판했다" 의 화자는 민주당). 진영이 안 나온 문장은 세지 않는다.
+    """
+    counts = {name: 0 for name in sides}
+    aliases = [(a, name) for name, al in sides.items() for a in (al or []) if a]
+    if not aliases:
+        return counts
+    for sent in _SENT.findall(" ".join((text or "").split())):
+        if not QUOTE_VERBS.search(sent):
+            continue
+        first = min(((sent.find(a), name) for a, name in aliases if a in sent), default=None)
+        if first:
+            counts[first[1]] += 1
+    return counts
+
+
 def election_blackout(date_str: str, elections: list[dict] | None) -> tuple[str, str] | None:
     """선거일 전 6일부터 선거일까지면 (선거 이름, 선거일). 아니면 None.
 
@@ -240,7 +284,12 @@ def build(cfg: Config, *, brief=None, post=None, pack=None, checks=None,
     # 3-2) 여론조사 표기 — 수치를 인용했으면 조사 개요가 같이 있어야 한다
     if post is not None:
         gaps = poll_citations(f"{post.title}\n{post.body_markdown}")
-        if gaps:
+        disclosed = poll_self_disclosed(post.body_markdown) if gaps else ""
+        if gaps and disclosed:
+            items.append(Item("poll", OK, "여론조사 수치의 조사 개요가 없다고 글이 스스로 밝힘",
+                              f"「{disclosed[:80]}」 — 발언 속 숫자를 옮긴 것이라 인용 표기 대상이 아닙니다. "
+                              "그래도 발행 전에 이 문장이 본문에 남아 있는지 확인하세요."))
+        elif gaps:
             items.append(Item("poll", WARN, f"여론조사를 인용했는데 {'·'.join(gaps)}이(가) 빠졌습니다",
                               "선거법은 여론조사를 인용할 때 조사기관·조사 기간·표본·응답률·오차범위를 함께 밝히라고 합니다. "
                               "기사 원문에서 찾아 한 줄로 덧붙이거나, 없으면 수치를 빼세요. "
@@ -269,15 +318,26 @@ def build(cfg: Config, *, brief=None, post=None, pack=None, checks=None,
         counts = side_balance(f"{post.title}\n{post.body_markdown}", sides)
         total = sum(counts.values())
         min_total = int(balance.get("min_total", 6) or 6)
+        max_share = float(balance.get("max_share", 0.75) or 0.75)
+        # 발언 인용도 따로 센다 — 언급은 고른데 한쪽 말만 옮긴 글을 잡기 위해 (2026-09-08).
+        quotes = quote_balance(post.body_markdown, sides)
+        q_total = sum(quotes.values())
+        q_said = " · ".join(f"{k} {v}" for k, v in quotes.items())
+        min_quotes = int(balance.get("min_quotes", 4) or 4)
         if total >= min_total:
             top_name, top = max(counts.items(), key=lambda kv: kv[1])
             said = " · ".join(f"{k} {v}" for k, v in counts.items())
-            if top / total > float(balance.get("max_share", 0.75) or 0.75):
+            q_top_name, q_top = max(quotes.items(), key=lambda kv: kv[1])
+            if top / total > max_share:
                 items.append(Item("balance", WARN, f"언급이 한쪽에 몰렸습니다 ({said})",
                                   f"'{top_name}' 이야기만 {top}번 나옵니다. 상대편 입장이 자료에 없으면 "
                                   "'○○ 측 입장은 확인되지 않았다' 한 줄이라도 넣으세요."))
+            elif q_total >= min_quotes and q_top / q_total > max_share:
+                items.append(Item("balance", WARN, f"발언 인용이 한쪽에 몰렸습니다 (인용 {q_said} · 언급 {said})",
+                                  f"언급은 고르지만 옮긴 말은 '{q_top_name}' 쪽이 {q_top}번입니다. 상대편 발언이 "
+                                  "자료에 있으면 한 문장이라도 함께 옮기고, 없으면 '○○ 측 반응은 확인되지 않았다' 를 넣으세요."))
             else:
-                items.append(Item("balance", OK, f"양쪽 언급 균형 ({said})"))
+                items.append(Item("balance", OK, f"양쪽 언급 균형 (언급 {said} · 인용 {q_said})"))
 
     # 4) 블로그 분량·태그·이미지 자리
     if post is not None:

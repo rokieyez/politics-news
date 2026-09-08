@@ -301,6 +301,101 @@ def collect(cfg: Config, date_str: str) -> dict:
     return out
 
 
+# '법' 으로 끝나지만 법률 이름이 아닌 낱말. 이걸 안 빼면 '후속입법'·'방법' 을 찾아 국회에 묻는다.
+NOT_A_LAW = {"헌법", "법"}
+NOT_A_LAW_SUFFIX = ("입법", "방법", "불법", "합법", "위법", "편법", "적법", "탈법", "문법", "기법", "수법",
+                    "화법", "요법", "해법", "비법", "무법", "준법", "역법", "필법", "작법", "요리법", "사법",
+                    "공법", "국법", "악법", "개헌법")
+SHORT_LAWS = {"민법", "형법", "상법"}     # 두 글자지만 진짜 법률
+_LAW_NAME = re.compile(r"[가-힣A-Za-z0-9·]{1,20}법")
+
+
+def _is_law(name: str) -> bool:
+    if name in SHORT_LAWS:
+        return True
+    return len(name) >= 3 and name not in NOT_A_LAW and not name.endswith(NOT_A_LAW_SUFFIX)
+
+
+STAGES = (  # (판별 열, 단계 이름) — 앞에서부터 처음 값이 있는 것이 현재 단계
+    ("PROC_RESULT", None),                 # 본회의 결과가 있으면 그 결과 그대로
+    ("LAW_PROC_RESULT_CD", "법사위 처리"),
+    ("LAW_PRESENT_DT", "법사위 상정"),
+    ("LAW_SUBMIT_DT", "법사위 회부"),
+    ("CMT_PROC_RESULT_CD", "소관위 처리"),
+    ("CMT_PRESENT_DT", "소관위 상정"),
+    ("COMMITTEE_DT", "소관위 회부"),
+)
+
+
+def law_names(texts: list[str]) -> list[str]:
+    """글에서 법률 이름 후보를 뽑는다. '공소청법 개정안' → '공소청법', '형사소송법·검찰청법' → 둘 다."""
+    out: list[str] = []
+    for text in texts:
+        for m in _LAW_NAME.finditer(text or ""):
+            # '·' 로 이어진 '형사소송법·검찰청법' 은 한 덩이로 잡히므로 조각마다 본다
+            for part in m.group(0).split("·"):
+                part = part if part.endswith("법") else part + "법"
+                if _is_law(part) and part not in out:
+                    out.append(part)
+    return out
+
+
+def bill_stage(row: dict) -> str:
+    """발의안 한 행의 현재 단계를 사람 말로. 아무 단계도 없으면 '발의(계류)'."""
+    for col, label in STAGES:
+        value = (row.get(col) or "").strip() if isinstance(row.get(col), str) else row.get(col)
+        if value:
+            return label or str(value)
+    return "발의(계류)"
+
+
+def track_bills(names: list[str], *, key: str, limit: int = 4) -> list[dict]:
+    """이슈에 나온 법안 이름으로 열린국회정보를 찾아 '지금 어느 단계' 한 줄씩.
+
+    `BILL_NAME` 은 부분 일치로 찾아진다 (2026-09-08 실측: '공소청' → 5건, 대안반영폐기 이력까지).
+    키가 없는 견본 모드에서도 **건수(list_total_count)는 맞고** 행만 최신 5건으로 잘린다 —
+    그래서 건수는 머리에서 읽고, 계류 수는 행이 다 온 경우에만 센다.
+    """
+    out = []
+    for name in names[:limit]:
+        params = {"Type": "json", "pIndex": 1, "pSize": PAGE, "AGE": AGE, "BILL_NAME": name}
+        if key:
+            params["KEY"] = key
+        try:
+            body = _get(ASSEMBLY_BASE + BILLS, params).json().get(BILLS) or []
+            total = int(((body[0].get("head") or [{}])[0].get("list_total_count") or 0)) if body else 0
+            rows = (body[1].get("row") or []) if len(body) > 1 else []
+        except Exception as exc:
+            log.warning("법안 추적 실패(%s): %s", name, exc)
+            continue
+        if not rows:
+            continue
+        rows.sort(key=lambda r: r.get("PROPOSE_DT") or "", reverse=True)
+        pending_rows = [r for r in rows if not (r.get("PROC_RESULT") or "").strip()]
+        top = (pending_rows or rows)[0]
+        out.append({"query": name, "count": max(total, len(rows)),
+                    "pending": len(pending_rows) if len(rows) >= total else None,
+                    "name": top.get("BILL_NAME") or "", "proposer": top.get("PROPOSER") or "",
+                    "date": (top.get("PROPOSE_DT") or "")[:10], "stage": bill_stage(top),
+                    "committee": top.get("COMMITTEE") or "", "link": top.get("DETAIL_LINK") or ""})
+    return out
+
+
+def track_issue_bills(data: dict, issues: list) -> list[dict]:
+    """브리핑 이슈(제목·한 줄)에 나온 법안을 추적해 data['tracked'] 에 넣고 돌려준다. 없으면 []."""
+    if not data:
+        return []
+    texts = []
+    for i in issues or []:
+        get = (lambda k: getattr(i, k, "")) if not isinstance(i, dict) else (lambda k: i.get(k, ""))
+        texts += [str(get("title") or ""), str(get("one_liner") or "")]
+        texts += [str(x) for x in (get("what_happened") or [])]
+    names = law_names(texts)
+    tracked = track_bills(names, key=assembly_key()) if names else []
+    data["tracked"] = tracked
+    return tracked
+
+
 def check_source() -> tuple[bool, str, bool, int, str]:
     """doctor 용. (국회 API 응답?, 키 상태, 심의위 목록 응답?, 목록 건수, 오류)."""
     key = assembly_key()

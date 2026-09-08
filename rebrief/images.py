@@ -1161,7 +1161,7 @@ CARD_PAPER = ("#e9f0ea", "#0f2f2a", "#3f6a60", "#c3d4cb", "#7a5a12")
 
 # 일곱 장의 박자. 표지·목록은 짙은 초록, 숫자는 더 짙은 초록, 이슈는 상아빛.
 CARD_FACES = {"cover": CARD_DARK, "numbers": CARD_FLOOD, "issue": CARD_PAPER,
-              "rest": CARD_DARK, "watch": CARD_DARK}
+              "rest": CARD_DARK, "watch": CARD_DARK, "vote": CARD_FLOOD}
 
 CARD_LIGHT = "#ffffff"     # 소제목·사진 위 글씨. 어느 낯에서든 흰색이다.
 CARD_GRID = 60             # 제도 격자 한 칸
@@ -1734,6 +1734,78 @@ def _numbers_card(nums: list[dict], n: int, total: int, date: str, channel: str)
     return Image(f"card-{n}-numbers", _embed_fonts("\n".join(p)), "오늘의 숫자")
 
 
+def pick_vote(plenary_items: list[dict] | None, issues: list[dict] | None, date: str,
+              days_back: int = 1) -> dict | None:
+    """카드에 올릴 본회의 표결 하나. 없으면 None.
+
+    civics 가 최근 7일치 처리안건을 갖고 있지만 카드는 **그날 뉴스**여야 하므로 실행일과
+    그 전날 표결만 본다(아침 브리핑은 전날 일을 다룬다). 이슈 제목과 낱말이 겹치는 법안을
+    먼저 고르고, 없으면 표가 가장 많이 나온 법안을 고른다.
+    """
+    from datetime import date as _date, timedelta
+    try:
+        today = _date.fromisoformat(date)
+    except (TypeError, ValueError):
+        return None
+    window = {(today - timedelta(days=k)).isoformat() for k in range(days_back + 1)}
+    cands = [it for it in (plenary_items or [])
+             if it.get("yes") is not None and it.get("date") in window]
+    if not cands:
+        return None
+    titles = " ".join(str(i.get("title", "")) for i in (issues or []))
+
+    def overlap(it: dict) -> int:
+        name = re.sub(r"(일부개정법률안|개정법률안|법률안|법안)$", "", str(it.get("name", "")))
+        words = [w for w in re.split(r"[\s·]+", name) if len(w) >= 2]
+        return sum(1 for w in words if w in titles)
+
+    cands.sort(key=lambda it: (overlap(it), (it.get("yes") or 0) + (it.get("no") or 0) + (it.get("blank") or 0)),
+               reverse=True)
+    return cands[0]
+
+
+def _vote_card(vote: dict, n: int, total: int, date: str, channel: str) -> Image:
+    """본회의 표결 한 건 — 찬성·반대·기권을 막대 셋으로. 숫자 카드와 같은 가장 짙은 낯.
+
+    civics 가 열린국회정보에서 그대로 받은 표 수라 모델이 지어낼 수 없는 값이다. 막대 색은
+    금(찬성)·상아(반대)·낮은 글씨색(기권) — 빨강·파랑은 정당 색이라 여기서도 쓰지 않는다.
+    """
+    w, h = CARD_SIZE
+    ground, ink, dim, rule, signal = CARD_FACES["vote"]
+    p, top, bottom = _card_frame(CARD_FACES["vote"], n, total, date=date, channel=channel)
+    inner = w - 192
+    p.append(f'<text x="{w/2:.0f}" y="{top+66:.0f}" font-size="68" font-weight="800" '
+             f'letter-spacing="-1" text-anchor="middle" fill="{CARD_LIGHT}">본회의 표결</text>')
+    y = top + 150
+    name_lines, name_size = _fit(str(vote.get("name", "")), 50, inner, 2, floor=34)
+    for line in name_lines:
+        p.append(f'<text x="{w/2:.0f}" y="{y:.0f}" font-size="{name_size:.0f}" font-weight="700" '
+                 f'text-anchor="middle" fill="{ink}">{esc(line)}</text>')
+        y += name_size * 1.3
+    meta = " · ".join(x for x in (str(vote.get("result", "")), str(vote.get("date", ""))) if x)
+    p.append(f'<text x="{w/2:.0f}" y="{y+8:.0f}" font-size="32" text-anchor="middle" fill="{dim}">{esc(meta)}</text>')
+    y += 70
+
+    rows = [("찬성", vote.get("yes") or 0, signal), ("반대", vote.get("no") or 0, ink), ("기권", vote.get("blank") or 0, dim)]
+    biggest = max(1, max(v for _, v, _ in rows))
+    label_w, num_w, gap = 150, 190, 24
+    bar_x = 96 + label_w + gap
+    bar_w_max = w - 96 - num_w - bar_x
+    row_h = 118
+    room = bottom - y - 20
+    y += max(0, (room - row_h * 3) / 2)
+    for label, value, color in rows:
+        cy = y + row_h / 2
+        p.append(f'<text x="96" y="{cy+16:.0f}" font-size="44" fill="{ink}">{esc(label)}</text>')
+        bw = max(6, bar_w_max * value / biggest)
+        p.append(f'<rect x="{bar_x}" y="{cy-26:.0f}" width="{bw:.0f}" height="52" fill="{color}" '
+                 f'opacity="{0.95 if color == signal else 0.55}"/>')
+        _numeral(p, f"{value:,}표", w - 96, cy + 22, 60, ink, anchor="end")
+        y += row_h
+    p.append("</svg>")
+    return Image(f"card-{n}-vote", _embed_fonts("\n".join(p)), "본회의 표결")
+
+
 def _issue_card(issue: dict, n: int, total: int, date: str, channel: str,
                 art: dict | None = None) -> Image:
     """이슈 한 건. 그림이 있으면 위에 얹고 아래 판에 글을 담는다.
@@ -1894,7 +1966,8 @@ def _drop_repeats(issues: list[dict], threshold: float = 0.40) -> list[dict]:
 
 def cards(brief: dict, *, date: str = "", channel: str = "", key_numbers: list[dict] | None = None,
           max_cards: int = 10,
-          art: list[Path | tuple[Path, str]] | None = None) -> list[Image]:
+          art: list[Path | tuple[Path, str]] | None = None,
+          vote: dict | None = None) -> list[Image]:
     """하루치 브리핑을 유튜브 게시물용 카드 5~7장으로.
 
     **모델을 새로 부르지 않습니다.** 이미 만들어 둔 브리핑(headline·issues·numbers·
@@ -1937,7 +2010,7 @@ def cards(brief: dict, *, date: str = "", channel: str = "", key_numbers: list[d
     # 적은 날은 줄어듭니다. `max_cards` 는 상한일 뿐 목표가 아닙니다 — 억지로 채우면
     # 내용 없는 카드가 한 장 더 붙습니다.
     def layout(with_numbers: bool) -> tuple[int, list[dict]]:
-        fixed = 1 + int(with_numbers) + int(bool(watch))   # 표지·숫자·내일 볼 것
+        fixed = 1 + int(with_numbers) + int(bool(watch)) + int(bool(vote))   # 표지·숫자·표결·내일 볼 것
         room = max(1, max_cards - fixed)                   # 이슈에 쓸 수 있는 장수
         n = min(len(issues), max(1, room - 1))             # '그 밖의 소식' 한 장을 남겨 둔다
         tail = issues[n:]
@@ -1960,6 +2033,8 @@ def cards(brief: dict, *, date: str = "", channel: str = "", key_numbers: list[d
         deep, rest = layout(False)
 
     plan = ["cover"]
+    if vote:                            # 그날 본회의 표결이 있으면 숫자보다 먼저 — 정치에서 표는 가장 큰 숫자다
+        plan.append("vote")
     if has_numbers:
         plan.append("numbers")
     plan += ["issue"] * deep
@@ -1986,6 +2061,8 @@ def cards(brief: dict, *, date: str = "", channel: str = "", key_numbers: list[d
             out.append(_cover_card(headline, brief.get("market_temperature", ""),
                                    badge, total, date, channel,
                                    art=bands.pop(0) if bands else None))
+        elif kind == "vote":
+            out.append(_vote_card(vote, n, total, date, channel))
         elif kind == "numbers":
             out.append(_numbers_card(spare, n, total, date, channel))
         elif kind == "issue":
