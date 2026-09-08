@@ -1,0 +1,101 @@
+{
+  "date": "2026-09-08",
+  "summary": {
+    "ok": 11,
+    "warn": 2,
+    "fail": 0
+  },
+  "items": [
+    {
+      "key": "numbers",
+      "level": "ok",
+      "title": "수치 13건 모두 기사 원문에서 확인",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "links",
+      "level": "ok",
+      "title": "출처 링크 24개 모두 정상",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "banned",
+      "level": "ok",
+      "title": "금지 표현 없음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "poll",
+      "level": "warn",
+      "title": "여론조사를 인용했는데 응답률이(가) 빠졌습니다",
+      "detail": "선거법은 여론조사를 인용할 때 조사기관·조사 기간·표본·응답률·오차범위를 함께 밝히라고 합니다. 기사 원문에서 찾아 한 줄로 덧붙이거나, 없으면 수치를 빼세요. 글 끝의 '자세한 사항은 중앙선거여론조사심의위원회 홈페이지 참조' 는 프로그램이 넣습니다.",
+      "lines": []
+    },
+    {
+      "key": "balance",
+      "level": "ok",
+      "title": "양쪽 언급 균형 (더불어민주당 4 · 국민의힘 4)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "blog_len",
+      "level": "ok",
+      "title": "블로그 본문 1,481자",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "tags",
+      "level": "ok",
+      "title": "태그 30개",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "keyword",
+      "level": "ok",
+      "title": "대표 검색어 '교섭단체 대표 연설' 가 제목·첫 문단·소제목에 모두 있음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shape",
+      "level": "ok",
+      "title": "소제목 5개 · 메인 하나에 집중",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "readability",
+      "level": "ok",
+      "title": "문장·문단 길이 적당",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "photos",
+      "level": "warn",
+      "title": "직접 넣을 사진 자리 1곳",
+      "detail": "'네이버 블로그 글' 페이지의 점선 상자 아래 '사진 찾기' 링크를 쓰세요. [네이버 블로그 글 열기](blog-naver.html)",
+      "lines": []
+    },
+    {
+      "key": "shorts_len",
+      "level": "ok",
+      "title": "쇼츠 발화 118자 (약 21초)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "long_len",
+      "level": "ok",
+      "title": "롱폼 발화 1,900자 (약 5.8분)",
+      "detail": "",
+      "lines": []
+    }
+  ]
+}

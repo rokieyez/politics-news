@@ -1,0 +1,21 @@
+{
+  "updated_at": "2026-09-08T12:05:50",
+  "days": {
+    "2026-09-08": {
+      "ok": 11,
+      "warn": 2,
+      "fail": 0,
+      "verified": 1,
+      "unverified": 0,
+      "no_text": 12,
+      "models": [
+        "claude-sonnet-5",
+        "claude-opus-5",
+        "claude-haiku-4-5"
+      ],
+      "blog_chars": 1481,
+      "issues": 5,
+      "usd": 0.3558
+    }
+  }
+}
