@@ -2484,12 +2484,28 @@ def test_card_palette_stays_readable():
         hi, lo = sorted((lum(a), lum(b)), reverse=True)
         return (hi + 0.05) / (lo + 0.05)
 
-    faces = {"남색": images.CARD_DARK, "짙은 남색": images.CARD_FLOOD,
-             "밝은 청사진": images.CARD_PAPER}
+    faces = {"짙은 초록": images.CARD_DARK, "더 짙은 초록": images.CARD_FLOOD,
+             "상아": images.CARD_PAPER}
     for face_name, (ground, ink, dim, _rule, signal) in faces.items():
         for role, color in (("글씨", ink), ("낮은 글씨", dim), ("신호색", signal)):
             got = ratio(color, ground)
             assert got >= 4.5, f"{face_name} 위 {role} 대비 {got:.2f}"
+
+    # 정당 상징색은 어디에도 없다 — 빨강(국민의힘)·파랑(민주당) 계열이 바탕이나 신호색이면
+    # 카드가 그 당 것으로 읽힌다. 색상(hue)으로 잰다: 빨강 345~15°, 파랑 200~250°.
+    import colorsys
+
+    def hue(h):
+        r, g, b = (int(h[i:i + 2], 16) / 255 for i in (1, 3, 5))
+        hh, _l, sat = colorsys.rgb_to_hls(r, g, b)
+        return hh * 360, sat
+    for face_name, (ground, _ink, _dim, _rule, signal) in faces.items():
+        for role, color in (("바탕", ground), ("신호색", signal)):
+            deg, sat = hue(color)
+            if sat < 0.15:
+                continue                                  # 회색은 어느 당도 아니다
+            assert not (deg >= 345 or deg <= 15), f"{face_name} {role}이 빨강 계열({deg:.0f}°)"
+            assert not (200 <= deg <= 250), f"{face_name} {role}이 파랑 계열({deg:.0f}°)"
 
 
 def test_cards_embed_only_the_letters_they_use():
