@@ -284,7 +284,10 @@ class Renderer:
             art=self._card_art(payload) if cfg.get("cards_art", True) else None,
             vote=vote,
         )
-        return [self._write_image(img, cfg, prefix="") for img in made]
+        # 카드는 유튜브 게시물에 올리는 1080×1080 이 최종 크기라 1배로 뽑는다. 2배(2160)로 두면
+        # 장당 1~2MB 가 날마다 저장소에 쌓이고, 유튜브가 어차피 줄여서 보여 준다.
+        scale = int(cfg.get("png_scale_cards", 1) or cfg.get("png_scale", 2))
+        return [self._write_image(img, cfg, prefix="", scale=scale) for img in made]
 
     def _card_art(self, brief: dict | None = None) -> list[tuple[Path, str]]:
         """카드 위쪽에 얹을 그림 후보. (파일, 출처 한 줄) 짝으로 돌려줍니다.

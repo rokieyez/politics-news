@@ -2605,3 +2605,34 @@ def test_vote_card_appears_only_for_a_fresh_plenary_vote(cfg):
     assert "#d" not in card.svg.lower().replace("#dcece5", "")[:0]   # 자리표 — 아래에서 색을 잰다
     ground, ink, dim, rule, signal = images.CARD_FACES["vote"]
     assert ground in card.svg and signal in card.svg
+
+
+def test_cards_are_rendered_at_final_size_not_double(cfg, tmp_path, monkeypatch):
+    """카드뉴스 PNG 는 1080×1080 이 최종 크기라 1배로 뽑는다. 썸네일·본문 그림은 2배 그대로.
+
+    2026-09-08 실측: 2배(2160)로 두면 카드 한 벌이 하루 6.4MB 였고, 유튜브는 어차피 줄여서 보여 준다.
+    """
+    from rebrief import images as images_mod
+    from rebrief import render as render_mod
+    from rebrief.render import Renderer
+
+    out = tmp_path / "2026-09-08"
+    out.mkdir()
+    made: dict[str, int] = {}
+
+    def fake_png(svg_path, png_path, scale=2):
+        made[svg_path.name] = scale
+        png_path.write_bytes(b"PNG")
+        return True
+
+    monkeypatch.setattr(render_mod.images_mod, "svg_to_png", fake_png)
+    cfg.settings["images"]["png"] = True            # 픽스처는 PNG 를 끈다. 여기서는 가짜 변환기를 쓴다
+    r = Renderer(cfg, out, "2026-09-08")
+    brief = {"headline": "공소청법 본회의 통과", "issues": [{"title": "공소청법 통과", "one_liner": "x", "numbers": []}],
+             "tomorrow_watch": ["내일 볼 것"]}
+    monkeypatch.setattr(r, "_card_art", lambda payload=None: [])
+    r.cards(brief)
+    assert made and all(v == 1 for k, v in made.items() if k.startswith("card-")), made
+    # 본문 그림은 여전히 2배 — 설정의 png_scale 을 따른다
+    r._write_image(images_mod.Image("demo", '<svg width="100" height="50"></svg>', "데모"), {"png": True, "png_scale": 2})
+    assert made["img-demo.svg"] == 2
