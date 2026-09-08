@@ -803,7 +803,7 @@ def policy_block_html(docs: list | None) -> str:
             + (f'<br><span style="font-size:13px">첨부 {files}</span>' if files else "")
             + "</li>"
         )
-    return ('<div style="margin:24px 0 0;padding:14px 16px;background-color:#ffffff">'
+    return ('<div style="margin:24px 0 0;padding:14px 16px">'
             '<b>오늘 나온 정부 발표 원문</b>'
             '<ul style="margin:8px 0 0;padding-left:18px">' + "".join(rows) + "</ul></div>")
 
@@ -850,7 +850,7 @@ def stats_block_html(data: dict | None, image: str = "") -> str:
         for r in rows
     )
     parts = [
-        '<div style="margin:28px 0 0;padding:16px 18px;background-color:#ffffff">',
+        '<div style="margin:28px 0 0;padding:16px 18px">',
         f'<b>직접 센 숫자 — {_esc(data.get("month_label", ""))} 아파트 실거래</b>',
         f'<p style="margin:10px 0 0">서울 {len(data["districts"])}개 구에서 신고된 매매는 '
         f'<b>{data["total"]}건</b>입니다. '
@@ -939,7 +939,7 @@ def civics_block_html(data: dict | None) -> str:
     if not data:
         return ""
     bills, plen, polls = data.get("bills") or {}, data.get("plenary") or {}, data.get("polls") or []
-    parts = ['<div style="margin:28px 0 0;padding:16px 18px;background-color:#ffffff">',
+    parts = ['<div style="margin:28px 0 0;padding:16px 18px">',
              f'<b>직접 센 숫자 — 국회·여론조사 (최근 {data.get("days", 7)}일)</b>']
     if bills.get("latest"):
         if bills.get("count") is not None:
@@ -999,7 +999,7 @@ def tail_block_html(closing_question: str = "", related: list[dict] | None = Non
     parts = []
     if closing_question:
         parts.append(
-            '<p style="background-color:#ffffff;padding:14px 16px;margin:28px 0 0">'
+            '<p style="padding:14px 16px;margin:28px 0 0">'
             f'<b>{_esc(closing_question)}</b><br>'
             '<span style="font-size:14px;color:#666666">댓글로 알려 주시면 다음 글에 반영하겠습니다.</span></p>'
         )
@@ -1010,7 +1010,7 @@ def tail_block_html(closing_question: str = "", related: list[dict] | None = Non
             for r in related
         )
         parts.append(
-            '<div style="margin:24px 0 0;padding:14px 16px;background-color:#ffffff">'
+            '<div style="margin:24px 0 0;padding:14px 16px">'
             '<b>함께 보면 좋은 지난 글</b>'
             f'<ul style="margin:8px 0 0;padding-left:18px">{rows}</ul></div>'
         )
