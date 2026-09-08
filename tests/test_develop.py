@@ -2571,3 +2571,17 @@ def test_naver_copy_page_paints_no_background_behind_the_text(cfg, tmp_path):
     assert "background-color:#ffffff" not in html          # 흰 상자도 형광펜이 된다
     # 사본은 언제나 body 아래에 만들어 복사한다 — .card 안에서 복사하면 흰 배경이 실린다
     assert "var clone = node.cloneNode(true);" in html and "if (node.querySelector(\".nocopy\"))" not in html
+
+
+def test_naver_html_separates_sections_with_hr_not_heading_borders(cfg, tmp_path):
+    """꼭지 사이 구분선은 <hr> 로 보낸다 (2026-09-08, 사용자가 고른 2번).
+
+    네이버 에디터는 소제목의 border-top 을 받지 않고 얇은 회색 선으로 바꿨다. <hr> 은
+    에디터가 제 구분선 부품으로 또렷하게 바꾼다. 첫 소제목 앞에는 긋지 않는다.
+    """
+    from rebrief.render import section_dividers, to_naver_html
+
+    assert section_dividers("<p>a</p><h2>하나</h2><p>b</p><h2>둘</h2><h2 id=x>셋</h2>") == \
+        "<p>a</p><h2>하나</h2><p>b</p><hr><h2>둘</h2><hr><h2 id=x>셋</h2>"
+    html = to_naver_html("머리\n\n## 하나\n\n본문\n\n## 둘\n\n본문\n\n## 셋\n\n본문\n")
+    assert html.count("<hr>") == 2 and html.index("<hr>") > html.index("<h2>하나</h2>")

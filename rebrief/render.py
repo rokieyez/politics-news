@@ -574,6 +574,7 @@ def to_naver_html(body_markdown: str, slot_files: dict[int, str] | None = None,
     html = highlight_repeated_numbers(html, highlight_min, {n.key for n in (key_numbers or [])})
     html = _IMAGE_SLOT.sub(slot, html)
     html = _IMAGE_SLOT_INLINE.sub(slot, html)   # 문단 안에 섞여 들어온 경우
+    html = section_dividers(html)
     # 언제 기준인지 맨 위에. 반년 뒤 검색으로 들어온 사람에게는 이 한 줄이 없으면
     # 지난 수치가 '지금 값' 으로 읽힙니다.
     # 머리에는 표지 · 시점 한 줄 · 3줄 요약만. 낯선 말 풀이는 본문이 이미 괄호로
@@ -586,6 +587,28 @@ def to_naver_html(body_markdown: str, slot_files: dict[int, str] | None = None,
             + takeaways_block_html(takeaways)
             + stats_block_html(stats, stats_image) + civics_block_html(civics) + policy_block_html(policies)
             + tail_block_html(closing_question, related))
+
+
+
+def section_dividers(html: str) -> str:
+    """꼭지와 꼭지 사이에 <hr> 을 둔다 (둘째 소제목부터 앞에).
+
+    예전에는 소제목(h2)의 border-top 으로 초록 선을 그었는데, 네이버 에디터는 제목의
+    테두리를 받지 않고 얇은 회색 선으로 바꿔 버렸다 (2026-09-08, 사용자가 붙여넣고 확인).
+    복사본에는 초록 선이 그대로 들어 있었으니 우리 쪽이 아니라 네이버 쪽 변환이다.
+    네이버 구분선에는 색 선택이 없어 초록을 살릴 길은 없고, 대신 <hr> 로 보내면 에디터가
+    제 구분선 부품으로 또렷하게 바꾼다 (사용자가 고른 2번). 첫 소제목 앞에는 나눌 앞 꼭지가
+    없으므로 선을 긋지 않는다.
+    """
+    if not html:
+        return html
+    seen = {"n": 0}
+
+    def put(m: re.Match) -> str:
+        seen["n"] += 1
+        return m.group(0) if seen["n"] == 1 else "<hr>" + m.group(0)
+
+    return re.sub(r"<h2\b", put, html)
 
 
 _HL_STYLE = "background-color:#fff59d"

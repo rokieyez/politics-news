@@ -55,20 +55,13 @@
   .card { background: transparent; border: 1px solid #e4e7ea; border-radius: 10px; padding: 32px 28px; }
   .title { font-size: 24px; font-weight: 700; line-height: 1.45; margin: 0 0 6px; }
   .meta { color: #888; font-size: 13px; margin-bottom: 28px; }
-  /* 구분선은 **꼭지와 꼭지 사이**에 둔다 (제목 위).
-     예전에는 제목 아래에 선을 그었는데, 붙여넣고 보면 앞 꼭지의 마지막 문장과 다음
-     제목이 붙어 버리고, 정작 제목과 그 본문 사이가 선으로 갈라져 서로 남처럼 보였다.
-     이제 앞 꼭지 끝 → 넉넉한 여백 → 선 → 제목 → 본문 순서로 읽힌다.
-     이 서식은 '본문 복사' 때 그대로 따라가므로 네이버에 붙여넣어도 같게 보인다. */
-  #post h2 {
-    font-size: 20px; font-weight: 700; margin: 56px 0 16px;
-    padding-top: 26px; border-top: 2px solid #03c75a;
-  }
-  /* 첫 제목 앞에는 나눌 앞 꼭지가 없으므로 선을 긋지 않는다.
-     :first-child 가 아니라 :first-of-type 인 이유 — 제목 앞에 요약·목차·용어 상자가
-     먼저 오므로 첫 h2 는 결코 #post 의 첫 자식이 아니다. 예전 규칙은 한 번도
-     맞은 적이 없었다. */
-  #post h2:first-of-type { margin-top: 8px; padding-top: 0; border-top: none; }
+  /* 구분선은 **꼭지와 꼭지 사이**에 둔다 — 둘째 소제목부터 앞에 <hr> 이 온다
+     (render.section_dividers). 예전에는 h2 의 border-top 으로 그었는데, 네이버 에디터가
+     제목의 테두리를 받지 않고 얇은 회색 선으로 바꿨다 (2026-09-08). <hr> 로 보내면
+     에디터가 제 구분선 부품으로 바꾼다. 색은 네이버에서 고를 수 없어 회색이 된다 —
+     여기 초록은 미리보기용이다. */
+  #post h2 { font-size: 20px; font-weight: 700; margin: 8px 0 16px; }
+  #post hr { border: 0; border-top: 2px solid #03c75a; margin: 56px 0 26px; }
   #post h3 { font-size: 17px; font-weight: 700; margin: 38px 0 10px; }
   #post p { margin: 0 0 18px; }
   #post ul, #post ol { margin: 0 0 18px; padding-left: 22px; }
@@ -123,7 +116,7 @@
 <p>교섭단체 대표 연설은 각 교섭단체를 대표하는 의원이 국회 본회의에서 하는 정례 연설입니다. 이번은 정점식 원내대표의 취임 후 첫 연설이었습니다.</p>
 <p>정 원내대표는 현 정부를 '국민암장정부'로 규정하며 부동산 정책, 레버리지 ETF, 검찰 수사권 폐지 등을 비판했습니다. 이재명 대통령의 재판 재개를 촉구하고, 레버리지 ETF와 관련해 특검 도입을 주장했습니다.</p>
 <p>연설 도중 민주당 의원석에서는 "암장은 무슨 암장이냐"는 항의가 나오며 고성이 오갔습니다. 민주당의 별도 입장문이나 해명은 이날 자료에서 확인되지 않았습니다.</p>
-<h2>숫자로 본 이날 연설</h2>
+<hr><h2>숫자로 본 이날 연설</h2>
 <table>
 <thead>
 <tr>
@@ -152,11 +145,11 @@
 </table>
 <p>연설에서는 대통령 지지율이 <span class="hl" style="background-color:#fff59d"><strong>40%</strong></span>를 밑돌았다는 언급과 <span class="hl" style="background-color:#fff59d"><strong>34.7%</strong></span>라는 특정 여론조사 수치도 나왔습니다. 다만 조사기관·조사기간·오차범위가 자료에 없어, 이 수치들은 연설 중 발언으로만 보는 것이 정확합니다.</p>
 <div class="imgslot has-file">📷 이미지 — 연설 시간을 보여주는 숫자 카드<br><small>→ 파일 <b>img-2-stat-card.png</b> 을 이 자리에 올리고 상자는 지웁니다</small></div><img class="preview nocopy" src="img-2-stat-card.png" alt="연설 시간을 보여주는 숫자 카드">
-<h2>교섭단체 대표 연설 이후 개헌 논의는</h2>
+<hr><h2>교섭단체 대표 연설 이후 개헌 논의는</h2>
 <p>개헌은 국회 재적 의원 3분의 2 이상의 찬성이 필요한 사안이어서, 한 당의 협조 없이는 진행이 어렵습니다. 정 원내대표의 이번 발언으로 국민의힘 참여를 전제한 논의는 당분간 멈춘 상태가 됐습니다.</p>
 <p>민주당은 개헌 추진 의지를 유지하고 있습니다. 다만 구체적 논의 창구가 만들어질지, 국민의힘이 입장을 바꿀지는 현재 확인되지 않았습니다.</p>
 <div class="imgslot has-file">📷 이미지 — 법사위 소위 연기 날짜를 보여주는 일정 그래픽<br><small>→ 파일 <b>img-3-stat-card.png</b> 을 이 자리에 올리고 상자는 지웁니다</small></div><img class="preview nocopy" src="img-3-stat-card.png" alt="법사위 소위 연기 날짜를 보여주는 일정 그래픽">
-<h2>그 밖의 오늘 소식</h2>
+<hr><h2>그 밖의 오늘 소식</h2>
 <ul>
 <li>법사위 법안심사1소위, 8일에서 14일로 연기</li>
 <li>여야, 공소청법·형사소송법 개정안 처리 방식 합의</li>
@@ -169,7 +162,7 @@
 <li>강민국 의원, 이형일 후보자 주택 이력 문제 제기</li>
 <li>해당 지적에 대한 후보자 해명은 자료에 없음</li>
 </ul>
-<h2>오늘의 체크포인트</h2>
+<hr><h2>오늘의 체크포인트</h2>
 <ol>
 <li>여야 대표 연설에서 개헌 입장이 정면으로 갈렸습니다.</li>
 <li>검찰개혁 후속입법은 14일 법사위 소위가 다음 관문입니다.</li>
