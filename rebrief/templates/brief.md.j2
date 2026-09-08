@@ -1,0 +1,122 @@
+# {{ brief.headline }}
+
+> **{{ date }} 정치 데일리 브리핑**
+> 기사 {{ stats.articles }}건 · 매체 {{ stats.publishers }}곳 · 선정 이슈 {{ brief.issues|length }}개
+> 생성 {{ generated_at }}
+
+{{ brief.lead }}
+
+**시장 온도** · {{ brief.market_temperature }}
+
+{% if diff %}
+**{{ diff.date }} 와 달라진 점** · 새 이슈 {{ diff.new|length }} · 이어지는 이슈 {{ diff.continuing|length }} · 빠진 이슈 {{ diff.gone|length }}
+{% if diff.new %}
+- 🆕 {{ diff.new|join(' / ') }}
+{% endif %}
+{% if diff.continuing %}
+- ↪️ {{ diff.continuing|join(' / ') }}
+{% endif %}
+{% if diff.gone %}
+- ⏹ {{ diff.gone|join(' / ') }}
+{% endif %}
+
+{% endif %}
+---
+
+{% for issue in brief.issues %}
+## {{ loop.index }}. {{ issue.title }}
+
+`{{ issue.category }}` · **{{ issue.one_liner }}**
+{% if why and why[loop.index0] %}
+*고른 이유 · {{ why[loop.index0] }}*
+{% endif %}
+
+**무슨 일이 있었나**
+
+{% for line in issue.what_happened %}
+- {{ line }}
+{% endfor %}
+
+{% if issue.numbers %}
+**숫자로 보면**
+
+| 항목 | 값 | 기준 시점 | 맥락 | 출처 |
+| --- | --- | --- | --- | --- |
+{% for n in issue.numbers %}
+| {{ n.label }} | **{{ n.value }}{{ n.unit }}** | {{ n.period or '-' }} | {{ n.context or '-' }} | {{ n.source or '-' }} |
+{% endfor %}
+
+{% endif %}
+**왜 중요한가**
+
+{{ issue.why_it_matters }}
+
+{% if issue.who_is_affected %}
+**영향받는 쪽** · {{ issue.who_is_affected|join(' / ') }}
+
+{% endif %}
+{% if issue.caution and issue.caution != '없음' %}
+> ⚠️ **확인 필요** — {{ issue.caution }}
+
+{% endif %}
+{% if issue.source_urls %}
+<details><summary>근거 기사 {{ issue.source_urls|length }}건</summary>
+
+{% for url in issue.source_urls %}
+- {{ url }}
+{% endfor %}
+
+</details>
+
+{% endif %}
+---
+
+{% endfor %}
+{% if checks %}
+## 숫자 검산
+
+브리핑의 수치 {{ checks|length }}건을 기사 제목·본문과 대조했습니다 — 확인 {{ checks|length - unverified|length - unchecked|length }} · **미확인 {{ unverified|length }}** · 대조 불가 {{ unchecked|length }}
+
+{% if unverified %}
+| 이슈 | 수치 | 값 | 비고 |
+| --- | --- | --- | --- |
+{% for c in unverified %}
+| {{ c.issue }} | {{ c.label }} | **{{ c.display }}** | ⚠️ {{ c.hint }}{% if c.url %} · [원문 열기]({{ c.url }}){% endif %} |
+{% endfor %}
+
+> 미확인 수치는 발행 전에 원문에서 직접 찾아보세요. 기사에 없는 값이거나 단위·표기가 다를 수 있습니다.
+{% else %}
+미확인 수치가 없습니다.
+{% endif %}
+{% set verified = checks|rejectattr('status', 'in', ['미확인', '대조 불가'])|list %}
+{% if verified %}
+
+<details><summary>확인된 수치 {{ verified|length }}건 — 원문 문장 보기</summary>
+
+{% for c in verified %}
+- **{{ c.display }}** {{ c.label }}{% if c.url %} · [원문]({{ c.url }}){% endif %}{% if c.hint %} ({{ c.hint }}){% endif %}
+
+  > {{ c.snippet }}
+{% endfor %}
+
+</details>
+{% endif %}
+{% if unchecked %}
+
+<details><summary>대조 불가 {{ unchecked|length }}건 (본문을 수집하지 못한 기사)</summary>
+
+{% for c in unchecked %}
+- {{ c.issue }} · {{ c.label }} **{{ c.value }}{{ c.unit }}**
+{% endfor %}
+
+</details>
+{% endif %}
+
+{% endif %}
+## 내일 확인할 것
+
+{% for item in brief.tomorrow_watch %}
+- [ ] {{ item }}
+{% else %}
+- (자료에 언급된 예정 사항 없음)
+{% endfor %}

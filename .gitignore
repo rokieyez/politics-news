@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.env
+.DS_Store
+.pytest_cache/
+*.egg-info/
+
+# 로컬 실행 캐시 (수집 이력은 state/seen.json 만 커밋)
+state/*.tmp
+site/
+
+# 수집 원본(기사 본문 전문)은 공개 저장소에 올리지 않는다. 건수·피드 상태는 collect.json 으로 남는다
+output/**/raw/
+
+# Claude Code 플러그인(oh-my-claudecode) 작업 폴더
+.omc/
+
+# 무료 사진 내려받기 캐시 — 한 장 3~6MB 라 커밋하면 한 해에 1.8GB 씩 붑니다.
+# 쓴 사진 번호(state/photos.json)만 남겨 되풀이를 막습니다.
+state/photos/

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icon-512.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="브리핑">
+<meta name="theme-color" content="#256abf">
+<title>{{ title }} — {{ date }}</title>
+{{ meta|default('', true)|safe }}
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0 16px 60px; background: #f2f4f6; color: #1a1a1a;
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.75; -webkit-text-size-adjust: 100%;
+  }
+  .bar {
+    position: sticky; top: 0; z-index: 5; margin: 0 -16px 18px; padding: 12px 16px;
+    background: #fff; border-bottom: 1px solid #e4e7ea;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .bar a { color: #0068c3; text-decoration: none; font-size: 15px; font-weight: 600; }
+  .bar span { color: #6b7178; font-size: 14px; }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  .card { background: #fff; border-radius: 12px; padding: 24px 20px; }
+  h1 { font-size: 21px; margin: 26px 0 12px; }
+  /* 제목 위 여백은 본문 줄 간격의 두 배 이상. 아래는 선이 닫아 주므로 좁게. */
+  h2 { font-size: 19px; margin: 48px 0 12px; padding-bottom: 7px; border-bottom: 2px solid #e4e7ea; }
+  h2:first-child { margin-top: 6px; }
+  h3 { font-size: 16px; margin: 32px 0 8px; }
+  /* 제작 메모의 출처 절에는 링크가 아닌 맨 주소가 그대로 들어간다. 구글뉴스 주소는 한 덩어리로
+     1600px 가 넘어 휴대폰에서 화면 전체를 밀어낸다. 필요할 때만 끊기게 한다. */
+  p, li { margin: 0 0 15px; overflow-wrap: anywhere; }
+  li { margin: 0 0 6px; }
+  ul, ol { padding-left: 20px; margin: 0 0 15px; }
+  /* 그림은 1000px 안팎으로 만들어지므로 그냥 두면 휴대폰에서 화면 밖으로 밀린다.
+     표는 display:block + overflow-x 로 표 안에서만 가로로 움직이게 해 두었다. */
+  img { max-width: 100%; height: auto; display: block; margin: 0 0 18px; border-radius: 8px; }
+  table { border-collapse: collapse; width: 100%; margin: 0 0 18px; font-size: 14px; display: block; overflow-x: auto; }
+  th, td { border: 1px solid #e0e3e6; padding: 8px 11px; text-align: left; white-space: nowrap; }
+  th { background: #f5f6f8; }
+  blockquote { margin: 0 0 15px; padding: 12px 15px; background: #f7f8fa; border-left: 4px solid #c9cdd2; color: #4a4f55; }
+  code { background: #f2f4f6; padding: 2px 5px; border-radius: 4px; font-size: 13px; }
+  pre { background: #f7f8fa; padding: 14px; border-radius: 8px; overflow-x: auto; font-size: 13px; }
+  pre code { background: none; padding: 0; }
+  a { color: #0068c3; word-break: break-all; }
+  hr { border: 0; border-top: 1px solid #e4e7ea; margin: 28px 0; }
+  details { margin: 0 0 15px; }
+  summary { cursor: pointer; color: #0068c3; }
+</style>
+</head>
+<body>
+<div class="bar">
+  <a href="../index.html">← 목록</a>
+  <span>{{ date }} · {{ title }}</span>
+</div>
+<div class="wrap">
+{% if age_days|default(0, true) >= 30 %}
+  {# 검색으로 들어온 사람은 이 글이 언제 것인지 모른다. 지난 수치를 지금 값으로 읽는 걸 막는다. #}
+  <div class="card" style="background:#fffaf0;border:1px solid #eadfc2;color:#6b5a2e;margin-bottom:14px">
+    <b>{{ age_days }}일 전 글입니다.</b> 여기 적힌 수치는 그때 기준입니다.
+    <a href="../latest/brief.html" style="color:#0068c3">최신 브리핑 보기</a>
+  </div>
+{% endif %}
+  <div class="card">
+{{ body_html|safe }}
+  </div>
+</div>
+</body>
+</html>

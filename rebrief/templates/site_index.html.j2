@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-512.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="브리핑">
+<meta name="theme-color" content="#256abf">
+<title>{{ channel }}</title>
+{{ meta|default('', true)|safe }}
+{% if has_feed %}<link rel="alternate" type="application/rss+xml" title="새 브리핑 받아보기" href="feed.xml">{% endif %}
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0 16px 60px; background: #f2f4f6; color: #1a1a1a;
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.7; -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; }
+  header { padding: 28px 0 20px; }
+  h1 { font-size: 22px; margin: 0 0 6px; }
+  .sub { color: #6b7178; font-size: 14px; margin: 0; }
+
+  .today { background: #fff; border-radius: 14px; padding: 22px 18px; margin-bottom: 24px; }
+  .today .date { font-size: 13px; color: #6b7178; margin-bottom: 4px; }
+  .today h2 { font-size: 18px; margin: 0 0 18px; }
+
+  a.big {
+    display: block; text-decoration: none; margin-bottom: 10px;
+    padding: 16px 18px; border-radius: 10px;
+    background: #f7f8fa; border: 1px solid #e4e7ea; color: #1a1a1a;
+  }
+  a.big:active { background: #eef0f3; }
+  a.big .label { font-weight: 700; font-size: 16px; display: block; }
+  a.big .desc { font-size: 13px; color: #6b7178; display: block; margin-top: 3px; }
+  a.big.primary {
+    background: #03c75a; border-color: #03c75a; color: #fff;
+  }
+  a.big.primary .desc { color: rgba(255,255,255,.88); }
+  a.big .step { font-size: 12px; opacity: .8; display: block; margin-bottom: 2px; }
+
+  details { background: #fff; border-radius: 14px; padding: 6px 18px 10px; }
+  summary { cursor: pointer; padding: 14px 0; font-weight: 700; font-size: 15px; }
+  .past { list-style: none; margin: 0; padding: 0 0 8px; }
+  .past li { padding: 10px 0; border-top: 1px solid #eceef0; }
+  .past a { color: #0068c3; text-decoration: none; font-size: 15px; }
+  .past .files { font-size: 13px; color: #8b9096; }
+
+  a.check { display: block; text-decoration: none; color: #1a1a1a; border-radius: 14px; padding: 14px 18px; margin-bottom: 14px; border: 1px solid #e4e7ea; background: #fff; }
+  a.check b { display: block; font-size: 14px; }
+  a.check span { font-size: 13px; color: #6b7178; }
+  a.check small { display: block; font-size: 13px; margin-top: 4px; color: #4a4f55; }
+  a.check.ok { border-color: #bfe6c9; background: #f2fbf5; }
+  a.check.warn { border-color: #f3e2a3; background: #fff8e1; }
+  a.check.fail { border-color: #f0b4b4; background: #fff2f2; }
+  footer { margin-top: 26px; font-size: 13px; color: #8b9096; text-align: center; }
+  .empty { background: #fff; border-radius: 14px; padding: 28px 18px; text-align: center; color: #6b7178; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>{{ channel }}</h1>
+  <p class="sub">매일 아침 자동으로 준비됩니다 · {{ generated_at }} 기준</p>
+</header>
+
+{% if today %}
+{% if today.checklist %}
+{% set cs = today.checklist.summary %}
+<a class="check {% if cs.fail %}fail{% elif cs.warn %}warn{% else %}ok{% endif %}" href="latest/checklist.html">
+  <b>발행 전 점검</b>
+  <span>{% if cs.fail %}❌ 막힘 {{ cs.fail }} · {% endif %}⚠️ 확인 {{ cs.warn }} · ✅ 통과 {{ cs.ok }}</span>
+  {% for i in today.checklist["items"] %}<small>{{ '❌' if i.level == 'fail' else '⚠️' }} {{ i.title }}</small>{% endfor %}
+</a>
+{% endif %}
+<div class="today">
+  <div class="date">{{ today.date }}{% if today.published %} · <b style="color:#03c75a">발행함</b>{% if today.published.url %} <a href="{{ today.published.url }}" style="color:#0068c3">글 보기</a>{% endif %}{% endif %}</div>
+  <h2>오늘 할 일</h2>
+
+  {% if today.bundle %}
+  <a class="big" href="latest/{{ today.bundle.href }}" download style="background:#eef4fd;border-color:#cde2fb">
+    <span class="label">⬇ 블로그 첨부파일 내려받기</span>
+    <span class="desc">그림·자막·컷 리스트 {{ today.bundle.count }}개 · {{ today.bundle.size }} (zip)</span>
+  </a>
+  {% endif %}
+  {% if today.cards %}
+  <a class="big" href="latest/{{ today.cards.href }}" download style="background:#eaf4f8;border-color:#bcdde9">
+    <span class="label">⬇ 카드뉴스 내려받기</span>
+    <span class="desc">유튜브 게시물용 정사각 카드 {{ today.cards.count }}장 · {{ today.cards.size }} (zip)</span>
+  </a>
+  {% endif %}
+  {% for page in today.pages %}
+  <a class="big {% if loop.first %}primary{% endif %}" href="latest/{{ page.href }}">
+    <span class="step">{{ loop.index }}</span>
+    <span class="label">{{ page.label }}</span>
+    <span class="desc">{{ page.description }}</span>
+  </a>
+  {% endfor %}
+</div>
+
+{% if days|length > 1 %}
+<details>
+  <summary>지난 날짜 ({{ days|length - 1 }}일치)</summary>
+  <ul class="past">
+    {% for day in days[1:] %}
+    <li>
+      <a href="{{ day.date }}/{{ day.pages[0].href }}">{{ day.date }}</a>
+      <span class="files">· {{ day.pages|length }}개 문서{% if day.published %} · 발행함{% endif %}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</details>
+{% endif %}
+
+{% else %}
+<div class="empty">
+  아직 만들어진 글이 없습니다.<br>
+  깃허브 <b>Actions</b> 탭에서 <b>정치 데일리 브리핑</b>을 한 번 실행해 보세요.
+</div>
+{% endif %}
+
+{% if weeks %}
+<details open>
+  <summary>주간 결산 ({{ weeks|length }}주)</summary>
+  <ul class="past">
+    {% for w in weeks %}
+    <li>
+      <a href="weekly/{{ w.week }}/{{ w.pages[0].href }}">{{ w.week }}</a>
+      <span class="files">· {% for pg in w.pages %}<a href="weekly/{{ w.week }}/{{ pg.href }}">{{ pg.label }}</a>{% if not loop.last %} / {% endif %}{% endfor %}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</details>
+{% endif %}
+{% if months %}
+<details open>
+  <summary>월간 결산 ({{ months|length }}달)</summary>
+  <ul class="past">
+    {% for w in months %}
+    <li>
+      <a href="monthly/{{ w.week }}/{{ w.pages[0].href }}">{{ w.week }}</a>
+      <span class="files">· {% for pg in w.pages %}<a href="monthly/{{ w.week }}/{{ pg.href }}">{{ pg.label }}</a>{% if not loop.last %} / {% endif %}{% endfor %}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</details>
+{% endif %}
+
+{% if has_dashboard %}
+<p style="text-align:center;margin:18px 0 0">
+  {% if has_search %}<a href="search.html" style="color:#0068c3;font-size:14px;text-decoration:none">🔎 지난 글 검색</a> &nbsp;·&nbsp; {% endif %}
+  {% if upcoming %}<a href="upcoming.html" style="color:#0068c3;font-size:14px;text-decoration:none">🗓 이번 주 볼 것 {{ upcoming }}</a> &nbsp;·&nbsp; {% endif %}
+  <a href="dashboard.html" style="color:#0068c3;font-size:14px;text-decoration:none">📊 운영 현황</a>
+</p>
+{% endif %}
+
+<footer>
+  이 페이지는 발행 전 초안입니다. 숫자는 기사 원문과 대조해 주세요.
+  {% if has_feed %}<br><a href="feed.xml" style="color:#8b9096">구독 주소(RSS)</a>{% endif %}
+</footer>
+
+</div>
+</body>
+</html>

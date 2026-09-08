@@ -1,0 +1,224 @@
+# ─────────────────────────────────────────────────────────────
+# 수집 소스 설정
+#
+#  · enabled: false 로 바꾸면 해당 피드를 건너뜁니다.
+#  · weight  : 이슈 점수 계산에 쓰는 매체 가중치 (1.0 기준)
+#  · 피드가 살아있는지 확인:  python -m rebrief doctor
+#    죽은 피드는 enabled: false 로 꺼두면 됩니다.
+#
+#  **매체 가중치는 정치 성향을 따라 기울이지 않습니다.** 통신사(연합·뉴시스)만 사실 전달
+#  비중이 커서 조금 높고, 나머지 신문·방송은 성향과 무관하게 같은 값입니다. 가중치로
+#  어느 한쪽 보도를 키우면 브리핑이 그쪽으로 기웁니다 — 이 프로젝트가 가장 피해야 할 일입니다.
+# ─────────────────────────────────────────────────────────────
+
+feeds:
+  # ── 구글뉴스 키워드 피드 (가장 안정적. 여러 매체를 한 번에 훑음) ──
+  - id: gnews_politics
+    name: "구글뉴스·정치"
+    url: "https://news.google.com/rss/search?q=%EC%A0%95%EC%B9%98+when:1d&hl=ko&gl=KR&ceid=KR:ko"
+    weight: 1.0
+    enabled: true
+
+  - id: gnews_assembly
+    name: "구글뉴스·국회"
+    url: "https://news.google.com/rss/search?q=%EA%B5%AD%ED%9A%8C+%EB%B3%B8%ED%9A%8C%EC%9D%98+when:1d&hl=ko&gl=KR&ceid=KR:ko"
+    weight: 1.1
+    enabled: true
+
+  - id: gnews_parties
+    name: "구글뉴스·여야"
+    url: "https://news.google.com/rss/search?q=%EC%97%AC%EB%8B%B9+%EC%95%BC%EB%8B%B9+when:1d&hl=ko&gl=KR&ceid=KR:ko"
+    weight: 1.0
+    enabled: true
+
+  - id: gnews_president
+    name: "구글뉴스·대통령실"
+    url: "https://news.google.com/rss/search?q=%EB%8C%80%ED%86%B5%EB%A0%B9%EC%8B%A4+when:1d&hl=ko&gl=KR&ceid=KR:ko"
+    weight: 1.1
+    enabled: true
+
+  - id: gnews_bills
+    name: "구글뉴스·법안"
+    url: "https://news.google.com/rss/search?q=%EB%B2%95%EC%95%88+%EC%83%81%EC%9E%84%EC%9C%84+when:1d&hl=ko&gl=KR&ceid=KR:ko"
+    weight: 1.1
+    enabled: true
+
+  - id: gnews_polls
+    name: "구글뉴스·여론조사"
+    url: "https://news.google.com/rss/search?q=%EC%97%AC%EB%A1%A0%EC%A1%B0%EC%82%AC+%EC%A7%80%EC%A7%80%EC%9C%A8+when:1d&hl=ko&gl=KR&ceid=KR:ko"
+    weight: 1.0
+    enabled: true
+
+  - id: gnews_election
+    name: "구글뉴스·선거"
+    url: "https://news.google.com/rss/search?q=%EC%84%A0%EA%B1%B0+%EC%84%A0%EA%B4%80%EC%9C%84+when:1d&hl=ko&gl=KR&ceid=KR:ko"
+    weight: 1.0
+    enabled: true
+
+  # ── 언론사 직접 피드 (본문까지 긁어올 수 있어 요약 품질이 좋음) ──
+  # 주소가 바뀌는 일이 잦습니다. doctor 로 확인 후 켜세요.
+  # 성향이 다른 매체를 **일부러 고르게** 넣었습니다. 한쪽만 살아 있으면 그쪽 시각만 모입니다.
+
+  # 통신사
+  - id: yna_politics
+    name: "연합뉴스·정치"
+    url: "https://www.yna.co.kr/rss/politics.xml"
+    weight: 1.3
+    enabled: true
+
+  - id: newsis_politics
+    name: "뉴시스·정치"
+    url: "https://www.newsis.com/RSS/politics.xml"
+    weight: 1.2
+    enabled: true
+
+  # 신문
+  - id: hani_politics
+    name: "한겨레·정치"
+    url: "https://www.hani.co.kr/rss/politics/"
+    weight: 1.0
+    enabled: true
+
+  - id: khan_politics
+    name: "경향신문·정치"
+    url: "https://www.khan.co.kr/rss/rssdata/politic_news.xml"
+    weight: 1.0
+    enabled: true
+
+  - id: chosun_politics
+    name: "조선일보·정치"
+    url: "https://www.chosun.com/arc/outboundfeeds/rss/category/politics/?outputType=xml"
+    weight: 1.0
+    enabled: true
+
+  - id: donga_politics
+    name: "동아일보·정치"
+    url: "https://rss.donga.com/politics.xml"
+    weight: 1.0
+    enabled: true
+
+  # 2026-09-08 doctor 점검에서 HTTP 200 이지만 항목이 비어 있었음. 주소가 바뀐 듯.
+  - id: joongang_politics
+    name: "중앙일보·정치"
+    url: "https://rss.joins.com/joins_politics_list.xml"
+    weight: 1.0
+    enabled: false   # 항목이 비어 있음
+
+  - id: ohmynews_politics
+    name: "오마이뉴스·정치"
+    url: "https://rss.ohmynews.com/rss/politics.xml"
+    weight: 1.0
+    enabled: true
+
+  # 방송
+  - id: sbs_politics
+    name: "SBS·정치"
+    url: "https://news.sbs.co.kr/news/SectionRssFeed.do?sectionId=02&plink=RSSREADER"
+    weight: 1.0
+    enabled: true
+
+  # 경제지 정치면
+  - id: hankyung_politics
+    name: "한국경제·정치"
+    url: "https://www.hankyung.com/feed/politics"
+    weight: 1.0
+    enabled: true
+
+  - id: mk_politics
+    name: "매일경제·정치"
+    url: "https://www.mk.co.kr/rss/30200030/"
+    weight: 1.0
+    enabled: true
+
+
+# ─────────────────────────────────────────────────────────────
+# 키워드 사전 — 이슈 점수와 카테고리 분류에 사용
+# terms 중 하나라도 제목/요약에 들어가면 weight 만큼 점수를 더합니다.
+# ─────────────────────────────────────────────────────────────
+keywords:
+  국회·입법:
+    weight: 3.0
+    terms: [본회의, 상임위, 법사위, 운영위, 법안, 개정안, 제정안, 입법, 필리버스터,
+            패스트트랙, 국정감사, 국감, 인사청문회, 청문회, 탄핵소추, 탄핵, 국정조사,
+            예산안, 추경, 국회의장, 원내대표]
+
+  정당·공천:
+    weight: 2.8
+    terms: [국민의힘, 더불어민주당, 민주당, 조국혁신당, 개혁신당, 진보당, 당대표, 최고위원,
+            전당대회, 공천, 경선, 탈당, 입당, 합당, 창당, 당원, 계파, 친윤, 친명, 비명, 비윤]
+
+  대통령실·정부:
+    weight: 2.8
+    terms: [대통령, 대통령실, 국무회의, 개각, 국무총리, 총리, 장관 후보자, 장관 내정,
+            거부권, 재의요구, 시정연설, 담화, 기자회견, 비서실장, 정무수석]
+
+  선거·여론조사:
+    weight: 2.5
+    terms: [지지율, 여론조사, 갤럽, 리얼미터, 엔비에스, NBS, 총선, 대선, 지방선거,
+            보궐선거, 재보궐, 선관위, 선거관리위원회, 선거법, 출마, 후보]
+
+  사법·수사:
+    weight: 2.2
+    terms: [특검, 특별검사, 검찰, 공수처, 영장, 구속, 기소, 헌법재판소, 헌재, 대법원,
+            수사, 압수수색, 소환]
+
+  지방정치:
+    weight: 1.5
+    terms: [서울시장, 경기지사, 도지사, 시장 선거, 시의회, 도의회, 지자체장, 구청장]
+
+  외교·안보:
+    weight: 1.2
+    terms: [한미, 한일, 한중, 북한, 국방부, 통일부, 외교부, 정상회담, 방위비]
+
+# 제목이나 요약에 이 단어가 있으면 버립니다.
+exclude_terms:
+  - 부고
+  - 포토
+  - 카드뉴스
+  - 오늘의 운세
+  - 신간
+  - 협찬
+  - 이벤트 당첨
+
+  # 도박·코인 SEO 스팸. 구글뉴스가 키워드 검색에 이런 글을 섞어 냅니다.
+  # (estate-news 에서 수집 214건 중 26건(12%)이 이 부류였습니다.)
+  - 토토
+  - 카지노
+  - 바카라
+  - 슬롯
+  - 도박
+  - 배팅
+  - 베팅
+  - 먹튀
+  - 파워볼
+  - 홀덤
+  - 블랙잭
+  - 룰렛
+  - 경마
+  - 맞고 사는
+  - 플러시
+  - 사행성
+  - 꽁머니
+  - 환전상
+  - 바이 비트
+  - 선물거래
+  - 코인 거래소
+
+# 단어만으로는 애매할 때 쓰는 정규식. 위 목록과 같은 방식으로 걸러냅니다.
+exclude_patterns:
+  # '포커'는 막고 싶지만 기사 말머리 '[MD포커스]'까지 걸리면 안 됩니다.
+  - "포커(?!스)"
+  # 인사 발령 알림([인사] ○○부)은 버리되, '인사청문회'·'인사 개편' 기사는 살립니다.
+  # estate-news 처럼 낱말 '인사' 를 통째로 막으면 청문회 기사가 다 빠집니다.
+  - "^\\[인사\\]"
+  - "\\[부고\\]"
+
+# 이 중 하나라도 없으면 정치 기사가 아닌 것으로 보고 버립니다.
+#
+# 비워 두는 것이 기본값입니다. estate-news 에서 화이트리스트를 채워 봤더니 멀쩡한 기사가
+# 30건 넘게 같이 걸렸습니다. 스팸은 위 금지어만으로 충분히 잡힙니다.
+# 특정 분야만 좁게 다루고 싶을 때만 채우세요. 예: [국회, 법안, 상임위]
+require_terms: []
+
+# 제목 앞의 이 태그들은 "속보성"으로 보고 가점을 줍니다.
+breaking_tags: ["단독", "속보", "1보"]

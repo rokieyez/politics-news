@@ -1,0 +1,171 @@
+name: 정치 데일리 브리핑
+
+on:
+  # ⚠ **이 예약은 실제로 돌지 않습니다.** 이 저장소는 schedule 이벤트가 통째로
+  # 죽어 있습니다 — 임시 탐침에 `*/5 * * * *` 를 걸고 38분(브랜치 이름을 main 으로
+  # 바꾸기 전후로) 기다렸지만 0회였고, 같은 워크플로를 손으로 부르면 6초 만에
+  # 성공했습니다. 워크플로는 active, 저장소는 공개·비포크·비보관, Actions 정상,
+  # 비활성 안내 띠도 없습니다. 원인은 찾지 못했습니다.
+  #
+  # 실제로 아침을 깨우는 것은 **맥의 launchd** 입니다
+  # (scripts/wake-daily-brief.sh · scripts/net.rokiz.politics-news.daily.plist).
+  #
+  # 그래도 이 줄을 지우지 않는 이유: 깃허브가 언젠가 예약을 되살리면 공짜 이중화가
+  # 됩니다. 겹쳐도 첫 단계의 중복 방어막이 24초 만에 끝내므로 돈이 들지 않습니다.
+  schedule:
+    # 매일 06:45 KST = 전날 21:45 UTC. 정각(:00)은 밀릴 수 있어 피했다.
+    - cron: "45 21 * * *"
+    # 안전망: 07:25 KST 에 한 번 더.
+    - cron: "25 22 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "산출물 날짜 (YYYY-MM-DD, 비우면 오늘)"
+        required: false
+        type: string
+      no_llm:
+        description: "요약·대본 생성 건너뛰기 (수집만)"
+        required: false
+        type: boolean
+        default: false
+
+# 결과를 저장소에 커밋해야 하므로 쓰기 권한이 필요합니다.
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-brief
+  cancel-in-progress: false
+
+jobs:
+  brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 오늘 산출물이 이미 있으면 건너뜀 (중복 실행 방어)
+        id: guard
+        run: |
+          DATE="${{ inputs.date }}"
+          [ -z "$DATE" ] && DATE=$(TZ=Asia/Seoul date +%F)
+          # 손으로 날짜를 지정한 실행만 방어막을 건너뜁니다 (일부러 다시 만드는 경우).
+          # 예약이든 밖에서 깨운 것이든, 오늘 것이 이미 있으면 다시 만들지 않습니다 —
+          # 깃허브 예약과 외부 예약이 겹치는 날 하루에 두 번 돌고 돈도 두 번 나갑니다.
+          if [ -z "${{ inputs.date }}" ] && [ -f "output/$DATE/data.json" ]; then
+            echo "오늘($DATE) 요약이 이미 있습니다 — 여기서 끝냅니다 (다시 만들려면 date 를 지정하세요)."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.guard.outputs.skip != 'true'
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: 의존성 설치
+        if: steps.guard.outputs.skip != 'true'
+        run: pip install -r requirements.txt
+
+      - name: 한글 글꼴 설치 (PNG 의 한글이 깨지지 않게)
+        run: |
+          sudo apt-get update -qq >/dev/null
+          sudo apt-get install -y -qq fonts-noto-cjk >/dev/null
+          fc-cache -f >/dev/null
+          fc-list | grep -qi "Noto Sans CJK" && echo "한글 글꼴 있음: Noto Sans CJK" || echo "::warning::한글 글꼴 설치 실패 — PNG 의 한글이 깨질 수 있습니다"
+
+      - name: PNG 변환 도구 확인
+        if: steps.guard.outputs.skip != 'true'
+        # 그림은 SVG 로 먼저 만들고, 크롬이 있으면 PNG 로도 변환합니다.
+        # 깃허브 우분투 러너에는 크롬이 기본 설치돼 있지만, 없어도 실행은 성공합니다.
+        run: |
+          if command -v google-chrome >/dev/null 2>&1; then
+            echo "크롬 있음: $(google-chrome --version)"
+          elif command -v chromium-browser >/dev/null 2>&1; then
+            echo "크로미엄 있음: $(chromium-browser --version)"
+          else
+            echo "::warning::크롬이 없어 PNG 변환을 건너뜁니다 (SVG 만 생성)"
+          fi
+
+      - name: 브리핑 생성
+        if: steps.guard.outputs.skip != 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # 정부 통계 인증키. 등록돼 있지 않으면 그 단계만 조용히 건너뜁니다.
+          DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
+          REB_API_KEY: ${{ secrets.REB_API_KEY }}
+          # 카드뉴스 위쪽 사진. 없으면 인포그래픽으로 갑니다.
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: |
+          ARGS="-v run"
+          if [ -n "${{ inputs.date }}" ]; then ARGS="$ARGS --date ${{ inputs.date }}"; fi
+          if [ "${{ inputs.no_llm }}" = "true" ]; then ARGS="$ARGS --no-llm"; fi
+          python -m rebrief $ARGS
+
+      - name: 실행 결과 요약
+        if: always() && steps.guard.outputs.skip != 'true'
+        run: |
+          DATE="${{ inputs.date }}"
+          [ -z "$DATE" ] && DATE=$(TZ=Asia/Seoul date +%F)
+          BRIEF="output/$DATE/brief.md"
+          {
+            echo "# $DATE 정치 브리핑"
+            echo
+            if [ -f "$BRIEF" ]; then
+              cat "$BRIEF"
+            else
+              echo "브리핑이 생성되지 않았습니다. 위 로그를 확인하세요."
+            fi
+            echo
+            echo "---"
+            echo "생성된 파일:"
+            echo '```'
+            ls -1 "output/$DATE" 2>/dev/null || echo "(없음)"
+            echo '```'
+            echo
+            PNG=$(ls "output/$DATE"/img-*.png 2>/dev/null | wc -l | tr -d ' ')
+            SVG=$(ls "output/$DATE"/img-*.svg 2>/dev/null | wc -l | tr -d ' ')
+            THUMB=$(ls "output/$DATE"/thumb-*.png 2>/dev/null | wc -l | tr -d ' ')
+            echo "그림: PNG ${PNG}장 / SVG ${SVG}장 · 썸네일 ${THUMB}장"
+            if [ "$SVG" -gt 0 ] && [ "$PNG" -eq 0 ]; then
+              echo "::warning::SVG 는 생성됐지만 PNG 변환이 되지 않았습니다. 크롬 설치 여부를 확인하세요."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: 결과 커밋
+        if: steps.guard.outputs.skip != 'true'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add output state
+          if git diff --staged --quiet; then
+            echo "변경 사항 없음 — 커밋을 건너뜁니다."
+            exit 0
+          fi
+          DATE="${{ inputs.date }}"
+          [ -z "$DATE" ] && DATE=$(TZ=Asia/Seoul date +%F)
+          git commit -m "브리핑: $DATE"
+          # 같은 시각에 다른 커밋이 들어왔을 수 있으므로 rebase 후 재시도
+          for i in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push && exit 0
+            sleep $((i * 5))
+          done
+          echo "푸시에 실패했습니다." >&2
+          exit 1
+
+      - name: 실패 알림
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          DATE="${{ inputs.date }}"
+          [ -z "$DATE" ] && DATE=$(TZ=Asia/Seoul date +%F)
+          python -m rebrief notify --failed --date "$DATE" \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true

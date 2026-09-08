@@ -1,0 +1,58 @@
+# 정부 발표 원문 — {{ date }}
+
+정치 관련 정부 보도자료입니다. 요약은 부처가 낸 자료를 3줄로 줄인 것이고,
+**원본 파일**을 함께 두었으니 글에 쓸 때는 원문을 한 번 확인하세요.
+
+{% for d in docs %}
+## {{ loop.index }}. {{ d.title }}
+
+`{{ d.dept }}` · {{ d.date }}{% if d.who %} · 관련: {{ d.who }}{% endif %}
+
+{% for line in d.summary %}
+- {{ line }}
+{% endfor %}
+
+[정책브리핑에서 원문 보기]({{ d.url }})
+{% if links.get(d.news_id) %}
+
+**이 발표에 나온 지역, 우리가 센 실거래**
+
+{% for line in links[d.news_id] %}
+- {{ line }}
+{% endfor %}
+
+<small>국토교통부 실거래가 신고 자료를 직접 집계했습니다. 발표문의 수치가 아닙니다.</small>
+{% endif %}
+{% if d.schedule %}
+
+**앞으로 일정**
+
+{% for it in d.schedule %}
+- **{{ it.date }}** — {{ it.kind }} · {{ it.text }}
+{% endfor %}
+{% endif %}
+{% if d.follow_ups %}
+
+**같은 정책의 지난 발표**
+
+{% for f in d.follow_ups %}
+- [{{ f.title }}]({{ f.url }}) <small>{{ f.date }}</small>
+{% endfor %}
+{% endif %}
+{% if d.files %}
+
+**첨부 문서**
+
+{% for f in d.files %}
+{% if f.get('file') %}
+- [{{ f.name }}](policy/{{ f.get('file') }}) · [정책브리핑에서 받기]({{ f.url }})
+{% else %}
+- [{{ f.name }}]({{ f.url }})
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% endfor %}
+---
+
+*출처: 대한민국 정책브리핑(korea.kr). 각 부처 보도자료를 그대로 옮긴 것이며, 해석은 덧붙이지 않았습니다.*

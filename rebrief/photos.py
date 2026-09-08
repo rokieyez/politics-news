@@ -1,0 +1,180 @@
+"""카드뉴스 위쪽 띠에 얹을 사진 찾기.
+
+**왜 사진을 밖에서 받아 오나.** 기사 사진은 저작권이 있어 쓸 수 없고 수집하지도 않습니다.
+그렇다고 인포그래픽만 얹으면 표지가 매일 표처럼 보입니다. 상업 이용이 허락된 무료 사진을
+받아 얹으면 첫 장이 사진, 그 뒤가 자료가 되어 묶음에 결이 생깁니다.
+
+**Pexels 를 씁니다** (2026-09-08, 사용자 선택). 인증키가 있어야 하지만 이메일만 넣으면
+바로 나오고(심사 없음), 표기 의무가 없으며 사진이 많습니다. 인증키 없이 되는 Openverse 도
+재 봤는데 '서울 아파트' 로 상업 이용 가능한 사진이 **일곱 장**뿐이라 며칠이면 같은 사진이
+돌아옵니다. 그래도 표기는 답니다 — 의무라서가 아니라 어디서 온 사진인지 밝히는 편이 낫고,
+같은 자리에 '본문과 무관' 을 함께 적어야 하기 때문입니다.
+
+**받은 사진은 저장소에 올리지 않습니다.** 원본이 한 장에 3~6MB 라 매일 커밋하면 한 해에
+1.8GB 씩 붑니다. `state/photos/` 에 받아 두고(gitignore) 카드 PNG 에만 담습니다.
+쓴 사진 번호만 `state/photos.json` 에 남겨 며칠 안에 같은 사진이 다시 나오지 않게 합니다.
+"""
+
+from __future__ import annotations
+
+import json
+import logging
+import os
+import urllib.parse
+import urllib.request
+from dataclasses import dataclass
+from pathlib import Path
+
+log = logging.getLogger(__name__)
+
+PEXELS_SEARCH = "https://api.pexels.com/v1/search"
+
+# 이슈의 성격에 따라 찾을 말을 바꿉니다. Pexels 는 영어로 찾아야 결과가 많이 나옵니다.
+# 한국어로 넣으면 몇 건 안 나오는 것을 확인하고 영어 낱말로 짝지어 두었습니다.
+QUERY_MAP: list[tuple[tuple[str, ...], str]] = [
+    (("국회", "본회의", "상임위", "법안", "필리버스터", "국정감사"), "national assembly building seoul"),
+    (("대통령", "대통령실", "국무회의", "개각", "총리"), "seoul government building"),
+    (("선거", "투표", "지지율", "여론조사", "선관위", "출마"), "korea election voting"),
+    (("검찰", "특검", "법원", "영장", "헌법재판소", "재판"), "seoul courthouse"),
+    (("시위", "집회", "광화문", "촛불"), "seoul gwanghwamun square"),
+    (("지방", "서울시", "시의회", "구청"), "seoul city hall"),
+]
+# **낱말이 주제를 너무 곧이곧대로 좇으면 엉뚱한 사진이 옵니다.** estate-news 에서 '대출·금리'
+# 를 'korean won money' 로 찾았더니 버스 교통카드 단말기가 올라왔습니다 (2026-09-08).
+# 정치 글에는 국회의사당·정부청사·광장 같은 **건물과 장소** 사진이 무난합니다.
+# **사람 얼굴이 나오는 사진은 피합니다** — 스톡 사진 속 인물이 특정 정치인으로 오해될
+# 수 있고, 무관한 사람이 정치 기사 옆에 붙는 것도 문제입니다.
+# 표지에 쓰는 기본값. **낱말마다 '서울' 이나 '한국' 을 넣습니다** — 빼고 찾으면 서양 주택
+# 사진이 올라옵니다. 2026-09-08 에 실제로 '아파트 실내' 로 찾았더니 벽돌벽 로프트가
+# 표지에 붙었습니다. 'seoul' 을 넣은 뒤로는 서울 아파트 단지가 나옵니다.
+DEFAULT_QUERY = "national assembly building seoul"
+
+
+@dataclass
+class Photo:
+    path: Path
+    credit: str          # 촬영자
+    source: str          # 어디서 왔는지 (Pexels)
+    ident: str           # 되풀이를 막으려고 남기는 사진 번호
+
+
+def queries_for(brief: dict, limit: int = 3) -> list[str]:
+    """브리핑에서 찾을 말을 뽑는다. 겹치지 않게, 모자라면 기본값으로 채운다.
+
+    **첫 장은 언제나 기본값**입니다. 첫 장은 표지이고 표지는 그날 전체를 받으므로,
+    이슈 하나의 성격(예: 월세 → 실내 사진)에 끌려가면 안 됩니다. 두 번째부터가
+    이슈 카드라 거기서 성격을 따라갑니다.
+    """
+    out: list[str] = [DEFAULT_QUERY]
+    for issue in brief.get("issues") or []:
+        text = f"{issue.get('title', '')} {issue.get('category', '')} {issue.get('one_liner', '')}"
+        for words, query in QUERY_MAP:
+            if any(w in text for w in words) and query not in out:
+                out.append(query)
+                break
+        if len(out) >= limit:
+            break
+    while len(out) < limit:
+        out.append(DEFAULT_QUERY)
+    return out[:limit]
+
+
+# 이름을 밝히지 않으면 클라우드플레어가 막습니다. 인증키가 맞아도 `error code: 1010` 이
+# 돌아옵니다 (2026-09-08 실측 — 이 줄 하나로 403 이 200 이 됐습니다). urllib 의 기본
+# 이름(Python-urllib/3.x)이 걸리는 것이라, 무엇이든 사람이 읽을 이름을 보내야 합니다.
+USER_AGENT = "estate-news/1.0 (+https://www.rokiz.net/estate-news/)"
+
+
+def _get(url: str, headers: dict, timeout: int = 20) -> bytes:
+    """망 호출 한 곳. 시험에서 이 함수만 갈아끼우면 네트워크 없이 검증된다."""
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, **headers})
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return resp.read()
+
+
+def _pexels(query: str, key: str, *, per_page: int = 40) -> list[dict]:
+    url = f"{PEXELS_SEARCH}?" + urllib.parse.urlencode({
+        "query": query, "per_page": per_page,
+        "orientation": "landscape",     # 띠가 가로로 길다. 세로 사진은 잘려 못 쓴다.
+        "size": "medium",               # 원본은 6MB 까지 간다. 띠는 1080px 이면 충분하다.
+    })
+    data = json.loads(_get(url, {"Authorization": key}).decode("utf-8"))
+    return list(data.get("photos") or [])
+
+
+def fetch(brief: dict, *, cache_dir: Path, ledger: Path, count: int = 3,
+          key: str | None = None, keep_recent: int = 40) -> list[Photo]:
+    """오늘 쓸 사진 몇 장. 키가 없거나 망이 막히면 빈 목록 — 그날은 인포그래픽으로 간다.
+
+    **여기서 터져도 하루 실행이 죽으면 안 됩니다.** 사진은 있으면 좋은 것이지
+    없으면 안 되는 것이 아닙니다. 모든 실패를 로그만 남기고 삼킵니다.
+    """
+    key = key or os.environ.get("PEXELS_API_KEY", "")
+    if not key or count <= 0:
+        return []
+    cache_dir.mkdir(parents=True, exist_ok=True)
+
+    try:
+        used = json.loads(ledger.read_text(encoding="utf-8")) if ledger.exists() else []
+    except (OSError, ValueError):
+        used = []
+    seen = set(used)
+
+    out: list[Photo] = []
+    for query in queries_for(brief, count):
+        if len(out) >= count:
+            break
+        try:
+            hits = _pexels(query, key)
+        except Exception as exc:              # 망·인증키·응답 형식 무엇이든
+            log.warning("사진 검색 실패(%s): %s", query, exc)
+            continue
+        # 장부에 없는 것부터 고르고, 한 장도 없으면 **그냥 앞의 것을 다시 씁니다.**
+        # 되풀이를 막자고 사진을 아예 안 넣으면 카드가 표로 돌아갑니다 — 그게 더 나쁩니다.
+        fresh = [h for h in hits if str(h.get("id") or "") not in seen]
+        for hit in fresh or hits:
+            ident = str(hit.get("id") or "")
+            if not ident:
+                continue
+            src = (hit.get("src") or {}).get("landscape") or (hit.get("src") or {}).get("large")
+            if not src:
+                continue
+            path = cache_dir / f"photo-{ident}.jpg"
+            try:
+                if not path.exists():
+                    path.write_bytes(_get(src, {}))
+            except Exception as exc:
+                log.warning("사진 내려받기 실패(%s): %s", ident, exc)
+                continue
+            seen.add(ident)
+            if ident in used:
+                used.remove(ident)          # 다시 쓴 것은 장부 맨 뒤로 — 가장 오래 안 쓴 것부터 돈다
+            used.append(ident)
+            out.append(Photo(path=path, credit=str(hit.get("photographer") or "").strip(),
+                             source="Pexels", ident=ident))
+            break                              # 한 낱말에 한 장씩. 다음 낱말로 넘어간다.
+
+    if out:
+        try:
+            ledger.parent.mkdir(parents=True, exist_ok=True)
+            ledger.write_text(json.dumps(used[-keep_recent:], ensure_ascii=False), encoding="utf-8")
+        except OSError as exc:
+            log.warning("사진 장부를 남기지 못했습니다: %s", exc)
+    return out
+
+
+def check_source(query: str = DEFAULT_QUERY) -> tuple[bool, int, str]:
+    """사진 검색이 실제로 되는지 한 번 불러 본다. `doctor` 가 씁니다.
+
+    (되는가, 몇 건, 안 되면 왜) 를 돌려줍니다. 여기서 실패해도 하루 실행은 살아 있습니다 —
+    사진이 없으면 인포그래픽으로 가니까요. **깃허브 러너에서도 되는지 확인하려고 만들었습니다.**
+    맥에서는 되는데 러너에서 막히는 경우가 있고(클라우드플레어), 그걸 다음 날 아침에
+    발견하는 것보다 버튼 한 번으로 미리 보는 편이 낫습니다.
+    """
+    key = os.environ.get("PEXELS_API_KEY", "")
+    if not key:
+        return False, 0, "PEXELS_API_KEY 없음"
+    try:
+        return True, len(_pexels(query, key, per_page=3)), ""
+    except Exception as exc:
+        return False, 0, str(exc)

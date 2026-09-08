@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>테스트 정치 피드</title>
+    <link>https://example.test/</link>
+    <description>파이프라인 테스트용 고정 데이터</description>
+    <item>
+      <title>여야, 예산안 본회의 처리 합의…12월 2일 표결 - 한국경제</title>
+      <link>https://example.test/news/1</link>
+      <pubDate>__PUBDATE__</pubDate>
+      <description>여야 원내대표는 내년도 예산안을 12월 2일 본회의에서 표결하기로 합의했다. 상임위 심사는 이번 주 마무리된다.</description>
+    </item>
+    <item>
+      <title>여야 예산안 본회의 처리 합의, 12월 2일 표결키로 - 매일경제</title>
+      <link>https://example.test/news/2</link>
+      <pubDate>__PUBDATE__</pubDate>
+      <description>여야가 예산안 본회의 표결 일정에 합의했다. 감액 규모를 두고는 이견이 남았다.</description>
+    </item>
+    <item>
+      <title>[속보] 여야, 예산안 본회의 12월 2일 표결 합의 - 이데일리</title>
+      <link>https://example.test/news/3?utm_source=rss</link>
+      <pubDate>__PUBDATE__</pubDate>
+      <description>여야 원내대표 회동에서 예산안 본회의 처리 일정이 합의됐다.</description>
+    </item>
+    <item>
+      <title>대통령실, 국무총리 후보자 지명…인사청문회 절차 착수 - 연합뉴스</title>
+      <link>https://example.test/news/4</link>
+      <pubDate>__PUBDATE__</pubDate>
+      <description>대통령실은 새 국무총리 후보자를 지명했다고 밝혔다. 국회 인사청문회는 이달 안에 열릴 전망이다.</description>
+    </item>
+    <item>
+      <title>국무총리 후보자 지명, 인사청문회 일정 촉각 - 서울경제</title>
+      <link>https://example.test/news/5</link>
+      <pubDate>__PUBDATE__</pubDate>
+      <description>국무총리 후보자 인사청문회 일정을 두고 여야가 협의에 들어갔다. 야당은 자료 제출을 요구했다.</description>
+    </item>
+    <item>
+      <title>국민의힘 전당대회 D-7…당대표 경선 막판 표심 - 조선비즈</title>
+      <link>https://example.test/news/6</link>
+      <pubDate>__PUBDATE__</pubDate>
+      <description>국민의힘 당대표 경선이 막판에 접어들었다. 후보들은 당원 표심을 겨냥한 공약을 내놓고 있다.</description>
+    </item>
+    <item>
+      <title>한국갤럽 여론조사, 대통령 국정수행 긍정 평가 45% - 한국경제</title>
+      <link>https://example.test/news/7</link>
+      <pubDate>__PUBDATE__</pubDate>
+      <description>한국갤럽이 발표한 여론조사에서 대통령 국정수행 긍정 평가는 45%, 부정 평가는 47%로 나타났다. 오차범위는 ±3.1%포인트다.</description>
+    </item>
+    <item>
+      <title>서울시의회, 청년 지원 조례 개정안 통과 - 매일경제</title>
+      <link>https://example.test/news/8</link>
+      <pubDate>__PUBDATE__</pubDate>
+      <description>서울시의회가 청년 지원 조례 개정안을 통과시켰다. 지원 대상 연령이 넓어진다.</description>
+    </item>
+    <item>
+      <title>오늘의 운세 9월 6일 - 스포츠서울</title>
+      <link>https://example.test/news/9</link>
+      <pubDate>__PUBDATE__</pubDate>
+      <description>띠별 운세입니다.</description>
+    </item>
+    <item>
+      <title>부고 홍길동씨 별세 - 한국경제</title>
+      <link>https://example.test/news/10</link>
+      <pubDate>__PUBDATE__</pubDate>
+      <description>부고입니다.</description>
+    </item>
+  </channel>
+</rss>

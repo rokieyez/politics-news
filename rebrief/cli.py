@@ -1,0 +1,615 @@
+"""명령줄 인터페이스.
+
+    python -m rebrief run          오늘치 전체 실행 (수집 → 요약 → 대본)
+    python -m rebrief collect      수집만 하고 원본 저장
+    python -m rebrief render       저장된 원본으로 산출물만 다시 생성
+    python -m rebrief doctor       RSS 피드가 살아있는지 점검
+    python -m rebrief notify       실행 결과를 텔레그램으로 보내기 (토큰이 있을 때)
+    python -m rebrief weekly       지난 7일치를 묶은 주간 결산 글
+    python -m rebrief monthly      지난달 한 달치를 묶은 월간 결산 글
+    python -m rebrief titles       제목 후보 보기 / 실제로 고른 것과 조회수 기록
+"""
+
+from __future__ import annotations
+
+import argparse
+import logging
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+from .collect import collect, fetch_feeds
+from .config import load_config
+from .pipeline import local_now, rerender, run as run_pipeline
+from .store import save_raw
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="rebrief",
+        description="정치 뉴스를 매일 수집해 블로그 글과 영상 대본으로 만듭니다.",
+    )
+    parser.add_argument("--config", help="설정 폴더 경로 (기본: config/)")
+    parser.add_argument("-v", "--verbose", action="store_true", help="상세 로그")
+    sub = parser.add_subparsers(dest="command", required=True)
+
+    p_run = sub.add_parser("run", help="전체 파이프라인 실행")
+    p_run.add_argument("--date", help="산출물 날짜 (기본: 오늘, YYYY-MM-DD)")
+    p_run.add_argument("--no-llm", action="store_true", help="요약·대본 생성을 건너뜀")
+    p_run.add_argument("--limit", type=int, help="기사 수 제한 (테스트용)")
+
+    p_collect = sub.add_parser("collect", help="수집만 실행")
+    p_collect.add_argument("--date", help="저장 날짜 (기본: 오늘)")
+
+    p_render = sub.add_parser("render", help="저장된 원본으로 재생성 (모델을 다시 부름 — 돈이 듭니다)")
+    p_render.add_argument("--date", help="대상 날짜 (기본: 오늘)")
+    p_render.add_argument("--no-llm", action="store_true",
+                          help="모델을 부르지 않고 그림·틀만 다시 만듦 (돈이 들지 않음)")
+
+    sub.add_parser("site", help="휴대폰에서 볼 사이트 만들기 (site/)")
+
+    sub.add_parser("doctor", help="RSS 피드 상태 점검")
+
+    p_notify = sub.add_parser("notify", help="실행 결과를 텔레그램으로 보내기")
+    p_notify.add_argument("--date", help="대상 날짜 (기본: 오늘)")
+    p_notify.add_argument("--failed", action="store_true", help="실패 알림을 보냄")
+    p_notify.add_argument("--run-url", default="", help="Actions 실행 링크 (실패 알림에 붙임)")
+
+    p_weekly = sub.add_parser("weekly", help="지난 7일치를 묶은 주간 결산 글")
+    p_weekly.add_argument("--end", help="결산 마지막 날짜 (기본: 오늘, YYYY-MM-DD)")
+    p_weekly.add_argument("--no-llm", action="store_true", help="글 생성을 건너뛰고 프롬프트 팩만")
+
+    p_monthly = sub.add_parser("monthly", help="지난달 한 달치를 묶은 월간 결산 글")
+    p_monthly.add_argument("--month", help="결산할 달 (기본: 지난달, YYYY-MM)")
+    p_monthly.add_argument("--no-llm", action="store_true", help="글 생성을 건너뛰고 프롬프트 팩만")
+
+    p_titles = sub.add_parser("titles", help="제목 후보 보기 / 고른 것과 조회수 기록")
+    t_sub = p_titles.add_subparsers(dest="titles_cmd", required=True)
+    t_show = t_sub.add_parser("show", help="그날 후보 보기")
+    t_show.add_argument("--date", help="날짜 (기본: 오늘)")
+    t_log = t_sub.add_parser("log", help="고른 제목과 조회수 기록")
+    t_log.add_argument("--date", required=True)
+    t_log.add_argument("--kind", required=True, choices=["blog", "longform", "shorts"])
+    t_log.add_argument("--pick", required=True, type=int, help="후보 번호 (1부터)")
+    t_log.add_argument("--views", type=int, help="조회수")
+    t_log.add_argument("--title", help="후보에 없는 제목을 썼다면")
+
+    p_policy = sub.add_parser("policy", help="정부 정책 보도자료 원문 찾기 (요약·원본 파일)")
+    p_policy.add_argument("--date", help="기준 날짜 (기본: 오늘)")
+    p_policy.add_argument("--days", type=int, help="며칠 전까지 볼지")
+    p_policy.add_argument("--no-llm", action="store_true", help="부처 요약을 그대로 씁니다")
+
+    p_stats = sub.add_parser("stats", help="정부 통계 직접 받기 (실거래가·부동산원)")
+    p_stats.add_argument("--date", help="기준 날짜 (기본: 오늘)")
+    p_stats.add_argument("--tables", nargs="?", const="", help="부동산원 통계표 번호 찾기 (낱말로 검색)")
+    p_stats.add_argument("--region", action="append", help="먼저 볼 자치구 (여러 번 쓸 수 있음)")
+
+    p_pub = sub.add_parser("publish", help="네이버에 올린 글 주소를 기록 (사이트에 '발행함' 으로 표시)")
+    p_pub.add_argument("--date", help="날짜 (기본: 오늘)")
+    p_pub.add_argument("--url", default="", help="발행한 글 주소")
+    p_pub.add_argument("--note", default="", help="메모 (선택)")
+    p_pub.add_argument("--views", type=int, help="조회수 (나중에 다시 실행해 채워도 됩니다)")
+
+    return parser
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = build_parser().parse_args(argv)
+    logging.basicConfig(
+        level=logging.INFO if args.verbose else logging.WARNING,
+        format="%(asctime)s  %(levelname)-7s %(message)s",
+        datefmt="%H:%M:%S",
+    )
+
+    cfg = load_config(args.config)
+
+    if args.command == "run":
+        return _cmd_run(cfg, args)
+    if args.command == "collect":
+        return _cmd_collect(cfg, args)
+    if args.command == "render":
+        return _cmd_render(cfg, args)
+    if args.command == "site":
+        return _cmd_site(cfg)
+    if args.command == "doctor":
+        return _cmd_doctor(cfg, verbose=args.verbose)
+    if args.command == "notify":
+        return _cmd_notify(cfg, args)
+    if args.command == "weekly":
+        return _cmd_weekly(cfg, args)
+    if args.command == "monthly":
+        return _cmd_monthly(cfg, args)
+    if args.command == "titles":
+        return _cmd_titles(cfg, args)
+    if args.command == "publish":
+        return _cmd_publish(cfg, args)
+    if args.command == "policy":
+        return _cmd_policy(cfg, args)
+    if args.command == "stats":
+        return _cmd_stats(cfg, args)
+    return 1
+
+
+# ── 명령별 처리 ──────────────────────────────────────────────
+
+
+def _cmd_run(cfg, args) -> int:
+    use_llm = False if args.no_llm else None
+    result = run_pipeline(cfg, run_date=args.date, use_llm=use_llm, limit=args.limit)
+    _report(result)
+    _notify_result(cfg, result)
+    # 자료가 3일치 미만이라 건너뛴 건 실패가 아니다 — 워크플로가 빨간 X 로 보이지 않게 0
+    return 0 if (result.files or result.skipped) else 1
+
+
+def _cmd_collect(cfg, args) -> int:
+    date_str = args.date or local_now(cfg).strftime("%Y-%m-%d")
+    articles, feed_results = collect(cfg, now=datetime.now(timezone.utc))
+
+    path = cfg.output_dir / date_str / "raw" / "articles.json"
+    save_raw(
+        path,
+        articles,
+        meta={
+            "date": date_str,
+            "collected_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "feeds": [
+                {"id": r.feed.id, "ok": r.ok, "count": len(r.articles), "error": r.error}
+                for r in feed_results
+            ],
+        },
+    )
+
+    ok = sum(1 for r in feed_results if r.ok)
+    print(f"기사 {len(articles)}건 수집 · 피드 {ok}/{len(feed_results)}개 정상")
+    print(f"저장 → {_rel(cfg, path)}")
+    print(f"산출물을 만들려면: python -m rebrief render --date {date_str}")
+    return 0
+
+
+def _cmd_render(cfg, args) -> int:
+    date_str = args.date or local_now(cfg).strftime("%Y-%m-%d")
+    use_llm = False if args.no_llm else None
+    if use_llm is not False and cfg.llm_enabled:
+        # 이 명령은 이름만 보면 '다시 그리기' 같지만 **모델을 3번 새로 부릅니다.**
+        # 그림이나 틀만 고쳤을 때 무심코 돌리면 하루치 값이 그대로 또 나갑니다
+        # (실제로 그렇게 0.42달러를 썼습니다). 부르기 전에 얼마인지 먼저 말해 줍니다.
+        print(f"! 모델을 다시 부릅니다 ({date_str}). 예상 {_typical_cost_note(cfg)}")
+        print("  글은 그대로 두고 그림·틀만 다시 만들려면 --no-llm 을 붙이세요.")
+    try:
+        result = rerender(cfg, date_str, use_llm=use_llm)
+    except FileNotFoundError as exc:
+        print(f"오류: {exc}", file=sys.stderr)
+        print("먼저 `python -m rebrief collect` 를 실행하세요.", file=sys.stderr)
+        return 1
+    _report(result)
+    return 0
+
+
+def _typical_cost_note(cfg) -> str:
+    """최근 실행들의 가운뎃값을 '약 0.42달러(590원)' 꼴로. 기록이 없으면 모른다고 말한다."""
+    from .store import CostLog
+
+    usd = CostLog(cfg.state_dir / "costs.json").typical("daily")
+    if not usd:
+        return "비용 (아직 기록이 없어 얼마인지 모릅니다)"
+    krw = int(usd * float(cfg.get("llm.krw_per_usd", 1400) or 1400))
+    return f"약 {usd:.2f}달러({krw:,}원)"
+
+
+def _cmd_notify(cfg, args) -> int:
+    """저장된 산출물을 읽어 알림을 보낸다. 워크플로의 실패 단계에서도 쓴다."""
+    from .notify import build_failure_message, send_telegram, telegram_configured
+
+    if not telegram_configured():
+        print("TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID 가 없어 알림을 보내지 않습니다.")
+        return 0
+    date_str = args.date or local_now(cfg).strftime("%Y-%m-%d")
+    site_url = str(cfg.get("site.url", "") or "")
+    if args.failed:
+        from datetime import date as _date
+
+        from .store import failure_streak
+
+        streak = failure_streak(cfg.output_dir, _date.fromisoformat(date_str))
+        ok = send_telegram(build_failure_message(date=date_str, site_url=site_url,
+                                                 run_url=args.run_url, streak=max(streak, 1)))
+    else:
+        ok = send_telegram(_message_from_output(cfg, date_str))
+    print("알림을 보냈습니다." if ok else "알림 전송에 실패했습니다.")
+    return 0 if ok else 1
+
+
+def _message_from_output(cfg, date_str: str) -> str:
+    """output/<날짜>/ 의 파일만으로 알림 문구를 만든다 (파이프라인 결과 객체 없이)."""
+    import json
+
+    from .notify import build_run_message
+
+    out = cfg.output_dir / date_str
+    headline, issues = "", 0
+    data = out / "data.json"
+    if data.exists():
+        try:
+            payload = json.loads(data.read_text(encoding="utf-8"))
+            headline = payload.get("headline", "")
+            issues = len(payload.get("issues", []))
+        except (json.JSONDecodeError, OSError):
+            pass
+    return build_run_message(
+        date=date_str, headline=headline, issues=issues, articles=0,
+        site_url=str(cfg.get("site.url", "") or ""), warnings=[],
+        llm_used=data.exists(), images=len(list(out.glob("img-*.png"))),
+    )
+
+
+def _notify_result(cfg, result) -> None:
+    """토큰이 설정돼 있을 때만 실행 결과를 보낸다. 없으면 아무 말 없이 지나간다."""
+    from .notify import build_run_message, send_telegram, telegram_configured
+
+    if not telegram_configured():
+        return
+    headline = ""
+    data = result.out_dir / "data.json"
+    if data.exists():
+        import json
+        try:
+            headline = json.loads(data.read_text(encoding="utf-8")).get("headline", "")
+        except (json.JSONDecodeError, OSError):
+            pass
+    text = build_run_message(
+        date=result.date, headline=headline, issues=result.issues, articles=result.articles,
+        site_url=str(cfg.get("site.url", "") or ""), warnings=result.warnings,
+        llm_used=result.llm_used, images=len(list(result.out_dir.glob("img-*.png"))),
+        stats=getattr(result, "stats", None),
+        usd=float(getattr(result.usage, "estimated_usd", 0) or 0) if result.usage else 0.0,
+        krw_per_usd=float(cfg.get("llm.krw_per_usd", 1400)),
+        quiet=bool(getattr(result, "quiet", False)),
+    )
+    print("📨 텔레그램 알림 " + ("전송" if send_telegram(text) else "실패"))
+
+
+def _cmd_weekly(cfg, args) -> int:
+    from .weekly import run_weekly
+
+    result = run_weekly(cfg, end_date=args.end, use_llm=False if args.no_llm else None)
+    print(f"\n🗓  {result.week}  ({result.start} ~ {result.end})  ·  브리핑 {result.days}일치")
+    if result.files:
+        print(f"\n생성된 파일 ({len(result.files)}개)")
+        for path in result.files:
+            print(f"  · {path}")
+    if result.usage and result.usage.calls:
+        print(f"\n💰 {result.usage.summary()}")
+        for line in result.usage.by_kind():          # 어느 단계에서 돈이 나갔는지
+            print(f"  · {line}")
+    if result.warnings:
+        print("\n⚠️  확인이 필요한 사항")
+        for w in result.warnings:
+            print(f"  · {w}")
+    print()
+    return 0 if result.files else 1
+
+
+def _cmd_monthly(cfg, args) -> int:
+    from .monthly import month_title, run_monthly
+
+    result = run_monthly(cfg, month=args.month, use_llm=False if args.no_llm else None)
+    print(f"\n📅 {month_title(result.month)} 결산  ·  브리핑 {result.days}일치")
+    if result.files:
+        print(f"\n생성된 파일 ({len(result.files)}개)")
+        for path in result.files:
+            print(f"  · {path}")
+    if result.usage and result.usage.calls:
+        print(f"\n💰 {result.usage.summary()}")
+        for line in result.usage.by_kind():
+            print(f"  · {line}")
+    if result.warnings:
+        print("\n⚠️  확인이 필요한 사항")
+        for w in result.warnings:
+            print(f"  · {w}")
+    print()
+    # 자료가 모자라 일부러 안 만든 것은 실패가 아니다 (워크플로가 빨갛게 되면 안 된다)
+    return 0 if (result.files or result.skipped) else 1
+
+
+def _cmd_titles(cfg, args) -> int:
+    from .render import update_index
+    from .store import TitleLog
+
+    log_ = TitleLog(cfg.state_dir / "titles.json")
+    if args.titles_cmd == "show":
+        date_str = args.date or local_now(cfg).strftime("%Y-%m-%d")
+        day = log_.days.get(date_str)
+        if not day:
+            print(f"{date_str} 에 기록된 제목 후보가 없습니다.")
+            return 1
+        for kind, entry in day.items():
+            mark = f"  → 고름: {entry['pick']}번" + (f", 조회수 {entry['views']:,}" if entry.get("views") is not None else "") if entry.get("pick") else ""
+            print(f"\n[{kind}]{mark}")
+            for i, t in enumerate(entry.get("candidates", []), start=1):
+                print(f"  {i}. {t}")
+        print()
+        return 0
+    try:
+        entry = log_.log_pick(args.date, args.kind, args.pick, args.views, args.title)
+    except ValueError as exc:
+        print(f"오류: {exc}", file=sys.stderr)
+        return 1
+    log_.save()
+    update_index(cfg)
+    print(f"기록했습니다 — {args.date} {args.kind}: \"{entry['title']}\" ({entry['type']})"
+          + (f", 조회수 {entry['views']:,}" if entry.get("views") is not None else ""))
+    return 0
+
+
+def _cmd_policy(cfg, args) -> int:
+    from . import policy as policy_mod
+    from .render import Renderer
+
+    date_str = args.date or local_now(cfg).strftime("%Y-%m-%d")
+    settings = cfg.get("policy", {}) or {}
+    docs = policy_mod.fetch(cfg, date_str,
+                            days=int(args.days or settings.get("lookback_days", 2)),
+                            limit=int(settings.get("max_docs", 3)))
+    if not docs:
+        print("해당 기간에 정치 관련 정부 발표를 찾지 못했습니다.")
+        return 0
+    renderer = Renderer(cfg, cfg.output_dir / date_str, date_str)
+    for doc in docs:
+        policy_mod.download(doc, renderer.out_dir / "policy", cfg)
+        doc.summary = policy_mod.extractive_summary(doc)
+    if not args.no_llm and cfg.api_key:
+        from .llm import ContentGenerator, LLMError
+
+        try:
+            summaries = ContentGenerator(cfg).summarize_policies(docs)
+            by_id = {s.news_id: s for s in summaries.items}
+            for doc in docs:
+                got = by_id.get(doc.news_id)
+                if got and got.lines:
+                    doc.summary, doc.who = [" ".join(l.split()) for l in got.lines[:3]], got.who
+        except LLMError as exc:
+            print(f"요약 실패, 부처 요약을 그대로 씁니다: {exc}", file=sys.stderr)
+
+    from .pipeline import _link_policies
+
+    _link_policies(cfg, docs, date_str)
+    path = renderer.policy(docs)
+    for doc in docs:
+        print(f"\n[{doc.dept}] {doc.title}")
+        for line in doc.summary:
+            print(f"  · {line}")
+        for f in doc.files:
+            print(f"  📎 {f['name']}" + ("  (내려받음)" if f.get("file") else f"  {f['url']}"))
+    print(f"\n저장 → {path}" if path else "")
+    return 0
+
+
+def _cmd_stats(cfg, args) -> int:
+    from . import stats as stats_mod
+    from .render import Renderer
+
+    if args.tables is not None:
+        if not stats_mod.reb_key():
+            print("REB_API_KEY 가 없습니다. www.reb.or.kr 열린자료에서 인증키를 신청하세요.")
+            return 0
+        rows = stats_mod.reb_tables(cfg, args.tables)
+        if not rows:
+            print("통계표를 찾지 못했습니다. 다른 낱말로 찾아보세요.")
+            return 0
+        for row in rows[:40]:
+            print(f"  {row['id']:>16}  {row['cycle']:<3}  {row['name'][:60]}")
+        print("\n마음에 드는 번호를 config/settings.yaml 의 stats.reb_statbl_id 에 적으세요.")
+        return 0
+
+    date_str = args.date or local_now(cfg).strftime("%Y-%m-%d")
+    if not stats_mod.deal_key():
+        print("DATA_GO_KR_KEY 가 없어 건너뜁니다.")
+        print("공공데이터포털에서 '아파트 매매 실거래가' 를 신청하면 인증키가 나옵니다.")
+        return 0
+    data = stats_mod.collect(cfg, date_str, focus=args.region or None)
+    if not data:
+        print("받아온 거래가 없습니다. 코드·기간을 확인하세요.")
+        return 1
+    series = stats_mod.reb_all_series(cfg, date_str)
+    from .store import TradeLog
+
+    book = TradeLog(cfg.state_dir / "trades.json")
+    book.add(date_str, data, series)
+    book.prune()
+    book.save()
+    region = data["districts"][0]["name"] if data["districts"] else ""
+    renderer = Renderer(cfg, cfg.output_dir / date_str, date_str)
+    supply = stats_mod.reb_supply(cfg, date_str)
+    path = renderer.stats(data, series, history=book.month_series(region), history_region=region,
+                          jeonse_history=book.jeonse_series(region), supply=supply)
+    print(f"{data['month']} 전체 {data['total']}건 (전달 {data['total_before']}건)")
+    for row in data["districts"]:
+        print(f"  {row['name']:<6} {row['now']['count']:>4}건  {row['change']:+4d}  "
+              f"평균 {row['now']['avg'] / 100000000:.1f}억")
+    for name, rows in series.items():
+        print(f"\n부동산원 {name}가격지수({rows[0]['region']}) "
+              f"{rows[0]['when'] or rows[0]['time']} {rows[0]['value']:.2f}"
+              f" → {rows[-1]['when'] or rows[-1]['time']} {rows[-1]['value']:.2f}"
+              f"  ({len(rows)}주)")
+    for item in supply:
+        arrow = ""
+        if item.get("before") is not None:
+            arrow = f"  전달 대비 {item['latest'] - item['before']:+,.0f}"
+        print(f"\n{item['name']} ({item['latest_label']}) {item['latest']:,.0f}{item['unit']}{arrow}")
+    if data.get("swings"):
+        print("\n거래가 크게 움직인 구 (25개 구 전체에서)")
+        for sw in data["swings"]:
+            spot = sw.get("hotspot")
+            where = f"  ← {spot['dong']}에 {spot['share']}% 몰림" if spot else ""
+            print(f"  {sw['name']:<6} {sw['before']:>4}건 → {sw['now']:>4}건  {sw['pct']:+6.1f}%{where}")
+    if data.get("warnings"):
+        print("\n⚠️  확인이 필요한 값")
+        for warn in data["warnings"]:
+            print(f"  · {warn}")
+    print(f"\n저장 → {path}" if path else "")
+    return 0
+
+
+def _cmd_publish(cfg, args) -> int:
+    from .store import PublishLog
+
+    date_str = args.date or local_now(cfg).strftime("%Y-%m-%d")
+    log_ = PublishLog(cfg.state_dir / "published.json")
+    entry = log_.record(date_str, url=args.url, note=args.note, views=args.views)
+    log_.save()
+    bits = [f"{date_str} 발행 기록"]
+    if entry.get("url"):
+        bits.append(entry["url"])
+    if entry.get("views") is not None:
+        bits.append(f"조회수 {entry['views']:,}")
+    print(" · ".join(bits))
+    print("사이트를 다시 만들면 '발행함' 으로 표시됩니다.")
+    return 0
+
+
+def _cmd_site(cfg) -> int:
+    from .site import build_site
+
+    dest = build_site(cfg)
+    days = sum(1 for p in dest.iterdir() if p.is_dir() and p.name != "latest")
+    print(f"사이트를 만들었습니다 — {dest}  (날짜 {days}일치)")
+    print(f"브라우저로 열어 보기: {dest / 'index.html'}")
+    return 0
+
+
+def _cmd_doctor(cfg, verbose: bool = False) -> int:
+    feeds = cfg.feeds
+    enabled = [f for f in feeds if f.enabled]
+    print(f"피드 {len(enabled)}개 점검 중… (전체 {len(feeds)}개, 꺼진 것 {len(feeds) - len(enabled)}개)\n")
+
+    # 실패 사유는 아래 표에 다시 나오므로 수집기 경고 로그는 잠시 접어 둔다.
+    if not verbose:
+        logging.getLogger("rebrief.collect").setLevel(logging.ERROR)
+
+    results = fetch_feeds(cfg, enabled)
+    width = max((len(r.feed.id) for r in results), default=10)
+
+    dead: list[str] = []
+    for result in results:
+        if result.ok:
+            print(f"  ✅  {result.feed.id.ljust(width)}  {len(result.articles):>3}건   {result.feed.name}")
+        else:
+            dead.append(result.feed.id)
+            status = f"HTTP {result.status}" if result.status else "연결 실패"
+            print(f"  ❌  {result.feed.id.ljust(width)}  {status:>9}   {_short(result.error)}")
+
+    print()
+    healthy = len(results) - len(dead)
+    print(f"정상 {healthy}개 / 실패 {len(dead)}개")
+
+    if healthy == 0:
+        # 전부 실패했다면 피드가 죽은 게 아니라 이쪽 네트워크 문제일 가능성이 크다.
+        # 여기서 "피드를 끄세요"라고 안내하면 멀쩡한 소스를 전부 꺼버리게 된다.
+        print(
+            "\n피드가 하나도 응답하지 않았습니다. 개별 피드 문제라기보다는"
+            "\n네트워크·프록시·방화벽 쪽을 먼저 확인하세요. sources.yaml 은 그대로 두시고요.",
+            file=sys.stderr,
+        )
+        return 1
+
+    if dead:
+        print("\n계속 실패하는 피드는 config/sources.yaml 에서 다음처럼 꺼두세요:")
+        for feed_id in dead:
+            print(f"  - id: {feed_id}  →  enabled: false")
+        print("\n(일시적 문제일 수 있으니 한 번 더 돌려보고 판단하세요.)")
+
+    _report_policy_source(cfg)
+    _report_keys(cfg)
+    return 0
+
+
+def _report_keys(cfg) -> None:
+    """선택 기능에 필요한 인증키가 있는지 한눈에. 없다고 실패는 아니다."""
+    from . import stats
+
+    print("\n선택 기능 인증키")
+    rows = [
+        ("실거래가 통계", bool(stats.deal_key()), "DATA_GO_KR_KEY",
+         "공공데이터포털에서 '아파트 매매 실거래가' 신청"),
+        ("부동산원 지수", bool(stats.reb_key()), "REB_API_KEY",
+         "www.reb.or.kr 열린자료에서 인증키 신청"),
+    ]
+    for label, ok, name, how in rows:
+        if ok:
+            print(f"  ✅  {label}")
+        else:
+            print(f"  ⏸  {label} — {name} 없음. {how}")
+    if all(not ok for _, ok, _, _ in rows):
+        print("      (없어도 매일 글은 나옵니다. 있으면 통계와 노출 확인이 더해집니다.)")
+
+    # 사진은 키가 있어도 막힐 수 있어 **실제로 한 번 불러 봅니다.** 클라우드플레어가
+    # 이름 없는 호출을 거르기 때문에, 키가 맞아도 403 이 오는 일이 실제로 있었습니다.
+    from . import photos
+
+    ok, found, why = photos.check_source()
+    if ok:
+        print(f"  ✅  카드뉴스 사진 (Pexels) — 시험 검색 {found}건")
+    elif why == "PEXELS_API_KEY 없음":
+        print("  ⏸  카드뉴스 사진 — PEXELS_API_KEY 없음. pexels.com/api 에서 무료 발급"
+              " (없으면 인포그래픽이 대신 올라갑니다)")
+    else:
+        print(f"  ❌  카드뉴스 사진 — 키는 있는데 부르지 못했습니다: {_short(why)}")
+
+
+def _report_policy_source(cfg) -> None:
+    """정부 발표 원문(정책브리핑)이 살아 있는지 함께 본다. 여기서 실패해도 doctor 는 실패가 아니다."""
+    from . import policy as policy_mod
+
+    print("\n정부 발표 원문 (정책브리핑)")
+    if not (cfg.get("policy", {}) or {}).get("enabled", True):
+        print("  ⏸  꺼져 있습니다 — config/settings.yaml 의 policy.enabled 를 true 로 두면 켜집니다.")
+        return
+    ok, total, hits, error = policy_mod.check_source(cfg)
+    if not ok:
+        reason = error or "목록에서 글을 하나도 찾지 못했습니다 (화면 구조가 바뀌었을 수 있음)"
+        print(f"  ❌  {reason}")
+        print(f"      확인할 주소: {policy_mod.LIST_URL}")
+        return
+    print(f"  ✅  최근 보도자료 {total}건 중 정치 관련 {hits}건")
+    if hits == 0:
+        print("      오늘은 관련 발표가 없을 수 있습니다. 계속 0건이면 settings.yaml 의")
+        print("      policy.keywords / policy.departments 를 넓혀 보세요.")
+
+
+# ── 출력 ─────────────────────────────────────────────────────
+
+
+def _report(result) -> None:
+    print(f"\n📅 {result.date}  ·  기사 {result.articles}건  ·  이슈 {result.issues}개")
+
+    if result.files:
+        print(f"\n생성된 파일 ({len(result.files)}개)")
+        for path in result.files:
+            print(f"  · {path}")
+
+    if result.usage and result.usage.calls:
+        print(f"\n💰 {result.usage.summary()}")
+        for line in result.usage.by_kind():          # 어느 단계에서 돈이 나갔는지
+            print(f"  · {line}")
+    elif not result.llm_used:
+        print("\n요약·대본은 생성하지 않았습니다 (prompt-pack.md 참고).")
+
+    if result.warnings:
+        print("\n⚠️  확인이 필요한 사항")
+        for warning in result.warnings:
+            print(f"  · {warning}")
+    print()
+
+
+def _short(message: str | None, limit: int = 88) -> str:
+    """긴 예외 메시지를 표에 들어갈 길이로 줄인다 (전문은 raw/articles.json 에 남는다)."""
+    text = " ".join((message or "").split())
+    return text if len(text) <= limit else text[: limit - 1] + "…"
+
+
+def _rel(cfg, path: Path) -> Path:
+    try:
+        return path.relative_to(cfg.repo_root)
+    except ValueError:
+        return path
