@@ -181,11 +181,12 @@ class ContentGenerator:
             kind="블로그",
         )
 
-    def generate_video(self, brief: DailyBrief, stats: dict | None = None) -> VideoPack:
+    def generate_video(self, brief: DailyBrief, stats: dict | None = None,
+                       civics: dict | None = None) -> VideoPack:
         log.info("영상 대본 생성 중…")
         return self._parse(
             system=self._shared(brief),
-            user=build_video_user(self.cfg, stats),
+            user=build_video_user(self.cfg, stats, civics),
             output_format=VideoPack,
             kind="영상 대본",
             model=self.script_model,

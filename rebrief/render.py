@@ -87,7 +87,8 @@ class Renderer:
              slot_files: dict[int, str] | None = None,
              key_numbers: list | None = None, related: list[dict] | None = None,
              cover: str = "", policies: list | None = None,
-             stats: dict | None = None, stats_image: str = "") -> Path:
+             stats: dict | None = None, stats_image: str = "",
+             civics: dict | None = None) -> Path:
         blog_cfg = self.cfg.get("blog", {}) or {}
         return self._write(
             "blog.md",
@@ -99,6 +100,7 @@ class Renderer:
                        + lead_block_markdown(post.summary_lines),
             tail_block=takeaways_block_markdown(post.takeaways)
                        + stats_block_markdown(stats, stats_image)
+                       + civics_block_markdown(civics)
                        + policy_block_markdown(policies)
                        + tail_block_markdown(post.closing_question, related),
             key_card="",       # 3줄 요약과 같은 수치를 한 번 더 말하고 있었습니다
@@ -114,7 +116,7 @@ class Renderer:
                    filename: str = "blog-naver.html", key_numbers: list | None = None,
                    related: list[dict] | None = None, cover: str = "",
                    policies: list | None = None, stats: dict | None = None,
-                   stats_image: str = "") -> Path:
+                   stats_image: str = "", civics: dict | None = None) -> Path:
         """네이버 스마트에디터에 붙여넣을 HTML. 브라우저로 열어 버튼으로 복사한다."""
         blog_cfg = self.cfg.get("blog", {}) or {}
         photo_links = {
@@ -141,6 +143,7 @@ class Renderer:
                 policies=policies,
                 stats=stats,
                 stats_image=stats_image,
+                civics=civics,
                 date=self.date,
             ),
             hashtags=format_hashtags(self._tags(post)),
@@ -451,6 +454,16 @@ class Renderer:
         return self._write("stats.md", "stats.md.j2", index=index_table(series or {}),
                            images=files, history_region=history_region, **payload)
 
+    def civics(self, data: dict) -> Path | None:
+        """국회·여론조사 집계 페이지. 자료가 없으면 만들지 않는다."""
+        if not data:
+            return None
+        import json as _json
+
+        self._write_raw("civics.json", _json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+        payload = {"bills": {}, "plenary": {}, "polls": [], "warnings": [], "sample": False, **data}
+        return self._write("civics.md", "civics.md.j2", **payload)
+
     def policy(self, docs: list, stats: dict | None = None) -> Path | None:
         """정부 발표 원문 3줄 요약 + 원본 파일. 없으면 파일을 만들지 않는다.
 
@@ -477,6 +490,7 @@ class Renderer:
             empty_photo_slots=int(artifacts.get("empty_photo_slots", 0) or 0),
             repeats=artifacts.get("repeats") or [],
             prev_bodies=artifacts.get("prev_bodies") or [],
+            date=self.date,
         )
         if artifacts.get("autofixed"):
             items.insert(0, cl.Item("autofix", cl.WARN, f"금지 표현 문장 {len(artifacts['autofixed'])}개를 자동으로 고쳐 씀",
@@ -518,7 +532,7 @@ def to_naver_html(body_markdown: str, slot_files: dict[int, str] | None = None,
                   related: list[dict] | None = None, outline: bool = True,
                   cover: str = "", terms: list[tuple[str, str]] | None = None,
                   takeaways: list[str] | None = None, policies: list | None = None,
-                  stats: dict | None = None, stats_image: str = "",
+                  stats: dict | None = None, stats_image: str = "", civics: dict | None = None,
                   date: str = "") -> str:
     """마크다운 본문을 네이버 에디터가 이해하는 HTML 로 바꾼다.
 
@@ -570,7 +584,7 @@ def to_naver_html(body_markdown: str, slot_files: dict[int, str] | None = None,
             + lead_block_html(summary_lines))
     return (head + html
             + takeaways_block_html(takeaways)
-            + stats_block_html(stats, stats_image) + policy_block_html(policies)
+            + stats_block_html(stats, stats_image) + civics_block_html(civics) + policy_block_html(policies)
             + tail_block_html(closing_question, related))
 
 
@@ -917,6 +931,55 @@ def stats_block_markdown(data: dict | None, image: str = "") -> str:
     if image:
         lines.append(f'\n![지역별 거래 건수]({image})\n')
     lines.append("*국토교통부 실거래가 신고 자료를 직접 집계했습니다. 해제 신고분은 뺐습니다.*\n")
+    return "\n".join(lines)
+
+
+def civics_block_html(data: dict | None) -> str:
+    """직접 센 국회·여론조사 숫자. 모델이 지어낼 수 없게 프로그램이 값을 그대로 넣는다."""
+    if not data:
+        return ""
+    bills, plen, polls = data.get("bills") or {}, data.get("plenary") or {}, data.get("polls") or []
+    parts = ['<div style="margin:28px 0 0;padding:16px 18px;background-color:#ffffff">',
+             f'<b>직접 센 숫자 — 국회·여론조사 (최근 {data.get("days", 7)}일)</b>']
+    if bills.get("latest"):
+        if bills.get("count") is not None:
+            parts.append(f'<p style="margin:10px 0 0">국회의원 발의 법률안 <b>{bills["count"]}건</b>. '
+                         f'가장 최근은 {_esc(bills["latest"][0]["name"])}({_esc(bills["latest"][0]["proposer"])}).</p>')
+        else:
+            parts.append(f'<p style="margin:10px 0 0">최근 발의 법률안: {_esc(bills["latest"][0]["name"])}'
+                         f'({_esc(bills["latest"][0]["proposer"])}) 등.</p>')
+    if plen.get("items"):
+        said = " · ".join(f"{_esc(k)} {v}건" for k, v in (plen.get("by_result") or {}).items())
+        head = f'본회의 처리 법률안 <b>{plen["count"]}건</b>' if plen.get("count") is not None else "본회의 처리 법률안"
+        parts.append(f'<p style="margin:8px 0 0;font-size:15px;color:#555555">{head} — {said}</p>')
+    if polls:
+        items = "".join(f'<li>{_esc(p.get("title", ""))} — {_esc(p.get("summary", ""))}</li>' for p in polls[:3])
+        parts.append(f'<p style="margin:12px 0 4px"><b>이번 주 등록된 선거 여론조사 {len(polls)}건</b></p>'
+                     f'<ul style="margin:0;padding-left:18px;font-size:15px">{items}</ul>')
+    parts.append('<p style="margin:12px 0 0;font-size:13px;color:#888888">열린국회정보·중앙선거여론조사심의위원회 '
+                 '자료를 직접 셌습니다. 여론조사의 자세한 사항은 중앙선거여론조사심의위원회 홈페이지를 참조하세요.</p></div>')
+    return "".join(parts)
+
+
+def civics_block_markdown(data: dict | None) -> str:
+    """보관용 blog.md 에도 같은 내용을 남긴다."""
+    if not data:
+        return ""
+    bills, plen, polls = data.get("bills") or {}, data.get("plenary") or {}, data.get("polls") or []
+    lines = [f'\n**직접 센 숫자 — 국회·여론조사 (최근 {data.get("days", 7)}일)**\n']
+    if bills.get("latest"):
+        first = bills["latest"][0]
+        lines.append((f'국회의원 발의 법률안 **{bills["count"]}건**. ' if bills.get("count") is not None else "")
+                     + f'최근 발의: {first["name"]}({first["proposer"]})')
+    if plen.get("items"):
+        said = " · ".join(f"{k} {v}건" for k, v in (plen.get("by_result") or {}).items())
+        lines.append((f'\n본회의 처리 법률안 **{plen["count"]}건** — ' if plen.get("count") is not None
+                      else "\n본회의 처리 법률안 — ") + said)
+    if polls:
+        lines.append(f"\n이번 주 등록된 선거 여론조사 {len(polls)}건\n")
+        lines += [f'- {p.get("title", "")} — {p.get("summary", "")}' for p in polls[:3]]
+    lines.append("\n*열린국회정보·중앙선거여론조사심의위원회 자료를 직접 셌습니다. "
+                 "여론조사의 자세한 사항은 중앙선거여론조사심의위원회 홈페이지를 참조하세요.*\n")
     return "\n".join(lines)
 
 

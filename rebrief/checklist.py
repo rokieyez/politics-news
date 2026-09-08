@@ -95,6 +95,42 @@ def poll_citations(text: str) -> list[str]:
     return missing
 
 
+def election_blackout(date_str: str, elections: list[dict] | None) -> tuple[str, str] | None:
+    """선거일 전 6일부터 선거일까지면 (선거 이름, 선거일). 아니면 None.
+
+    공직선거법 108조 ① — 선거일 전 6일부터 투표 마감까지 새 여론조사 결과를 공표·인용할 수 없다.
+    날짜가 잘못 적힌 항목은 조용히 건너뛴다 — 설정 한 줄 때문에 점검표가 죽으면 안 된다.
+    """
+    from datetime import date, timedelta
+
+    try:
+        today = date.fromisoformat(date_str)
+    except (TypeError, ValueError):
+        return None
+    for e in elections or []:
+        try:
+            day = date.fromisoformat(str(e.get("date", "")))
+        except (TypeError, ValueError):
+            continue
+        if day - timedelta(days=6) <= today <= day:
+            return str(e.get("name", "선거")), day.isoformat()
+    return None
+
+
+def side_balance(text: str, sides: dict[str, list[str]]) -> dict[str, int]:
+    """진영별 언급 수. 긴 별칭부터 세고 지워서 '더불어민주당' 안의 '민주당' 을 두 번 세지 않는다."""
+    flat = " ".join((text or "").split())
+    counts = {name: 0 for name in sides}
+    aliases = sorted(((a, name) for name, al in sides.items() for a in (al or []) if a),
+                     key=lambda x: len(x[0]), reverse=True)
+    for alias, name in aliases:
+        n = flat.count(alias)
+        if n:
+            counts[name] += n
+            flat = flat.replace(alias, " ")
+    return counts
+
+
 def long_captions(pack, max_chars: int = 16, max_lines: int = 2) -> list[str]:
     """두 줄에 담기지 않는 쇼츠 자막 컷. 화면에서 글자가 작아지거나 넘친다."""
     from .render import wrap_caption
@@ -154,7 +190,8 @@ def _sentences(markdown_text: str, min_len: int = 15) -> list[str]:
 
 def build(cfg: Config, *, brief=None, post=None, pack=None, checks=None,
           link_status=None, warnings=None, llm_used: bool = True,
-          empty_photo_slots: int = 0, repeats=None, prev_bodies=None) -> list[Item]:
+          empty_photo_slots: int = 0, repeats=None, prev_bodies=None,
+          date: str = "") -> list[Item]:
     items: list[Item] = []
     video = cfg.get("video", {}) or {}
     blog = cfg.get("blog", {}) or {}
@@ -210,6 +247,37 @@ def build(cfg: Config, *, brief=None, post=None, pack=None, checks=None,
                               "글 끝의 '자세한 사항은 중앙선거여론조사심의위원회 홈페이지 참조' 는 프로그램이 넣습니다."))
         elif any(w in post.body_markdown for w in POLL_WORDS):
             items.append(Item("poll", OK, "여론조사 인용 표기 갖춤"))
+
+    # 3-3) 선거 기간 — D-6 부터 선거일까지는 새 여론조사 결과를 공표·인용할 수 없다
+    hit = election_blackout(date, cfg.get("elections", []) or []) if date else None
+    if hit and post is not None:
+        name, day = hit
+        body = f"{post.title}\n{post.body_markdown}"
+        has_poll = any(w in body for w in POLL_WORDS) and "%" in body
+        if has_poll:
+            items.append(Item("election", FAIL, f"{name}({day}) 여론조사 공표 금지 기간에 조사 수치가 들어 있습니다",
+                              "선거일 전 6일부터 투표 마감까지는 새 여론조사 결과를 공표·인용할 수 없습니다 "
+                              "(공직선거법 108조). 수치와 '지지율' 문장을 빼고 발행하세요."))
+        else:
+            items.append(Item("election", WARN, f"{name}({day}) 여론조사 공표 금지 기간입니다",
+                              "이 글엔 조사 수치가 없어 괜찮습니다. 손으로 덧붙일 때도 여론조사는 넣지 마세요."))
+
+    # 3-4) 균형 — 두 진영 언급 수가 한쪽으로 몰리면 알린다
+    balance = cfg.get("balance", {}) or {}
+    sides = balance.get("sides") or {}
+    if post is not None and len(sides) >= 2:
+        counts = side_balance(f"{post.title}\n{post.body_markdown}", sides)
+        total = sum(counts.values())
+        min_total = int(balance.get("min_total", 6) or 6)
+        if total >= min_total:
+            top_name, top = max(counts.items(), key=lambda kv: kv[1])
+            said = " · ".join(f"{k} {v}" for k, v in counts.items())
+            if top / total > float(balance.get("max_share", 0.75) or 0.75):
+                items.append(Item("balance", WARN, f"언급이 한쪽에 몰렸습니다 ({said})",
+                                  f"'{top_name}' 이야기만 {top}번 나옵니다. 상대편 입장이 자료에 없으면 "
+                                  "'○○ 측 입장은 확인되지 않았다' 한 줄이라도 넣으세요."))
+            else:
+                items.append(Item("balance", OK, f"양쪽 언급 균형 ({said})"))
 
     # 4) 블로그 분량·태그·이미지 자리
     if post is not None:

@@ -1,0 +1,63 @@
+# 국회·여론조사 직접 집계 — {{ as_of }} 기준 최근 {{ days }}일
+
+기사에 실린 숫자가 아니라 **원자료를 직접 센 값**입니다. 국회 의안은 열린국회정보(open.assembly.go.kr),
+여론조사는 중앙선거여론조사심의위원회(nesdc.go.kr) 등록부를 그대로 읽었습니다.
+{% if sample %}
+
+> ⏸ 열린국회정보 인증키(`ASSEMBLY_API_KEY`)가 없어 **견본 모드**입니다. 한 번에 5건만 와서
+> 기간 안의 건수는 세지 못하고 최근 5건만 보여 줍니다. 키를 넣으면 건수가 나옵니다.
+{% endif %}
+
+## 국회의원 발의 법률안
+{% if bills %}
+{% if bills.count is not none %}
+{{ since }} 이후 발의 **{{ bills.count }}건** (제22대 국회 누적 {{ '{:,}'.format(bills.age_total) }}건)
+{% else %}
+최근 발의 5건 (건수는 견본 모드라 세지 못함)
+{% endif %}
+
+| 발의일 | 법률안 | 발의 |
+| --- | --- | --- |
+{% for b in bills.latest %}
+| {{ b.date }} | [{{ b.name }}]({{ b.link }}) | {{ b.proposer }} |
+{% endfor %}
+{% else %}
+받지 못했습니다.
+{% endif %}
+
+## 본회의 처리 법률안
+{% if plenary and plenary["items"] %}
+{% if plenary.count is not none %}
+{{ since }} 이후 처리 **{{ plenary.count }}건** — {% for k, v in plenary.by_result.items() %}{{ k }} {{ v }}건{% if not loop.last %} · {% endif %}{% endfor %}
+{% else %}
+견본 5건 가운데 기간 안에 처리된 것만 — {% for k, v in plenary.by_result.items() %}{{ k }} {{ v }}건{% if not loop.last %} · {% endif %}{% endfor %}
+{% endif %}
+
+| 처리일 | 법률안 | 결과 | 찬성 / 반대 / 기권 |
+| --- | --- | --- | --- |
+{% for p in plenary["items"] %}
+| {{ p.date }} | [{{ p.name }}]({{ p.link }}) | {{ p.result }} | {% if p.yes is not none %}{{ p.yes }} / {{ p.no }} / {{ p.blank }}{% else %}—{% endif %} |
+{% endfor %}
+{% else %}
+{{ since }} 이후 본회의에서 처리된 법률안이 없거나 받지 못했습니다.
+{% endif %}
+
+## 등록된 선거 여론조사
+{% if polls %}
+{{ since }} 이후 등록 **{{ polls|length }}건**. 글에서 인용할 때는 아래 개요를 함께 적어야 합니다 (공직선거법 108조).
+
+{% for p in polls %}
+- **{{ p.title }}** ({{ p.region }}) — {{ p.summary }}{% if p.outlet %} · 공표 {{ p.outlet }}{% endif %} · [등록부]({{ p.link }})
+{% endfor %}
+{% else %}
+{{ since }} 이후 등록된 여론조사가 없거나 받지 못했습니다.
+{% endif %}
+{% if warnings %}
+
+## 받지 못한 것
+{% for w in warnings %}
+- {{ w }}
+{% endfor %}
+{% endif %}
+
+*자세한 사항은 중앙선거여론조사심의위원회 홈페이지를 참조하세요. 본회의 표결 수는 열린국회정보 자료 그대로입니다.*

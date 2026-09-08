@@ -392,7 +392,7 @@ class FakeGenerator:
         self.calls.append("blog")
         return make_post()
 
-    def generate_video(self, brief, stats=None):
+    def generate_video(self, brief, stats=None, civics=None):
         self.calls.append("video")
         return make_pack()
 

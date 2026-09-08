@@ -67,6 +67,7 @@ def cfg(tmp_path: Path) -> Config:
     settings["images"]["photos"] = False
     settings["collect"]["check_links"] = False        # 링크 점검은 별도 테스트에서 스텁으로
     settings.setdefault("stats", {})["enabled"] = False  # 정부 통계는 개별 테스트에서만 켠다
+    settings.setdefault("civics", {})["enabled"] = False  # 국회·여론조사 집계도 망을 탄다
 
     # 피드는 픽스처 하나만 쓴다.
     sources = yaml.safe_load(yaml.safe_dump(real.sources, allow_unicode=True))

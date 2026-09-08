@@ -526,22 +526,22 @@ def _cmd_doctor(cfg, verbose: bool = False) -> int:
 
 def _report_keys(cfg) -> None:
     """선택 기능에 필요한 인증키가 있는지 한눈에. 없다고 실패는 아니다."""
-    from . import stats
+    from . import civics
+
+    print("\n국회·여론조사 직접 집계")
+    ok_a, key_state, ok_n, n, err = civics.check_source()
+    if ok_a:
+        print(f"  ✅  열린국회정보 의안 API — {key_state}")
+        if "없음" in key_state:
+            print("      건수를 세려면 ASSEMBLY_API_KEY 가 필요합니다. open.assembly.go.kr 회원가입 → 마이페이지 → 인증키 신청(무료)")
+    else:
+        print(f"  ❌  열린국회정보 의안 API — {_short(err) or '응답 없음'}")
+    if ok_n:
+        print(f"  ✅  선거여론조사심의위 등록부 — 첫 쪽 {n}건")
+    else:
+        print(f"  ❌  선거여론조사심의위 등록부 — {_short(err) or '목록을 읽지 못함 (화면 구조가 바뀌었을 수 있음)'}")
 
     print("\n선택 기능 인증키")
-    rows = [
-        ("실거래가 통계", bool(stats.deal_key()), "DATA_GO_KR_KEY",
-         "공공데이터포털에서 '아파트 매매 실거래가' 신청"),
-        ("부동산원 지수", bool(stats.reb_key()), "REB_API_KEY",
-         "www.reb.or.kr 열린자료에서 인증키 신청"),
-    ]
-    for label, ok, name, how in rows:
-        if ok:
-            print(f"  ✅  {label}")
-        else:
-            print(f"  ⏸  {label} — {name} 없음. {how}")
-    if all(not ok for _, ok, _, _ in rows):
-        print("      (없어도 매일 글은 나옵니다. 있으면 통계와 노출 확인이 더해집니다.)")
 
     # 사진은 키가 있어도 막힐 수 있어 **실제로 한 번 불러 봅니다.** 클라우드플레어가
     # 이름 없는 호출을 거르기 때문에, 키가 맞아도 403 이 오는 일이 실제로 있었습니다.

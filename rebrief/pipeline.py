@@ -37,7 +37,8 @@ class RunResult:
     usage: Usage | None = None
     llm_used: bool = False
     warnings: list[str] = field(default_factory=list)
-    stats: dict = field(default_factory=dict)      # 실거래 집계 (알림·요약에 쓴다)
+    stats: dict = field(default_factory=dict)      # 실거래 집계 (알림·요약에 쓴다) — 이 저장소에선 꺼 둠
+    civics: dict = field(default_factory=dict)     # 국회·여론조사 집계
     quiet: bool = False                            # 한산해서 일부러 안 만든 날 (실패가 아니다)
 
 
@@ -132,6 +133,9 @@ def run(
     # 오늘 이슈에 나온 지역을 먼저 보게 해서 글과 표가 같은 곳을 가리키게 한다.
     stats_data = _collect_stats(cfg, renderer, date_str, result, focus=_focus_regions(issues))
     result.stats = stats_data or {}
+    # 정치용 직접 센 숫자 — 국회 의안과 등록 여론조사. 블로그 상자와 대본에 그대로 들어간다.
+    civics_data = _collect_civics(cfg, renderer, date_str, result)
+    result.civics = civics_data or {}
     # 한산한 날은 억지로 만들지 않는다. 통계는 그대로 받아 두었으니 그 페이지는 남는다.
     quiet, quiet_why = quiet_day(cfg, clusters, issues)
     if quiet and want_llm:
@@ -147,7 +151,7 @@ def run(
     artifacts: dict = {}
     if want_llm and issues:
         artifacts = _generate_with_llm(cfg, renderer, issues, date_str, result, model=model,
-                                       stats_data=stats_data)
+                                       stats_data=stats_data, civics_data=civics_data)
     else:
         if use_llm is not False and not cfg.api_key:
             result.warnings.append(
@@ -233,6 +237,7 @@ def _generate_with_llm(
     result: RunResult,
     model: str | None = None,
     stats_data: dict | None = None,
+    civics_data: dict | None = None,
 ) -> dict:
     """LLM 3단계 생성. 중간에 실패해도 거기까지 만든 건 남긴다.
 
@@ -292,14 +297,15 @@ def _generate_with_llm(
         made["policies"] = policies
         stats_image = (renderer.stats_images or {}).get("volume", "")
         renderer.blog(post, issues, slot_files, key_numbers=keys, related=related, cover=cover,
-                      policies=policies, stats=stats_data, stats_image=stats_image)
+                      policies=policies, stats=stats_data, stats_image=stats_image, civics=civics_data)
         if str(cfg.get("blog.platform", "naver")).lower() == "naver":
             renderer.blog_naver(post, slot_files, key_numbers=keys, related=related, cover=cover,
-                                policies=policies, stats=stats_data, stats_image=stats_image)
+                                policies=policies, stats=stats_data, stats_image=stats_image,
+                                civics=civics_data)
         _record_titles(cfg, date_str, blog=[post.title])
 
     try:
-        pack = generator.generate_video(brief, stats=stats_data)
+        pack = generator.generate_video(brief, stats=stats_data, civics=civics_data)
     except Exception as exc:
         # 대본은 마지막이자 가장 덜 중요한 산출물입니다. 여기서 무엇이 터지든
         # **이미 돈을 내고 만든 브리핑과 블로그까지 버릴 이유는 없습니다.**
@@ -604,6 +610,28 @@ def _collect_stats(cfg: Config, renderer: Renderer, date_str: str, result,
         # 응답이 비어 오면 그 구가 조용히 0건이 된다. 사람이 한 번 보게 올린다.
         result.warnings += data.get("warnings", [])
         log.info("실거래가 %d개 지역 집계", len(data["districts"]))
+    return data
+
+
+def _collect_civics(cfg: Config, renderer: Renderer, date_str: str, result) -> dict:
+    """국회·여론조사를 직접 세어 페이지로 만든다. 실패해도 실행은 계속한다."""
+    from . import civics as civics_mod
+
+    if not (cfg.get("civics", {}) or {}).get("enabled", True):
+        return {}
+    try:
+        data = civics_mod.collect(cfg, date_str)
+    except Exception as exc:                       # 외부 화면이 바뀌어도 실행은 멈추지 않는다
+        log.warning("국회·여론조사 집계 실패: %s", exc)
+        result.warnings.append(f"국회·여론조사 집계 실패 — {type(exc).__name__}")
+        return {}
+    if not data:
+        return {}
+    renderer.civics(data)
+    result.warnings += data.get("warnings", [])
+    log.info("국회·여론조사 집계: 발의 %s · 본회의 %s · 여론조사 %d건",
+             (data.get("bills") or {}).get("count", "견본"), (data.get("plenary") or {}).get("count", "견본"),
+             len(data.get("polls") or []))
     return data
 
 

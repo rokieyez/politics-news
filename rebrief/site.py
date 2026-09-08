@@ -32,7 +32,7 @@ PAGES = [
     ("script-longform.md", "롱폼 대본", "8분. 챕터와 자료화면 포함"),
     ("production-notes.md", "제작 메모", "제목·썸네일·태그·촬영 목록"),
     ("policy.md", "정부 발표 원문", "보도자료 3줄 요약과 원본 파일"),
-    ("stats.md", "실거래가 통계", "정부 신고 자료를 직접 집계한 표"),
+    ("civics.md", "국회·여론조사 집계", "발의 법률안·본회의 처리·등록 여론조사를 직접 센 표"),
     ("sources.md", "기사 원문", "근거가 된 기사 링크"),
 ]
 EXTRA_FILES = ["script-shorts.srt", "shorts-cuts.csv", "longform-chapters.csv", "data.json"]
@@ -143,6 +143,38 @@ def _write_pwa(dest: Path, channel: str, png: bool = True) -> None:
     }, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def _civics_entries(day: Path) -> list[dict]:
+    """그날 국회·여론조사 집계를 검색에 넣는다. '갤럽 응답률' 로 찾아도 나오게."""
+    import json
+
+    path = day / "civics.json"
+    if not path.exists():
+        return []
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return []
+    numbers = []
+    bills, plen = data.get("bills") or {}, data.get("plenary") or {}
+    if bills.get("count") is not None:
+        numbers.append({"label": "발의 법률안", "value": bills["count"], "unit": "건"})
+    for k, v in (plen.get("by_result") or {}).items():
+        numbers.append({"label": f"본회의 {k}", "value": v, "unit": "건"})
+    for p in data.get("polls") or []:
+        if p.get("sample_size"):
+            numbers.append({"label": f"{p.get('agency', '')} 표본", "value": p["sample_size"], "unit": "명"})
+    if not numbers and not data.get("polls"):
+        return []
+    return [{
+        "title": f"국회·여론조사 집계 — {data.get('as_of', '')}",
+        "category": "직접 집계",
+        "one_liner": f"최근 {data.get('days', 7)}일 발의·본회의 처리 법률안과 등록 여론조사 "
+                     f"{len(data.get('polls') or [])}건 (조사기관·표본·응답률·오차범위).",
+        "numbers": numbers,
+        "href": "civics.html",
+    }]
+
+
 def _stats_entries(day: Path) -> list[dict]:
     """그날 실거래 집계를 검색에 넣는다. 뉴스 수치만 색인하면 '노원구 전세가율' 로 찾아도 안 나온다.
 
@@ -202,6 +234,7 @@ def _build_search(env, days: list[Path], built: list[dict], dest: Path) -> None:
                         for n in i.get("numbers", [])],
         } for i in data.get("issues", [])]
         issues += _stats_entries(day)
+        issues += _civics_entries(day)
         index.append({
             "date": day.name, "href": first_page.get(day.name, "brief.html"),
             "headline": data.get("headline", ""),

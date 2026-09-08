@@ -261,7 +261,38 @@ def stats_context(stats: dict | None) -> str:
 ──────────────────────────────────────"""
 
 
-def build_video_user(cfg: Config, stats: dict | None = None) -> str:
+def civics_context(data: dict | None) -> str:
+    """영상 대본에 넘길 국회·여론조사 자료. 값은 프로그램이 센 것이라 그대로 인용하게 한다."""
+    if not data:
+        return ""
+    bills, plen, polls = data.get("bills") or {}, data.get("plenary") or {}, data.get("polls") or []
+    lines = []
+    if bills.get("latest"):
+        head = (f"최근 {data.get('days', 7)}일 국회의원 발의 법률안 {bills['count']}건" if bills.get("count") is not None
+                else "최근 발의 법률안(견본 5건, 전체 건수는 모름)")
+        lines.append(head + " — " + ", ".join(b["name"] for b in bills["latest"][:3]))
+    if plen.get("items"):
+        said = " · ".join(f"{k} {v}건" for k, v in (plen.get("by_result") or {}).items())
+        lines.append("본회의 처리 법률안: " + said)
+        lines += [f"  - {p['name']} ({p['result']}, {p['date']}"
+                  + (f", 찬성 {p['yes']}·반대 {p['no']}·기권 {p['blank']}" if p.get("yes") is not None else "") + ")"
+                  for p in plen["items"][:6]]
+    if polls:
+        lines.append(f"등록된 선거 여론조사 {len(polls)}건:")
+        lines += [f"  - {p.get('title', '')} — {p.get('summary', '')}" for p in polls[:5]]
+    if not lines:
+        return ""
+    body = "\n".join(lines)
+    return f"""
+
+────────── 국회·여론조사 자료 (우리가 직접 센 값, {data.get('since', '')} 이후) ──────────
+{body}
+※ 열린국회정보·선거여론조사심의위원회 자료를 프로그램이 직접 센 값입니다. **숫자를 바꾸지 말고 그대로 인용하세요.**
+※ 여론조사를 말할 때는 위 개요(조사기관·조사 기간·표본·응답률·오차범위)를 함께 말합니다. 오차범위 안의 차이는 "앞선다" 고 하지 않습니다.
+──────────────────────────────────────"""
+
+
+def build_video_user(cfg: Config, stats: dict | None = None, civics: dict | None = None) -> str:
     video = cfg.get("video", {}) or {}
     shorts_sec = int(video.get("shorts_seconds", 60))
     long_min = float(video.get("longform_minutes", 8))
@@ -271,8 +302,8 @@ def build_video_user(cfg: Config, stats: dict | None = None) -> str:
     shorts_chars = int(shorts_sec / 60 * cpm)
     long_chars = int(long_min * cpm)
 
-    return f"""위 브리핑{"과 아래 실거래 자료" if stats else ""}를 바탕으로 오늘 촬영할 영상 두 편의 제작 자료를 만드세요.
-{stats_context(stats)}
+    return f"""위 브리핑{"과 아래 자료" if (stats or civics) else ""}를 바탕으로 오늘 촬영할 영상 두 편의 제작 자료를 만드세요.
+{stats_context(stats)}{civics_context(civics)}
 
 ■ 쇼츠 ({shorts_sec}초)
 - 브리핑에서 **가장 임팩트 있는 이슈 하나만** 고릅니다. 여러 개 담지 마세요.
