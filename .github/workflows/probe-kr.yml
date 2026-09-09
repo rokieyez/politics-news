@@ -1,0 +1,27 @@
+# 임시 탐침 — 깃허브 러너(해외)에서 한국 정부 사이트가 왜 끊기는지 잰다. 잰 뒤 지운다.
+name: 접속 탐침
+on:
+  workflow_dispatch:
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: 러너 위치
+        run: curl -s -m 10 https://ipinfo.io/json || true
+      - name: 열린국회정보·korea.kr·선관위 연결 시간 (각 5회, 연결 제한 40초)
+        run: |
+          for url in "https://open.assembly.go.kr/portal/openapi/nzmimeepazxkubdpn?Type=json&pIndex=1&pSize=1&AGE=22" \
+                     "https://www.korea.kr/briefing/pressReleaseList.do" \
+                     "https://www.nesdc.go.kr/portal/bbs/B0000005/list.do?menuNo=200467"; do
+            echo "== $url"
+            for i in 1 2 3 4 5; do
+              curl -s -o /dev/null -m 60 --connect-timeout 40 \
+                -w "  $i: http=%{http_code} 연결=%{time_connect}s tls=%{time_appconnect}s 전체=%{time_total}s\n" "$url" \
+                || echo "  $i: 실패(exit $?)"
+            done
+          done
+      - name: DNS·경로
+        run: |
+          getent hosts open.assembly.go.kr www.korea.kr www.nesdc.go.kr || true
+          for h in open.assembly.go.kr www.korea.kr; do echo "== $h"; (traceroute -m 20 -w 2 $h 2>&1 || tracepath -m 20 $h 2>&1) | tail -8; done
