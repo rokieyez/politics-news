@@ -55,6 +55,7 @@ prefetch() {
     (cd "$CLONE" && "$GIT" fetch -q --depth 1 origin main && "$GIT" reset -q --hard origin/main) 2>>"$LOG" \
         || { say "사본 갱신 실패"; return 1; }
     mkdir -p "$CLONE/state/civics" && cp "$file" "$CLONE/state/civics/"
+    rm -f "$file"       # 작업 폴더에 남겨 두면 나중에 git pull 이 "추적하지 않는 파일을 덮어쓴다" 며 막힌다 (9/10 실제로 그랬음)
     (cd "$CLONE" && "$GIT" add state/civics && "$GIT" -c user.name="rokiz-mac" -c user.email="rokieyez@gmail.com" \
         commit -q -m "국회 자료 미리 받음: $TODAY (맥)" && "$GIT" push -q origin HEAD:main) 2>>"$LOG" \
         || { say "미리 받은 자료 푸시 실패 — 러너가 직접 받습니다"; return 1; }
