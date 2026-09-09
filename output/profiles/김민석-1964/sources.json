@@ -1,6 +1,6 @@
 {
  "name": "김민석",
- "fetched_at": "2026-09-09T17:11:06",
+ "fetched_at": "2026-09-09T08:55:04",
  "member": {
   "name": "김민석",
   "code": "MLH1404S",
@@ -294,6 +294,30 @@
     "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2R5Z0A3Z2X5W1W5F2D4C4A8B4J5I3&ageFrom=22&ageTo=22"
    },
    {
+    "age": "제22대",
+    "name": "아동학대범죄의 처벌 등에 관한 특례법 일부개정법률안",
+    "date": "2025-03-21",
+    "proposer": "김민석의원 등 14인",
+    "committee": "법제사법위원회",
+    "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_E2D5C0A3B1X9V0U9V5U1C3A6Z4A0Y8&ageFrom=22&ageTo=22"
+   },
+   {
+    "age": "제22대",
+    "name": "정보통신망 이용촉진 및 정보보호 등에 관한 법률 일부개정법률안",
+    "date": "2025-03-21",
+    "proposer": "김민석의원 등 14인",
+    "committee": "과학기술정보방송통신위원회",
+    "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2R5Z0Y3X1X9W0S9R5P2Q2O4W3V4U2&ageFrom=22&ageTo=22"
+   },
+   {
+    "age": "제22대",
+    "name": "긴급복지지원법 일부개정법률안",
+    "date": "2025-03-21",
+    "proposer": "김민석의원 등 14인",
+    "committee": "보건복지위원회",
+    "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_T2R5S0A3A1Z9H0F9E2F8D4Z6Y8Z5X2&ageFrom=22&ageTo=22"
+   },
+   {
     "age": "제21대",
     "name": "노인복지법 일부개정법률안",
     "date": "2023-12-06",
@@ -332,34 +356,40 @@
     "proposer": "김민석의원 등 10인",
     "committee": "국토교통위원회",
     "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2J3K0I7J2E7D1E5C0D3B3J5K4I3J8&ageFrom=21&ageTo=21"
+   },
+   {
+    "age": "제21대",
+    "name": "동물보호법 일부개정법률안",
+    "date": "2023-09-20",
+    "proposer": "김민석의원 등 10인",
+    "committee": "농림축산식품해양수산위원회",
+    "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_P2Q3O0M8N2V4V1U6U0T4T5R8Z1A7Y4&ageFrom=21&ageTo=21"
+   },
+   {
+    "age": "제21대",
+    "name": "응급의료에 관한 법률 일부개정법률안",
+    "date": "2023-09-19",
+    "proposer": "김민석의원 등 11인",
+    "committee": "보건복지위원회",
+    "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_O2J3K0J8J2H4G1H6O0P4N1O0M5L1L4&ageFrom=21&ageTo=21"
+   },
+   {
+    "age": "제21대",
+    "name": "소방기본법 일부개정법률안",
+    "date": "2023-09-19",
+    "proposer": "김민석의원 등 10인",
+    "committee": "행정안전위원회",
+    "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_O2W3W0V8W2U4S1T6O0P5O2O7M1L3L3&ageFrom=21&ageTo=21"
    }
   ],
-  "sample": true
+  "sample": false
  },
  "recent": [
   {
-   "title": "'18년 광야생활' 김민석, 총리 이어 與대표로…2030 대망론도 시선(종합)",
-   "source": "연합뉴스",
-   "date": "2026-08-17",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBsYlBJRHliUmM5cjdrUGljN0dyOXc4S1JBdGZZdFJzMWZEaElnbF9PYTgzSlQxc2MwT1JwOUFaLTNxaGtrUE1rTXlmajhsaWR3d1hVLXozb3BHc0XSAWBBVV95cUxQS0NrMEd4bnNsb0diSGJQMDc1U0E4bzUtbm9yazNRNEJxYXBrQjNEaHBvUHpyNzdNZkRvSmxZc3M2Wkc5NXNRTWNSYmVESHBGMWFTQlRqbzZwRHZZWHd5S3E?oc=5"
-  },
-  {
-   "title": "민주당 새 당대표 김민석…최고위원은 ‘친청계’가 웃었다",
-   "source": "KBS 뉴스",
-   "date": "2026-08-18",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5JSE5HTi00NUx3RUNQRGZQT216RWR5TkZaRGRONXlNOFlyNmd3T09NZlF1VVpmbUtGSlROY2NfTEJnU2NGZ3Qtd1hXeFU0QWc2bUtjcE1PaHZ3NVE?oc=5"
-  },
-  {
    "title": "김민석, 당대표 특보에 송호창·정봉주 등 7명 임명",
-   "source": "연합뉴스",
+   "source": "yna.co.kr",
    "date": "2026-08-27",
    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9oNlNkc294S3VZbENRck5SYTlscTNfTlFtdVBScEI2SVoyeVZvcWN5OElpREY0OWJONGZJUlNTbFBkTV9UNl90ZWdNaFhTWGdwX2lnSVVCUnp4dWvSAWBBVV95cUxNVFpKdWVkQmJYYjBQbEVyMUFibFlxVmI0TXNHa1FuUk9vSUV5azFzbnAwdS1XRXNwRGdwYkR3U2JMVm9jWEFJZXh5TGo0QW1vTUxSUDdDTkpDaDRRNU9YbEE?oc=5"
-  },
-  {
-   "title": "민주당 여론조사 조작의혹 유튜버, 김민석 당대표 고소",
-   "source": "KBS 뉴스",
-   "date": "2026-09-04",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1HcjNOTnViQ0RsSnZNVTFRS3lQcm1MdEhpWmU4QnVRZmFjSXpBV28xZGJOMDZjYVFOOVNjNnhHak5tMjNTNDdhV1l5Z1l2TDN0OVF4WG1KVjQ3ZVU?oc=5"
   },
   {
    "title": "[국무조정실] 김민석 국무총리 주재 탄소중립녹색성장위원회 전체회의 보도자료",
@@ -369,7 +399,7 @@
   },
   {
    "title": "김민석, 노량진수산시장서 민생행보…헌정회 찾아 원로 예방",
-   "source": "연합뉴스",
+   "source": "yna.co.kr",
    "date": "2026-09-07",
    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE4xTjhDVXBhd0w3WEVXWjhpYWNPMnhBeEFFR3pYa3I3NjZCNjNRNWZHZTltNmdrUW1SNW10UmZMemptaENvVTZDRlRsZGkwQW45ZmVLUFEzRFdwOEXSAWBBVV95cUxOcXVqTVBmbjJEMWpNbGNTNTJiR1h3NkRxRDRhYnRsaEEtOWV6dnRSYlJ3VURRREh4MWdDeDJRNl92R3dkVm1aZTkyd1JzVDVnaHZqMTdnNEd0ckNvYWtxeW0?oc=5"
   },
@@ -386,36 +416,6 @@
    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBTMlBrWGlYcTAxQnJYV3d1Y2dhWkQ0d3NnaWZESEpxVTk3ZWhZc3cxQ1R6aDhZcmNKQzN2UnZ2R3IzZ2hZR3R6anhHNmpJUktpWjczUFRlTzAxTlk?oc=5"
   },
   {
-   "title": "김민석 \"철없는 관종\"·송영길 \"존재감 발버둥\"…한동훈에 맹공",
-   "source": "연합뉴스",
-   "date": "2026-09-07",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9xNm1vRGJiVjQwZ2t0TXc3NVlvajVKdU9DMF81dWFTY05mb05TZl9ubHdmNXJSSUc3ZGhMeG5yNzcycGxzX0xmcWJEdXVxczlMVU14R0RGODlFeG_SAWBBVV95cUxQXzBBbmc0QXhhTzlETFBNZmFfcmJId3pKNWU3UG1OUTAzUkRkeUJjVlNzU3lSMDBqdWFkNXh4TVpXZThoUWxDWGRvV2JCQ0M0R3p0VDd5a0tHd3hEM0NXbG8?oc=5"
-  },
-  {
-   "title": "[속보]김민석 \"교섭단체 정수 조정 논의 등 정치개혁 추진\" - 머니투데이",
-   "source": "머니투데이",
-   "date": "2026-09-07",
-   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBrdHM1dFoxU1RkeXYyTllCOU1ZWXFsM0tTSkx4d0pLN3E5azl5bXRCa0RZTk12TTFlYzRYMFdVVEN0UWRmUmZocGhjRmdCSGNwdExsYmlmRWhCVmhtaDVPRkVlcU5UbGVpRUt5V9IBckFVX3lxTE5CRjZ1a3ZMOW0tVGtxNTNxRmkxUmZvaEhaclZrYUtqS1FaOU1CQjRkS3lFc2s3aXQzTFNYbFBaMUcyeHdKeklNekZqUV8tOFVCczN6RVhpSk5iT1NFai1odGdjU1FqMWQxbHdqNVh6S0Y0Zw?oc=5"
-  },
-  {
-   "title": "김민석 “개헌, 국민이 원하는 선까지...민생 최우선하며 모든 지역 성장 추진하겠다”",
-   "source": "시사뉴스",
-   "date": "2026-09-07",
-   "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9XaDNOWm5rYjZZQVVMT214UkxEYVJKWXJyNGVJaUhHclZXNnZ0eXRCUVpEejNRUWFaTjVDVmR4anI3WV9tYnR0YV9BVHpJbDZXeXVIdXc1ZkFKb1Nxeno3SG9fMA?oc=5"
-  },
-  {
-   "title": "[포토] 교섭단체 대표연설하는 김민석 당대표",
-   "source": "아이뉴스24",
-   "date": "2026-09-07",
-   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1XRXNfbVlJdGIyOHhnRWJ4UmdRQk1hcWJhUGQ1QldOdGlOcHJnM0dlSWdBaWREZml2OVFweGVwSUg4UXJUWDFrdVdmYw?oc=5"
-  },
-  {
-   "title": "[포토] 의원들과 인사하는 김민석 당대표",
-   "source": "아이뉴스24",
-   "date": "2026-09-07",
-   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1uTTZmUmxNTm0tQmxrS08wQTBwcE9oYjhqN3JmYlRwZUxYcy1wOEJHdjA1cUg1YnRGbERjbXRKaVJUVUNNSEE0V2Jfaw?oc=5"
-  },
-  {
    "title": "김민석 총리, 청소년·청년 기후대표단 면담",
    "source": "국가기후위기대응위원회",
    "date": "2026-09-08",
@@ -423,13 +423,13 @@
   },
   {
    "title": "김민석, '진짜 레드팀' 할 수 있을까",
-   "source": "ohmynews.com",
+   "source": "OhmyNews",
    "date": "2026-09-08",
    "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPWDJHODhnUGR0Y0VJdTlva3VNOVNNTjR4eDBXM3Z5Tk10cEdKZFRCbURfWjBYb01TRkhWZ0JTZkxUM0RySHo4ZExDanhHRlBWWEIzM1lyV2R5ckhkeHRlcHNBc19aUUtMYXMyVE9wSGZUQXoyRG4xNUc1MEdrVXlYNDF1TzRraHprSFE?oc=5"
   },
   {
    "title": "김민석·송영길, 한동훈에 맹공…\"철없는 관종\"·\"존재감 발버둥\"",
-   "source": "yonhapnewstv.co.kr",
+   "source": "연합뉴스TV",
    "date": "2026-09-08",
    "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9QUFd3V01teWNpbUkwb3NTS0JhTDRhQUdCelBpcUY4eUlCTldobkxYRUVxOFlfMjlfSFRqOWJEbUhobGgwS2c5a0xNOTFaTURqSUl6eG50RE5BbEl4T1Z4TFRORXFnTkE?oc=5"
   },
@@ -440,16 +440,16 @@
    "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5YbDVOczJ1V1FmcXZ0X1N1ZFl1YmZLTktlbE9oTDJ2N0x0eE5jQnBFT3hweG03b3phdm41R05naVdMcEhPLS1aVHBONUNzOVFrRUNIczJsYWZmV1VwSlE?oc=5"
   },
   {
-   "title": "노량진시장 찾은 김민석 \"김영란법, 선물 아닌 회식 완화 검토\"",
-   "source": "v.daum.net",
-   "date": "2026-09-08",
-   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5XRVhWYlNqWERXcS12dXlaLVNVc0dabHE3bm5ma0RySW9VckhYRUNmOEFKcFhUUklvY0huWVcwMXNyUEdOajZIZDh6c2g2OWs?oc=5"
-  },
-  {
    "title": "김민석, 한동훈에 “철없는 관종”… 韓 “NHK룸살롱 오빠들” 반격",
    "source": "v.daum.net",
    "date": "2026-09-08",
    "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1raUpUSWRvMjJiREdELXl1N2RZdzl1WGVIejkxMWYyVzdWMXJXb0FPbWlLU0dwSFJDWmFwYkc0RERQOWRGNEtPbUtnOTJqRkk?oc=5"
+  },
+  {
+   "title": "노량진시장 찾은 김민석 \"김영란법, 선물 아닌 회식 완화 검토\"",
+   "source": "v.daum.net",
+   "date": "2026-09-08",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5XRVhWYlNqWERXcS12dXlaLVNVc0dabHE3bm5ma0RySW9VckhYRUNmOEFKcFhUUklvY0huWVcwMXNyUEdOajZIZDh6c2g2OWs?oc=5"
   },
   {
    "title": "김민석 \"대통령에 용혜인 부정적 여론 전달?…조선일보 오보\"",
@@ -459,7 +459,7 @@
   },
   {
    "title": "김민석, '이 정부서 개헌 없다' 정점식 연설에 \"걸림돌 아냐\"",
-   "source": "연합뉴스",
+   "source": "yna.co.kr",
    "date": "2026-09-08",
    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBIS0prbGNaSkZIZDRocjJLeW1GbzRtZE1CeTIwVVJaemV2VGF6c2VUWXRaSjVWX09lZDV4cXF6MVFGR2Q2Z0pna0xETDQ1Z1oxbHUwQnp0N0ZyZFHSAWBBVV95cUxNQmdqMy1od2JpUVFpRDc5dTlkWDVZc19pcnQ5ZW9ES05pUEQ1SlVEa1Flbi0yS0VWWEo0R21BdzdfeVNxZThNVDluRUd2VHJUbE5LZE1CYk41MzV5VFlLNUg?oc=5"
   },
@@ -471,19 +471,13 @@
   },
   {
    "title": "김민석, 노량진수산시장 찾아 \"회식 활성화 방안 찾아보겠다\"",
-   "source": "연합뉴스",
+   "source": "yna.co.kr",
    "date": "2026-09-08",
    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE8zaEZoNklKVUloNlZHMEpyQ0hkYjhJaWdrTTM4VU1lZXA0c3dEVWt6RTRwb3FfMFhtcXd6N3k4Sk04b21ta0FOa0I0NmhSUFdsR1RyR0doN05MOGvSAWBBVV95cUxNM2tQSGJ4ZHVHaExISHM3ZEV6b3daRHpzVGJDUVFoWjhLUkVubTd5bnBkYWtjdllYWkNLREtDZTg1alRVby14Tm0tel9ITHZONXpZdTA5dURDRHdxNjJVLUs?oc=5"
   },
   {
-   "title": "정점식 ‘이재명 정부서 개헌은 없다’…김민석 추진에 반대 쐐기",
-   "source": "한겨레",
-   "date": "2026-09-08",
-   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5QRWlBNkFmV1dSWTAyNWotc0MxSTg5ZE5LX0I4M1RiM21SZUpHVDFXeC1zaHFPUzJwNG40cjg0OFhHVlpmRzJfb0FDRWVjSUFrQVpSQ1hpQ1RQb3pWUDRCUzUzcFdZV25KV0hjTzdRb3ZUTGdF?oc=5"
-  },
-  {
    "title": "김민석, '김영란법 완화' 요구에 \"선물 아닌 회식 활성화 검토\"(종합2보)",
-   "source": "연합뉴스",
+   "source": "yna.co.kr",
    "date": "2026-09-08",
    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5zeHBRUmJwMk03TWk1LVdkUU9xSnhvWjA2VDc4aTZUWllSZHg2TnJpTE1BWS0xVWRkZExMTTdScHdkZUtvLXRjM1lwZjNEQmZUcXo3NU4zNWRfMTTSAWBBVV95cUxPRFhaMkdCR2xlUjZuZjN5OXUwdmY3MXM4ZVlkeVYwbTJ3UzNBVUt2TUo2V0VtaG4xcG1ZT194UHN0OUlCZHlDZ1d3UUhYZE5hQ3h2RHhOUDJVVkNRX0haaHI?oc=5"
   },
@@ -494,58 +488,22 @@
    "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5Fcmt2YXRHVmJOWi1DS2JKamtrWTVBX3FBVWZrU0doTU5HQ2IydnZmc0VYVEs1MTd5ZTZEODVhbGhSbzhWSzU2eGFpOG5BOTQ?oc=5"
   },
   {
-   "title": "“전북이 미래, 운명이라던” 민주당 김민석 당 대표, “전북 공약 구체화 해야",
-   "source": "전북도민일보",
-   "date": "2026-09-08",
-   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1LcElDV3Z3RlYydGNtQ2I2dEdKTENPaGhnaTZtUzV0UE4zSHhubGIxckdYaG1oWWs1ZExvQnJIeGh6UVJsdGZ1b1pxcGVCa1ZJdkxhY2d4dXNxaXJYQzd0WHU4a3BhZUJYR0E?oc=5"
-  },
-  {
    "title": "김민석, 한동훈 향해 \"철없는 관종 같아‥자기 발등 찍을 것\"",
-   "source": "MBC 뉴스",
+   "source": "imnews.imbc.com",
    "date": "2026-09-08",
    "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE44aEk5QjIzYTVwSzRsTGxsbGtZVzZvS3BMNEhOUTFwbDJZQWJickxGRHl1endFTUhEYlo5cWY2QkVieklRUU03SUFDUjEwTnpiM2lndUFxTHMweVB3VUtIdS1iMVZ0WnZnYXd3SFhmc05JV2NXc1ZDX9IBeEFVX3lxTE0ybWwzTGtpODVFM284Q2xEaEpiSUNvMU9OZGZ4THJ4ckZ4dzcxbFY1aE0wMll1eUN6eTRTaDkwOFhTTlpMc0ZLa1NVMUdPQVY3V3lRdDJreXlfVE5TcEVlTHk4aGhlbnJUY29QSUlyVFZvdFkyZXR0aA?oc=5"
   },
   {
    "title": "김민석, 김승원 법무부 장관 공격하는 한동훈 겨냥 “철없는 관종”…송영길 “존재감 만들려고 발버둥”",
-   "source": "강원일보",
+   "source": "kwnews.co.kr",
    "date": "2026-09-08",
    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5xWTZmN1JBS2k0aGRzTjBVQk9maFU3RGNyajJKNzVKY001ZS1MbnhGLXkxbDdpbzgtaWJGRDVOZkg4ODJqNlp6T3lPR1UyQkdUa0ZZT1hzYVBRZWM?oc=5"
   },
   {
-   "title": "[포토] 대화하는 김민석 당대표-한병도 원내대표",
-   "source": "아이뉴스24",
+   "title": "정점식 ‘이재명 정부서 개헌은 없다’…김민석 추진에 반대 쐐기",
+   "source": "한겨레",
    "date": "2026-09-08",
-   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9MXzFhVkpWRkxvbTVNN2ZHOGlhTWNJM3pLTEd1bFlLSllLaUxVbUN5Rm1NOUx0cXg1YTNuRTh3MTZ4cUJoS0JKSFVobw?oc=5"
-  },
-  {
-   "title": "\"용혜인 문제로 대통령 결단 요구? 사실 아냐\"...김민석 \"과도한 공상소설\"",
-   "source": "JTBC",
-   "date": "2026-09-08",
-   "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1Cci13LVdwVUQyc0wxWU9yckQzRmN2dFVrWElpU1pJVzRKSl9QcW83NHliQU8zYUoyd0xscFByZmN0S21OUkctU3lLOUFoMy15Zk1lYQ?oc=5"
-  },
-  {
-   "title": "'용혜인 부적격' 청와대 전달 보도에…김민석 \"과도한 공상소설\"",
-   "source": "뉴스토마토",
-   "date": "2026-09-08",
-   "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBfZFlVNUpMWERveWNodlpDYk1sQXdlRDB4M05wNmNPdjdnSnV5NU1rMTJFVzl1OWdPVXNkWnlsUHlsbmdLcmkwMHhxcmNyanY3a3JYZUdEVmU3eFZfRlBGVA?oc=5"
-  },
-  {
-   "title": "김민석 수첩에 적힌 ‘서울시장 후보 정청래’…‘이진숙·한동훈 OUT’도",
-   "source": "JTBC",
-   "date": "2026-09-09",
-   "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5tbkk4S1o2dE1yV3FHbG5IZlVqUW50MzNhUWUzTHBjOUtRM2l5N1lLZEJCUER4NzRzaWI4bjhpeHV4T2M1ZExfR2ZFT3EzX29CS2M3dw?oc=5"
-  },
-  {
-   "title": "김민석 수첩에 ‘서울시장 후보’… 훈식·원식·청래 적혔다",
-   "source": "v.daum.net",
-   "date": "2026-09-09",
-   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1BVjdVaVhzX1ppRlNSTWdPa1JSalpmNGpjWTBPZmZfdC1JVWU4UWg2dXRFWWR0bzV4cHB6RnpiYnRsVDlLbHZvRllWOVJpNGc?oc=5"
-  },
-  {
-   "title": "김민석 “조선 불량 쪽가위”에 한동훈 “분발하시라” [지금뉴스]",
-   "source": "KBS 뉴스",
-   "date": "2026-09-09",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5RTWkyVkpsNnR6V2sxLUljWW9iSngyalBDOHJCN2RRcnVKZ3ZScHNhQnduWUEyeDZwVklQWnNLVkM1MzNJYU9ja29UY3VXRUtyQUhQVDNreGVrRjA?oc=5"
+   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5QRWlBNkFmV1dSWTAyNWotc0MxSTg5ZE5LX0I4M1RiM21SZUpHVDFXeC1zaHFPUzJwNG40cjg0OFhHVlpmRzJfb0FDRWVjSUFrQVpSQ1hpQ1RQb3pWUDRCUzUzcFdZV25KV0hjTzdRb3ZUTGdF?oc=5"
   },
   {
    "title": "‘서울시장 후보 정청래, 이진숙·한동훈 OUT’…김민석 수첩 포착",
@@ -554,16 +512,46 @@
    "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5BVHZjcWxOc2JRRlVvT0syTjYySFpzalo2YjczemtiNnJJV20zR21kanZLZjJoYnRZWlRFVE1UdHQ4YTl0VlVQU2UzN1NjS3pkcVQ0aUVB?oc=5"
   },
   {
+   "title": "김민석, 본회의장서 수첩 포착…서울시장 후보 ’청래’ ’훈식’ ’원식’?",
+   "source": "연합뉴스TV",
+   "date": "2026-09-09",
+   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBqZGV6NVRuc0pKLVZxc1JKaFFCNlZVZnE3YVhQUnpnaWlnTmJoaS1UR1dVdjB1Q0I1TmpndEdiakNhX2FLOVkyNno0dTFmem40cUZCcDhEUXU5d3JPSzhvZDVpTWxXUzg?oc=5"
+  },
+  {
+   "title": "김민석 수첩에 적힌 ‘서울시장 후보 정청래’…‘이진숙·한동훈 OUT’도",
+   "source": "JTBC",
+   "date": "2026-09-09",
+   "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5tbkk4S1o2dE1yV3FHbG5IZlVqUW50MzNhUWUzTHBjOUtRM2l5N1lLZEJCUER4NzRzaWI4bjhpeHV4T2M1ZExfR2ZFT3EzX29CS2M3dw?oc=5"
+  },
+  {
+   "title": "더불어민주당 김민석 당대표 “전북 발전 위해 적극 지원하겠다”",
+   "source": "전북도민일보",
+   "date": "2026-09-09",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNNVluNTlzaUpLeTJ6ejBPMl9lQzEtclFVb2o2S2RyZ1o0QnVhSmtJVEdQTk9rYTFOa2RKSVM0SEhFX0prZ0dUMFFzcTlVXzNkaE1iSkxjZW5BaThDWnNuU096aEtvY0UyZHJqMWl3akswRjRpMnptY1U5ME9NenJaaWt4a0x1Zw?oc=5"
+  },
+  {
+   "title": "김민석 “조선 불량 쪽가위”에 한동훈 “분발하시라” [지금뉴스]",
+   "source": "KBS 뉴스",
+   "date": "2026-09-09",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5RTWkyVkpsNnR6V2sxLUljWW9iSngyalBDOHJCN2RRcnVKZ3ZScHNhQnduWUEyeDZwVklQWnNLVkM1MzNJYU9ja29UY3VXRUtyQUhQVDNreGVrRjA?oc=5"
+  },
+  {
+   "title": "김민석 수첩에 ‘서울시장 후보’… 훈식·원식·청래 적혔다",
+   "source": "조선일보",
+   "date": "2026-09-09",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNbmt0MTRZZUxqZGtraWI0RE9fWm1WT1hSYmxodGpYWmJEMDlCdDVYWEJkaG8xVWFZZHNVNGtkUlM1cm1wLVVwLWt2S3NkVnVmMFdnN254aVlzLW5OR1poYnJ0NEJINkU0TjFkYXRxYWEwVFJnRFBZTjdmSE1iMUVPdjR6VUVLdw?oc=5"
+  },
+  {
    "title": "김민석 “한동훈은 ‘조선 불량 쪽가위’, 캐비닛 유출·증거 조작 철저히 추적할 것”···김승원 공세에 역공",
    "source": "경향신문",
    "date": "2026-09-09",
    "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5Bb21CczRRc0RrWGFGeHpEaDRfc21FaDBPdElRZG1Md1RnRmZtOEwtM0xDcHJ0b1F2S1hDdUtlUnBoU1g2MHZyejJldklFT1h0YjE0bW1mcjA1QdIBX0FVX3lxTE4xVkJEQWktd25MQVNQZHFuMXNWNnh5ckZzb3hiYU5UQmVkUXYzazlid1pTUXowS1FIWWM3T2w5NVloR0VDUEVieDNZRkcxa1oxWUVrOU9FMUYxeGlHQTNV?oc=5"
   },
   {
-   "title": "[영상] 김민석 “한동훈은 ‘조선불량쪽가위’…캐비닛 유출 밝힐 것”",
-   "source": "한겨레",
+   "title": "정청래, 김민석에 \"왜 수첩으로 때리나…서울시장 후보는 민석·영길\" - 머니투데이",
+   "source": "mt.co.kr",
    "date": "2026-09-09",
-   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1xNzh0aXNzVDg3dzVzYlJtOXNlbmpqa25qTnRLdVRwUklvTEl3TzBRNlM2bHlpS1FIYm5EQ0xrY1laX0hJc2R2TFpLSGZZcXVrWkI4MEFDWG1ncUd4bmtpZU5IYmIteFRsQmo1alZrNHg2aU5t?oc=5"
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBQWnJOamNjbDhKR1pPT29ZUHg5Ql9nTC1pYlVQeU9CbXRqTkZnOXZkekp1YndZM1BEVk5LRmlEZ3dmUjd6TTVqdkhMLXBOYlpfRXExcW5saHFjZnRlejNqbDhSM0tZMXFlYnRMTdIBckFVX3lxTE5MYTJkQmZLTnlWSkh3ZEFnOHJZR0hjNFJSYmdraXpoLWF3TDVFTFhIQ2FHOEJfcnB6OEVCNHZjdDFaWFlvNlpyaU5VNjFJTUhjbUVQQ19YWkFBeFIzVHREdmpsM0Z1WjhBekFQZ0s3SkNuQQ?oc=5"
   },
   {
    "title": "김민석 \"한동훈, 불량쪽가위\" VS 한동훈 \"뇌피셜 거짓말\" [정치 ON]",
@@ -572,10 +560,70 @@
    "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5QOTI4ZGlRUnpkTFdoYjdfZjQyYjNMT1VSZzdaVEtHZVVtTXFCQjlVclM5c1diWU9NWWRaSUNqWWM5cHFjb2picnJCa3o2MzYzTWlfV1U4bGN0dThMWHc?oc=5"
   },
   {
+   "title": "김민석 수첩에…서울시장 후보 정청래, 한동훈-이진숙 OUT",
+   "source": "동아일보",
+   "date": "2026-09-09",
+   "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9BNGZtZFE0cER4YUhqYWdRWURPd2NIdnpJLVRlNDgyWWoxWWF6RVRERGIwbTV4MlRES19yNFpWdnVJZ0tkaF9vaTQ1bG4wU0RIcXZaUFNkaHhzcTB0RjBibWhSRHN2RlkzLUZDcm9DSTNhUDROYmdz0gFmQVVfeXFMTjM0ZXRrS1h2cElrdjByMUI2aTcwSnlYVFdBbnVudzdMT1lXSGN0S2I3NmNRa0EtV3pMaEdBUmdVckpSWEhMNk5IaURaWU5Ta050Q19VZkhkRUctZkRJbzJrMDJfWWxn?oc=5"
+  },
+  {
+   "title": "[단독] 김민석·추미애 첫 공식 회동…재정난 경기도에 당 지원 실릴까",
+   "source": "v.daum.net",
+   "date": "2026-09-09",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9sZXU3MFM0MXppeFRUOFloR1pFa0pwOTNpUzVobTJRdmxNNUhXV1pJVzJndDhBRkh3T1FEM1VPUW9tcjlUb3BXaWl4TXplY2M?oc=5"
+  },
+  {
    "title": "김민석 \"한동훈 조선불량쪽가위로 불러야…정치검찰 확인 사살 시작\"",
    "source": "연합인포맥스",
    "date": "2026-09-09",
    "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9YZEdlQzlrMVpDM1dLYWI5YklKTlUxTTZ5ZG5oRzUxT1g2Q2pMeXpVcXdhUDc4UXZRdWcyVnphOERSVmdZdEVzNzdYMU5yTThnYXA2VndwWlRJbjR1YWtJM2dMRm43SFJONW01aFZJMGY?oc=5"
+  },
+  {
+   "title": "[영상] 김민석 “한동훈은 ‘조선불량쪽가위’…캐비닛 유출 밝힐 것”",
+   "source": "한겨레",
+   "date": "2026-09-09",
+   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1xNzh0aXNzVDg3dzVzYlJtOXNlbmpqa25qTnRLdVRwUklvTEl3TzBRNlM2bHlpS1FIYm5EQ0xrY1laX0hJc2R2TFpLSGZZcXVrWkI4MEFDWG1ncUd4bmtpZU5IYmIteFRsQmo1alZrNHg2aU5t?oc=5"
+  },
+  {
+   "title": "김민석 \"'녹취록 공세' 한동훈, 조선 불량 쪽가위\"…韓 \"허위사실 유포 형사조치\"",
+   "source": "KBC광주방송",
+   "date": "2026-09-09",
+   "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9TdnhtcE9MdEc2QUxlQ2JVSHpmNGtWUUdSQ1RMaVZUV2ZJLUQtOExrWERxVlMtSXlNNXB6V2lpTlNfU1VVSFlsTVQtWnNKclBOdmlUZjdsOTVZUVh3ZXQ1Zw?oc=5"
+  },
+  {
+   "title": "김민석 \"한동훈, '조선 불량 쪽가위'…스스로 정치검찰 확인사살 시작\"",
+   "source": "뉴스토마토",
+   "date": "2026-09-09",
+   "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9pUVYydGdEVVR4U25qZ01XbFV3R1VlT1NvN3hfalRTaUJIMGlQTHlCSm0wUFp4QXE5QXBrdTg3TjVSX1FjeXJyQ0lVdllfdnZ0TkNsNFdPRDQtemNrMGV5Ug?oc=5"
+  },
+  {
+   "title": "김민석, 韓녹취록 공세에 \"조선 불량 쪽가위…유출자 의법 조치\"",
+   "source": "yna.co.kr",
+   "date": "2026-09-09",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9Kb0VGaVRfUDlncnpIRl8zWTdPZUJLb1hUdkRKRGJvRkZvOFlmMjYyTFFua3R2eTc4bXdyVkY5THVRRmNIc3BZRFJ3cm1iOWJVVnluZHpYXzYxODQ?oc=5"
+  },
+  {
+   "title": "김민석 수첩에 적힌 ‘서울시장 후보’...훈식·원식·청래",
+   "source": "중앙일보",
+   "date": "2026-09-09",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9YMklrNVZLSG43ck90R1hTZ2tVYUZsMFVZVjd2TlpPbnhmZU5YdG5YMW9rRFFDVkQwNll4N2ExQUQ1emZneUNRZW9pdFdQem9VNlg5YkVB?oc=5"
+  },
+  {
+   "title": "한동훈 \"김민석, 허위사실 유포 형사조치⋯오빠들, 물 탄다고 팩트 안 없어져\"",
+   "source": "v.daum.net",
+   "date": "2026-09-09",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5NeWg5a3VSQUtRODJuUHl5YUNLMDdjcTdhRnJFSVpfazk0RXFSWWUtLUcwOXF5MjFyWkswd3MtWmlPQlppenZmdktyeWN5ajA?oc=5"
+  },
+  {
+   "title": "김민석, 지지율 하락에 ‘檢 확인사살’… “공소청 직제안 재검토”",
+   "source": "munhwa.com",
+   "date": "2026-09-09",
+   "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1leXNLaVF4bkZLdk1qNU44aFB3ODRQYmlSS0Ffb1lyNzk5UVhtenJ2ZHJDWUw1TmEwZGk1MGJLbHVZSlR5cEhFOWxfeTYtMXYx?oc=5"
+  },
+  {
+   "title": "김민석 수첩에 '서울시장 후보 정청래'…'이진숙·한동훈 OUT'도",
+   "source": "v.daum.net",
+   "date": "2026-09-09",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1GYk16SlRPcVRaS0ZZUVZOME9SVnJFSHVxejRhd0RxUWhEa0lmVVZrWDl4OF9SX2xQQmdIRXhHSFhOaXQ4TWNiT0cwMGQzNkE?oc=5"
   }
  ],
  "windows": [
@@ -586,37 +634,31 @@
    "items": [
     {
      "title": "[6.27선거]서울시장 후보들, 막바지 총력전 돌입[김동섭]",
-     "source": "MBC 뉴스",
+     "source": "imnews.imbc.com",
      "date": "1995-06-24",
      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE93SzY2a3RKdUVqN2YxYmd6ZUtDTHNzc3BjWDhHTGw5UHh3akZidFRZU1FHSlplQVFIdVgyN3hqMkpTZVU3Tk1MT2xWc3o4U3owc2s3M0VuTzJPWnJqdm4wMDdpSGFCQk1wWVJYT0hwWnh4N2dSZlJITQ?oc=5"
     },
     {
-     "title": "신인돌풍- 중진탈락",
-     "source": "KBS 뉴스",
-     "date": "1996-04-12",
-     "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1fNzF0MzdRaUhTWVN0b3VBbkExUU1BNXpVNkpQOEd6Z01qbkU5T2FkRWxzNloxZ2JKWGtIX3B6Ql9ZVDlsTzliT1JzbU1kcnlHaG1sZjRXbzRFRGs?oc=5"
-    },
-    {
      "title": "15대 총선 당선자중 파란 일으킨 화제의 신인들[황외진]",
-     "source": "MBC 뉴스",
+     "source": "imnews.imbc.com",
      "date": "1996-04-12",
      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE40VjdRR0VjSlVoRy1BYUFXMDhRTDg5ZHBqQzZWWmN0NXRubTlaTS1Ra2pXbDN1T3pYSkxtWTRGdHNLcm9HU3J5anpVc1U2blVPNldCTklvQ2JLT0Vnb3ZEZFJoc2c3QTZBcVdNYmRpRnBXN1ZvS21OSQ?oc=5"
     },
     {
      "title": "15대 국회, 개원 국회 파행 계속[황희만 정형일]",
-     "source": "MBC 뉴스",
+     "source": "imnews.imbc.com",
      "date": "1996-06-05",
      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5nXzB2aDRnVV8zWjAwRXlsWXVEQlYtWDdYUi10bVNQY3kxaHh3eldFdGEzMlUtaVRxX0wtZlYtZXhjbUs1ME5mcW5ZSGVIYWZ3RG1tNWRrYUpOQzZUeVRTazBnTi0wd20zR1RFWklHM0NFd0c0bThQOQ?oc=5"
     },
     {
      "title": "남산 옛 안기부 일부 건물 폭파 해체[김성환]",
-     "source": "MBC 뉴스",
+     "source": "imnews.imbc.com",
      "date": "1996-08-04",
      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE96Q2ZwYTdrcnBHRF9HMTlkb3Zpd3J0d0w5SlBnREgxMHJkc3k5dDJ6Y3RSM3RIekFldlA0QWRWeFhVUGFtM1ZVWnBGdDZIU0gtWUg4VlNwcVJfZ3RNWlFMaG9RbzJ0bmwxLVBwLVRJQWFmd1Y1YlU5cQ?oc=5"
     },
     {
      "title": "정태수 증언에서 재정경제원의 한보 대출 개입 드러나[박상후]",
-     "source": "MBC 뉴스",
+     "source": "imnews.imbc.com",
      "date": "1997-04-07",
      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFA1QTBaaTNuTmRQVGNESktKOXl6ei1SRmRWRjJwbS1DbmlHOHBrRHVrV3JQYzRwVVpFelNaMTFHbURhcFNmSDBMTnpSX0hLejg2Q25LZHdjRHhzMVg2cXNxcmozLU9BRDJBM1NteDBLVWtDTnZTOGxiOA?oc=5"
     },
@@ -628,19 +670,19 @@
     },
     {
      "title": "국회 한보특위 우찬목 전 조흥은행 신문중[박용찬]",
-     "source": "MBC 뉴스",
+     "source": "imnews.imbc.com",
      "date": "1997-04-11",
      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9NdzdSTmJlUXljOV9CWVZQc2hEeDQ3aEJIcEhrNVd5X3JNU3VGUndsZi1QT1FNRElCeGxIZG9VX3prMDNWcWpYemE4MHZmVUp4NFN0cUxsZXR3ajlFdnpiOGp6Ql9wX1dvYXp2Skl6WDM1Z1hXdFJadA?oc=5"
     },
     {
      "title": "청문회서 홍인길 의원 은행장,경제수석 대출 청탁 시인[이장석]",
-     "source": "MBC 뉴스",
+     "source": "imnews.imbc.com",
      "date": "1997-04-12",
      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9EMTBDRldWdHFFV0dVWm0wTEpDa2RQb29QUEszQkFFbzFwY3FOSnFsV3RScFlrcWVZUk1takVBQ2NOclVoQWZQY09fckRFaUNQa3d3UUFRWnJFTW5RaGJwdDg3cUh3R2R4QWlUaTJha0hUOE1VUXYzcA?oc=5"
     },
     {
      "title": "김민석(국민회의 부대변인)발언",
-     "source": "MBC 뉴스",
+     "source": "imnews.imbc.com",
      "date": "1997-08-21",
      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5OdFZTbFFGY21nemJQaUJ6SWI4RS1fZ0MxdTdEeUR6VTdvVHRNNFUyeFkyUDVraVBrNExaWFVDVGdnTFU4c1NFNFpLSXhFR1VPeFBYSTg2VDBkejB3NGswX1VxNm9BSFJ2cnR2V0lmeTNlOTdVNzVIZA?oc=5"
     },
@@ -682,12 +724,6 @@
      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1DbVZBUWFnUElEQVpwOVBwVEFlbTVTdFktczBBRjd6WkljVHZJYmYyUTNpMG5tMEl1WWgzRkFFODJwd2Y3LXoyQkloeDVkVHFnNG1GSGtlTHpNd9IBX0FVX3lxTFAyNU1kZHdzcDUySFJxbUR3bnV1cUNvR3ZnSDVhVFg3OFBqVHBSVnpyX0ZzVFJlUUVvTnRCTE5iNzg3VV9ZTENYZW9KVGo2NklTa0dxZlJZWUkzVnVNVTlN?oc=5"
     },
     {
-     "title": "정동영-김민석 '진실게임 2라운드'",
-     "source": "한국일보",
-     "date": "2001-06-04",
-     "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9CaFpyVlBEalEzVzNQOWJjU3JOdVJXT3dnVzdDSTdYYXJiVHA3cWcwOS1Zam1XdXVvWm1sRGYwSkF5MWtwM1k5d1lwRG43VjRPU3MyZW9pWF9NdmJsZjlkaDdUU0loSWxoY3Vv0gFwQVVfeXFMT1E5YmpsSjhzRm8yb0RNR3hfZU5YaUFGMjMyY0FNTXNidHVIMVVERHV3eVF3MDFqYzdnb04tQXQ3SWdfTHBWOC1VMnpIcWJBYk9ybXZycnJFZnd0X2xCdHVlc1JVRWpRbFNLRmczbXBFQw?oc=5"
-    },
-    {
      "title": "김민석, '왕따'는 순간 '이익'은 영원?",
      "source": "시사저널",
      "date": "2001-06-14",
@@ -695,7 +731,7 @@
     },
     {
      "title": "“整風 주도세력은 난파선에서 뛰어내리는 쥐”",
-     "source": "m-joongang.com",
+     "source": "월간중앙",
      "date": "2001-06-27",
      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5xQVkyZTE2RWpnMkpiX05TdUN5bVlpVkpEYV9NV0VKQW4yOExwRkVxOGg1eFVLX2FBeGVIVEhrMHhoejFMY3FYcm85RUM5UkZNc2lCU2t1QnQtbUlJeWJ3N3Q0RDZoMUV0OGk1Vndn?oc=5"
     },
@@ -719,13 +755,13 @@
     },
     {
      "title": "한나라당 이명박-민주당 김민석 서울시장 후보 격돌'[박용찬]",
-     "source": "MBC 뉴스",
+     "source": "imnews.imbc.com",
      "date": "2002-04-04",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1nY3prMmxCbFgyNzlscThOWVlUV2RBa1R4Q2ltN25fc1NjZzRXaVJRZUxxM3ZqbXFXZWFiTVdVa3FIMFRCM2dRampGMWVsVEM1U1BNb3VYUG9VdGZMUkNJaXVrRVJKZjdfc09OSEJKRkhWZzBvOU1V?oc=5"
     },
     {
      "title": "김민석-이명박 서울시장 후보 관훈클럽 초청 토론회[조승원]",
-     "source": "MBC 뉴스",
+     "source": "imnews.imbc.com",
      "date": "2002-04-22",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9ObG5hOEJMLWxzVW0yMzJiUGJRbktlN1JFdzNoR1ViZWVtNHI2LURIMi1MekVJRGUyQXY3QkNkSXRLcE4zOUM1NHhwanUxd1oxQlpKM2J1T2lTS2FNSnA1UWdmaExFV1ZCR3h0LS1qNXUtQ1ZpLTBR?oc=5"
     },
@@ -755,7 +791,7 @@
     },
     {
      "title": "이명박-김민석 독설 공방",
-     "source": "문화일보",
+     "source": "munhwa.com",
      "date": "2002-05-14",
      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE56SGdEOC0zcFdQSGNxN2d3eVV2dzlvUGR3cUJWYVY2S3owOHJidXRNSnJiRlZqczBkVGp4REI2Z2IwNUxJRkRjOTFLU0RTYVo3?oc=5"
     },
@@ -791,7 +827,7 @@
     },
     {
      "title": "이명박-김민석 서울시장후보 MBC 초청 토론회 공방[조승원]",
-     "source": "MBC 뉴스",
+     "source": "imnews.imbc.com",
      "date": "2002-06-03",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5RemhTeVJ2MjR2N3IwX0Nmdnd4MjE3MUJqNlhvdzMyOXgzTTZ0RXhsbVZxSHNHbnJJc005SXNOLWx2NnFoRFRrWmNHcTNGTl9Rb2RXcVE4ZVFTc0JTWXBOSllLdlNnZzJuRVYxLUsyTkt0OVc3TTdV?oc=5"
     },
@@ -803,37 +839,37 @@
     },
     {
      "title": "김민석(민주당 서울시장 후보) 지방선거 유세전",
-     "source": "MBC 뉴스",
+     "source": "imnews.imbc.com",
      "date": "2002-06-05",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9jMXU3N21pY1cxdXc0Z0ExTW5jVmZqcVd4NnY1ZUVhREFoam5UelRLX3lvU005aUlpS1VLVkpwT25BMDkySlgxZ2J5SFF5cVZRVXkwLUhBeWdGd2h4TDEwLUUwcmM4YzZRTkkwYUxIMkxGbFc3U0RJ?oc=5"
     },
     {
      "title": "김민석(민주당 서울시장 후보) 인터뷰",
-     "source": "MBC 뉴스",
+     "source": "imnews.imbc.com",
      "date": "2002-06-11",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBzM0N6X3FCWlhJbjN2WndZd2VJZVBLenZDVlk0MGNNLUYwazJhQVJMNjU1WFViRW04U2VQRHJHSGh6RG5FTXVRZVRkNkNfOFBhZlRkZmtFT0Z3ZFhHX0VPOW9GTGhPY0Z0M1JjUFdYR0JPejdwM0dB?oc=5"
     },
     {
      "title": "김민석(민주당 서울시장 후보)발언",
-     "source": "MBC 뉴스",
+     "source": "imnews.imbc.com",
      "date": "2002-06-12",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1mMUxSVDM1Z3hobUx6ektzTTJIN2VTSGdncVNPOEZhVkNQbnZGU0FOVVVRTFR5SGdKQnExSDd4ZlJlUUtUYzNSM1ZRVDJiYmxEZFZUV29HT3QtXzhjY1ozdEZ6NGh4dXl0VFcyVDlwOFFwLVFTamxV?oc=5"
     },
     {
      "title": "당선자 신정훈과 낙선자 김민석",
-     "source": "ohmynews.com",
+     "source": "OhmyNews",
      "date": "2002-06-18",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBURER1NndCMlpFOUdIQ0pyaXhOUWp5TUxmRldXbjNuNWlKMW8yNENtU0FiVl85bHRXU0VZemlWck4ybkEteWFiT3RSVGZtcG9kUmd1UTZWWUY5NEkwb0tsUHNIbTJYSXhvUmtlREJwMHZyb0UxRGpn?oc=5"
     },
     {
      "title": "'후보단일화' 주장하는 김민석씨에게",
-     "source": "ohmynews.com",
+     "source": "OhmyNews",
      "date": "2002-10-16",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE95dExIWUt6VGpZa2RIUDNWRW85cy1HYTh4WHdtcDhwOFhNUG0tdElXU3pkUU9UMkJBWDRfQlFJMV90bmFiajd4SUxPZnp1a3UwSGV5bWg2M1hRYXlaMjkzUk5jZGdONjFlQkg2bm1zb2FDNWxXd0FB?oc=5"
     },
     {
      "title": "\"다신 동지 이름 입에 담지 마라\" 정몽준당으로 간 김민석과 '절연'",
-     "source": "ohmynews.com",
+     "source": "OhmyNews",
      "date": "2002-10-16",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5Cc0ExZ1JNV3hURDY2YURBUXV1TFU4YVo5SnYyNDUzbG1Ob0h3VWZmbmhyZEhIUU1udHJUbWNER1VhV2pnMkIzQk81amNwakZaNHdJX1dMNng3ZDNXZk96SWxGNTEyNVNCYnpJaHl2QXhhSGRJZ0d3?oc=5"
     },
@@ -847,7 +883,13 @@
      "title": "김민석 전의원 국민통합 21 합류",
      "source": "KBS 뉴스",
      "date": "2002-10-17",
-     "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1aVDBlRUtTQ2F5S1JMODB6TVpEUmV1Yml1b0FNUXJFTWk3UDJ6VEVWYmNQS2I3dlZobmt4Tkl2UlB5Rno2MjRtZ255WWlQUnNWUEg2T3Y1MDdtQQ?oc=5"
+     "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1PLThvVGRYUEx1MG5RUTRxT09hQUpNVFJNNy1uZmRMZ0R6blQzZjhQOUhVdER2Q0pkNzdJekVlNDUwUFFLN0NoRHFGdG5kZHRNWm5OcVo3X0UzZw?oc=5"
+    },
+    {
+     "title": "김민석 전의원 `통합21`합류",
+     "source": "munhwa.com",
+     "date": "2002-10-17",
+     "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBPNWxNWlE5bE1LSlZfQUFuRDV2NEVuaWdDRHB0UmZOblYxTVpUUHY2eGQyN2ZYMmtSQkVpMjlSM3owTEZmVlczdTkxRFNBYkVx?oc=5"
     }
    ]
   },
@@ -858,7 +900,7 @@
    "items": [
     {
      "title": "달라이라마와 나란히 선 김민석 전 국회의원",
-     "source": "ohmynews.com",
+     "source": "OhmyNews",
      "date": "2003-03-10",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5yZWJ5TktNbVp0NV93elFJWWhYRTZ6Mm5MQmNyWVpWZWE3SGJKeUp1T3JfZTV0TmMzTS1sNENybFlIM3FfS2k0bmFZZXgybWN6NUhvR3VESDJIeG5JRkVMVlhJTXhjUVpzOVQxM1UwcVp3QmhVVERR?oc=5"
     },
@@ -882,7 +924,7 @@
     },
     {
      "title": "정균환 총무 \"김민석 전 의원 복당 바람직\"",
-     "source": "ohmynews.com",
+     "source": "OhmyNews",
      "date": "2003-05-12",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE44cEhPTnhDTUF2azVraXdtNkFqR04zZEk5ZGdPVU5YUjZraVRieGtXbk55NEhxaDJWNnF0b1g0YmZuSFF1TWxGXzZGc3dWOGxxUGkxQmp3Y0RyRXBLRl9ERURkNHJ0SnJKdXB3LWxMMHdBbUZ3Zkhr?oc=5"
     },
@@ -894,7 +936,7 @@
     },
     {
      "title": "이해찬 의원, \"철새 김민석은 안돼\"",
-     "source": "ohmynews.com",
+     "source": "OhmyNews",
      "date": "2003-05-23",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1Jc1hTYjFvOTlxYkU0QW1aekxMNkV0WmdoSHdvTkJwWU9jdGpBbE56U0ZMcUZTczdfLVJpQUFUZ3htYlFVc2diRkRBRmV0OFBiYzRYWWhZWHVqWkxuZXB3eXNKNVEzY0pYdDZIMXB5V204QkttZXlj?oc=5"
     },
@@ -912,7 +954,7 @@
     },
     {
      "title": "김민석 전 의원 민주당 복당 신청[김주하]",
-     "source": "MBC 뉴스",
+     "source": "imnews.imbc.com",
      "date": "2003-11-04",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9LTzJCdkZOOElYRm9ra0VoeHljUEdRMkFLa1RkeE9mY3VEXzQ3S3VvaFk1dlJGSjU4bTJZN1RHcWpmMjVsTXZpNXQzR0QzNjExbHV1clU5WGdzX2YwN1B5eWRXUEZ6ekVSMVlNVmFBRjAtc0dWZXhv?oc=5"
     },
@@ -965,16 +1007,16 @@
      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9NVmlGTGhFWHlWNW5oTzNMMkc5X1Ntb0NBNWRGU3RYVVVOeWtab0NZTlVIM3FmbTNNYmJOS2dMY3hsNERCa2JQS2hGR0EwaE5SaTVCZmZWU0RyQQ?oc=5"
     },
     {
+     "title": "[선택 2007년] 청계천 복원의 주인공 李明博 서울시장의 24時",
+     "source": "월간조선",
+     "date": "2005-11-10",
+     "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE8wTm9VTlZPbldmYlRIX3pSc1kyUmdzUUl0NFBrUzN4RzhWN3k1T3hIUHNSRXUyMHVVMGhoZ3lfemtpTDd0SWJRRjJ1TzFSYnFMWHFBRWdiYjUwaU14OWwxYU84ekxNX2dpQVZB?oc=5"
+    },
+    {
      "title": "김민석·김자영 부부 정치 그만두고 훌쩍 유학 떠났다",
      "source": "Queen 이코노미퀸",
      "date": "2005-11-11",
      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE8tbEdQWjZtZHcxQkVJaGxJN0J2d3pBN05OQ29HemtmZ0YxLVB6YTZCMXNrNlNQMWRpNXBkUFVSTnRvYjZ4RFZ1RE9tSXhYeG5zcTgzeUtkVXg3cHBET0RibHRNQjYzZw?oc=5"
-    },
-    {
-     "title": "서울시장 후보 ‘이미지 정치’ 논란",
-     "source": "한겨레",
-     "date": "2006-04-11",
-     "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBUWEdGdWRmRUlIVmNjVDlSdHc5dURnZ05yZkJXalBNY1Mwcm1Yc0pPbHBTN2lJZjNrRTFVQ2J0dHZ5SEtMdl81WGRrcGxGMzVIU0dHV0lqa3JEaUJ5YmhkRVpMZVVESEdW?oc=5"
     },
     {
      "title": "강금실-오세훈과 서울시장의 '격(格)'",
@@ -984,7 +1026,7 @@
     },
     {
      "title": "\"청계천 선거, 올해는 없다\"",
-     "source": "미디어오늘",
+     "source": "mediatoday.co.kr",
      "date": "2006-05-08",
      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBVVFlxeHBOWHBZZHhRa0FjdVlaZFN0MjdlaUwwNG8xMEhlMldhVnJ6dDlHUmp1U2tUTUc0Z19ibUZNOWkwcXE3ekNfb0VZbVloNmZ0cDBLbVhtMUVMREpEOUM2cWI1d3dFMkxPaEVtbw?oc=5"
     },
@@ -996,7 +1038,7 @@
     },
     {
      "title": "김민석 리스트 후폭풍...정치권 뒤집힐 리스트 확보",
-     "source": "iminju.net",
+     "source": "민주신문",
      "date": "2006-09-05",
      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9rM1BTYmV5TEhxS3F5eGVLd0duYUUyTVRGc2Z3cjRibF9uTmJESGRQQzNVV0JtS1NyZXVTZ2dFR1BhZDlRSDE4TnBVWjQ3Y3lvdU13QktDNV9iSFpxcUJkX1pub9IBZ0FVX3lxTFBiY3RSQ1pPZVhySjFrcUVEeXpGdVp0dGdtRXdZS04zR2NRa2QwU2cyZW9EbkRTWHJwSm92RUhoMjAxemNXOFAzQmt2dW94ZEo3NldXYldyM0RIdEVmdUtHTnhuMVVNR3M?oc=5"
     },
@@ -1008,7 +1050,7 @@
     },
     {
      "title": "\"통합보다 중요한 건 비전과 능력 갖춘 리더십\"",
-     "source": "ohmynews.com",
+     "source": "OhmyNews",
      "date": "2006-11-01",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5hcjVLSkgwLVl3eDlvT3hKTFdCWU8ySFZ5aWhWbHFZMFM4ZXctTVhaR3BaRlB4b3J2RWdzSWI0Zmw1bzJJT0ZDVjJQZWJUTkhnRTBVNG9RMk5GeU5yMjZiZnJDalB3ZURqYmR2bkpEMnFjQl9NZk5N?oc=5"
     }
@@ -1021,7 +1063,7 @@
    "items": [
     {
      "title": "\"일그러진 김민석 표정 잊을 수 없다\"",
-     "source": "미디어오늘",
+     "source": "mediatoday.co.kr",
      "date": "2007-01-18",
      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE96NG1EVVBVTzBHMm9VWmVyZ2lVZ3RtVVJYdlV6dlFnYmd6YVBXWlIzejY3NTc1QzM4eVFzN2ZTTWpjc2FENXd1X0p3SFlxcVg3TEV3M1ZDZWQyQXU0NmRTNHVlV0o0bVlYbmZmOU4yNA?oc=5"
     },
@@ -1039,7 +1081,7 @@
     },
     {
      "title": "특별기고 - 김민석 전 의원의 퇴수일기 중에서...",
-     "source": "ybstv.net",
+     "source": "영등포신문",
      "date": "2007-03-23",
      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1CWjREUW50WFByeGNxaFVJQVlVZXlFVWt5QUctVEdCRVZRaElsa2haN1hkdm13dldyR2xzU05jZ2E2azFqd3hrQ0o5RE5nV2dESFlSb2tEYjg?oc=5"
     },
@@ -1057,7 +1099,7 @@
     },
     {
      "title": "김민석 \"노무현, 비정상적 권력욕\"",
-     "source": "ohmynews.com",
+     "source": "OhmyNews",
      "date": "2007-06-13",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE8wUnpLaDVXQnZ0Wm05LWRHaDdic2V1aHpiRkVjU3Q0bnhXS1BlYXFDNzE0bW9ablR3TE92NDRDTVg0eVpZa0V1b1MwR084WjhUeFZVNERUdVdlMllCX3RqNHhRQ0hUV2hKdzdYTER1SHgwUTlhdW5B?oc=5"
     },
@@ -1075,7 +1117,7 @@
     },
     {
      "title": "김민석 3년만에 정치 재개",
-     "source": "서울경제",
+     "source": "sedaily.com",
      "date": "2007-06-13",
      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5sdDZkSm5oWmdVZ1BqNU1zOVAyd1Q4ZzctT290TlQ2d2RaZEwzWnJLNzNJVEJ4aXVjVHRCWjNLQkJ5SFpZdTB6ZC0zeXJXcXBLdVhZ?oc=5"
     },
@@ -1087,13 +1129,13 @@
     },
     {
      "title": "'대선출마'로 5년만에 돌아온 '정치인' 김민석",
-     "source": "ohmynews.com",
+     "source": "OhmyNews",
      "date": "2007-08-23",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5CUXViQ0lsVVRnSGlmNURYSmQzTnh2YzNrNUlVNmxwZlZFYnNsY3dIWUZjbzNJemQ0S0stMEtGcUpFVzZmQVZ0ekJDcFJkaDRwV3VhX1dXaHNBcVRUOWVWRWV5cjJVLWR3N2NzSFpGOFhYOEZFcjFv?oc=5"
     },
     {
      "title": "대선 주자로 돌아온 김민석",
-     "source": "미디어오늘",
+     "source": "mediatoday.co.kr",
      "date": "2007-08-23",
      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBZYjJOYnMxVDRxaXhmclJTYnNycEpjYjZIcm5xckVDOFRaOTJrVmlodEVaQlZfdGJ2VzRrSXJfM09ZcHdkX2I4NGVCT21tNEpla3lCS2MwQm9NbFdFMkNKX1Q1RjJRbWhGNDdzeUx4Yw?oc=5"
     },
@@ -1129,7 +1171,7 @@
     },
     {
      "title": "김민석 \"'아람회' 사건 해명을...\"이인제 \"주도한 것 아니지만 사과\"",
-     "source": "ohmynews.com",
+     "source": "OhmyNews",
      "date": "2007-09-19",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE05Z2dETGw1cTFPWk52RndfS3RId3NWTTk2dUhCZFJCVkxGb1ZOd2RZV0tVajJMb3hCT04zYU5zb2tSRTlfMjJPNzVDcE41Y3hVOFlHQk5yeVBCdXEzTzZOWFJnZkFnRklpUU1xLXlOZE5VMUF1aW00?oc=5"
     },
@@ -1207,12 +1249,6 @@
    "end": "2014-12-31",
    "items": [
     {
-     "title": "김민석 전 최고위원, 4일 미국 유학行",
-     "source": "조선일보",
-     "date": "2011-01-02",
-     "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE80OGs0LWpvMHhIUG4ya1BrZDd4TmdSNzJySC12YUpXRnF5WnI3cHItRGNsQ0E0cHRQalZ3UEFpOWM0SjJqSUpNcElnWDR2eDJPam1KaGMxbFpuTEdTMGJ0R3dfbDBGZm9TMUpETUxuUzNoLUtaOVROdlczdw?oc=5"
-    },
-    {
      "title": "고수 망사패션 시스루룩의 원조",
      "source": "이트레블뉴스",
      "date": "2011-03-07",
@@ -1279,12 +1315,6 @@
      "link": "https://news.google.com/rss/articles/CBMiREFVX3lxTE5YQkkzSXFGQXNoS2VKV1NTb1Nid25MY1BzcDBWMGg0X3R0UXdudTNPNWg5ekVvanFGS3VETUV4dDVPS3hW?oc=5"
     },
     {
-     "title": "능경봉, 고루포기산 산행",
-     "source": "ohmynews.com",
-     "date": "2011-12-30",
-     "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQZWExVGpRNG9rTl83M1g2bFdSS3J5azFoVDNYSV95dm1NZzdqQ01kRWpMYkE3M2FaVlJURGdsRDV2ZnZGSUdrM3dzS01NT3VPTWdhQ2t6dlpkSmtxeE1YTks1enlWTEgydHBreEI4TnJzVTJEb3NTeGk3Um11SGJ0UC1XTXR4MWczRU5qUTlXVC03Wi1q?oc=5"
-    },
-    {
      "title": "다솜 중학생 시절 애띤 모습 뚜렷한 이목구비 눈길",
      "source": "이트레블뉴스",
      "date": "2012-01-19",
@@ -1307,6 +1337,12 @@
      "source": "경향신문",
      "date": "2012-09-23",
      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5kSkJTRVZjY1JtdEx4TXNHLXlURnFuNVFGWUEwNVBwdUZGME92OXJsbWdMTlEzRk0yd2MwbllfMFdSRHRTMkxzSm1vYjVDMDFDQ284WDdGUFdZZ9IBX0FVX3lxTE83X25vOUdFLVRXOTlJcEdwQWFqQzJNamZNSmxTMzdUc21YVzdhdzFmcGdUd0k1MFhEUUVUUGl2cHltOG9YWDR5dnM5ZFdmZ1YyYzVBMXVYUFRqNTVyaFNV?oc=5"
+    },
+    {
+     "title": "베일 벗은 ‘안철수 사람들’",
+     "source": "일요시사",
+     "date": "2012-09-24",
+     "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE52ZEVpTGlFZ1VpTFB0UGJFLTNoVkVmRG4xUVZ1ZmFzUzNNQzQ1R1doN3FxN25vcWE3MnJVQXUzYWQ5VkpmUUxHenNaRFctc2tQdTJpMmlzZ0R0ZW94VWc4eko3Zw?oc=5"
     },
     {
      "title": "[국감] 박기춘, 철도시설공단, 전관예우는 범죄수준",
@@ -1334,13 +1370,13 @@
     },
     {
      "title": "2002년 승부의 復棋(복기)",
-     "source": "weekly.chosun.com",
+     "source": "주간조선",
      "date": "2012-11-11",
      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5ZTUY2bHMyeklkcW96S2JNcjlLbDN4TjFUQWM5VjVHaGc4VzBadV80N1I2dVVWU0gtWjBjQTR4NFRoVnpFSWlxT1lWQlFONndZcVZHSTh1d1NUc2tHcTViaEhlYzhsQ0xN0gFsQVVfeXFMTXlLRm5xQ2FnR3FHZ2pPYm15UWh3RmxGS1poMnNCTVZvYzlMUjV3WWZmN3REYmR4ckdvRGVsUWU0MERwYnhjUFhVMmI1RFFGRjB0cEZnMFNIejFPZ0dyRDBwVEV0OGlIaUpKa1Qw?oc=5"
     },
     {
      "title": "김민석 꺾은 이준상 ‘연습생 신화’ 쓴다",
-     "source": "문화일보",
+     "source": "munhwa.com",
      "date": "2013-01-07",
      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5nZXhubGJUZ0xXMWRTTmdUQzRNNGhFcFJ4UURuQ3FmZWRubDVRQ0NrNnFSUWg5ZDJzSU5pSF9DNDZGYlNRcEhob19Vb1BreWc2?oc=5"
     },
@@ -1358,19 +1394,19 @@
     },
     {
      "title": "'꽈배기' 모양 독일 전통과자 '슈니발렌' 입점",
-     "source": "dtnews24.com",
+     "source": "디트NEWS24",
      "date": "2013-02-12",
      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9qQldRM3lWaGpCOGRpRnFmNnBSNVIyQTQ0THM5ZmZ2U1M4TS1NZ0VoOW9FbmVOeWp3STJjTWN6YlJNTkc1NzBZWnZoNzJQcXplcDIwTlN2ZmVSQW8?oc=5"
     },
     {
      "title": "‘라쿤보이즈’ 김민석 한남대 출신 화제",
-     "source": "dtnews24.com",
+     "source": "디트NEWS24",
      "date": "2013-02-12",
      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE8zcS1KbGs4VkEzZXhkeVVDdjZMaEFtQlRmZWctNmRJVGNZV205d1pLNDZqc0cxbDQtUWcweXN0WFFBMFpVcXhnZ19aWUZQWXdQM1ZnWU5na0dwXzM4NTFmUg?oc=5"
     },
     {
      "title": "염홍철 시장 페이스 북에 싸이 사인 공개",
-     "source": "dtnews24.com",
+     "source": "디트NEWS24",
      "date": "2013-05-02",
      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9LeGdFMWRjRVYtbjJ4Nk5Sb19xWFdXWmFnekhpbGZvVFlqa0VabjVyY0Q1OV83WU5Gejd2cVFudXZmaFZJTFNVWWhTZ29SZC1QZlAyWlRsc21EYVlMa0d0WQ?oc=5"
     },
@@ -1385,6 +1421,12 @@
      "source": "매일신문",
      "date": "2013-08-21",
      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFB4V2ZVb3lNcTZoSmN3MktxNDg5bjctcmViXzhrc1J6a1pjZXhOUzllNjVWOGZpY2dMU1ZoUlFEZjZZY2lYOGpFMmxPU0ZEZW9vNlAyOGRMSFVJdUNTVFFmYlFR?oc=5"
+    },
+    {
+     "title": "서구, 수질오염사고 방제훈련 시행",
+     "source": "디트NEWS24",
+     "date": "2013-10-07",
+     "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFAxX0NadkhsZXdOa0pNNzFzVTljcW1ldEI5SWx5d3JtbHNKcmhOdkRmUC1VRG45R3FkSVNIY1UxeV9NVE1OdjhQb2VsQm5MYnZPak9YcUh2S1VyY00?oc=5"
     }
    ]
   },
@@ -1443,7 +1485,7 @@
     },
     {
      "title": "김민석 전 의원, 부인 김자영 전 아나운서와 23년만에 이혼",
-     "source": "스포츠경향",
+     "source": "sports.khan.co.kr",
      "date": "2015-03-12",
      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5XMkhrX2x6Y1JLNGU4T0hpTWEzWFExR1JIUXB5RUJTclVZOXdNd0tyNEMwLXJpQ1hsUDVIR1dYNmFpemNieVVQcTVlZkRxUzAyc0RyX0RYUXJOWnJ3UXfSAWNBVV95cUxQc3hOQ0NpN1NrRjJtd29CZUZYbFlHSU5kajNkS21WWXVHUmY2TTgtaXYxdDRjNHBjal9lMjlkelFHSkFqa0hGOW5rZVhORGt1eWVRa2l6N0o5WjJDX255eTZUdVk?oc=5"
     },
@@ -1454,20 +1496,20 @@
      "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE5pLVBiaXozbWduNnNoY2hTYWJxcUtERnNkSUY1Wk1TdWM0RXJETHJab1Z0NjdXZmtXMmZpakQ3QmVjSFJRUkE?oc=5"
     },
     {
-     "title": "김민석 전 의원·김자영 전 아나운서, 결혼 23년 만에 이혼",
-     "source": "v.daum.net",
-     "date": "2015-03-12",
-     "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE4ta29XTno5R1hyZXhNeVM1UllKR1dKU1FVcVBOVDJVOTZZbmswWWRQaGJZa3hGS2RMOUNJaVZxZGxvN0FXejVjR2NwSQ?oc=5"
-    },
-    {
      "title": "김민석 전 의원, 김자영 전 아나운서와 이혼…결혼 23년 만",
      "source": "인천일보",
      "date": "2015-03-12",
      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5nbERmTHhSVDVBLVlUMno1bG9iY1N4dFhKZUhBblZmLVFWVlA3WDFScGMxWWFxV0YzbTNLQlFDYmdxYkM4ZWRRekF6RTI3dVpwNktEUDhxbWphWVVNX0F5ak50ZlBlS0ZLQXNJcTBVaw?oc=5"
     },
     {
+     "title": "김민석 전 의원·김자영 전 아나운서, 결혼 23년 만에 이혼",
+     "source": "v.daum.net",
+     "date": "2015-03-12",
+     "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE4ta29XTno5R1hyZXhNeVM1UllKR1dKU1FVcVBOVDJVOTZZbmswWWRQaGJZa3hGS2RMOUNJaVZxZGxvN0FXejVjR2NwSQ?oc=5"
+    },
+    {
      "title": "김민석 전 의원, 김자영 전 아나운서와 이혼",
-     "source": "daily.hankooki.com",
+     "source": "데일리한국",
      "date": "2015-03-12",
      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9EZlhSZDVSeUUyamZRTm5RclhPZGF6bll2R3hjNE5iNVZnRG9GZzRjU3dUNGJaaE9waTdoVEJ1Rnp0Z0U2VUI2U0R5bWpVV0t0UzJLUVNNejJGNmgyNXMyQ0pVVVdNUG9RTDZJNl9B0gFyQVVfeXFMTzRkU0czYlo4N3JKeVU4WmthRmdfclp2Q0dFOGc0NjhXWWp6S21PT0tXbnJqOUEyUExWWW51NFhiS1B0bzQ0YXFXWTBnUUJGcUZSVkFfY3o2QmV1X1llS0Jjc21lTjcwVk16TVFwZS1pcHVB?oc=5"
     },
@@ -1479,7 +1521,7 @@
     },
     {
      "title": "김자영 김민석, 결혼 23년만에 파경…이혼 사유 뭐길래? 궁금증 ↑",
-     "source": "스포츠동아",
+     "source": "sports.donga.com",
      "date": "2015-03-12",
      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5ONWFOcVV2cWlFRjJ3TVNUZ04wSkV4X0VnMEZtUm5FU3hPTzJobmxqYXJVVS0xZlp1NTMzNVhwamFWdjRjb1RpdV9aTlBuWkhZenJoRTlnWGNLWUIxU2ItTHJtaEtFaXZHcjljbQ?oc=5"
     },
@@ -1491,13 +1533,13 @@
     },
     {
      "title": "김민석 전 의원, 김자영 전 아나운서 23년 만에 이혼…왜?",
-     "source": "news.tf.co.kr",
+     "source": "더팩트",
      "date": "2015-03-12",
      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBmbVdUOU52UVdidDVkOG5IenVzN0libEZ2NENNb3dlb3REYU4zc0VzU2dOVHRhSWh5NjRTVmZJeU9GOUZDTkt0anA1MXh6SV9KeDJXcTBLUk7SAVNBVV95cUxQNG1pSHpZNUVqak1VRFloZ2RNM05IRlYzLVhSeVNOUkxreTlMb1k0dHNYNmtyUW5mNEpuLWc4bFVVLTVtOUlCWWlFOFRpd01OTzBFSQ?oc=5"
     },
     {
      "title": "김민석-김자영 부부, 결혼 생활 23년 만에 이혼",
-     "source": "스포츠경향",
+     "source": "sports.khan.co.kr",
      "date": "2015-03-12",
      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5mV3BrUEtKWHZjVDlsNDZZYjNlQlRQZlZCbUpiLUVrTDBuVTlKWHdjUjc4dmdxSUFwdjA4MEEyeUNhZEcxRTFrdTBXd1ZIVWZnRXh4a0t5TFNUZ2JYemfSAWNBVV95cUxQM2dPMHhVSGtYV2tXVHhZcEdxY2E4WG0xOVRMcjdqU1d1N0R4OFBjNHBnU0M0dTFXa2VvdTMxdUlna05CWmc1dFM0bW95VXd6clhxUUxjU2hkZ1pjd0plNm1UaVE?oc=5"
     },
@@ -1527,7 +1569,7 @@
     },
     {
      "title": "김민석 김자영, 결혼 23년만에 파경…정확한 이혼사유 미공개 궁금증↑",
-     "source": "스포츠동아",
+     "source": "sports.donga.com",
      "date": "2015-03-12",
      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9NaWlCbzdzVlJtdl9xV3labzRfRGtvXzJRRFJHbzd0ajZ1NGR3VUlyODZhTGtfa2hGdmVJbkFfUjEzdy10OGFMYnRGTTJEejdjalNON2h2X1dyZjNqYTRNdi1Qc05UQUtocTlURw?oc=5"
     },
@@ -1556,6 +1598,12 @@
      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE8xZy1xXzRrYzdUT0JFcHR4dWdGM09GaTZpUkVreWdOYkZTTFBmSW1wS25pdW9FalY0UXZia00xSXhUWDRxbjB4akpvUktSZjlLWVpzb1laSU9Xd9IBWEFVX3lxTFBTYXFVNU55SjFKVE1SVDF5VS1JdU9NdUR3TFVpUzdPYW10cVV3UV8wclNtWVc3c0FoZXFrZlA0MjVza3B6TTVTb2o4UzNxMUtlclpGd1A0MmU?oc=5"
     },
     {
+     "title": "김민석-김자영 이혼 `충격`··23년 살고 자녀 2명인데 왜?",
+     "source": "한국경제TV",
+     "date": "2015-03-12",
+     "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBOd3U0eFB4cFNWRnJyd2VKWElwWWhtRDBoMXFULUh4ck5DelF5VE1ORTFfbmFIVEZwN3dOd3dZNFR1VjNBYmlEQk04MDJWWTI1RUs4SWRtVmlnN0NVcWUydkl3d2p5RHpuN1h0MV8xYW1xMkxhRFVv?oc=5"
+    },
+    {
      "title": "김민석 前의원, 김자영 前아나운서와 22년만에 이혼",
      "source": "법률신문",
      "date": "2015-03-13",
@@ -1566,12 +1614,6 @@
      "source": "v.daum.net",
      "date": "2015-03-13",
      "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE1KSEszaWQyckZRLU9wZTZhN21ub055MHhXV0Vkc0d1YlM3TU5HaE5BbXhrN2UtMDZza1hyOTNBaXY5UTRETkE?oc=5"
-    },
-    {
-     "title": "전 KBS 아나 김자영, 김민석 전 의원과 결혼 23년만에 파경",
-     "source": "매일경제",
-     "date": "2015-03-13",
-     "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1vRUp5clZCM2ZmdzltUGttUl9QYjJiejlyRm5wYVlsbGxpVUdjNGxWOFR2RHFlVGg3NHR0UXZaYWhDTW9STWdzbHowazMxaEt0TTdPczdtUQ?oc=5"
     }
    ]
   },
@@ -1612,7 +1654,7 @@
     },
     {
      "title": "김민석 전 의원, 재혼…\"쉽지 않았던 18년, 사랑으로 나아갈 것\"",
-     "source": "연합뉴스",
+     "source": "yna.co.kr",
      "date": "2019-11-25",
      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1YVlQzOVQwQWNxZUlFam5wLU9jN29JLWZXdml1OHZNa3FNcU1kZHRjVEdqaWxsamdXeS1EeVhNTEp1VFhsLVBmRks1akVwQzVyZGh5STE3RUgwRVnSAWBBVV95cUxORXFhNlpLNmlOVF85X1dJS01yMkp5Rm1RejBXNm9ZNVN0R2NXU2dQbGUtYVRTZzdNQmhOZzV0emxEZHZJWHhYd3R4QjR3NkJ5N2ZQTkRZYmxDYjNGcUhaaVc?oc=5"
     },
@@ -1636,7 +1678,7 @@
     },
     {
      "title": "김민석 \"영등포을에 출마한 세 가지 이유는...\"",
-     "source": "ohmynews.com",
+     "source": "OhmyNews",
      "date": "2020-02-17",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1ZMW1pSFFrd2tUTV9XZ3pDU0dkT1k4cTQ5RHFfQTVkVTUtRTdIdEQ4bzE3Uzd1SVI3Q1hsVlh5RXZoNE9ldzM1SGlyY0J2OWVyWDB5bUF1NlpWMk1xYmVxaXlTYzZYWkg3WWxISUJjTVJEMmFIUGQ0?oc=5"
     },
@@ -1648,13 +1690,13 @@
     },
     {
      "title": "'영등포을 귀환' 김민석, 20년만의 재도전…\"정치고향 돌아간다\"",
-     "source": "연합뉴스",
+     "source": "yna.co.kr",
      "date": "2020-02-27",
      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1RX01idFVKMWNNX3hBelpLMWZFWVQ0RHczNkxfM0d3Y2otVXYwQmFabzNMXzFubXI2dHlkTVZpR3ZCc253UzU1N3hjYmVPNkpsWkdQRVZUSHFYeWPSAWBBVV95cUxNYmdXUDdnXzFDUXV1UzRnMWtUSXNheDY5eVBUN2VhNmRJbmRidnhrd2xfVmwzdG1mTmQxTmVjNkNPOWJkQ28zZjhBa0RuT2RBZFJSOWtPNzlGS1hwcElZQzk?oc=5"
     },
     {
      "title": "민주당 김민석 정치유랑 18년 만에 '정치적 복권', 몸을 한껏 낮추다",
-     "source": "비즈니스포스트",
+     "source": "businesspost.co.kr",
      "date": "2020-02-27",
      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9sb21rcnF1X3EzbE5BY20yOFp6akhDTlV3MW1IVGlVTnpNZkM5ZzdaVy0xZmhwckZtSV9XZmlQZ1FITUxRTlJ0Yk5jZUhIRS1rVmwzNGEtempWNTBXeTVSZTZXVVFYOTByNFBXMDBKT3Z5a3c?oc=5"
     },
@@ -1672,7 +1714,7 @@
     },
     {
      "title": "김민석 \"영등포를 일등포로... 대방천 복원 추진하겠다\"",
-     "source": "ohmynews.com",
+     "source": "OhmyNews",
      "date": "2020-03-23",
      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9OMWQ5cHFfa2FMMFJ5MUhPYlBMZVJUOVU3aURaWTNvNTJyYXNEbXJNdGhscnRGNE1kcHhJNDBHQ2owUmprSFlHZU5KdHpiclN2OUppNkFPRzdYbHRJdUtBaC1Td1ZsWktualVHbTd2NGhwSFJMQ3BV?oc=5"
     },
@@ -1683,16 +1725,16 @@
      "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1xQTNRVzVya01zSU4yVXM5WjdGbWdOenVaTS14aEdvcTYyS21GRUFGU2hsbDlBSThaVEV6bGxVcnNzWUlQamFFc1Vyaw?oc=5"
     },
     {
-     "title": "[4.15 톡톡] 서울 영등포을 김민석 \"새벽편지로 주민과 소통..포용국가 건설 목표\"",
-     "source": "파이낸셜뉴스",
-     "date": "2020-03-30",
-     "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1vcUZkcFFqWm1VMjctcnVhZTZEWWFGNWhqQXk2WkI2bTZlTWpUTWRyNnJrbTA4UC00S1lZWnV6OC1ZakVMcFN3WklMajBod05Pdndod3VGaFdiUQ?oc=5"
-    },
-    {
      "title": "서울 열등포(을)더불어민주당 김민석 국회의원 후보 인터뷰",
      "source": "내외통신",
      "date": "2020-03-31",
      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5NNmRIT292UFRDSGRuV0JKZDQydkV5eF9lR0NJM2k1WUI4TzF4T2dBcXptdzVjMGVNREUxUy1Lb2l3dWJtUWN5Tm1OUmR4TGZ4bWZrWTBvZkdsdVdWTlVXcHd4bHFsUWhka2c?oc=5"
+    },
+    {
+     "title": "주먹인사 하는 김민석 후보",
+     "source": "뉴시스",
+     "date": "2020-04-02",
+     "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5lWXJQUHFmdnowd1N6OVFtWEduak51dnRDU2FFZDR1TE15Q3EwQkROcy1ycVMwcXJvTl9hS3hWVXpxWG1FN3kzUVJ1cEN5NWRjX0lGVkV1aHJKa003M2s1Mw?oc=5"
     },
     {
      "title": "[단독] 與김민석 '불법 정치자금 추징금 6억' 10년째 안내고 출마",
@@ -1702,7 +1744,7 @@
     },
     {
      "title": "영등포을, 민주당 김민석 후보 당선",
-     "source": "ybstv.net",
+     "source": "영등포신문",
      "date": "2020-04-16",
      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1wbkIzS0JGYmNWRTExSE43UFNnR0V1YW52dDNKaUJYUzY5QnBLeG05WkxzMktFc2hkMi1odXpTR09QbVZqemZuSDRFS3VCQk84REw4UXBaQmlwdw?oc=5"
     },
@@ -1726,13 +1768,13 @@
     },
     {
      "title": "[뉴스1번지] 김민석 당선인에게 듣는 슬기로운 국회생활",
-     "source": "연합뉴스",
+     "source": "yna.co.kr",
      "date": "2020-05-01",
      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE02dVFFd3o2eHMzSFBqTGVmY21rZXQtQ3NKTFJudzRiVUtSMzMzZnppUkZUTmloWGVnbnNHenU3TmIzVWVLT3hKNDBjNzZ2ajY0RGRUOHRxb190RU3SAWBBVV95cUxNUV9xdW1hWnRKOTUwOTJwSHQxRlZNOHZ5MnZScjFrR3ZQVmdfX25lSDN1VHNRNFprS0lsV21PZWJiQ2QxS2k4TjA0TktoSjNmQ25NZ2tRNU5sSjNZZUxDdy0?oc=5"
     },
     {
      "title": "김민석, 미투 '2차 가해' 논란 보좌진 채용",
-     "source": "연합뉴스",
+     "source": "yna.co.kr",
      "date": "2020-06-17",
      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBPTWQ4dFNuam9vd2prR2VhUEVHcFNzbFVJcms3TlRHRWl4SkdVSGZDbWNHR0gybVBULWhFUklCTlVULXlEWnJGVTdxYmJZZ2wwd3A3TGZkanV1ZXPSAWBBVV95cUxOTlcyUmRXYllhX0Yxbkk0V2p5YjUyZ1FVWjBNUjlOU1FmQmV2SzFrZUxVX3haUEJhWVJNWmVHQmhOVnNWRFNPdUVNbkZhcnBkLS1RMTB6VFhzSHBOcGxkelg?oc=5"
     },
@@ -1750,13 +1792,13 @@
     },
     {
      "title": "'성폭력 2차 가해자' 보좌진 채용 논란…김민석 의원 \"재판 지켜봐야\"",
-     "source": "news1.kr",
+     "source": "뉴스1",
      "date": "2020-06-17",
      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1ZV0dEbnhOZDdFYmJ4Yjg5WHhtVm40RmxWTEpId3NkSVZBalBvb0JNTXgtd2lVUXNzai14UDd4Sk9zamNEbnYwZHl6MnA0R1NZWTBnRVFtUm1YZ9IBX0FVX3lxTE5NT2lTclhTTGttdllJNDdhbjA2cEpfbXlpN05uZHFHYUlSYldldy1INWwzZ2VHLWNRYkxHZlNiSlF6amFuOHJ5U2VLVlBvdWhwN2UxNjhINEtldDJIZHF3?oc=5"
     },
     {
      "title": "서울대 총학생회장 출신 '원조 86' 김민석 보건복지위원장",
-     "source": "연합뉴스",
+     "source": "yna.co.kr",
      "date": "2020-09-24",
      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBNSFZQZUZEaFpUTmJUTUtxVnRIa0lOUlkyV3c5WTVHZldVZ0FDb3FSZkdqb3VyX29iMTBhc0xaNHVWSmRZVnZ0YU14Sm84bEhOMjBlX2RvR2drTzDSAWBBVV95cUxPVnFweTNDVG1LTWttc0J0NFJoZDFVbW9pY1JIQ084N1VfVFBNMmQwbUlySHlJT1hxZzBRVnFqLVhqRFp3bFNuUXF3MEh6U1JRZEM4aDVjMWwtVGwzb1lWSzU?oc=5"
     }
@@ -1799,7 +1841,7 @@
     },
     {
      "title": "차기 민주당 당대표 적합도 물으니…김민석·정청래 각축전",
-     "source": "yonhapnewstv.co.kr",
+     "source": "연합뉴스TV",
      "date": "2026-07-30",
      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFB4Rkc4SlBXMndrWTZqcERqbDBXcW9kbXg0X0VEQmVPZ0MtTzlxWEpaYzM3YnVhOTktM3EzTlZxVEZqUFpKc3BQWUNuaGJiS0RuaklLaGhtbVlXcGJaVW8wSWZ5dUFJYU0?oc=5"
     },
@@ -1823,19 +1865,19 @@
     },
     {
      "title": "김민석, 민주당 충청 첫 경선 1위…정청래와 303표 차 초접전",
-     "source": "yonhapnewstv.co.kr",
+     "source": "연합뉴스TV",
      "date": "2026-08-01",
      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9CTm54ZlJnOV9ZamVhT2hMMFFjVXhCZ0x2akhNbldsMWhzTTVleHJXWmZpcFBNRktFMHU4NnJ2dFpGbEJ2ZnpGZzhQd2NWbFZGeDFfdWEyX1dNa214ZVNBZHZYVVZVejg?oc=5"
     },
     {
      "title": "[속보] 민주당 첫 경선 충청권…김민석 박빙 승리",
-     "source": "yonhapnewstv.co.kr",
+     "source": "연합뉴스TV",
      "date": "2026-08-01",
      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1fSFljLWREdnNOM3hHX0xBRW8zYVlLNnpoQkNNeWtlTnN5bXMwdW9sT0RldzMwOUhBYjk0QnZxdXJqV0dvZE4wV3ItR25uOU1wbTB1Rndqa190TDVIa2ZFUmEzRWtzbzA?oc=5"
     },
     {
      "title": "김민석, '與대표 첫 경선' 충청 당원투표서 정청래에 박빙 승리(종합)",
-     "source": "연합뉴스",
+     "source": "yna.co.kr",
      "date": "2026-08-01",
      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1wWmZ5VGF1aGlQZGdXazRUZTNWa1FuODFDVjNyUVdBQkpMVXFfNi0zdl9QSFltaWwtaWE3NUx5dlVidE03NGJkUV9LS0NlTF9yeXo3eDBqeVJvUWvSAWBBVV95cUxQMmhqR1F6RlE0WHBCU1lnMVRqeEtBXzA4eEJNNGRiSHUtd1l0QktDeThvaFV6T3dsYlRxUU43VE5MVjZnTXR1QkYzZUFBVzJGX2ZGRnNoM24zTnZJZkc5Wmw?oc=5"
     },
@@ -1853,7 +1895,7 @@
     },
     {
      "title": "與 첫 경선 결과…김민석, 300여표 차로 1위",
-     "source": "yonhapnewstv.co.kr",
+     "source": "연합뉴스TV",
      "date": "2026-08-01",
      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9zNEZ2WHZMQnZjVmFlcGtWc0t0d1RTQ0JsNGpLU3V2R2lsQUt5bk9kVFVtM0tqQVFZZHpmWnQwdEQ1RGVMNnAxcnhhcmxRa3g0QTdtNVJGcXloTVJRV051RGZCTE5BcGc?oc=5"
     },
@@ -1865,19 +1907,13 @@
     },
     {
      "title": "정청래, 부울경 경선 승리…김민석 연승 막아",
-     "source": "yonhapnewstv.co.kr",
+     "source": "연합뉴스TV",
      "date": "2026-08-02",
      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9hY2VDNFNtS0k4RnBjM0g2UkxtOGFqTlhXazdUQkY0UHBqT0NMS29nTjdhMllzbUl2X2tCQmI2RkxxUmJmYkdIMTJhNUVxNlAzWHNhbHlYdmdjRDVxQlFzUlpNR2JZNVU?oc=5"
     },
     {
-     "title": "부·울·경 정청래가 이겼다…충청 합쳐 김민석에 1211표로 역전",
-     "source": "v.daum.net",
-     "date": "2026-08-02",
-     "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE55UnR3T1lBVko1cTJfZHpXNWhjSEJISFZTMXVPRHlyVnNmOEtWV041bkFYV3Ewd0pOUEcyWktnSWdYOXZIaUZnRTJqMVpsbVU?oc=5"
-    },
-    {
      "title": "與 부울경 순회경선…김민석 연승 vs 정청래 반격",
-     "source": "yonhapnewstv.co.kr",
+     "source": "연합뉴스TV",
      "date": "2026-08-02",
      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE8ycjJLNVlvbThaT1psWUJhdzdudWtKbm9lZVMwcG5QdTROOG9ucFVXODVub2FYZVpkaXJXRFdUU3hSTExQaHJHR0dKMnpSREp3TVB1Wi1xLWZ3eUJGeEF5emRDZGpDWjg?oc=5"
     },
@@ -1889,15 +1925,21 @@
     },
     {
      "title": "與 정청래, 부울경서 1위 탈환…김민석과 여전히 박빙 승부",
-     "source": "yonhapnewstv.co.kr",
+     "source": "연합뉴스TV",
      "date": "2026-08-03",
      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFA2eFVtc21kS0RfWmsyLXUtYUZTbWN0M3FjcHFrbURsemxKbmVCX2djaDVaYTdJc1VSWUhzSk1nZUZEUWJnREs3bW83MDRGZDBvTDZma0diOEhKRS14YUlJQmxnb3BCaTQ?oc=5"
     },
     {
      "title": "정청래, 부울경 경선 승리…김민석 연승 저지",
-     "source": "yonhapnewstv.co.kr",
+     "source": "연합뉴스TV",
      "date": "2026-08-03",
      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBOYWxfdEo4MVAyVmdQVmlUaWVPT0RSbWV5UzdjRF9uVUlWTk1OOWNFZUFJNllQb3FtRGxzOUExYkY2TjVzaENlX0JMWEpZcklGQ3NFcUV3NEJvYUZibkdnNjhSUG43WE0?oc=5"
+    },
+    {
+     "title": "정청래 \"내가 지지층 ‘붙들맨’\" 김민석 \"지선 못해서 대통령 지지율 끌어내려\"",
+     "source": "JTBC",
+     "date": "2026-08-05",
+     "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1mV1ZoQVNKMjNhNEZDcnpRaHJ0QUxmdHQ4Q3dQdVlWU2lwc05MclV2aG1TT1pwYkhXUWEwaHVNb0Nnb01yb2tzMmxwMzhUZDU1X0xyMg?oc=5"
     },
     {
      "title": "정청래 “김민석 총리 때 레버리지 ETF 도입…국민께 사과해야”",
@@ -1916,6 +1958,12 @@
      "source": "중앙일보",
      "date": "2026-08-08",
      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBOZ0Q1b2tnQ3paZjNfWTUzZ2Vuc1lzRzl5Y1ppUDhDaUhGOGVOMnRYTlRpTkY3V0JCVTBiZ09xQm1Pa1JHUG5YU1AxcWMxbVBOaXdLbWRB?oc=5"
+    },
+    {
+     "title": "민주 전당대회 제주·인천 김민석 1위...중간 집계도 역전",
+     "source": "YTN",
+     "date": "2026-08-08",
+     "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE81ZFNaZXFQYUk3Z1lVM20yc1FvazhaSEVTMzVleXZrTWljWTZ5RV8wT0RqYWJaYjY5RTNnS0JjQkJDTzhBbFZDRjZpMzFMbGM0aTdkc3VxYlNIcERYaWc?oc=5"
     },
     {
      "title": "김민석, 민주당 전당대회 강원·TK 당원 투표 1위",
@@ -1937,15 +1985,9 @@
     },
     {
      "title": "김민석, 강원·TK서도 1위…정청래와 3086표 차, 승부는 호남으로",
-     "source": "weekly.chosun.com",
+     "source": "주간조선",
      "date": "2026-08-09",
      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE15a3FKeEZWN0YxX1kwcndLc3NkVC1GTE5seEUydUc4ejhHTnM2TFpyRl9YRHFIbDVVTEhCTndtbVBNV1dpWllMTXJDSUdvcDMzU19nbnJCMXZBLTNDLWRpak1VTGZFNlJoZ0HSAW5BVV95cUxQd3I1Mzk2aVd3dUlrOXFxd1VvOUIwLUMtUmRlVmlGaXVFV3h4N0NPMEVlMDNEano3N3BEUGFRUUxyYlQ1TTM1TmhMTXpxQndQQWJxQVJFdE0tLWNFTU5rcWtJWjNTVk93NGhjcjRpUQ?oc=5"
-    },
-    {
-     "title": "김민석, 강원·TK 경선 정청래에 4.14%p차 승리‥누적득표 박빙 지속",
-     "source": "MBC 뉴스",
-     "date": "2026-08-09",
-     "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBPeHlFR3N6WThDdFpGaFcxSG1zUnJzUEhuVjdnQ1lSR3QyUTJicnFtY0lvWXk3WTJEalNCWmdpSkFSZ0swZ0tITS1QZkVucGtLMktab19yWXBaOFBpa1lxczJ6M1JybExydXlIX3h2Z1U3T25PRXVyetIBeEFVX3lxTE9fR0czZ2ZfTnp1bnk3a1ZpaldLOUVRUzVZbkdRR2NNUFhSX3phREVSU005Q0xMSTNwbjdHamdLd1ZhN3ZQYkE0c3ItaVVFc0dNTlQ0cXFBLWdfSS1NV1QtU3dQbjQyWGhzWmFZLWdHZ2ZJenRCTlUzeQ?oc=5"
     }
    ]
   }
