@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-08T22:16:48",
-  "count": 2,
+  "updated_at": "2026-09-09T23:03:19",
+  "count": 5,
   "entries": [
     {
       "date": "2026-09-08",
@@ -130,6 +130,56 @@
       "usd": 0.5,
       "by_call": [],
       "note": "시험(test_profile)이 .env 열쇠로 진짜 모델을 한 번 부름 — 어림값. conftest 를 고쳐 재발 막음"
+    },
+    {
+      "date": "2026-09-10",
+      "kind": "daily",
+      "run_at": "2026-09-09T23:03:19",
+      "model": "claude-opus-5",
+      "calls": 4,
+      "input_tokens": 37722,
+      "output_tokens": 31955,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "usd": 0.5052,
+      "by_call": [
+        {
+          "kind": "브리핑",
+          "model": "claude-sonnet-5",
+          "input_tokens": 15333,
+          "output_tokens": 13753,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "usd": 0.1682
+        },
+        {
+          "kind": "블로그",
+          "model": "claude-opus-5",
+          "input_tokens": 10628,
+          "output_tokens": 5524,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "usd": 0.1912
+        },
+        {
+          "kind": "정책 요약",
+          "model": "claude-haiku-4-5",
+          "input_tokens": 1776,
+          "output_tokens": 557,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "usd": 0.0046
+        },
+        {
+          "kind": "영상 대본",
+          "model": "claude-sonnet-5",
+          "input_tokens": 9985,
+          "output_tokens": 12121,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "usd": 0.1412
+        }
+      ]
     }
   ]
 }
