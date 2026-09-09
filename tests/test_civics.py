@@ -321,3 +321,37 @@ def test_tracked_bills_show_up_in_the_civics_page_and_blog_block(cfg, tmp_path):
     md = Renderer(cfg, tmp_path, "2026-09-08").civics(data).read_text(encoding="utf-8")
     assert "오늘 이슈에 나온 법안은 지금 어디에" in md and "**소관위 상정**" in md
     assert "계류 2" in civics_block_html(data) and "소관위 상정" in civics_block_markdown(data)
+
+
+def test_get_retries_three_times_with_growing_pauses(monkeypatch):
+    """연결 단계에서 끊기면 세 번까지, 간격을 벌려(3초→12초) 다시 부른다.
+
+    2026-09-09 탐침: 열린국회정보는 깃허브 러너에서 막힌 게 아니라 흔들린다 — 같은 날 어느 때는 5회 모두
+    1초 안에 연결되고, 아침 데일리는 세 번 다 20초 만에 끊겼다. 응답을 받은 뒤의 오류(400 등)는 재시도하지 않는다.
+    """
+    import requests
+    from rebrief import civics
+
+    calls: list[int] = []
+    pauses: list[int] = []
+
+    def flaky_get(url, params=None, headers=None, timeout=None):
+        calls.append(1)
+        if len(calls) < 3:
+            raise requests.ConnectTimeout("끊김")
+        class _Ok:
+            def raise_for_status(self): pass
+            def json(self): return {"ok": 1}
+        return _Ok()
+
+    monkeypatch.setattr(civics.requests, "get", flaky_get)
+    monkeypatch.setattr(civics.time, "sleep", lambda s: pauses.append(s))
+    assert civics._get("https://example.test").json() == {"ok": 1}
+    assert len(calls) == 3 and pauses == [3, 12]
+
+    # 세 번 다 끊기면 그때 올린다
+    calls.clear(); pauses.clear()
+    monkeypatch.setattr(civics.requests, "get", lambda *a, **k: (_ for _ in ()).throw(requests.ConnectionError("빈 응답")))
+    with pytest.raises(requests.ConnectionError):
+        civics._get("https://example.test")
+    assert len(calls) == 0 and pauses == [3, 12]

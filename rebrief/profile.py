@@ -63,16 +63,18 @@ class ProfileError(RuntimeError):
 
 def _get(url: str, params: dict | None = None) -> requests.Response:
     """시험에서 갈아끼우는 자리."""
-    # 열린국회정보는 깃허브 러너(해외)에서 접속이 자주 늦거나 끊긴다 (2026-09-09: 세 번 중 두 번 ConnectTimeout).
-    # 연결 단계에서 막힌 것만 한 번 더 시도한다. 응답을 받은 뒤의 오류는 그대로 올린다.
-    for attempt in (1, 2):
+    # 열린국회정보·korea.kr·선관위는 깃허브 러너(해외)에서 **간헐적으로** 끊긴다. 2026-09-09 탐침 —
+    # 열린국회정보는 5회 모두 1초 안에 연결됐지만 같은 날 07:09 데일리는 세 번 다 ConnectTimeout(20초)이었고,
+    # korea.kr·선관위는 서너 번 빠르게 부르면 빈 응답(curl 52)으로 끊었다. 막힌 게 아니라 흔들리는 것이라
+    # 세 번까지, 간격을 벌려(3초→12초) 다시 부른다. 응답을 받은 뒤의 오류는 그대로 올린다.
+    for attempt, pause in ((1, 3), (2, 12), (3, 0)):
         try:
             resp = requests.get(url, params=params, headers={"User-Agent": UA}, timeout=TIMEOUT)
             break
         except (requests.ConnectTimeout, requests.ConnectionError):
-            if attempt == 2:
+            if attempt == 3:
                 raise
-            time.sleep(3)
+            time.sleep(pause)
     resp.raise_for_status()
     return resp
 
