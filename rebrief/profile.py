@@ -255,13 +255,24 @@ def wiki_candidates(name: str, limit: int = 6) -> list[str]:
     return titles
 
 
-def _is_this_person(intro: str, name: str, birth_year: int | None) -> bool:
+POLITICS_WORDS = ("정치", "국회의원", "장관", "총리", "대통령", "시장", "지사", "도지사", "대표")
+
+
+def _is_this_person(intro: str, name: str, birth_year: int | None, *, strict: bool = True) -> bool:
+    """머리글이 이 사람 것인가. 생년은 ±1년까지 봐준다 — 호적과 실제 생년이 다른 사람이 있다
+    (이재명: 국회 기록 1964, 위키 1963). strict=False 면 생년을 묻지 않는다(마지막 수단)."""
     head = " ".join((intro or "").split())[:400]
-    if name not in head or "정치" not in head:
+    if name not in head or not any(w in head for w in POLITICS_WORDS):
         return False
-    if birth_year and str(birth_year) not in head:
+    if strict and birth_year and not any(str(y) in head for y in (birth_year - 1, birth_year, birth_year + 1)):
         return False
     return True
+
+
+def wiki_birth_year(intro: str) -> int | None:
+    """머리글의 '(…, 1954년 12월 5일~)' 에서 생년. 국회 기록이 없을 때 쓴다."""
+    m = re.search(r"(19[0-9]{2}|20[0-4][0-9])년 \d{1,2}월 \d{1,2}일", intro or "")
+    return int(m.group(1)) if m else None
 
 
 def split_sections(text: str) -> tuple[str, dict[str, str]]:
@@ -345,12 +356,15 @@ def fetch_wiki(name: str, birth_year: int | None) -> dict | None:
                   "exlimit": 20, "titles": "|".join(titles[:8])})
     pages = (data.get("query") or {}).get("pages", [])
     chosen = None
-    for t in titles:                                   # 검색 순서를 지킨다
-        for p in pages:
-            if p.get("title") == t and _is_this_person(p.get("extract", ""), name, birth_year):
-                chosen = t
+    for strict in (True, False):                       # 생년까지 맞는 문서 → 없으면 이름+정치인 문서
+        for t in titles:                               # 검색 순서를 지킨다
+            for p in pages:
+                if p.get("title") == t and _is_this_person(p.get("extract", ""), name, birth_year, strict=strict):
+                    chosen = t
+                    break
+            if chosen:
                 break
-        if chosen:
+        if chosen or not birth_year:
             break
     if not chosen:
         return None
@@ -377,6 +391,20 @@ def fetch_wiki(name: str, birth_year: int | None) -> dict | None:
     return {"title": page.get("title", chosen), "url": page.get("fullurl", ""),
             "revised": (revs[0].get("timestamp") or "")[:10], "intro": intro[:1500],
             "sections": kept, "tables": tables, "license": "CC BY-SA 4.0"}
+
+
+def wiki_basics(wiki: dict | None) -> dict:
+    """국회 기록이 없거나(국회의원 아님) 못 받았을 때(깃허브 서버에서 열린국회정보 차단) 위키 표로 채우는 기본 정보."""
+    if not wiki:
+        return {}
+    tables = wiki.get("tables") or {}
+    out: dict = {"birth_year": wiki_birth_year(wiki.get("intro", ""))}
+    parties = [r[0] for r in tables.get("소속 정당") or [] if r]
+    if parties:
+        out["party"] = parties[-1]
+    won = [r for r in tables.get("역대 선거 결과") or [] if "당선" in " ".join(r)]
+    out["won"] = [f"{r[0]} {r[1]}" for r in won]            # '1996년 총선'
+    return out
 
 
 # ── 구글뉴스 ─────────────────────────────────────────────────
@@ -435,18 +463,27 @@ def plan_windows(start_year: int, end_year: int, span: int, max_windows: int = 1
 
 
 def career_start_year(member: Member | None, wiki: dict | None, today: date) -> int:
-    """시기별 검색을 어디서 시작할지. 첫 당선 대수 1년 전 → 위키 머리글의 첫 연도 → 12년 전."""
+    """시기별 검색을 어디서 시작할지. 첫 당선 1년 전과 위키 머리글의 첫 활동 연도 중 이른 쪽 → 없으면 12년 전.
+
+    당선 전에 이미 유명했던 사람(이준석: 2021년 당대표, 2024년 첫 당선)은 위키 연도가 앞선다."""
+    candidates: list[int] = []
     if member and member.ages:
         first = min(member.ages)
         if first in AGE_START_YEAR:
-            return AGE_START_YEAR[first] - 1
+            candidates.append(AGE_START_YEAR[first] - 1)
     if wiki:
+        birth = (member.birth_year if member else None) or wiki_birth_year(wiki.get("intro", ""))
         years = [int(y) for y in re.findall(r"(19[5-9]\d|20[0-4]\d)년", wiki.get("intro", ""))]
-        if member and member.birth_year:
-            years = [y for y in years if y >= member.birth_year + 20]
+        # 소속 정당·선거 결과 표의 첫 연도가 가장 믿을 만하다 (이준석: 머리글엔 2024년뿐, 정당 표는 2011년부터).
+        # 표의 기간은 '2011~2012' 처럼 '년' 없이 적힌다.
+        for rows in (wiki.get("tables") or {}).values():
+            cells = " ".join(" ".join(r) for r in rows)
+            years += [int(y) for y in re.findall(r"(?<!\d)(19[5-9]\d|20[0-4]\d)(?!\d)", cells)]
+        if birth:
+            years = [y for y in years if y >= birth + 20]   # 생년·학교 연도는 활동이 아니다
         if years:
-            return min(years)
-    return today.year - 12
+            candidates.append(min(years))
+    return min(candidates) if candidates else today.year - 12
 
 
 def fetch_news(name: str, start_year: int, today: date, *, span: int, per_window: int,
@@ -470,11 +507,14 @@ def collect(cfg: Config, name: str, *, birth: str | None = None, today: date | N
     settings = cfg.get("profile", {}) or {}
     m = Materials(name=name, fetched_at=datetime.now().isoformat(timespec="seconds"))
 
+    fetched = True
     try:
         members = find_members(name, key=key)
     except (requests.RequestException, ProfileError, ValueError) as exc:
-        members = []
-        m.notes.append(f"열린국회정보 인적사항을 받지 못했습니다: {exc}")
+        members, fetched = [], False
+        # 깃허브 서버(해외)에서는 열린국회정보가 접속 자체를 막는다 (2026-09-09 실측: ConnectTimeout).
+        # 그래서 이 안내는 '없다' 가 아니라 '못 받았다' 여야 한다. 위키백과 표로 기본 정보를 대신 채운다.
+        m.notes.append(f"열린국회정보에 닿지 못해 공식 기록 없이 만들었습니다 (위키백과로 대신): {type(exc).__name__}")
     m.member = pick_member(members, birth)
     if members and not m.member:
         m.notes.append(f"생년 {birth} 과 맞는 사람이 없습니다. 있는 사람: "
@@ -483,7 +523,7 @@ def collect(cfg: Config, name: str, *, birth: str | None = None, today: date | N
     if m.others:
         m.notes.append("같은 이름의 다른 의원: " + " / ".join(x.label for x in m.others)
                        + ". 다른 사람이면 --birth 에 생년을 주세요.")
-    if not members:
+    if fetched and not members:
         m.notes.append("열린국회정보에 국회의원 기록이 없습니다 (국회의원을 지낸 적이 없거나 이름 표기가 다름).")
 
     birth_year = m.member.birth_year if m.member else (int(birth[:4]) if birth and birth[:4].isdigit() else None)
@@ -574,14 +614,23 @@ def slug(name: str, birth: str | None) -> str:
     return f"{safe}-{birth[:4]}" if birth and birth[:4].isdigit() else safe
 
 
+def folder_name(m: Materials, birth: str | None) -> str:
+    """폴더 이름 `이름-생년`. 국회 기록 → --birth → 위키 머리글 순으로 생년을 찾는다."""
+    year = (m.member.birth if m.member else None) or birth or str(wiki_basics(m.wiki).get("birth_year") or "")
+    return slug(m.name, year or None)
+
+
 def file_base(m: Materials, today: str, birth: str | None = None) -> str:
     """산출물 이름의 앞부분: `이름(생년,정당)_날짜` (2026-09-09 사용자 지정 형식).
 
     생년이나 정당을 모르면 그 칸을 뺀다 — `이름(1964)_날짜`, `이름_날짜`.
     """
     safe = re.sub(r"[^\w가-힣]+", "", m.name)
-    year = str(m.member.birth_year) if m.member and m.member.birth_year else (birth[:4] if birth and birth[:4].isdigit() else "")
-    party = (m.member.parties[-1] if m.member and m.member.parties else "").replace(" ", "")
+    basics = wiki_basics(m.wiki) if not m.member else {}
+    year = (str(m.member.birth_year) if m.member and m.member.birth_year
+            else birth[:4] if birth and birth[:4].isdigit()
+            else str(basics.get("birth_year") or ""))
+    party = (m.member.parties[-1] if m.member and m.member.parties else basics.get("party", "")).replace(" ", "")
     inside = ",".join(x for x in (year, party) if x)
     return f"{safe}({inside})_{today}" if inside else f"{safe}_{today}"
 
@@ -654,7 +703,7 @@ def render_tables(cfg: Config, m: Materials, today: str) -> str:
 
     env = make_env()
     return env.get_template("profile_tables.md.j2").render(
-        m=m, member=m.member, wiki=m.wiki, bills=m.bills, today=today,
+        m=m, member=m.member, wiki=m.wiki, bills=m.bills, today=today, basics=wiki_basics(m.wiki),
         elections=election_rows(m), parties=party_rows(m), years=news_by_year(m),
         news_total=len({i.link for w in m.windows for i in w.items} | {i.link for i in m.recent}),
     )

@@ -150,6 +150,7 @@ def test_windows_and_start_year():
     assert len(prof.plan_windows(1960, 2026, 4)) <= 10          # 창이 10개를 넘으면 넓힌다
     m = prof.member_from_row(_MEMBER_ROW)
     assert prof.career_start_year(m, None, date(2026, 9, 9)) == 1995
+    assert prof.career_start_year(m, {"intro": "", "tables": {"역대 선거 결과": [["1992년", "총선"]]}}, date(2026, 9, 9)) == 1992
     assert prof.career_start_year(None, {"intro": "2010년 정계에 입문"}, date(2026, 9, 9)) == 2010
     assert prof.career_start_year(None, None, date(2026, 9, 9)) == 2014
 
@@ -160,12 +161,12 @@ def test_collect_end_to_end(cfg, patched, tmp_path):
     assert len(m.others) == 1 and any("같은 이름" in n for n in m.notes)
     assert m.wiki["title"] == "김민석 (1964년)" and "역대 선거 결과" in m.wiki["sections"]
     assert m.bills["by_age"] == {"제22대": 11, "제21대": 86} and m.bills["sample"]
-    assert m.recent and len(m.windows) == 8
+    assert m.recent and len(m.windows) == 10       # 위키 정당 표의 1990년부터
     # 제20대 아래 대수는 발의법률안을 부르지 않는다
     assert {c[1].get("AGE") for c in patched if prof.BILLS in c[0]} == {22, 21}
 
     text = prof.format_materials(m)
-    for tag in ("[A]", "[W]", "[W·역대 선거 결과]", "[B]", "[N0]", "[N1]", "(N1-1)"):
+    for tag in ("[A]", "[W]", "[W·역대 선거 결과]", "[B]", "[N0]", "[N1] 1990~1993", "(N1-1)"):
         assert tag in text
     assert "인증키가 없어" in text
 
@@ -281,8 +282,64 @@ def test_cli_default_is_tables_only(cfg, patched, monkeypatch, capsys):
     # --pack 은 claude.ai 에 붙일 자료묶음을 더한다
     assert cli.main(["profile", "김민석", "--date", "2026-09-09", "--pack"]) == 0
     pack = (folder / f"{base}.md").read_text(encoding="utf-8")
-    assert "절대 규칙" in pack and "[N1] 1995~1998" in pack
+    assert "절대 규칙" in pack and "[N1] 1990~1993" in pack
 
     # --llm 인데 열쇠가 없으면 정리표는 남기고 1 로 끝난다
     assert cli.main(["profile", "김민석", "--date", "2026-09-09", "--llm"]) == 1
     assert "ANTHROPIC_API_KEY" in capsys.readouterr().err
+
+
+def test_wiki_match_tolerates_birth_year_off_by_one():
+    intro = "이재명(李在明, 1963년 12월 8일~)은 대한민국의 정치인이다."
+    assert prof._is_this_person(intro, "이재명", 1964)              # 호적 1964, 실제 1963
+    assert not prof._is_this_person(intro, "이재명", 1970)
+    assert prof._is_this_person(intro, "이재명", 1970, strict=False)
+    assert prof._is_this_person("홍준표는 대한민국의 검사 출신 변호사이자 국회의원이다.", "홍준표", None)
+    assert not prof._is_this_person("김민석은 대한민국의 피겨 스케이팅 선수이다.", "김민석", None)
+    assert prof.wiki_birth_year(intro) == 1963 and prof.wiki_birth_year("연도 없음") is None
+
+
+def test_start_year_uses_wiki_tables():
+    """머리글엔 2024년뿐이어도 정당 표가 2011년부터면 거기서 시작한다 (이준석)."""
+    wiki = {"intro": "이준석(1985년 3월 31일~)은 정치인이다. 2024년 총선에서 당선되었다.",
+            "tables": {"소속 정당": [["한나라당", "2011~2012", "입당"], ["개혁신당", "2024~현재", "창당"]]}}
+    m = prof.member_from_row(dict(_MEMBER_ROW, BIRDY_DT="1985-03-31", GTELT_ERACO="제22대"))
+    assert prof.career_start_year(m, wiki, date(2026, 9, 9)) == 2011
+    assert prof.career_start_year(m, None, date(2026, 9, 9)) == 2023
+
+
+def test_assembly_blocked_falls_back_to_wiki(cfg, patched, monkeypatch):
+    """깃허브 서버에서는 열린국회정보가 접속을 막는다 — 위키 표로 기본 정보·생년·정당을 채운다."""
+    import requests
+
+    def blocked(*_a, **_k):
+        raise requests.ConnectTimeout("차단")
+    monkeypatch.setattr(prof, "find_members", blocked)
+    m = prof.collect(cfg, "김민석", today=date(2026, 9, 9))
+    assert m.member is None and m.bills is None
+    assert any("닿지 못해" in n for n in m.notes) and not any("기록이 없습니다" in n for n in m.notes)
+    basics = prof.wiki_basics(m.wiki)
+    assert basics["birth_year"] == 1964 and basics["party"] == "무소속" and basics["won"] == []
+    assert prof.file_base(m, "2026-09-09") == "김민석(1964,무소속)_2026-09-09"
+    assert prof.folder_name(m, None) == "김민석-1964"
+    text = prof.render_tables(cfg, m, "2026-09-09")
+    assert "값 (위키백과 표에서)" in text and "| 생년 | 1964 |" in text and "자료에 없음" in text
+    assert "| 1992년 | 총선 14대 |" in text                       # 선거 이력은 위키에서 그대로
+
+
+def test_not_a_member_note(cfg, monkeypatch):
+    """국회의원을 지낸 적 없는 사람은 '없다' 로 안내한다 (못 받은 것과 가른다)."""
+    def get(url, params=None):
+        if prof.MEMBERS in url:
+            return _Resp({"RESULT": {"CODE": "INFO-200", "MESSAGE": "없음"}})
+        if url == prof.WIKI_API:
+            return _Resp({"query": {"search": [], "pages": []}})
+        if url == prof.GNEWS:
+            return _Resp(content=_RSS.encode("utf-8"))
+        raise AssertionError(url)
+    monkeypatch.setattr(prof, "_get", get)
+    monkeypatch.setattr(prof.time, "sleep", lambda *_: None)
+    m = prof.collect(cfg, "황교안", today=date(2026, 9, 9))
+    assert any("기록이 없습니다" in n for n in m.notes)
+    assert prof.folder_name(m, None) == "황교안" and prof.file_base(m, "2026-09-09") == "황교안_2026-09-09"
+    assert "국회 공식 기록도, 위키백과 표도 없습니다" in prof.render_tables(cfg, m, "2026-09-09")

@@ -17,9 +17,16 @@
 | 현재 정당 | {{ member.parties[-1] if member.parties else '' }} |
 | 현재 선거구 | {{ member.districts[-1] if member.districts else '' }} |
 | 현재 위원회 | {{ member.committee }} |
+{% elif basics %}
+
+| 항목 | 값 (위키백과 표에서) |
+| --- | --- |
+| 생년 | {{ basics.get('birth_year') or '?' }} |
+| 최근 정당 | {{ basics.get('party') or '?' }} |
+| 당선 | {{ basics.get('won') | join(', ') if basics.get('won') else '자료에 없음' }} |
 {% else %}
 
-열린국회정보에 국회의원 기록이 없습니다.
+국회 공식 기록도, 위키백과 표도 없습니다.
 {% endif %}
 {% if wiki and wiki.intro %}
 

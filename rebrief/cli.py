@@ -652,7 +652,7 @@ def _cmd_profile(cfg, args) -> int:
         print("자료를 하나도 찾지 못했습니다. 이름 표기를 확인하세요.")
         return 1
 
-    out_dir = cfg.output_dir / "profiles" / prof.slug(name, m.member.birth if m.member else args.birth)
+    out_dir = cfg.output_dir / "profiles" / prof.folder_name(m, args.birth)
     out_dir.mkdir(parents=True, exist_ok=True)
     base = prof.file_base(m, date_str, args.birth)
 
