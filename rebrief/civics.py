@@ -19,12 +19,14 @@
 from __future__ import annotations
 
 import html as html_mod
+import json
 import logging
 import os
 import re
 import time
 from dataclasses import dataclass, field
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
+from pathlib import Path
 
 import requests
 
@@ -314,7 +316,10 @@ def collect(cfg: Config, date_str: str) -> dict:
 
 
 # '법' 으로 끝나지만 법률 이름이 아닌 낱말. 이걸 안 빼면 '후속입법'·'방법' 을 찾아 국회에 묻는다.
-NOT_A_LAW = {"헌법", "법"}
+# 법 이름처럼 생겼지만 법률의 통칭·분류일 뿐인 낱말. 2026-09-09 맥 미리 받기 실측에서 기사 제목의
+# "검찰 개혁법"·"후속법"·"개별법" 이 그대로 국회에 질의됐다 — 12번 중 8번이 헛수고였다.
+NOT_A_LAW = {"헌법", "법", "개별법", "후속법", "개혁법", "관련법", "특별법", "기본법", "모법", "상위법",
+             "하위법", "현행법", "실정법", "성문법", "관습법", "일반법", "신법", "구법", "본법"}
 NOT_A_LAW_SUFFIX = ("입법", "방법", "불법", "합법", "위법", "편법", "적법", "탈법", "문법", "기법", "수법",
                     "화법", "요법", "해법", "비법", "무법", "준법", "역법", "필법", "작법", "요리법", "사법",
                     "공법", "국법", "악법", "개헌법")
@@ -403,9 +408,16 @@ def track_issue_bills(data: dict, issues: list) -> list[dict]:
         texts += [str(get("title") or ""), str(get("one_liner") or "")]
         texts += [str(x) for x in (get("what_happened") or [])]
     names = law_names(texts)
-    tracked = track_bills(names, key=assembly_key()) if names else []
-    data["tracked"] = tracked
-    return tracked
+    # 맥에서 미리 받아 둔 풀이 있으면 거기서 먼저 꺼낸다. 풀에서 이미 찾아봤지만 없던 이름은
+    # 국회에 다시 묻지 않는다 (같은 답이 온다). 풀에 없는 이름만 러너에서 직접 찾는다.
+    pool = data.get("tracked_pool") or {}
+    asked = set(data.get("pool_queried") or [])
+    tracked = [pool[n] for n in names if n in pool]
+    fresh = [n for n in names if n not in pool and n not in asked]
+    if fresh:
+        tracked += track_bills(fresh, key=assembly_key(), limit=max(0, 4 - len(tracked)))
+    data["tracked"] = tracked[:4]
+    return data["tracked"]
 
 
 def check_source() -> tuple[bool, str, bool, int, str]:
@@ -425,3 +437,81 @@ def check_source() -> tuple[bool, str, bool, int, str]:
     except Exception as exc:
         err = (err + " / " if err else "") + str(exc)[:120]
     return ok_a, key_state, ok_n, n, err
+
+
+# ── 맥에서 미리 받아 두기 ──────────────────────────────────────
+#
+# 깃허브 러너(해외)에서는 열린국회정보·korea.kr 접속이 흔들린다(2026-09-09 탐침: 같은 날 어느 때는
+# 5회 모두 1초, 아침 데일리는 세 번 다 20초 끊김). 맥(한국 IP)은 안정적이다. 그래서 launchd 깨우미가
+# 워크플로를 부르기 **전에** 맥에서 같은 자료를 받아 `state/civics/<날짜>.json` 으로 저장소에 밀어 넣고,
+# 러너는 그 파일이 있으면 그것을 쓴다. 파일이 없거나 견본(키 없음)이면 러너가 직접 받고, 그것마저
+# 실패한 항목만 파일에서 채운다.
+
+PREFETCH_DIR = "civics"
+
+
+def prefetch_path(cfg: Config, date_str: str) -> Path:
+    return cfg.state_dir / PREFETCH_DIR / f"{date_str}.json"
+
+
+def prefetch(cfg: Config, date_str: str, headlines: list[str] | None = None, *, pool_limit: int = 12) -> dict:
+    """그날 국회·여론조사 자료를 받아 저장소용 파일로 남긴다. 무엇을 받았는지 dict 로 돌려준다.
+
+    이슈는 아직 모르므로(브리핑은 러너에서 만든다) 수집한 기사 제목에 나온 법안 이름을 미리 찾아
+    `tracked_pool` 에 넣어 둔다. 브리핑 이슈에 나올 법안은 대개 그날 기사 제목에도 있다.
+    """
+    data = collect(cfg, date_str) or {"as_of": date_str, "sample": not assembly_key(),
+                                      "bills": {}, "plenary": {}, "polls": [], "warnings": ["아무것도 받지 못함"]}
+    names = law_names(list(headlines or []))[:pool_limit]
+    pool = {t["query"]: t for t in (track_bills(names, key=assembly_key(), limit=pool_limit) if names else [])}
+    data["tracked_pool"] = pool
+    data["pool_queried"] = names
+    data["prefetched_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    path = prefetch_path(cfg, date_str)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return data
+
+
+def load_prefetch(cfg: Config, date_str: str) -> dict | None:
+    path = prefetch_path(cfg, date_str)
+    if not path.exists():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    return data if isinstance(data, dict) and data.get("as_of") == date_str else None
+
+
+_PARTS = (("bills", "발의법률안"), ("plenary", "본회의 처리안건"), ("polls", "등록 여론조사"))
+
+
+def merge_prefetch(live: dict | None, pre: dict | None) -> dict:
+    """러너가 직접 받은 것(live)을 우선하고, 못 받은 항목만 미리 받아 둔 것(pre)에서 채운다.
+
+    pre 가 견본이 아니면(키가 있었으면) 그쪽이 더 완전하므로 통째로 쓴다 — 러너에서 받은 것과
+    같은 자료이고, 맥 쪽이 흔들리지 않기 때문이다. 추적 풀은 어느 경우든 pre 에서 가져온다.
+    """
+    if not pre:
+        return dict(live or {})
+    if not pre.get("sample"):
+        out = dict(pre)
+        out.setdefault("filled_from_prefetch", [k for k, _ in _PARTS])
+        return out
+    out = dict(live or {})
+    if not out:
+        out = {k: v for k, v in pre.items() if k not in ("tracked_pool", "pool_queried")}
+        out["filled_from_prefetch"] = [k for k, _ in _PARTS if pre.get(k)]
+    else:
+        filled = []
+        for key, label in _PARTS:
+            if not out.get(key) and pre.get(key):
+                out[key] = pre[key]
+                out["warnings"] = [w for w in out.get("warnings", []) if not w.startswith(label)]
+                filled.append(key)
+        out["filled_from_prefetch"] = filled
+    out["tracked_pool"] = pre.get("tracked_pool") or {}
+    out["pool_queried"] = pre.get("pool_queried") or []
+    return out
+

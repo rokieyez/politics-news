@@ -1,0 +1,60 @@
+name: 국회 자료 보충
+
+# 아침 데일리가 열린국회정보를 못 받은 날(러너·해외에서 접속이 흔들림) 낮에 한 번 더 받아
+# output/<날짜>/civics.md·json 을 채웁니다. 모델을 부르지 않아 돈이 들지 않습니다.
+# 이미 완전하면(경고 없음·견본 아님·추적 있음) 아무것도 바꾸지 않습니다.
+on:
+  schedule:
+    # 12:00 KST = 03:00 UTC. 이 계정의 예약은 두 시간쯤 늦게 오므로 실제로는 14시 전후.
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "보충할 날짜 (YYYY-MM-DD, 비우면 오늘)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-brief          # 데일리와 같은 줄 — 아침 실행과 겹쳐 커밋이 부딪히지 않게
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: 의존성 설치
+        run: pip install -q -r requirements.txt
+      - name: 국회·여론조사 다시 받기
+        env:
+          ASSEMBLY_API_KEY: ${{ secrets.ASSEMBLY_API_KEY }}
+        run: |
+          ARGS="-v civics --refresh"
+          if [ -n "${{ inputs.date }}" ]; then ARGS="$ARGS --date ${{ inputs.date }}"; fi
+          python -m rebrief $ARGS
+      - name: 결과 커밋
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add output
+          if git diff --staged --quiet; then
+            echo "바뀐 것 없음 — 커밋을 건너뜁니다."
+            exit 0
+          fi
+          DATE="${{ inputs.date }}"
+          [ -z "$DATE" ] && DATE=$(TZ=Asia/Seoul date +%F)
+          git commit -m "국회 자료 보충: $DATE"
+          for i in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push && exit 0
+            sleep $((i * 5))
+          done
+          echo "푸시에 실패했습니다." >&2
+          exit 1

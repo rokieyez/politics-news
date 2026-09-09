@@ -307,11 +307,15 @@ class Renderer:
         out: list[tuple[Path, str]] = [(f, "") for f in mine]
 
         if brief and cfg.get("photos", True):
+            # 표지 한 장 + 이슈 카드마다 한 장. 2026-09-09 실측: 상한이 4장이라 이슈 카드 5·6번은 글자만
+            # 있었다(사용자 지적). `photos_max` 는 이제 상한일 뿐이고, 장수는 그날 이슈 수가 정한다.
+            issues = [i for i in (brief.get("issues") or []) if (i or {}).get("title")]
+            wanted = 1 + min(len(issues), max(1, int(cfg.get("cards_max", 7)) - 1))
             found = photos_mod.fetch(
                 brief,
                 cache_dir=self.cfg.state_dir / "photos",
                 ledger=self.cfg.state_dir / "photos.json",
-                count=max(0, int(cfg.get("photos_max", 3)) - len(out)),
+                count=max(0, min(wanted, int(cfg.get("photos_max", 10))) - len(out)),
             )
             out += [(ph.path, f"사진 {ph.credit} / {ph.source} · 본문과 무관"
                      if ph.credit else f"사진 {ph.source} · 본문과 무관") for ph in found]
@@ -468,6 +472,8 @@ class Renderer:
             return None
         import json as _json
 
+        # 맥에서 미리 받은 추적 풀은 작업용이라 산출물에는 남기지 않는다
+        data = {k: v for k, v in data.items() if k not in ("tracked_pool", "pool_queried")}
         self._write_raw("civics.json", _json.dumps(data, ensure_ascii=False, indent=2) + "\n")
         payload = {"bills": {}, "plenary": {}, "polls": [], "warnings": [], "sample": False, "tracked": [], **data}
         return self._write("civics.md", "civics.md.j2", **payload)

@@ -355,3 +355,70 @@ def test_get_retries_three_times_with_growing_pauses(monkeypatch):
     with pytest.raises(requests.ConnectionError):
         civics._get("https://example.test")
     assert len(calls) == 0 and pauses == [3, 12]
+
+
+def test_prefetch_is_written_loaded_and_merged(cfg, tmp_path, monkeypatch):
+    """맥에서 미리 받은 자료(state/civics/<날짜>.json)를 러너가 이어받는다.
+
+    2026-09-09: 깃허브 러너에서 열린국회정보 접속이 흔들려 아침마다 발의·본회의를 못 받았다. 맥(한국 IP)이
+    깨우기 전에 받아 두면 러너는 국회에 묻지 않는다. 견본(키 없음) 파일이면 러너가 직접 받고 못 받은 것만 채운다.
+    """
+    rows = [{"BILL_NAME": "공소청법 일부개정법률안", "PROPOSER": "김승원의원 등 10인", "PROPOSE_DT": "2026-08-24",
+             "PROC_RESULT": "", "CMT_PROC_RESULT_CD": "", "COMMITTEE": "법사위"}]
+
+    def fake_get(url, params=None):
+        if "BILL_NAME" in (params or {}):
+            return _Resp(data=_assembly_page(civics.BILLS, rows if params["BILL_NAME"] == "공소청법" else [], 3))
+        return _Resp(data=_assembly_page(civics.BILLS if civics.BILLS in url else civics.PLENARY, [], 0))
+
+    cfg.settings.setdefault("civics", {})["enabled"] = True      # 픽스처는 망을 안 타려고 꺼 둔다
+    # state_dir 는 진짜 저장소의 state/ 라 시험 파일은 임시 폴더로 돌린다
+    monkeypatch.setattr(civics, "prefetch_path", lambda cfg, d: tmp_path / "state" / "civics" / f"{d}.json")
+    monkeypatch.setattr(civics, "_get", fake_get)
+    monkeypatch.setattr(civics, "polls_since", lambda since, limit=8: [])
+    monkeypatch.setattr(civics, "assembly_key", lambda: "KEY")
+    monkeypatch.setattr(civics, "bills_since", lambda since, key: {"count": 12, "latest": [], "sample": False})
+    monkeypatch.setattr(civics, "plenary_since", lambda since, key: {"count": 3, "by_result": {}, "items": [], "sample": False})
+
+    got = civics.prefetch(cfg, "2026-09-09", ["공소청법 개정안 발의", "개각 발표"])
+    path = civics.prefetch_path(cfg, "2026-09-09")
+    assert path.exists() and got["tracked_pool"]["공소청법"]["count"] == 3
+    assert got["pool_queried"] == ["공소청법"]            # '개각' 은 법 이름이 아니다
+    loaded = civics.load_prefetch(cfg, "2026-09-09")
+    assert loaded and loaded["bills"]["count"] == 12
+    assert civics.load_prefetch(cfg, "2026-09-10") is None   # 날짜가 다르면 안 쓴다
+
+    # 키가 있던 파일은 통째로 쓴다
+    merged = civics.merge_prefetch(None, loaded)
+    assert merged["bills"]["count"] == 12 and merged["filled_from_prefetch"] == ["bills", "plenary", "polls"]
+
+    # 러너가 직접 받은 것이 있으면 그것이 우선이고, 못 받은 항목만 파일에서 채운다
+    sample = {**loaded, "sample": True}
+    live = {"as_of": "2026-09-09", "bills": {}, "plenary": {"count": 5}, "polls": [{"x": 1}],
+            "warnings": ["발의법률안을 받지 못했습니다 — ConnectTimeout"]}
+    merged = civics.merge_prefetch(live, sample)
+    assert merged["bills"]["count"] == 12 and merged["plenary"]["count"] == 5
+    assert merged["filled_from_prefetch"] == ["bills"] and merged["warnings"] == []
+
+    # 추적은 풀에서 먼저 꺼내고, 풀에서 이미 찾아본 이름은 국회에 다시 묻지 않는다
+    calls = []
+    monkeypatch.setattr(civics, "track_bills", lambda names, key, limit=4: calls.append(list(names)) or [])
+    tracked = civics.track_issue_bills(merged, [{"title": "공소청법 통과", "one_liner": "형사소송법도"}])
+    assert [t["query"] for t in tracked] == ["공소청법"]
+    assert calls == [["형사소송법"]]
+
+
+def test_prefetch_command_survives_a_dead_feed(cfg, tmp_path, monkeypatch, capsys):
+    """`civics --prefetch` 는 기사 제목을 못 받아도 집계는 받아 파일을 남긴다."""
+    from rebrief import cli
+
+    monkeypatch.setattr(cli, "load_config", lambda path=None: cfg)
+    monkeypatch.setattr(civics, "prefetch_path", lambda cfg, d: tmp_path / "state" / "civics" / f"{d}.json")
+    monkeypatch.setattr(cli, "collect", lambda cfg, now=None: (_ for _ in ()).throw(RuntimeError("피드 죽음")))
+    monkeypatch.setattr(civics, "collect", lambda cfg, d: {"as_of": d, "sample": True, "bills": {"count": None},
+                                                            "plenary": {}, "polls": [], "warnings": []})
+    monkeypatch.setattr(civics, "assembly_key", lambda: "")
+    assert cli.main(["civics", "--prefetch", "--date", "2026-09-09"]) == 0
+    out = capsys.readouterr().out
+    assert "미리 받음" in out and "견본 모드" in out
+    assert civics.prefetch_path(cfg, "2026-09-09").exists()

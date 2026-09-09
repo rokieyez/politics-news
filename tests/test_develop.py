@@ -2638,3 +2638,22 @@ def test_cards_are_rendered_at_final_size_not_double(cfg, tmp_path, monkeypatch)
     # 본문 그림은 여전히 2배 — 설정의 png_scale 을 따른다
     r._write_image(images_mod.Image("demo", '<svg width="100" height="50"></svg>', "데모"), {"png": True, "png_scale": 2})
     assert made["img-demo.svg"] == 2
+
+
+def test_card_photos_cover_every_issue_card(cfg, tmp_path, monkeypatch):
+    """사진은 표지 한 장 + 이슈 카드마다 한 장. 상한(photos_max)은 상한일 뿐이다.
+
+    2026-09-09 실측: 상한 4장이라 이슈 카드 5·6번이 글자만 있었다(사용자 지적).
+    """
+    from rebrief import render as render_mod
+    from rebrief.render import Renderer
+
+    asked: list[int] = []
+    monkeypatch.setattr(render_mod.photos_mod, "fetch", lambda brief, **kw: asked.append(kw["count"]) or [])
+    cfg.settings["images"]["photos"] = True
+    r = Renderer(cfg, tmp_path / "2026-09-09", "2026-09-09")
+    r._card_art(_brief_for_cards(6))
+    assert asked == [7]                                   # 표지 1 + 이슈 6
+    cfg.settings["images"]["photos_max"] = 4
+    r._card_art(_brief_for_cards(6))
+    assert asked[-1] == 4                                 # 상한은 지킨다

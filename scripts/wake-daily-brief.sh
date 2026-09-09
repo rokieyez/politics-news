@@ -1,16 +1,22 @@
 #!/bin/bash
 # 아침 브리핑을 밖에서 깨운다 (맥의 launchd 가 부른다).
 #
-# 왜 있나: 이 저장소는 **깃허브 예약(schedule)이 통째로 안 돕니다.** 2026-09-08 에
-# `*/5 * * * *` 탐침을 20분 돌렸는데 0회였고, 같은 워크플로를 손으로 부르면 6초 만에
-# 성공했습니다. 워크플로는 active, 저장소는 공개·비포크·비보관, Actions 정상,
-# 비활성 안내 띠도 없었습니다. 원인을 못 찾아 밖에서 깨웁니다.
+# 왜 있나: 이 저장소의 **깃허브 예약(schedule)은 몇 시간 늦게 옵니다** (2026-09-09 실측:
+# 21:45 UTC 예약이 23:39 에 옴. estate-news 는 2시간, rokieyez.github.io 는 5시간 늦음).
+# 아침 7시를 지키려면 맥이 깨워야 합니다. 2026-09-08 에 「통째로 죽었다」고 적었던 것은
+# 20분짜리 탐침의 오판이었습니다.
+#
+# 깨우기 전에 **국회·여론조사 자료를 맥에서 먼저 받아 저장소에 밀어 넣습니다** (2026-09-09).
+# 깃허브 러너(해외)에서는 열린국회정보·korea.kr 접속이 흔들려 아침마다 발의법률안·본회의를
+# 못 받았습니다. 맥(한국 IP)은 안정적입니다. 러너는 state/civics/<날짜>.json 이 있으면 그것을 씁니다.
+# 이 단계가 실패해도 워크플로는 부릅니다 — 러너가 직접 받는 예전 방식으로 돌아갈 뿐입니다.
 #
 # 안전합니다 — 워크플로 첫 단계가 "오늘 산출물이 이미 있으면 건너뜀" 이라
-# 깃허브 예약이 되살아나 겹쳐도 두 번 만들지 않습니다.
+# 깃허브 예약과 겹쳐도 두 번 만들지 않습니다.
 #
 # 새 인증키가 필요 없습니다. gh 가 이미 로그인돼 있고 키체인에서 읽습니다
-# (빈 환경에서도 되는 것을 확인했습니다).
+# (빈 환경에서도 되는 것을 확인했습니다). 미리 받기의 열린국회정보 키는 작업 폴더의 .env 에서
+# 읽습니다 — 거기 ASSEMBLY_API_KEY 가 없으면 견본(5건)만 받고, 러너가 제 키로 다시 받습니다.
 set -uo pipefail
 
 GH=/opt/homebrew/bin/gh
@@ -26,6 +32,39 @@ for i in $(seq 1 10); do
     say "네트워크를 기다립니다 ($i/10)"
     sleep 30
 done
+
+# ── 1. 맥에서 국회·여론조사 자료를 미리 받아 저장소에 밀어 넣기 ──────────────────
+# 작업 폴더(WORK)의 파이썬·설정·.env 로 받고, 커밋·푸시는 **따로 받아 둔 사본(CLONE)** 에서 한다.
+# 작업 폴더에는 편집 중인 것이 있을 수 있어 거기서 git 을 만지지 않는다.
+WORK="$HOME/Desktop/Projects/Active/politics-news"
+CLONE="$HOME/Library/Caches/rokiz/politics-news-wake"
+GIT=/usr/bin/git
+TODAY=$(TZ=Asia/Seoul date +%F)
+prefetch() {
+    [ -x "$WORK/.venv/bin/python" ] || { say "미리 받기 건너뜀: $WORK/.venv 없음"; return 1; }
+    local out
+    out=$(cd "$WORK" && "$WORK/.venv/bin/python" -m rebrief civics --prefetch --date "$TODAY" 2>&1) \
+        || { say "미리 받기 실패: $(echo "$out" | tail -3 | tr '\n' ' ')"; return 1; }
+    say "미리 받음: $(echo "$out" | tail -2 | tr '\n' ' ')"
+    local file="$WORK/state/civics/$TODAY.json"
+    [ -f "$file" ] || { say "미리 받기 결과 파일이 없음"; return 1; }
+    if [ ! -d "$CLONE/.git" ]; then
+        mkdir -p "$(dirname "$CLONE")"
+        "$GIT" clone -q --depth 1 "https://github.com/$REPO.git" "$CLONE" 2>>"$LOG" || { say "사본 받기 실패"; return 1; }
+    fi
+    (cd "$CLONE" && "$GIT" fetch -q --depth 1 origin main && "$GIT" reset -q --hard origin/main) 2>>"$LOG" \
+        || { say "사본 갱신 실패"; return 1; }
+    mkdir -p "$CLONE/state/civics" && cp "$file" "$CLONE/state/civics/"
+    (cd "$CLONE" && "$GIT" add state/civics && "$GIT" -c user.name="rokiz-mac" -c user.email="rokieyez@gmail.com" \
+        commit -q -m "국회 자료 미리 받음: $TODAY (맥)" && "$GIT" push -q origin HEAD:main) 2>>"$LOG" \
+        || { say "미리 받은 자료 푸시 실패 — 러너가 직접 받습니다"; return 1; }
+    say "미리 받은 자료를 밀어 넣었습니다: state/civics/$TODAY.json"
+}
+prefetch || true            # 07:25 두 번째 호출이면 한 번 더 받는다 — 몇십 초이고 더 새 자료다
+# 손으로 시험할 때: `scripts/wake-daily-brief.sh --prefetch-only` 는 여기서 멈춘다 (워크플로를 부르지 않는다).
+[ "${1:-}" = "--prefetch-only" ] && exit 0
+
+# ── 2. 워크플로 깨우기 ────────────────────────────────────────────────────
 
 # 세 번까지 다시 시도한다. 뚜껑을 닫아 둔 사이 06:45 과 07:25 이 **한 번으로 합쳐져**
 # 깨어날 때 실행되므로(launchd.plist 설명서), 그 한 번이 실패하면 그날은 재시도가 없다.

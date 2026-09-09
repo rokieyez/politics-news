@@ -92,6 +92,13 @@ def build_parser() -> argparse.ArgumentParser:
                         help="claude.ai 등에 붙여 넣을 자료묶음(이름(생년,정당)_날짜.md)도 만듭니다")
     p_prof.add_argument("--llm", action="store_true", help="모델을 불러 AI 정리 글까지 만듭니다 (유료)")
 
+    p_civ = sub.add_parser("civics", help="국회·여론조사 자료를 따로 받기 (맥에서 미리 / 낮에 보충)")
+    p_civ.add_argument("--date", help="날짜 (YYYY-MM-DD, 기본 오늘)")
+    p_civ.add_argument("--prefetch", action="store_true",
+                       help="맥에서 미리 받아 state/civics/<날짜>.json 으로 저장 (깨우미가 워크플로를 부르기 전에)")
+    p_civ.add_argument("--refresh", action="store_true",
+                       help="아침에 못 받은 항목을 다시 받아 output/<날짜>/civics.* 를 채움 (낮 보충 워크플로)")
+
     p_pub = sub.add_parser("publish", help="네이버에 올린 글 주소를 기록 (사이트에 '발행함' 으로 표시)")
     p_pub.add_argument("--date", help="날짜 (기본: 오늘)")
     p_pub.add_argument("--url", default="", help="발행한 글 주소")
@@ -137,6 +144,8 @@ def main(argv: list[str] | None = None) -> int:
         return _cmd_stats(cfg, args)
     if args.command == "profile":
         return _cmd_profile(cfg, args)
+    if args.command == "civics":
+        return _cmd_civics(cfg, args)
     return 1
 
 
@@ -693,3 +702,73 @@ def _cmd_profile(cfg, args) -> int:
         print(f"  {f}")
     print(f"  비용: {gen.usage.summary()}")
     return 0
+
+
+def _cmd_civics(cfg, args) -> int:
+    """국회·여론조사 자료를 데일리와 따로 받는다.
+
+    `--prefetch`: 맥(한국 IP)에서 미리 받아 `state/civics/<날짜>.json` 으로. 깨우미(scripts/wake-daily-brief.sh)가
+    워크플로를 부르기 전에 돌리고 저장소에 밀어 넣는다. 러너는 그 파일이 있으면 국회에 다시 묻지 않는다.
+    `--refresh`: 아침 데일리가 못 받은 항목(ConnectTimeout)을 낮에 다시 받아 civics.md/json 을 채운다.
+    둘 다 모델을 부르지 않는다 — 돈이 들지 않는다.
+    """
+    import json as _json
+
+    from . import civics as civics_mod
+    from .render import Renderer
+
+    date_str = args.date or local_now(cfg).strftime("%Y-%m-%d")
+    if args.prefetch:
+        # 이슈는 아직 없으니 그날 기사 제목에서 법안 이름을 미리 찾아 둔다 (RSS 만, 본문은 안 받는다)
+        headlines: list[str] = []
+        try:
+            cfg.settings.setdefault("collect", {})["fetch_body"] = False
+            articles, _feeds = collect(cfg, now=datetime.now(timezone.utc))
+            headlines = [a.title for a in articles]
+        except Exception as exc:                     # 제목을 못 받아도 집계는 받는다
+            logging.getLogger(__name__).warning("기사 제목 수집 실패: %s", exc)
+        data = civics_mod.prefetch(cfg, date_str, headlines)
+        path = civics_mod.prefetch_path(cfg, date_str)
+        print(f"미리 받음 → {_rel(cfg, path)}")
+        print(f"  발의 {(data.get('bills') or {}).get('count', '견본')} · 본회의 {(data.get('plenary') or {}).get('count', '견본')}"
+              f" · 여론조사 {len(data.get('polls') or [])}건 · 추적 풀 {len(data.get('tracked_pool') or {})}개"
+              f"{' · 견본 모드(ASSEMBLY_API_KEY 없음)' if data.get('sample') else ''}")
+        for w in data.get("warnings") or []:
+            print(f"  ⚠️ {w}")
+        return 0
+
+    if args.refresh:
+        day = cfg.output_dir / date_str
+        brief_path = day / "data.json"
+        civics_path = day / "civics.json"
+        if not brief_path.exists():
+            print(f"{date_str} 브리핑이 없습니다 — 보충할 것이 없습니다.")
+            return 0
+        old = {}
+        if civics_path.exists():
+            try:
+                old = _json.loads(civics_path.read_text(encoding="utf-8"))
+            except ValueError:
+                old = {}
+        complete = old and not old.get("warnings") and not old.get("sample") and "tracked" in old
+        if complete:
+            print(f"{date_str} 국회 자료는 이미 완전합니다 — 그대로 둡니다.")
+            return 0
+        brief = _json.loads(brief_path.read_text(encoding="utf-8"))
+        data = civics_mod.merge_prefetch(civics_mod.collect(cfg, date_str), civics_mod.load_prefetch(cfg, date_str))
+        if not data:
+            print("이번에도 아무것도 받지 못했습니다.")
+            return 0
+        civics_mod.track_issue_bills(data, brief.get("issues") or [])
+        renderer = Renderer(cfg, day, date_str)
+        renderer.civics(data)
+        print(f"보충함 → {_rel(cfg, day / 'civics.md')}")
+        print(f"  발의 {(data.get('bills') or {}).get('count', '견본')} · 본회의 {(data.get('plenary') or {}).get('count', '견본')}"
+              f" · 여론조사 {len(data.get('polls') or [])}건 · 추적 {len(data.get('tracked') or [])}건")
+        for w in data.get("warnings") or []:
+            print(f"  ⚠️ {w}")
+        return 0
+
+    print("--prefetch 또는 --refresh 를 주세요.")
+    return 1
+

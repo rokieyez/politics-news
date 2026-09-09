@@ -627,12 +627,22 @@ def _collect_civics(cfg: Config, renderer: Renderer, date_str: str, result) -> d
 
     if not (cfg.get("civics", {}) or {}).get("enabled", True):
         return {}
-    try:
-        data = civics_mod.collect(cfg, date_str)
-    except Exception as exc:                       # 외부 화면이 바뀌어도 실행은 멈추지 않는다
-        log.warning("국회·여론조사 집계 실패: %s", exc)
-        result.warnings.append(f"국회·여론조사 집계 실패 — {type(exc).__name__}")
-        return {}
+    # 맥이 미리 받아 둔 자료(state/civics/<날짜>.json)가 있고 견본이 아니면 그것을 쓴다 — 러너(해외)에서는
+    # 열린국회정보가 흔들리기 때문이다. 없거나 견본이면 직접 받고, 못 받은 항목만 파일에서 채운다.
+    pre = civics_mod.load_prefetch(cfg, date_str)
+    if pre and not pre.get("sample"):
+        log.info("국회·여론조사: 맥에서 미리 받아 둔 자료를 씁니다 (%s)", pre.get("prefetched_at", ""))
+        data = civics_mod.merge_prefetch(None, pre)
+    else:
+        try:
+            live = civics_mod.collect(cfg, date_str)
+        except Exception as exc:                   # 외부 화면이 바뀌어도 실행은 멈추지 않는다
+            log.warning("국회·여론조사 집계 실패: %s", exc)
+            result.warnings.append(f"국회·여론조사 집계 실패 — {type(exc).__name__}")
+            live = {}
+        data = civics_mod.merge_prefetch(live, pre)
+        if data.get("filled_from_prefetch"):
+            log.info("국회·여론조사: 못 받은 %s 은 미리 받아 둔 자료로 채웠습니다", ", ".join(data["filled_from_prefetch"]))
     if not data:
         return {}
     renderer.civics(data)
