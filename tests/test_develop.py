@@ -2657,3 +2657,24 @@ def test_card_photos_cover_every_issue_card(cfg, tmp_path, monkeypatch):
     cfg.settings["images"]["photos_max"] = 4
     r._card_art(_brief_for_cards(6))
     assert asked[-1] == 4                                 # 상한은 지킨다
+
+
+def test_cover_headline_breaks_only_between_stories():
+    """표지 제목의 줄은 기사 사이(·)에서만 바뀐다 (2026-09-10 사용자 지시).
+
+    「대정부질문 김승원 공방·김민석 수첩 논란」이 「…김승원 / 공방·김민석…」으로 잘리고 마지막 줄만
+    금색이라 한 기사가 두 기사처럼 보였다. 기본 크기에서 안 들어가면 그때만 글씨를 줄인다.
+    """
+    from rebrief import images
+
+    inner = 1080 - 192
+    lines, size = images._fit_units("대정부질문 김승원 공방·김민석 수첩 논란", 104, inner, 4, floor=62)
+    assert lines == ["대정부질문 김승원 공방", "김민석 수첩 논란"] and 62 <= size < 104   # 안 들어가서 줄였다
+    lines, size = images._fit_units("대정부질문 김승원 공방·김민석 수첩 논란", 80, inner, 3, floor=50)
+    assert lines == ["대정부질문 김승원 공방", "김민석 수첩 논란"] and size == 80        # 들어가면 기본 크기
+    # 한 기사가 하한에서도 한 줄을 넘으면 그 기사만 접고, 다른 기사와 줄을 나누지 않는다
+    lines, _ = images._fit_units("이재명 대통령 마크롱과 호르무즈 해협 공조 회담·국민의힘 지도부 총사퇴", 80, inner, 3, floor=50)
+    assert lines[-1] == "국민의힘 지도부 총사퇴" and "·" not in "".join(lines)
+    assert images.headline_units("여야 1·2위 다툼·개각 발표") == ["여야 1·2위 다툼", "개각 발표"]   # 숫자 사이 가운뎃점은 아니다
+    cover = images._cover_card("대정부질문 김승원 공방·김민석 수첩 논란", "", "", 7, "2026-09-10", "c")
+    assert "대정부질문 김승원 공방" in cover.svg and ">공방·김민석" not in cover.svg

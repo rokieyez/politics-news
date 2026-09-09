@@ -1571,6 +1571,50 @@ def _fit(text: str, size: float, width: float, max_lines: int, floor: float = 30
     return lines[:max_lines], size
 
 
+_UNIT_SPLIT = re.compile(r"(?<!\d)\s*·\s*(?!\d)")     # '1·2위' 의 가운뎃점은 나누지 않는다
+
+
+def headline_units(text: str) -> list[str]:
+    """표지 제목을 기사 단위로 나눈다. 「A 공방·B 논란」 → ['A 공방', 'B 논란']."""
+    return [u for u in (x.strip() for x in _UNIT_SPLIT.split(" ".join((text or "").split()))) if u]
+
+
+def _fit_units(text: str, size: float, width: float, max_lines: int, floor: float = 30) -> tuple[list[str], float]:
+    """줄은 **기사 단위(·)** 에서만 바꾼다 (2026-09-10 사용자 지시).
+
+    「대정부질문 김승원 공방·김민석 수첩 논란」이 너비 때문에 「…김승원 / 공방·김민석…」으로 잘리고
+    마지막 줄만 금색이 되니, 한 기사가 두 기사처럼 보였습니다. 그래서 —
+    1. 기본 글씨 크기에서 기사들을 왼쪽부터 채워 넣되, 줄은 가운뎃점에서만 바꿉니다.
+    2. 어느 한 기사가 한 줄에 안 들어가면 **그때만** 글씨를 줄여(2씩) 모든 기사가 한 줄에 들도록 합니다.
+    3. 하한까지 줄여도 한 기사가 한 줄을 넘으면, 그 기사만 낱말 단위로 접되 **다른 기사와 한 줄을 나누지는
+       않습니다** — 줄이 바뀌는 곳은 언제나 기사 사이입니다.
+    4. 그래도 줄 수가 넘치면 예전처럼 통째로 접습니다. 기사가 하나뿐인 제목도 예전 방식입니다.
+    """
+    units = headline_units(text)
+    if len(units) < 2:
+        return _fit(text, size, width, max_lines, floor)
+    cur = size
+    while cur >= floor:
+        if all(text_width(u, cur) <= width for u in units):
+            lines: list[str] = []
+            for u in units:
+                trial = f"{lines[-1]}·{u}" if lines else u
+                if lines and text_width(trial, cur) <= width:
+                    lines[-1] = trial
+                else:
+                    lines.append(u)
+            if len(lines) <= max_lines:
+                return lines, cur
+        cur -= 2
+    cur = size
+    while cur >= floor:
+        lines = [ln for u in units for ln in wrap(u, cur, width)]
+        if len(lines) <= max_lines:
+            return lines, cur
+        cur -= 2
+    return _fit(text, size, width, max_lines, floor)
+
+
 def _sentence_fit(text: str, size: float, width: float, max_lines: int) -> tuple[list[str], float]:
     """문장 중간에서 끊기지 않게 자른다.
 
@@ -1656,8 +1700,8 @@ def _cover_card(headline: str, sub: str, badge: str, total: int, date: str, chan
                                  art=art, banner=banner)
     inner = w - 192
 
-    lines, size = _fit(headline, 104 if not art else 80, inner, 4 if not art else 3,
-                       floor=62 if not art else 50)
+    lines, size = _fit_units(headline, 104 if not art else 80, inner, 4 if not art else 3,
+                             floor=62 if not art else 50)
     line_h = size * 1.26
     badge_h = 96 if badge else 0
     y = top + max(0, (bottom - top - (line_h * len(lines) + badge_h)) / 2)
