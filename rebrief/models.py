@@ -279,3 +279,60 @@ class Rewrite(BaseModel):
 
     text: str = Field(description="같은 뜻을 유지하되 금지 표현을 뺀 문장. 길이는 원문과 비슷하게")
 
+
+
+# ── 인물 조사 (profile) ──────────────────────────────────────
+
+
+class TimelineEntry(BaseModel):
+    """연표 한 줄."""
+
+    when: str = Field(description="시점. 'YYYY' 또는 'YYYY-MM'. 자료에 있는 대로")
+    event: str = Field(description="무슨 일이 있었는지 한 문장. 평가 없이 사실만")
+    source_ids: list[str] = Field(default_factory=list, description="근거 자료 번호. A, W, B, N2-5 처럼 자료에 붙은 그대로")
+
+
+class Chapter(BaseModel):
+    """발자취를 시기별로 묶은 장(章). 영상의 한 챕터가 된다."""
+
+    title: str = Field(description="장 제목. 15자 내외 명사형. 예: '학생운동에서 최연소 의원으로'")
+    period: str = Field(description="다루는 기간. 예: '1985~1996'")
+    summary: str = Field(description="이 시기를 3~5문장으로. 사실만, 평가어 없이")
+    facts: list[str] = Field(description="시청자가 기억할 핵심 사실 2~4개. 각각 한 문장")
+    source_ids: list[str] = Field(default_factory=list, description="근거 자료 번호")
+
+
+class Controversy(BaseModel):
+    """논란·의혹 한 건. 반드시 양쪽을 함께 적는다."""
+
+    topic: str = Field(description="무엇에 관한 논란인지 10자 내외")
+    when: str = Field(description="시기. 'YYYY' 또는 'YYYY-MM'")
+    allegation: str = Field(description="제기된 의혹·비판을 '누가 무엇을 주장했다' 로. 확정처럼 쓰지 않음")
+    response: str = Field(description="당사자의 해명·반박. 자료에 없으면 '해명은 자료에 없음'")
+    status: str = Field(description="현재 상태. 예: '2009년 유죄 확정', '무혐의', '수사 중', '결과는 자료에 없음'")
+    source_ids: list[str] = Field(default_factory=list, description="근거 자료 번호")
+
+
+class OutlineSection(BaseModel):
+    """영상 구성안의 한 부분."""
+
+    heading: str = Field(description="부분 제목")
+    seconds: int = Field(description="이 부분에 쓸 시간(초)")
+    points: list[str] = Field(description="이 부분에서 말할 것 2~4개. 각각 한 문장")
+
+
+class PersonProfile(BaseModel):
+    """정치인 한 사람의 배경지식 정리."""
+
+    name: str = Field(description="이름")
+    one_liner: str = Field(description="이 사람을 한 문장으로. 40자 내외. 직함·소속·이력의 뼈대만, 평가 없이")
+    current_roles: list[str] = Field(description="지금 맡고 있는 자리. 자료 기준. 없으면 빈 배열")
+    timeline: list[TimelineEntry] = Field(description="연표 10~25개. 오래된 것부터")
+    chapters: list[Chapter] = Field(description="발자취를 3~6개 장으로")
+    bills_note: str = Field(default="", description="입법 활동 요약 2~3문장. 자료 [B] 가 없으면 빈 문자열")
+    controversies: list[Controversy] = Field(description="논란·의혹. 자료에 있는 것만. 없으면 빈 배열")
+    recent: list[str] = Field(description="최근 흐름(자료 [N0]) 3~5문장. 각각 한 문장, 근거 번호를 문장 끝에 괄호로")
+    outline: list[OutlineSection] = Field(description="8~12분 롱폼 영상 구성안 5~8부분")
+    title_candidates: list[str] = Field(description="영상 제목 후보 3개. 낚시·평가어 없이, 궁금증을 주는 사실 위주")
+    cautions: list[str] = Field(description="확인이 필요한 지점, 자료끼리 어긋나는 곳, 위키백과에만 있는 사실. 없으면 빈 배열")
+    unknowns: list[str] = Field(description="자료에 없어 쓰지 못한 것. 예: '2010년대 활동 기사 없음'")

@@ -1,0 +1,94 @@
+# {{ m.name }} — 자료 정리표 ({{ today }})
+
+프로그램이 공식 기록·위키백과·기사 제목을 **표로만** 옮긴 것입니다. AI 는 쓰지 않았고, 문장으로 된 해석은 없습니다.
+{% for n in m.notes %}
+
+> ℹ️ {{ n }}
+{% endfor %}
+
+## 기본 정보
+{% if member %}
+
+| 항목 | 값 (열린국회정보 공식 기록) |
+| --- | --- |
+| 이름 | {{ member.name }}{% if member.hanja %} ({{ member.hanja }}){% endif %} |
+| 생년월일 | {{ member.birth }}{% if member.birth_calendar %} ({{ member.birth_calendar }}력){% endif %} |
+| 당선 | {{ member.terms | join(', ') }}{% if member.reelected %} ({{ member.reelected }}){% endif %} |
+| 현재 정당 | {{ member.parties[-1] if member.parties else '' }} |
+| 현재 선거구 | {{ member.districts[-1] if member.districts else '' }} |
+| 현재 위원회 | {{ member.committee }} |
+{% else %}
+
+열린국회정보에 국회의원 기록이 없습니다.
+{% endif %}
+{% if wiki and wiki.intro %}
+
+**위키백과 머리글** — {{ wiki.intro.split('\n')[0] }}
+{% endif %}
+
+## 선거 이력
+{% if elections %}
+
+| 연도 | 선거 | 직책 · 선거구 | 정당 | 득표 | 득표율 | 순위 | 결과 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+{% for e in elections %}
+| {{ e['연도'] }} | {{ e['선거'] }} {{ e['대수'] }} | {{ e['직책'] }} · {{ e['선거구'] }} | {{ e['정당'] }} | {{ e['득표'] }} | {{ e['득표율'] }} | {{ e['순위'] }} | {{ e['결과'] }}{% if e['비고'] %} ({{ e['비고'] }}){% endif %} |
+{% endfor %}
+{% else %}
+
+자료에 선거 기록이 없습니다.
+{% endif %}
+
+## 정당 이력
+{% if parties %}
+
+| 정당 | 기간 | 비고 |
+| --- | --- | --- |
+{% for p in parties %}
+| {{ p['정당'] }} | {{ p['기간'] }} | {{ p['비고'] }} |
+{% endfor %}
+{% else %}
+
+자료에 정당 기록이 없습니다.
+{% endif %}
+{% if member and member.career %}
+
+## 공식 약력 (국회 기록 그대로)
+
+{% for line in member.career.split('\n') if line.strip() %}
+{{ line.strip() }}
+{% endfor %}
+{% endif %}
+{% if bills and bills.by_age %}
+
+## 발의 법안 (이름이 발의자에 든 건수)
+
+{% for age, n in bills.by_age.items() %}
+- {{ age }}: {{ n }}건
+{% endfor %}
+{% if bills.latest %}
+
+최근 목록{% if bills.sample %} (인증키가 없어 대수마다 5건까지){% endif %}:
+
+{% for b in bills.latest %}
+- {{ b.date }} [{{ b.name }}]({{ b.link }}) — {{ b.committee }}
+{% endfor %}
+{% endif %}
+{% endif %}
+
+## 연도별 기사 흐름 (구글뉴스 제목, 모두 {{ news_total }}건 중 해마다 8건까지)
+{% for year, items in years %}
+
+### {{ year }}
+{% for i in items %}
+- {{ i.date[5:] }} [{{ i.title | replace('[', '［') | replace(']', '］') }}]({{ i.link }}) — {{ i.source }}
+{% endfor %}
+{% endfor %}
+
+## 출처
+
+- 열린국회정보 국회의원 인적사항·발의법률안 (open.assembly.go.kr)
+{% if wiki %}
+- 위키백과 「{{ wiki.title }}」 {{ wiki.revised }} 판 — {{ wiki.url }} (CC BY-SA 4.0. 영상 설명란에 출처를 적어 주세요)
+{% endif %}
+- 구글뉴스 검색 (news.google.com) — 기사 제목만, 본문은 읽지 않았습니다

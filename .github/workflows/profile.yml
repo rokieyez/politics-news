@@ -1,0 +1,91 @@
+name: 인물 조사
+
+# 정치인 한 사람의 배경지식 자료를 모아 정리표로 만듭니다 (모델 없음, 0원).
+# rokiz.net/politics 의 버튼이 이 워크플로를 부릅니다. Actions 탭에서 직접 실행해도 됩니다.
+# 결과는 output/profiles/이름-생년/ 에 커밋됩니다:
+#   이름(생년,정당)_날짜_정리표.md  — 늘 만듦
+#   이름(생년,정당)_날짜.md          — pack 을 켜면. claude.ai 에 붙여 넣는 자료묶음
+#   이름(생년,정당)_날짜_AI정리.md   — ai 를 켜면. 모델이 쓴 정리 글 (유료)
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "정치인 이름 (예: 김민석)"
+        required: true
+        type: string
+      birth:
+        description: "생년 (동명이인이 있을 때만, 예: 1964)"
+        required: false
+        type: string
+      pack:
+        description: "claude.ai 에 붙여 넣을 자료묶음 파일도 만들기"
+        required: false
+        type: boolean
+        default: false
+      ai:
+        description: "AI 정리 글까지 만들기 (유료, 한 번 약 700원)"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile
+  cancel-in-progress: false
+
+jobs:
+  profile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.txt
+      - run: pip install -r requirements.txt
+      - name: 조사
+        # 입력값은 셸 문자열에 끼워 넣지 않고 환경변수로 넘긴다.
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ASSEMBLY_API_KEY: ${{ secrets.ASSEMBLY_API_KEY }}
+          IN_NAME: ${{ inputs.name }}
+          IN_BIRTH: ${{ inputs.birth }}
+          IN_PACK: ${{ inputs.pack }}
+          IN_AI: ${{ inputs.ai }}
+        run: |
+          set -- -v profile "$IN_NAME"
+          [ -n "$IN_BIRTH" ] && set -- "$@" --birth "$IN_BIRTH"
+          [ "$IN_PACK" = "true" ] && set -- "$@" --pack
+          [ "$IN_AI" = "true" ] && set -- "$@" --llm
+          python -m rebrief "$@"
+      - name: 결과 요약
+        if: always()
+        env:
+          IN_NAME: ${{ inputs.name }}
+        run: |
+          {
+            echo "# 인물 조사: $IN_NAME"
+            echo
+            LATEST=$(ls -td output/profiles/*/ 2>/dev/null | head -1)
+            if [ -n "$LATEST" ]; then
+              echo "저장 위치: \`$LATEST\`"
+              echo
+              ls -1 "$LATEST" | sed 's/^/- /'
+            else
+              echo "만들어진 것이 없습니다. 위 '조사' 단계의 로그를 보세요."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: 커밋
+        env:
+          IN_NAME: ${{ inputs.name }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add output/profiles state/costs.json
+          git diff --staged --quiet && exit 0
+          git commit -m "인물 조사: $IN_NAME"
+          git pull --rebase origin "${GITHUB_REF_NAME}" && git push

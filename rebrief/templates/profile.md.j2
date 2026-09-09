@@ -1,0 +1,125 @@
+# {{ p.name }} — 인물 정리 ({{ today }})
+
+> {{ p.one_liner }}
+{% if p.current_roles %}
+
+**지금 맡은 자리:** {{ p.current_roles | join(' · ') }}
+{% endif %}
+{% if member %}
+
+| 항목 | 값 (열린국회정보 공식 기록) |
+| --- | --- |
+| 생년월일 | {{ member.birth }}{% if member.birth_calendar %} ({{ member.birth_calendar }}력){% endif %} |
+| 당선 | {{ member.terms | join(', ') }}{% if member.reelected %} ({{ member.reelected }}){% endif %} |
+{% for term in member.terms %}
+| {{ term }} | {{ member.parties[loop.index0] if loop.index0 < member.parties|length else '' }} · {{ member.districts[loop.index0] if loop.index0 < member.districts|length else '' }} |
+{% endfor %}
+{% endif %}
+{% if notes %}
+
+{% for n in notes %}
+> ℹ️ {{ n }}
+{% endfor %}
+{% endif %}
+
+## 연표
+
+| 시점 | 일 | 근거 |
+| --- | --- | --- |
+{% for t in p.timeline %}
+| {{ t.when }} | {{ t.event }} | {{ t.source_ids | join(', ') }} |
+{% endfor %}
+
+## 발자취
+{% for c in p.chapters %}
+
+### {{ loop.index }}. {{ c.title }} ({{ c.period }})
+
+{{ c.summary }}
+
+{% for f in c.facts %}
+- {{ f }}
+{% endfor %}
+{% if c.source_ids %}
+
+근거: {{ c.source_ids | join(', ') }}
+{% endif %}
+{% endfor %}
+{% if p.bills_note %}
+
+## 입법 활동
+
+{{ p.bills_note }}
+{% if bills and bills.by_age %}
+
+{% for age, n in bills.by_age.items() %}
+- {{ age }}: {{ n }}건
+{% endfor %}
+{% if bills.sample %}
+
+(발의 목록은 대수마다 5건까지만 확인했습니다 — 열린국회정보 인증키가 없을 때의 한계. 건수는 정확합니다.)
+{% endif %}
+{% endif %}
+{% endif %}
+
+## 논란·의혹
+{% if p.controversies %}
+
+| 시기 | 무엇 | 제기된 내용 | 당사자 입장 | 현재 상태 | 근거 |
+| --- | --- | --- | --- | --- | --- |
+{% for c in p.controversies %}
+| {{ c.when }} | {{ c.topic }} | {{ c.allegation }} | {{ c.response }} | {{ c.status }} | {{ c.source_ids | join(', ') }} |
+{% endfor %}
+
+> 의혹은 확정이 아닙니다. 유죄 판결이 적힌 항목이 아니면 영상에서도 "혐의를 받았다"·"의혹이 제기됐다" 로 말하세요.
+{% else %}
+
+자료에서 찾은 논란이 없습니다.
+{% endif %}
+
+## 최근 흐름
+{% for r in p.recent %}
+- {{ r }}
+{% endfor %}
+
+## 영상 구성안 (총 {{ total_seconds // 60 }}분 {{ total_seconds % 60 }}초)
+
+| # | 부분 | 시간 | 말할 것 |
+| --- | --- | --- | --- |
+{% for s in p.outline %}
+| {{ loop.index }} | {{ s.heading }} | {{ s.seconds }}초 | {{ s.points | join(' / ') }} |
+{% endfor %}
+
+**제목 후보**
+{% for t in p.title_candidates %}
+{{ loop.index }}. {{ t }}
+{% endfor %}
+{% if p.cautions %}
+
+## ⚠️ 확인할 것
+{% for c in p.cautions %}
+- {{ c }}
+{% endfor %}
+{% endif %}
+{% if p.unknowns %}
+
+## 자료에 없어 못 쓴 것
+{% for u in p.unknowns %}
+- {{ u }}
+{% endfor %}
+{% endif %}
+{% if checks %}
+
+## 발행 전 점검
+{% for c in checks %}
+- {{ c }}
+{% endfor %}
+{% endif %}
+
+## 근거 자료
+{% for sid, (label, url) in links.items() if sid in used_ids %}
+- **{{ sid }}** — [{{ label }}]({{ url }})
+{% endfor %}
+
+위키백과 글은 CC BY-SA 4.0 입니다. 영상 설명란에 「출처: 위키백과 {{ wiki_title }}」 를 적어 주세요.
+자료 전체는 같은 폴더의 `자료묶음.md` 에 있습니다.

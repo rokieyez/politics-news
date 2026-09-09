@@ -84,6 +84,14 @@ def build_parser() -> argparse.ArgumentParser:
     p_stats.add_argument("--tables", nargs="?", const="", help="부동산원 통계표 번호 찾기 (낱말로 검색)")
     p_stats.add_argument("--region", action="append", help="먼저 볼 자치구 (여러 번 쓸 수 있음)")
 
+    p_prof = sub.add_parser("profile", help="정치인 한 사람의 배경지식 정리 (누구인지·어떤 길을 걸어왔는지)")
+    p_prof.add_argument("name", help="정치인 이름")
+    p_prof.add_argument("--birth", help="생년 (동명이인이 있을 때, 예: 1964)")
+    p_prof.add_argument("--date", help="기준 날짜 (기본: 오늘)")
+    p_prof.add_argument("--pack", action="store_true",
+                        help="claude.ai 등에 붙여 넣을 자료묶음(이름(생년,정당)_날짜.md)도 만듭니다")
+    p_prof.add_argument("--llm", action="store_true", help="모델을 불러 AI 정리 글까지 만듭니다 (유료)")
+
     p_pub = sub.add_parser("publish", help="네이버에 올린 글 주소를 기록 (사이트에 '발행함' 으로 표시)")
     p_pub.add_argument("--date", help="날짜 (기본: 오늘)")
     p_pub.add_argument("--url", default="", help="발행한 글 주소")
@@ -127,6 +135,8 @@ def main(argv: list[str] | None = None) -> int:
         return _cmd_policy(cfg, args)
     if args.command == "stats":
         return _cmd_stats(cfg, args)
+    if args.command == "profile":
+        return _cmd_profile(cfg, args)
     return 1
 
 
@@ -613,3 +623,73 @@ def _rel(cfg, path: Path) -> Path:
         return path.relative_to(cfg.repo_root)
     except ValueError:
         return path
+
+
+def _cmd_profile(cfg, args) -> int:
+    """기본은 모델 없이 정리표만(0원). --pack 은 자료묶음, --llm 은 AI 정리 글을 더한다."""
+    from datetime import date
+
+    from . import profile as prof
+    from .civics import assembly_key
+    from .prompts import build_profile_pack
+
+    date_str = args.date or local_now(cfg).strftime("%Y-%m-%d")
+    today = date.fromisoformat(date_str)
+    name = args.name.strip()
+    print(f"「{name}」 자료를 모으는 중… (열린국회정보 · 위키백과 · 구글뉴스)")
+    m = prof.collect(cfg, name, birth=args.birth, today=today, key=assembly_key())
+    for n in m.notes:
+        print(f"  ℹ️ {n}")
+    if m.member:
+        print(f"  국회 기록: {m.member.label}")
+    if m.wiki:
+        print(f"  위키백과: {m.wiki['title']} ({m.wiki.get('revised', '')} 판)")
+    if m.bills and m.bills.get("by_age"):
+        print("  발의법률안: " + ", ".join(f"{k} {v}건" for k, v in m.bills["by_age"].items()))
+    print(f"  기사 제목: 최근 {len(m.recent)}건 · 시기별 {sum(len(w.items) for w in m.windows)}건 "
+          f"({len(m.windows)}개 기간)")
+    if not (m.member or m.wiki or m.recent):
+        print("자료를 하나도 찾지 못했습니다. 이름 표기를 확인하세요.")
+        return 1
+
+    out_dir = cfg.output_dir / "profiles" / prof.slug(name, m.member.birth if m.member else args.birth)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    base = prof.file_base(m, date_str, args.birth)
+
+    tables_path = out_dir / f"{base}_정리표.md"
+    tables_path.write_text(prof.render_tables(cfg, m, date_str), encoding="utf-8")
+    prof.save_sources(out_dir / "sources.json", m)
+    print(f"\n정리표 → {tables_path}")
+
+    text = prof.format_materials(m)
+    if args.pack:
+        pack_path = out_dir / f"{base}.md"
+        pack_path.write_text(build_profile_pack(cfg, text, name, date_str), encoding="utf-8")
+        print(f"자료묶음 → {pack_path}  (claude.ai 에 통째로 붙여 넣으면 정리 글이 나옵니다)")
+
+    if not args.llm:
+        return 0
+    if not cfg.api_key:
+        print("ANTHROPIC_API_KEY 가 없어 AI 정리 글은 만들지 못했습니다. --pack 으로 자료묶음을 만들어 붙여 넣으세요.",
+              file=sys.stderr)
+        return 1
+
+    from .llm import ContentGenerator, LLMError
+    from .store import CostLog
+
+    gen = ContentGenerator(cfg)
+    try:
+        profile = gen.generate_profile(text, name, date_str)
+    except LLMError as exc:
+        print(f"AI 정리 글 생성 실패: {exc}", file=sys.stderr)
+        return 1
+    (out_dir / "profile.json").write_text(profile.model_dump_json(indent=1), encoding="utf-8")
+    path, found = prof.render(cfg, m, profile, date_str, out_dir, filename=f"{base}_AI정리.md")
+    book = CostLog(cfg.state_dir / "costs.json")
+    book.record(date_str, gen.usage, kind="profile")
+    book.save()
+    print(f"AI 정리 → {path}")
+    for f in found:
+        print(f"  {f}")
+    print(f"  비용: {gen.usage.summary()}")
+    return 0

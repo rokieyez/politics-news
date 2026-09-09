@@ -54,9 +54,13 @@ def feed_bytes() -> bytes:
 
 
 @pytest.fixture
-def cfg(tmp_path: Path) -> Config:
+def cfg(tmp_path: Path, monkeypatch) -> Config:
     """실제 config/ 를 읽되 출력·상태 경로만 임시 폴더로 돌린다."""
     real = load_config()
+    # load_config 이 .env 를 다시 읽어 위 autouse 픽스처가 비운 열쇠를 되살린다. 그대로 두면
+    # cfg 를 쓰는 시험이 진짜 모델을 부른다 (2026-09-09 인물 조사 시험이 실제로 한 번 불렀다, 약 $0.5).
+    for name in ("DATA_GO_KR_KEY", "REB_API_KEY", "ANTHROPIC_API_KEY"):
+        monkeypatch.delenv(name, raising=False)
     settings = json.loads(json.dumps(real.settings, default=str))
     settings["output"]["dir"] = str(tmp_path / "output")
     settings["collect"]["fetch_body"] = False        # 본문 수집은 네트워크가 필요

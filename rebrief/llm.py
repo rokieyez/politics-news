@@ -13,12 +13,13 @@ import anthropic
 import pydantic
 
 from .config import Config
-from .models import (BlogPost, Cluster, DailyBrief, MonthlyReview, PolicySummaries, Rewrite,
-                     VideoPack, WeeklyReview)
+from .models import (BlogPost, Cluster, DailyBrief, MonthlyReview, PersonProfile, PolicySummaries,
+                     Rewrite, VideoPack, WeeklyReview)
 from .prompts import (
     build_blog_user,
     build_brief_messages,
     build_policy_messages,
+    build_profile_messages,
     build_shared_context,
     build_video_user,
     build_monthly_messages,
@@ -192,6 +193,15 @@ class ContentGenerator:
             model=self.script_model,
             max_tokens=self.script_max_tokens,
         )
+
+    def generate_profile(self, materials_text: str, name: str, today: str) -> PersonProfile:
+        """정치인 한 사람의 배경지식 정리. 전기는 기억으로 쓰기 쉬워 기본(강한) 모델을 쓴다."""
+        system, user = build_profile_messages(self.cfg, materials_text, name, today)
+        log.info("인물 정리 생성 중… (%s)", name)
+        model = str(self.cfg.get("profile.model", "") or "").strip() or self.model
+        max_tokens = int(self.cfg.get("profile.max_tokens", 0) or 0) or self.script_max_tokens
+        return self._parse(system=system, user=user, output_format=PersonProfile,
+                           kind="인물 정리", model=model, max_tokens=max_tokens)
 
     def summarize_policies(self, docs: list) -> PolicySummaries:
         """정부 보도자료 여러 건을 한 번의 호출로 3줄씩. 값싼 모델로 충분하다."""
