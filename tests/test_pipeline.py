@@ -117,7 +117,7 @@ def test_run_without_llm(cfg, monkeypatch):
     assert "예산안" in brief
 
     pack = (out / "prompt-pack.md").read_text(encoding="utf-8")
-    assert "1단계" in pack and "3단계" in pack
+    assert "```json brief" in pack and "```json script" in pack   # 한 번 붙여 넣고 JSON 세 덩이를 받는 형식
 
     assert result.articles >= 6
     assert result.issues >= 1
@@ -729,3 +729,105 @@ def test_사이트에_주간_결산이_실린다(cfg, monkeypatch, tmp_path):
     assert (dest / "weekly" / "2026-W36" / "weekly-naver.html").exists()
     assert (dest / "weekly" / "2026-W36" / "weekly.html").exists()
     assert "주간 결산 (1주)" in (dest / "index.html").read_text(encoding="utf-8")
+
+
+# ── 0원 방식 — 채팅 답으로 산출물 만들기 (2026-09-10) ────────────────────
+
+
+def _answer_text(brief=None, post=None, pack=None) -> str:
+    """claude.ai 가 돌려줄 법한 답 — JSON 코드 블록 세 개."""
+    import json as _json
+    parts = []
+    for tag, obj in (("brief", brief), ("blog", post), ("script", pack)):
+        if obj is not None:
+            parts.append(f"```json {tag}\n{_json.dumps(obj.model_dump(mode='json'), ensure_ascii=False)}\n```")
+    return "여기 있습니다.\n\n" + "\n\n".join(parts) + "\n"
+
+
+def test_answer_parser_accepts_the_shapes_people_actually_paste():
+    """표식 붙은 블록 셋이 기본이지만, 표식이 빠지거나 한 객체로 묶여 와도 읽는다. 틀린 건 어디가 틀렸는지 말한다."""
+    import json as _json
+    import pytest as _pytest
+    from rebrief import answer
+
+    text = _answer_text(make_brief(), make_post(), make_pack())
+    got = answer.parse_answer(text)
+    assert set(got) == {"brief", "blog", "script"} and got["brief"].headline == make_brief().headline
+
+    # 표식 없이 온 블록은 내용으로 짐작한다
+    bare = text.replace("```json brief", "```json").replace("```json blog", "```").replace("```json script", "```json")
+    assert set(answer.parse_answer(bare)) == {"brief", "blog", "script"}
+
+    # 블록 없이 객체 하나로 묶어 보내도 된다
+    one = _json.dumps({"brief": make_brief().model_dump(mode="json"), "blog": make_post().model_dump(mode="json")},
+                      ensure_ascii=False)
+    assert set(answer.parse_answer(one)) == {"brief", "blog"}
+
+    # 브리핑이 없으면 아무것도 못 만든다
+    with _pytest.raises(answer.AnswerError, match="brief"):
+        answer.parse_answer(_answer_text(post=make_post()))
+    # 스키마와 다르면 어느 칸이 틀렸는지 적는다
+    broken = text.replace('"headline"', '"headline_x"', 1)
+    with _pytest.raises(answer.AnswerError, match="headline"):
+        answer.parse_answer(broken)
+    assert "브리핑·블로그" in answer.describe({"brief": 1, "blog": 1}) and "대본" in answer.describe({"brief": 1, "blog": 1})
+
+
+def test_pack_json_keeps_no_body_but_keeps_the_numbers(cfg, monkeypatch, tmp_path):
+    """답을 읽을 러너에는 기사 원본이 없다. pack.json 은 본문 없이 제목·주소·숫자 토막만 남기고, 되살리면 검산이 돈다."""
+    import json as _json
+    from rebrief import answer
+
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    pipeline.run(cfg, run_date=RUN_DATE, use_llm=False)
+    out = cfg.output_dir / RUN_DATE
+    data = _json.loads((out / "pack.json").read_text(encoding="utf-8"))
+    articles = [a for c in data["clusters"] for a in c["articles"]]
+    assert articles and all("body" not in a for a in articles)
+    assert all(isinstance(a["numbers"], list) for a in articles)   # 본문의 숫자 토막 자리 (픽스처 기사는 본문이 없다)
+    assert answer.number_tokens("예산안 673조원, 지지율 45.2%p 하락 12명") == ["673조", "45.2%p", "12명"]
+
+    clusters = answer.load_pack(out)
+    assert clusters and all(a.url and a.title for c in clusters for a in c.articles)
+    assert (out / "prompt-pack.html").exists()                   # 휴대폰에서 복사하는 페이지
+    html = (out / "prompt-pack.html").read_text(encoding="utf-8")
+    assert "묶음 복사" in html and "issues/new?title=" in html
+
+
+def test_answer_makes_the_same_artifacts_as_the_api_path(cfg, monkeypatch):
+    """아침 무LLM 실행 → 답 붙여 넣기 → 글·카드·대본이 API 경로와 같은 이름으로 나온다. 모델 호출 0회."""
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    pipeline.run(cfg, run_date=RUN_DATE, use_llm=False)
+    out = cfg.output_dir / RUN_DATE
+    assert (out / "prompt-pack.md").exists() and not (out / "blog.md").exists()
+
+    calls = []
+    monkeypatch.setattr("rebrief.pipeline.ContentGenerator",
+                        lambda *a, **k: calls.append(1) or (_ for _ in ()).throw(RuntimeError("부르면 안 된다")))
+    result = pipeline.answer(cfg, RUN_DATE, _answer_text(make_brief(), make_post(), make_pack()))
+    assert calls == [] and result.llm_used is True
+    for name in ("brief.md", "data.json", "blog.md", "blog-naver.html", "script-shorts.md",
+                 "script-longform.md", "production-notes.md", "checklist.md"):
+        assert (out / name).exists(), f"{name} 이 생성되지 않았습니다"
+    assert not (out / "prompt-pack.md").exists() and not (out / "prompt-pack.html").exists()   # 답을 받았으니 치운다
+    assert [w for w in result.warnings if "덩이" in w] == []
+
+    # 브리핑 덩이만 오면 브리핑·카드까지만 만들고, 빠진 것을 경고로 남긴다
+    pipeline.run(cfg, run_date=RUN_DATE, use_llm=False)
+    result = pipeline.answer(cfg, RUN_DATE, _answer_text(make_brief()))
+    assert any("블로그" in w for w in result.warnings) and any("대본" in w for w in result.warnings)
+    assert (out / "data.json").exists()
+
+
+def test_answer_command_reads_a_file(cfg, monkeypatch, capsys):
+    from rebrief import cli
+
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    monkeypatch.setattr(cli, "load_config", lambda path=None: cfg)
+    pipeline.run(cfg, run_date=RUN_DATE, use_llm=False)
+    path = cfg.output_dir / "answer.md"
+    path.write_text(_answer_text(make_brief(), make_post(), make_pack()), encoding="utf-8")
+    assert cli.main(["answer", "--date", RUN_DATE, "--file", str(path)]) == 0
+    assert "브리핑·블로그·대본" in capsys.readouterr().out
+    path.write_text("이건 답이 아닙니다", encoding="utf-8")
+    assert cli.main(["answer", "--date", RUN_DATE, "--file", str(path)]) == 1

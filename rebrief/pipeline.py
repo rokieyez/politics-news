@@ -13,6 +13,7 @@ from .cluster import build_clusters
 from .collect import FeedResult, collect
 from .config import Config
 from . import keynumbers, civics
+from . import answer as answer_mod
 from .llm import ContentGenerator, LLMError, Usage
 from .models import Article, Cluster
 from .prompts import build_prompt_pack
@@ -158,7 +159,10 @@ def run(
                 "ANTHROPIC_API_KEY 가 없어 요약을 건너뛰었습니다. prompt-pack.md 를 사용하세요."
             )
         renderer.brief_fallback(issues, stats)
-        renderer.prompt_pack(build_prompt_pack(cfg, issues, date_str))
+        renderer.prompt_pack(build_prompt_pack(cfg, issues, date_str),
+                             articles=sum(c.size for c in issues), issues=len(issues))
+        # 답을 읽을 러너에는 기사 원본이 없다. 본문 없는 기사 목록을 남겨 근거 주소·검산·참고 목록을 되살린다.
+        answer_mod.save_pack(out_dir, issues)
     renderer.checklist(result, artifacts, link_status)
     _record_quality(cfg, date_str, renderer, artifacts, result)
 
@@ -242,6 +246,7 @@ def _generate_with_llm(
     """LLM 3단계 생성. 중간에 실패해도 거기까지 만든 건 남긴다.
 
     점검표가 쓸 수 있게 만든 것들(brief/post/pack/checks)을 dict 로 돌려준다.
+    산출 단계는 `_render_brief_part` 등으로 나뉘어 있다 — 채팅 답으로 받은 모델(`answer`)도 같은 길을 탄다.
     """
     generator = ContentGenerator(cfg, model=model)
     result.usage = generator.usage
@@ -257,6 +262,38 @@ def _generate_with_llm(
         return made
 
     result.llm_used = True
+    history = _render_brief_part(cfg, renderer, issues, date_str, result, brief, made, civics_data)
+
+    # 그림은 블로그 글의 이미지 자리에 맞춰 만들어야 하므로 글을 먼저 받는다.
+    # 글 생성이 실패하면 자리 정보 없이 수치만 보고 만든다.
+    post = None
+    try:
+        post = generator.generate_blog(brief)
+    except Exception as exc:                     # 위와 같은 이유 — 브리핑은 이미 돈을 내고 만들었다
+        log.error("블로그 생성 실패: %s", exc, exc_info=not isinstance(exc, LLMError))
+        result.warnings.append(f"블로그 생성 실패 — {exc}")
+
+    slot_files, keys = _render_blog_part(cfg, renderer, issues, date_str, result, brief, post, made,
+                                         history, generator, stats_data, civics_data)
+
+    try:
+        pack = generator.generate_video(brief, stats=stats_data, civics=civics_data)
+    except Exception as exc:
+        # 대본은 마지막이자 가장 덜 중요한 산출물입니다. 여기서 무엇이 터지든
+        # **이미 돈을 내고 만든 브리핑과 블로그까지 버릴 이유는 없습니다.**
+        # (2026-09-08 아침: 잘린 JSON 이 ValidationError 로 새어 실행 전체가 죽었습니다.)
+        log.error("영상 대본 생성 실패: %s", exc, exc_info=not isinstance(exc, LLMError))
+        result.warnings.append(f"영상 대본 생성 실패 — {exc}")
+        return made
+
+    _render_video_part(cfg, renderer, issues, date_str, result, brief, pack, made, keys, slot_files)
+    result.warnings.extend(generator.usage.notes)
+    return made
+
+
+def _render_brief_part(cfg: Config, renderer: Renderer, issues: list[Cluster], date_str: str,
+                       result: RunResult, brief, made: dict, civics_data: dict | None) -> list[dict]:
+    """브리핑이 손에 들어온 뒤의 산출 — 근거 주소·법안 추적·검산·brief.md·data.json·추이 기록."""
     _fill_source_urls(brief, issues, result)
     # 오늘 이슈에 나온 법안이 지금 어느 단계인지 — 브리핑이 있어야 이슈 제목을 알므로 여기서.
     # 모델을 부르지 않고 열린국회정보만 다시 묻는다. 망이 죽어도 글은 그대로 나간다.
@@ -273,17 +310,13 @@ def _generate_with_llm(
                    diff=_diff_yesterday(cfg, brief, date_str),
                    why=explain_issues(brief, issues, str(cfg.get("run.timezone", "Asia/Seoul"))))
     renderer.data_json(brief)
-    history = _record_series(cfg, brief, date_str)
+    return _record_series(cfg, brief, date_str)
 
-    # 그림은 블로그 글의 이미지 자리에 맞춰 만들어야 하므로 글을 먼저 받는다.
-    # 글 생성이 실패하면 자리 정보 없이 수치만 보고 만든다.
-    post = None
-    try:
-        post = generator.generate_blog(brief)
-    except Exception as exc:                     # 위와 같은 이유 — 브리핑은 이미 돈을 내고 만들었다
-        log.error("블로그 생성 실패: %s", exc, exc_info=not isinstance(exc, LLMError))
-        result.warnings.append(f"블로그 생성 실패 — {exc}")
 
+def _render_blog_part(cfg: Config, renderer: Renderer, issues: list[Cluster], date_str: str,
+                      result: RunResult, brief, post, made: dict, history: list[dict], generator,
+                      stats_data: dict | None, civics_data: dict | None) -> tuple[dict, list]:
+    """그림·카드·(글이 있으면) 표지·정책·블로그 두 벌. (그림 자리 파일, 핵심 수치) 를 돌려준다."""
     slot_files = renderer.images(brief, history=history, post=post)
     # 유튜브 게시물용 카드뉴스. 브리핑을 나눠 담을 뿐이라 모델을 다시 부르지 않는다.
     made["cards"] = renderer.cards(brief, civics=civics_data)
@@ -311,17 +344,12 @@ def _generate_with_llm(
                                 policies=policies, stats=stats_data, stats_image=stats_image,
                                 civics=civics_data)
         _record_titles(cfg, date_str, blog=[post.title])
+    return slot_files, keys
 
-    try:
-        pack = generator.generate_video(brief, stats=stats_data, civics=civics_data)
-    except Exception as exc:
-        # 대본은 마지막이자 가장 덜 중요한 산출물입니다. 여기서 무엇이 터지든
-        # **이미 돈을 내고 만든 브리핑과 블로그까지 버릴 이유는 없습니다.**
-        # (2026-09-08 아침: 잘린 JSON 이 ValidationError 로 새어 실행 전체가 죽었습니다.)
-        log.error("영상 대본 생성 실패: %s", exc, exc_info=not isinstance(exc, LLMError))
-        result.warnings.append(f"영상 대본 생성 실패 — {exc}")
-        return made
 
+def _render_video_part(cfg: Config, renderer: Renderer, issues: list[Cluster], date_str: str,
+                       result: RunResult, brief, pack, made: dict, keys: list, slot_files: dict) -> None:
+    """대본·제작 메모·썸네일. 마지막에 금지 표현 자동 고침(키가 있을 때만)."""
     made["pack"] = pack
     renderer.shorts(pack)
     renderer.longform(pack)
@@ -330,8 +358,56 @@ def _generate_with_llm(
     _record_titles(cfg, date_str, longform=pack.longform.title_candidates,
                    shorts=pack.shorts.title_candidates)
     _autofix_banned(cfg, renderer, made, issues, slot_files, result)
-    result.warnings.extend(generator.usage.notes)
-    return made
+
+
+def answer(cfg: Config, run_date: str, text: str) -> RunResult:
+    """채팅에서 받은 답(JSON 세 덩이)으로 그날 산출물을 만든다 — 모델을 부르지 않는다 (0원).
+
+    아침 데일리가 남긴 `pack.json`(기사 목록)과 `civics.json` 을 읽고, 답을 `answer.parse_answer` 로
+    검증한 뒤 API 경로와 **같은 산출 단계**(`_render_*_part`)를 탄다. 브리핑 덩이만 있으면 브리핑·카드까지,
+    블로그가 있으면 글까지, 대본이 있으면 대본·썸네일까지 만든다. 빠진 덩이는 경고로 남긴다.
+    """
+    out_dir = cfg.output_dir / run_date
+    result = RunResult(date=run_date, out_dir=out_dir)
+    issues = answer_mod.load_pack(out_dir)
+    if not issues:
+        raise FileNotFoundError(f"{run_date} 의 기사 목록(pack.json)이 없습니다 — 아침 데일리가 먼저 돌아야 합니다.")
+    parsed = answer_mod.parse_answer(text)
+    result.issues = len(issues)
+    result.articles = sum(c.size for c in issues)
+
+    renderer = Renderer(cfg, out_dir, run_date)
+    civics_data: dict = {}
+    civics_path = out_dir / "civics.json"
+    if civics_path.exists():
+        try:
+            civics_data = json.loads(civics_path.read_text(encoding="utf-8"))
+        except ValueError:
+            civics_data = {}
+    result.civics = civics_data
+    result.llm_used = True                      # 요약은 있다 — 사람이 채팅에서 받아 왔을 뿐
+    made: dict = {}
+    brief = parsed["brief"]
+    history = _render_brief_part(cfg, renderer, issues, run_date, result, brief, made, civics_data)
+    post = parsed.get("blog")
+    if post is None:
+        result.warnings.append("답에 블로그 덩이가 없어 글은 만들지 않았습니다 (브리핑·카드만).")
+    slot_files, keys = _render_blog_part(cfg, renderer, issues, run_date, result, brief, post, made,
+                                         history, None, None, civics_data)
+    pack = parsed.get("script")
+    if pack is None:
+        result.warnings.append("답에 대본 덩이가 없어 대본·썸네일은 만들지 않았습니다.")
+    else:
+        _render_video_part(cfg, renderer, issues, run_date, result, brief, pack, made, keys, slot_files)
+
+    renderer.checklist(result, made, renderer.last_link_status or {})
+    _record_quality(cfg, run_date, renderer, made, result)
+    # 답을 받았으니 붙여넣기 묶음은 치운다 — 사이트의 '오늘 할 일' 이 다음 단계로 넘어가게
+    for name in ("prompt-pack.md", "prompt-pack.html"):
+        (out_dir / name).unlink(missing_ok=True)
+    index = update_index(cfg)
+    result.files = list(renderer.written) + ([index] if index else [])
+    return result
 
 
 def _stats(articles: list[Article], feed_results: list[FeedResult]) -> RenderStats:

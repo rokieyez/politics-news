@@ -15,9 +15,10 @@ from rebrief.llm import Usage
 # ── 점검표 ───────────────────────────────────────────────────
 
 
-def test_LLM_이_없으면_막힘_하나만(cfg):
+def test_LLM_이_없으면_안내_하나만(cfg):
+    """0원 방식(2026-09-10)에서 요약 없음은 실패가 아니라 「붙여넣기 묶음 단계」 안내다."""
     items = cl.build(cfg, llm_used=False)
-    assert [i.level for i in items] == [cl.FAIL]
+    assert [i.level for i in items] == [cl.WARN] and "붙여넣기" in items[0].title
 
 
 def test_금지_표현을_실제로_잡는다(cfg):
@@ -60,7 +61,7 @@ def test_LLM_없는_실행도_점검표는_남는다(cfg, monkeypatch):
     monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
     pipeline.run(cfg, run_date="2026-09-06", use_llm=False)
     data = json.loads((cfg.output_dir / "2026-09-06" / "checklist.json").read_text(encoding="utf-8"))
-    assert data["summary"]["fail"] == 1
+    assert data["summary"]["fail"] == 0 and data["summary"]["warn"] >= 1   # 요약 없음은 다음 단계 안내(⚠️)지 실패가 아니다
 
 
 # ── 월 예산 가드 ─────────────────────────────────────────────

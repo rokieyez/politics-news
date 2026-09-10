@@ -243,8 +243,9 @@ def build(cfg: Config, *, brief=None, post=None, pack=None, checks=None,
     banned = [b for b in (video.get("banned_phrases", []) or []) if b]
 
     if not llm_used:
-        items.append(Item("llm", FAIL, "요약·대본이 만들어지지 않았습니다",
-                          "prompt-pack.md 를 챗봇에 붙여넣어 직접 만들거나, 키·한도를 확인한 뒤 다시 실행하세요."))
+        items.append(Item("llm", WARN, "아직 답을 받지 않았습니다 — 붙여넣기 묶음 단계",
+                          "「붙여넣기 묶음」 페이지의 버튼으로 복사해 claude.ai 에 붙여 넣고, 답을 「답 YYYY-MM-DD」 이슈에 붙여 넣으세요. "
+                          "2~3분 뒤 글·카드·대본이 생깁니다."))
         return items
 
     # 1) 숫자 검산

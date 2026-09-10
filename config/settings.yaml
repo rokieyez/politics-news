@@ -47,7 +47,10 @@ rank:
   breaking: 1.2      # [단독]/[속보] 가점
 
 llm:
-  enabled: true
+  # 0원 방식 (2026-09-10, 사용자 선택). 아침 실행은 모델을 부르지 않고 붙여넣기 묶음만 만듭니다.
+  # 묶음을 claude.ai 에 붙여 넣고 답을 이슈에 붙여 넣으면 「답 받기」 워크플로가 글·카드·대본을 만듭니다.
+  # 다시 자동(하루 약 $0.5)으로 돌리려면 true. 아래 모델 설정은 그때 쓰입니다(인물 조사 --llm 도).
+  enabled: false
   model: claude-opus-5      # 바꾸려면: claude-sonnet-5 (더 저렴), claude-haiku-4-5
   effort: high              # low | medium | high | xhigh | max
   max_tokens: 16000
@@ -114,6 +117,7 @@ checklist:
 
 site:
   url: "https://www.rokiz.net/politics-news/"   # 알림 메시지에 붙는 사이트 주소
+  repo: rokieyez/politics-news                    # 붙여넣기 묶음 페이지의 「답 붙여 넣을 곳」(깃허브 이슈) 주소에 씀
 
 output:
   dir: output

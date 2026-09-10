@@ -1892,6 +1892,7 @@ def test_render_command_says_it_will_cost_money(cfg, monkeypatch, capsys):
                                     output_tokens=1, _usd=0.4209))
     book.save()
     monkeypatch.setenv("ANTHROPIC_API_KEY", "sk-ant-test")
+    cfg.settings["llm"]["enabled"] = True            # 설정은 0원 방식(꺼 둠)이라 여기서 켠다
 
     args = SimpleNamespace(date="2026-01-01", no_llm=False)
     assert cli._cmd_render(cfg, args) == 1            # 원본이 없어 실패하지만 경고는 이미 나왔다

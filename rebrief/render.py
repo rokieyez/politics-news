@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from urllib.parse import quote
 import json
 import re
 from dataclasses import dataclass
@@ -489,8 +490,14 @@ class Renderer:
         return self._write("policy.md", "policy.md.j2", docs=docs, date=self.date,
                            links=policy_region_links(docs, stats))
 
-    def prompt_pack(self, text: str) -> Path:
-        return self._write_raw("prompt-pack.md", text)
+    def prompt_pack(self, text: str, *, articles: int = 0, issues: int = 0) -> Path:
+        """붙여넣기 묶음. md 는 저장용, html 은 휴대폰에서 버튼 하나로 복사하는 페이지 (0원 방식, 2026-09-10)."""
+        path = self._write_raw("prompt-pack.md", text)
+        repo = str(self.cfg.get("site.repo", "") or "").strip()
+        issue_url = (f"https://github.com/{repo}/issues/new?title=" + quote(f"답 {self.date}")) if repo else "#"
+        self._write("prompt-pack.html", "prompt_pack.html.j2", pack=text, date=self.date,
+                    articles=articles, issues=issues, chars=f"{len(text):,}", issue_url=issue_url)
+        return path
 
     def checklist(self, result, artifacts: dict, link_status: dict | None = None) -> Path:
         """발행 전 점검표. md 는 사람이, json 은 사이트 카드가 읽는다."""

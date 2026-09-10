@@ -36,9 +36,9 @@ ANALYST_SYSTEM = """당신은 한국 정치 뉴스를 매일 정리하는 뉴스
 11. 모든 출력은 한국어입니다."""
 
 
-def build_brief_messages(cfg: Config, clusters: list[Cluster], run_date: str) -> tuple[str, str]:
+def build_brief_messages(cfg: Config, clusters: list[Cluster], run_date: str, *, excerpt: int = 1200) -> tuple[str, str]:
     """(system, user) 를 돌려준다."""
-    material = format_clusters(clusters)
+    material = format_clusters(clusters, excerpt=excerpt)
     max_issues = len(clusters)
 
     user = f"""오늘은 {run_date} 입니다. 아래는 오늘 오전까지 수집한 한국 정치 관련 기사 {max_issues}개 이슈입니다.
@@ -348,7 +348,7 @@ def article_ids(clusters: list[Cluster]) -> dict[str, str]:
     return out
 
 
-def format_clusters(clusters: list[Cluster]) -> str:
+def format_clusters(clusters: list[Cluster], excerpt: int = 1200) -> str:
     """클러스터를 프롬프트에 넣을 텍스트로 변환.
 
     기사 주소는 넣지 않고 **번호**만 붙입니다. 구글뉴스 주소는 한 개가 220자나 되는데,
@@ -369,7 +369,7 @@ def format_clusters(clusters: list[Cluster]) -> str:
         for n, article in enumerate(cluster.articles[:ARTICLE_LIMIT], start=1):
             when = article.published.strftime("%m-%d %H:%M") if article.published else "시각미상"
             source = article.publisher or article.feed_name
-            text = _truncate(article.best_text, 1200)
+            text = _truncate(article.best_text, excerpt)
             article_lines.append(
                 f"* ({index}-{n}) [{source} / {when}] {article.title}\n"
                 f"  내용: {text or '(요약 없음)'}"
@@ -385,54 +385,54 @@ def _truncate(text: str, limit: int) -> str:
     return text if len(text) <= limit else text[:limit] + "…"
 
 
+PACK_EXCERPT_CHARS = 500     # 붙여넣기 묶음의 기사 발췌 길이. 공개 저장소에 올라가므로 본문 전문(1,200자)은 넣지 않는다
+
+
+def answer_schemas() -> str:
+    """답으로 받을 JSON 세 덩이의 스키마. 모델이 이 틀대로 적어야 프로그램이 읽는다."""
+    from .models import BlogPost, DailyBrief, VideoPack
+
+    parts = []
+    for tag, model in (("brief", DailyBrief), ("blog", BlogPost), ("script", VideoPack)):
+        parts.append(f"[{tag}]\n" + json.dumps(model.model_json_schema(), ensure_ascii=False))
+    return "\n\n".join(parts)
+
+
 def build_prompt_pack(cfg: Config, clusters: list[Cluster], run_date: str) -> str:
-    """API 키가 없을 때 쓰는 붙여넣기용 프롬프트 문서."""
-    system, user = build_brief_messages(cfg, clusters, run_date)
+    """0원 방식의 붙여넣기 묶음 — claude.ai 채팅에 **한 번** 붙여 넣으면 브리핑·블로그·대본 JSON 세 덩이가 온다.
+
+    2026-09-10 사용자 선택. API 크레딧(하루 $0.5) 대신 구독 채팅을 쓴다. 답은 저장소 이슈에 붙여 넣으면
+    「답 받기」 워크플로가 읽어 글·카드·대본을 만든다(`rebrief.answer`).
+    기사 발췌는 `PACK_EXCERPT_CHARS` 까지만 — 이 파일은 공개 저장소에 올라간다.
+    """
+    system, user = build_brief_messages(cfg, clusters, run_date, excerpt=PACK_EXCERPT_CHARS)
     video = cfg.get("video", {}) or {}
+    blog_user = build_blog_user(cfg)
+    video_user = build_video_user(cfg)
 
-    return f"""# 붙여넣기용 프롬프트 팩 — {run_date}
-
-`ANTHROPIC_API_KEY` 가 없어서 자동 요약을 건너뛰었습니다.
-아래 내용을 Claude 나 다른 챗봇에 그대로 붙여넣으면 같은 결과를 얻을 수 있습니다.
-(키를 넣고 `python -m rebrief run` 을 다시 돌리면 전부 자동으로 만들어집니다.)
-
----
-
-## 1단계 — 사실 정리
-
-<details><summary>펼쳐서 전체 복사</summary>
-
-```text
-{system}
+    return f"""{system}
 
 {user}
-```
 
-</details>
+────────── 그다음 할 일 ──────────
 
----
+위 브리핑을 다 만들었으면, **같은 답 안에서 이어서** 아래 두 가지도 만드세요.
+(블로그·대본은 방금 만든 브리핑만 근거로 씁니다. 채널명 "{video.get('channel_name', '정치 브리핑')}",
+시청자 "{video.get('audience', '')}", 톤 "{video.get('tone', '')}".)
 
-## 2단계 — 블로그 글
+[블로그 글]
+{blog_user}
 
-1단계 답변을 붙여넣은 뒤, 이어서 아래를 입력하세요.
+[영상 대본]
+{video_user}
 
-```text
-{build_blog_user(cfg)}
-```
+────────── 답의 형식 (꼭 지키세요) ──────────
 
----
+답은 설명 없이 **JSON 코드 블록 세 개**만 적습니다. 각 블록의 첫 줄은 정확히 ```json brief / ```json blog / ```json script 입니다.
+각 블록은 아래 스키마를 그대로 따르는 JSON 객체 하나입니다 (설명·주석·말줄임표 없이, 값은 전부 한국어).
+source_ids 에는 자료의 기사 번호("1-2" 꼴)를 그대로 적습니다.
 
-## 3단계 — 영상 대본
-
-같은 대화에서 이어서 아래를 입력하세요.
-
-```text
-채널명: {video.get('channel_name', '정치 브리핑')}
-시청자: {video.get('audience', '')}
-톤앤매너: {video.get('tone', '')}
-
-{build_video_user(cfg)}
-```
+{answer_schemas()}
 """
 
 

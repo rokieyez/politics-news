@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>붙여넣기 묶음 — {{ date }}</title>
+<style>
+  body { font-family: -apple-system, "Pretendard", "Noto Sans KR", sans-serif; margin: 0; background: #f5f6f8; color: #1a1a1a; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+  h1 { font-size: 22px; margin: 8px 0 4px; }
+  .sub { color: #555; font-size: 14px; margin-bottom: 18px; }
+  ol.steps { padding-left: 22px; line-height: 1.7; font-size: 16px; }
+  ol.steps li { margin-bottom: 6px; }
+  .btn { display: block; width: 100%; box-sizing: border-box; padding: 18px; margin: 10px 0; border-radius: 12px; border: 1px solid #c9d6cf;
+         background: #0f2f2a; color: #fff; font-size: 18px; font-weight: 700; text-align: center; text-decoration: none; cursor: pointer; }
+  .btn.second { background: #fff; color: #0f2f2a; }
+  .btn.small { font-size: 15px; padding: 12px; }
+  .ok { color: #03c75a; font-weight: 700; margin-left: 8px; }
+  textarea { width: 100%; box-sizing: border-box; height: 220px; font-size: 12px; font-family: ui-monospace, Menlo, monospace;
+             border: 1px solid #ccd; border-radius: 8px; padding: 10px; background: #fff; }
+  .note { font-size: 13px; color: #666; line-height: 1.6; }
+  .box { background: #fff; border: 1px solid #e4e7ea; border-radius: 10px; padding: 14px 16px; margin: 14px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>붙여넣기 묶음 · {{ date }}</h1>
+  <div class="sub">오늘 기사 {{ articles }}건 · 이슈 {{ issues }}개 · 약 {{ chars }}자. 모델은 부르지 않았습니다 (0원).</div>
+
+  <div class="box">
+    <ol class="steps">
+      <li><b>묶음 복사</b> 버튼을 누르고 → claude.ai 새 대화에 붙여 넣기 → 보내기</li>
+      <li>답이 다 나오면 <b>답 전체 복사</b> (답 아래의 복사 아이콘)</li>
+      <li><b>답 붙여 넣을 곳 열기</b> 버튼 → 본문 칸에 붙여 넣고 → <b>Submit new issue</b></li>
+      <li>2~3분 뒤 이 사이트에 블로그 글·카드뉴스·대본이 생깁니다 (알림도 옵니다)</li>
+    </ol>
+  </div>
+
+  <button class="btn" id="copy">묶음 복사<span class="ok" id="ok" hidden>복사됨</span></button>
+  <a class="btn second" href="{{ issue_url }}" target="_blank" rel="noopener">답 붙여 넣을 곳 열기 (깃허브 이슈)</a>
+  <a class="btn second small" href="https://claude.ai/new" target="_blank" rel="noopener">claude.ai 열기</a>
+
+  <details style="margin-top:18px">
+    <summary>묶음 내용 보기 (복사가 안 될 때 여기서 전체 선택)</summary>
+    <textarea id="pack" readonly>{{ pack }}</textarea>
+  </details>
+
+  <p class="note">답은 <code>```json brief</code> · <code>```json blog</code> · <code>```json script</code> 세 덩이여야 합니다.
+  한 덩이가 빠져도 나머지는 만들어지고, 형식이 틀리면 이슈에 무엇이 틀렸는지 댓글이 달립니다.
+  이슈 제목은 그대로 두세요 — 날짜를 거기서 읽습니다.</p>
+</div>
+<script>
+  var ta = document.getElementById("pack"), btn = document.getElementById("copy"), ok = document.getElementById("ok");
+  btn.addEventListener("click", function () {
+    var text = ta.value;
+    function done() { ok.hidden = false; setTimeout(function () { ok.hidden = true; }, 2500); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+    } else { fallback(); }
+    function fallback() {
+      ta.closest("details").open = true; ta.focus(); ta.select();
+      try { if (document.execCommand("copy")) done(); } catch (e) {}
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+name: 답 받기
+
+# 0원 방식의 둘째 단계 (2026-09-10). 사용자가 claude.ai 답(JSON 세 덩이)을 제목이 「답 YYYY-MM-DD」인 이슈에
+# 붙여 넣으면, 여기서 읽어 그날 브리핑·블로그·카드뉴스·대본을 만들고 커밋합니다. 모델은 부르지 않습니다.
+# 형식이 틀리면 이슈에 무엇이 틀렸는지 댓글을 달고 이슈는 열어 둡니다(고쳐서 다시 편집하면 또 돕니다).
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: daily-brief          # 아침 데일리·낮 보충과 같은 줄 — 커밋이 부딪히지 않게
+  cancel-in-progress: false
+
+jobs:
+  answer:
+    if: startsWith(github.event.issue.title, '답')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: 의존성 설치
+        run: pip install -q -r requirements.txt
+      - name: 한글 글꼴 설치 (PNG 의 한글이 깨지지 않게)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk > /dev/null
+      - name: 답을 파일로
+        env:
+          BODY: ${{ github.event.issue.body }}          # 본문은 환경변수로만 받는다 (셸에 직접 넣으면 따옴표에 깨진다)
+          TITLE: ${{ github.event.issue.title }}
+        run: |
+          printf '%s' "$BODY" > answer.md
+          DATE=$(printf '%s' "$TITLE" | grep -oE '[0-9]{4}-[0-9]{2}-[0-9]{2}' | head -1)
+          [ -z "$DATE" ] && DATE=$(TZ=Asia/Seoul date +%F)
+          echo "date=$DATE" >> "$GITHUB_OUTPUT"
+          echo "답 $(wc -c < answer.md) 바이트 · 날짜 $DATE"
+        id: body
+      - name: 글·카드·대본 만들기
+        id: make
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          ASSEMBLY_API_KEY: ${{ secrets.ASSEMBLY_API_KEY }}
+        run: |
+          set +e
+          python -m rebrief -v answer --date "${{ steps.body.outputs.date }}" --file answer.md 2>&1 | tee make.log
+          echo "code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+      - name: 결과 커밋
+        if: steps.make.outputs.code == '0'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add output state
+          if git diff --staged --quiet; then echo "바뀐 것 없음"; exit 0; fi
+          git commit -m "답 받음: ${{ steps.body.outputs.date }}"
+          for i in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push && exit 0
+            sleep $((i * 5))
+          done
+          echo "푸시에 실패했습니다." >&2
+          exit 1
+      - name: 이슈에 결과 알리고 닫기
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SITE: https://www.rokiz.net/politics-news/
+        run: |
+          N=${{ github.event.issue.number }}
+          if [ "${{ steps.make.outputs.code }}" = "0" ]; then
+            gh issue comment "$N" --body "✅ 받았습니다. 2~3분 뒤 사이트에 글·카드·대본이 올라옵니다: $SITE
+            $(grep -E '^답에서 찾은 것|⚠️' make.log | head -6)"
+            gh issue close "$N"
+          else
+            gh issue comment "$N" --body "❌ 답을 읽지 못했습니다. 아래 이유를 보고 이슈 본문을 **편집**하면 다시 시도합니다.
+            \`\`\`
+            $(grep -vE '^\s*$' make.log | tail -8)
+            \`\`\`"
+            exit 1
+          fi

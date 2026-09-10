@@ -62,7 +62,7 @@ def build_run_message(*, date: str, headline: str, issues: int, articles: int,
         # 실패가 아니라 판단입니다. 물음표가 아니라 마침표로 알립니다.
         lines.append("😴 오늘은 쉬어 가는 날로 봤습니다 — 여러 매체가 함께 다룬 이야기가 없습니다")
     elif not llm_used:
-        lines.append("⚠️ 요약·대본은 만들지 못했습니다 (prompt-pack.md 참고)")
+        lines.append("📋 붙여넣기 묶음이 준비됐습니다 — 사이트에서 복사해 claude.ai 에 붙여 넣고, 답을 이슈에 붙여 넣으세요")
     for w in warnings[:3]:
         lines.append(f"⚠️ {w}")
     if site_url:

@@ -99,6 +99,10 @@ def build_parser() -> argparse.ArgumentParser:
     p_civ.add_argument("--refresh", action="store_true",
                        help="아침에 못 받은 항목을 다시 받아 output/<날짜>/civics.* 를 채움 (낮 보충 워크플로)")
 
+    p_ans = sub.add_parser("answer", help="채팅(claude.ai)에서 받은 답으로 그날 글·카드·대본 만들기 (0원 방식)")
+    p_ans.add_argument("--date", help="날짜 (YYYY-MM-DD, 기본 오늘)")
+    p_ans.add_argument("--file", required=True, help="답을 붙여 넣은 파일 (- 는 표준 입력)")
+
     p_pub = sub.add_parser("publish", help="네이버에 올린 글 주소를 기록 (사이트에 '발행함' 으로 표시)")
     p_pub.add_argument("--date", help="날짜 (기본: 오늘)")
     p_pub.add_argument("--url", default="", help="발행한 글 주소")
@@ -146,6 +150,8 @@ def main(argv: list[str] | None = None) -> int:
         return _cmd_profile(cfg, args)
     if args.command == "civics":
         return _cmd_civics(cfg, args)
+    if args.command == "answer":
+        return _cmd_answer(cfg, args)
     return 1
 
 
@@ -771,4 +777,27 @@ def _cmd_civics(cfg, args) -> int:
 
     print("--prefetch 또는 --refresh 를 주세요.")
     return 1
+
+
+def _cmd_answer(cfg, args) -> int:
+    """채팅 답 → 산출물. 모델을 부르지 않는다. 형식이 틀리면 무엇이 틀렸는지 적고 1 을 돌려준다."""
+    from .answer import AnswerError, describe, parse_answer
+    from .pipeline import answer as answer_pipeline
+
+    date_str = args.date or local_now(cfg).strftime("%Y-%m-%d")
+    text = sys.stdin.read() if args.file == "-" else Path(args.file).read_text(encoding="utf-8")
+    try:
+        parsed = parse_answer(text)
+    except AnswerError as exc:
+        print(f"답을 읽지 못했습니다: {exc}")
+        return 1
+    print(f"답에서 찾은 것: {describe(parsed)}")
+    try:
+        result = answer_pipeline(cfg, date_str, text)
+    except FileNotFoundError as exc:
+        print(str(exc))
+        return 1
+    _report(result)
+    _notify_result(cfg, result)
+    return 0 if result.files else 1
 
