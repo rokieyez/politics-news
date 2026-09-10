@@ -1,69 +1,77 @@
 ---
-title: "김승원 수사자료 유출 공방, 9월 9일 대정부질문 정리"
-slug: "kim-seung-won-investigation-leak-interpellation-0909"
+title: "용혜인 인사청문회 증인 채택 쟁점 정리, 9월 10일"
+slug: "yong-hye-in-confirmation-hearing-witness-2026-09-10"
 date: 2026-09-10
 category: "정치"
-tags: ["김승원", "김승원수사자료유출", "대정부질문", "정기국회", "국회", "정치", "한동훈", "한성숙국무총리", "이진수법무부차관", "법무부장관후보자", "인사청문회", "인사청문회일정", "이해식", "전용기", "나경원", "용혜인", "채현일", "조희대", "대법관제청", "김민석", "정청래", "강훈식", "우원식", "오세훈", "서울시장보궐선거", "더불어민주당", "국민의힘", "국회본회의", "경찰개혁", "오늘의정치뉴스"]
-description: "9월 9일 정기국회 대정부질문에서 오간 김승원 수사자료 유출 공방과 정부 답변, 김민석 대표 수첩 논란까지 사실 위주로 차분하게 정리했습니다."
+tags: ["정치", "국회", "인사청문회", "용혜인", "용혜인인사청문회", "성평등가족부", "장관후보자", "증인채택", "국민의힘", "더불어민주당", "정치브리핑", "오늘의정치", "국회소식", "선관위특검", "파견검사", "특검법개정안", "정점식", "한병도", "한동훈", "김승원", "법무부장관후보자", "강신철", "국방부장관후보자", "천하람", "개혁신당", "철거민특별분양", "부정청약의혹", "국가수사본부", "정책조정회의", "방구석배경지식"]
+description: "9월 10일 용혜인 성평등가족부 장관 후보자 인사청문회가 증인 채택 문제로 일정조차 잡히지 않았습니다. 국민의힘이 밝힌 증인 28명 요구와 27명 거부, 그리고 오늘 국회의 나머지 소식을 차분하게 정리했습니다."
 ---
 ![대표 이미지](img-0-cover.png)
 *이 글은 2026년 9월 10일 기준으로 정리한 내용입니다.*
 **3줄 요약**
 
-- 9일 대정부질문 쟁점은 김승원 수사자료 유출 공방
-- 채현일 의원은 대법관 제청 209일 지연을 주장
-- 총리·법무차관의 유출 경위 확인 결과가 다음 관전 포인트
-9일 국회 대정부질문에서 김승원 수사자료 유출 문제를 놓고 여야가 맞붙었습니다. 한성숙 국무총리와 이진수 법무부 장관 직무대행은 유출 경위와 위법 여부를 확인하겠다고 밝혔습니다. 다만 유출이 실제로 있었는지, 위법인지는 아직 확인되지 않은 단계입니다.
+- 용혜인 성평등가족부 장관 후보자 청문회가 증인 문제로 열리지 못했습니다.
+- 국민의힘은 증인 28명을 요구했고 민주당이 27명을 거부했다고 밝혔습니다.
+- 다음에 볼 것은 증인 명단 합의와 청문회 날짜 확정 두 가지입니다.
+9월 10일, **용혜인 인사청문회**가 결국 열리지 못했습니다. 누구를 증인으로 부를지 합의가 되지 않았고, 그 여파로 청문회 날짜까지 함께 밀렸습니다.
 
-[이미지: 국회 본회의장에서 대정부질문이 진행되는 모습]
+오늘은 이 사안을 중심으로 보고, 나머지 소식은 한 줄씩 짚어 드리겠습니다.
 
-## 김승원 수사자료 유출, 대정부질문에서 오간 말
+[이미지: 국회 본관 앞 전경 사진]
 
-대정부질문(국회의원이 총리·장관에게 국정 현안을 따져 묻는 절차) 첫날 쟁점은 김승원 법무부 장관 후보자의 '신약 임상시험 승인 청탁' 의혹이었습니다. 이 의혹은 아직 수사나 사실 확정 단계가 아닙니다.
+## 용혜인 인사청문회는 왜 열리지 못했나
 
-- 더불어민주당 이해식 의원은 한동훈 무소속 의원이 녹취록을 "가위질·짜깁기"했다며 감찰과 관련자 처벌을 요구했습니다.
-- 같은 당 전용기 의원은 검찰 내부 수사자료가 특정 정치인에게 전달됐다는 취지로 문제를 제기했습니다.
-- 국민의힘 나경원 의원은 김현지 청와대 실장 등 인사검증 시스템 문제와 용혜인 성평등가족부 장관 후보자의 의원직 유지 문제를 제기했습니다.
-- 한동훈 의원은 같은 날 "검찰로부터 자료를 받은 거 없다"며 김민석 더불어민주당 대표를 고발하겠다고 밝혔습니다(뉴시스 헤드라인). 구체적 반박 내용은 자료로 확인되지 않았습니다.
+용혜인 성평등가족부 장관 후보자에 대한 인사청문회(장관 후보자가 자격을 갖췄는지 국회가 공개적으로 검증하는 절차) 일정이 잡히지 않았습니다.
 
-## 정부는 뭐라고 답했나
+국회 성평등가족위원회 소속 국민의힘 의원들은 이날 국회에서 기자회견을 열었습니다. 이들은 증인 채택 합의에 실패하면서 청문회 개최 일정에도 합의하지 못했다고 밝혔습니다.
 
-이진수 법무부 장관 직무대행은 공개된 녹취록 등이 "검찰 내부에서 유출됐다면 범죄"라고 말했습니다. 이어 "공개된 내용 상당 부분이 검찰의 사건 처리 예정 보고서와 상당히 동일하다는 보고를 받았다"고 답했습니다.
+국정 공백을 줄이려고 일정을 조율했지만 증인 문제에서 멈췄다는 설명입니다.
 
-경향신문에 따르면 이 직무대행은 수사 자료 제공이 공무상 비밀누설과 개인정보보호법 위반에 해당할 수 있다며 "수사 담당자와 대검 보고라인이 특정된 상태"라고 말했습니다. 이는 직무대행의 발언일 뿐, 수사 결과나 기소가 확정된 것은 아닙니다.
+## 숫자로 보는 증인 채택 공방
 
-한성숙 총리는 "관계 기관을 통해 유출 경위와 위법 여부, 사실관계를 면밀히 확인하도록 지시하겠다"고 밝혔습니다.
+국민의힘이 공개한 숫자는 이렇습니다.
 
-![대법관 후보 서면 제청이 209일 지연됐다는 수치를 보여주는 그래픽](img-2-stat-card.png)
+| 구분 | 인원 |
+| --- | --- |
+| 국민의힘이 요구한 증인 | 28명 |
+| 민주당이 수용 | 1명 |
+| 민주당이 거부 | 27명 |
 
-## 오늘 나온 숫자, 209일
+![요구한 증인 28명과 수용된 1명을 대비해 보여주는 막대그래프](img-2-stat-card.png)
 
-민주당 채현일 의원은 조희대 대법원장이 대법관 후보 서면 제청을 209일 동안 미뤘다고 비판했습니다(뉴시스). 이 기간은 채 의원 측 주장이며, 조희대 대법원장 측 설명은 이 자료에서 확인되지 않았습니다.
+국민의힘은 증인 없는 청문회는 검증이 아니라 후보자에게 변명 기회만 주는 자리가 된다고 주장했습니다.
 
-[이미지: 회의장 책상 위에 놓인 수첩과 펜 근접 사진]
+다만 민주당이 어떤 이유로 이 증인들을 거부했는지는 오늘 확인된 자료에 담기지 않았습니다. 위 숫자도 국민의힘 발표 기준이라는 점을 함께 봐 주셔야 합니다.
+
+한쪽 설명만 나와 있는 상태입니다.
+
+## 앞으로 무엇이 정해져야 하나
+
+지금 정해진 것은 합의가 안 됐다는 사실 하나뿐입니다. 남은 것은 증인 명단과 청문회 날짜, 두 가지입니다.
+
+용혜인 인사청문회 재협의를 언제 하는지도 아직 공개되지 않았습니다.
+
+[이미지: 명패와 마이크가 놓인 국회 상임위 회의실 빈 좌석 사진]
 
 ## 그 밖의 오늘 소식
 
-- 김민석 대표 수첩의 '서울시장 후보' 메모가 포착됐습니다.
-- '훈식' '원식' '청래'로 보이는 이름이 적혔다는 보도입니다.
-- 일부 글씨는 흐릿해 식별이 어렵다는 지적도 있습니다.
-- 정청래 의원은 페이스북에 "불쾌하다"고 적었습니다.
-- 김민석 대표 본인의 공식 설명은 확인되지 않았습니다.
-- 오세훈 서울시장 형 확정 여부와 시점은 미정입니다.
-- 한 총리는 5·18 토론회 논란에 "참담하다"고 말했습니다.
-- 경찰개혁은 총리실이 최종안을 낸다고 밝혔습니다.
+- 민주당, 선관위 특검 파견검사 수사권 박탈 개정안 발의
+- 정점식 국민의힘 원내대표, 기자회견 열어 개정안 비판
+- 한병도 민주당 원내대표, 한동훈 의원 겨냥해 국수본 수사 촉구
+- 천하람 개혁신당 권한대행, 강신철 국방부 장관 후보자 의혹 제기
+- 위 사안 모두 상대측 반론은 오늘 자료에 없습니다
 
 ## 오늘의 체크포인트
 
-- 10일 오후 2시 대정부질문(외교·통일·안보)이 이어집니다.
-- 같은 날 국회 국방위원회 전체회의가 열립니다.
-- 김승원 수사자료 유출 경위 확인 결과 발표 여부가 남았습니다.
+1. 용혜인 인사청문회는 증인 문제로 날짜조차 정해지지 않았습니다.
+2. 앞서 본 28명과 1명은 국민의힘 발표 기준 숫자입니다.
+3. 다음 관전 포인트는 증인 명단 합의 여부입니다.
 
 **그래서 나는?**
 
-- 뉴스만 훑는 분이라면, 오늘은 '확인 지시' 단계라는 점만 기억하세요
-- 서울에 사는 유권자라면, 보궐선거 가능성은 아직 미정입니다
-- 국회 일정 챙기는 분이라면, 10일 대정부질문과 국방위를 보세요
+- 이번 정부 인사에 관심 있는 유권자라면, 증인 명단 합의 여부부터 확인해 보세요.
+- 성평등가족부 사업을 준비하는 분이라면, 장관 임명 시점이 미뤄질 수 있습니다.
+- 국회 절차가 낯선 분이라면, 증인 합의와 청문회 날짜가 묶여 있다는 점을 보세요.
 
 **직접 센 숫자 — 국회·여론조사 (최근 7일)**
 
@@ -77,42 +85,47 @@ description: "9월 9일 정기국회 대정부질문에서 오간 김승원 수�
 - 전국 정기(정례)조사 정당지지도 — 미디어토마토 · 뉴스토마토 의뢰 · 2026-09-07~08 · 1,035명 · 무선 ARS · 응답률 2.4% · 95% 신뢰수준에 ±3.0%p
 - 전국 정당지지도 정기(정례)조사 — 한길리서치 · 쿠키뉴스 의뢰 · 2026-09-05~07 · 1,018명 · 무선 ARS · 응답률 2.5% · 95% 신뢰수준에 ±3.1%p
 
+오늘 이슈에 나온 법안은 지금 어디에
+
+- 형사소송법 — 제22대 발의 161건 · 최근 「형사소송법 일부개정법률안」(박지원의원 등 13인, 2026-09-03) · 소관위 회부
+
 *열린국회정보·중앙선거여론조사심의위원회 자료를 직접 셌습니다. 여론조사의 자세한 사항은 중앙선거여론조사심의위원회 홈페이지를 참조하세요.*
 
 **오늘 나온 정부 발표 원문**
 
-- [우리 가족의 사생활, 관계기관이 손잡고 더 촘촘히 지킨다](https://www.korea.kr/briefing/pressReleaseView.do?newsId=156780900) (행정안전부 2026-09-09)
-  - 첨부 [260910 (16시) 우리 가족의 사생활 관계기관이 손잡고 더 촘촘히 ](https://www.korea.kr/common/download.do?fileId=198549076&tblKey=GMN) · [260910 (16시) 우리 가족의 사생활 관계기관이 손잡고 더 촘촘히 ](https://www.korea.kr/common/download.do?fileId=198549077&tblKey=GMN)
-- [경주지진 10년, 지진방재의 미래 10년을 논하다](https://www.korea.kr/briefing/pressReleaseView.do?newsId=156780888) (행정안전부 2026-09-09)
-- [구혁채 제1차관, 국회에서 양자 분야 발전방향 논의](https://www.korea.kr/briefing/pressReleaseView.do?newsId=156780851) (과학기술정보통신부 2026-09-09)
-**여러분은 이번 공방에서 어떤 부분이 가장 먼저 정리돼야 한다고 보시나요?**
+- [[보도자료] 한성숙 국무총리 주재 제17차 비상경제점검회의](https://www.korea.kr/briefing/pressReleaseView.do?newsId=156781074) (국무조정실 2026-09-10)
+- [추석 전 벌초, 예초기 사용에 주의하세요!](https://www.korea.kr/briefing/pressReleaseView.do?newsId=156781072) (행정안전부 2026-09-10)
+- ['부담은 줄이고 마음은 풍성한 한가위로' 행정안전부, 추석 명절 물가안정관리 총력](https://www.korea.kr/briefing/pressReleaseView.do?newsId=156781070) (행정안전부 2026-09-10)
+  - 첨부 [260911 (조간) 부담은 줄이고 마음은 풍성한 한가위로 행정안전부 추](https://www.korea.kr/common/download.do?fileId=198549798&tblKey=GMN) · [260911 (조간) 부담은 줄이고 마음은 풍성한 한가위로 행정안전부 추](https://www.korea.kr/common/download.do?fileId=198549799&tblKey=GMN)
+**여러분은 장관 후보자 검증에서 증인 출석과 후보자 답변 가운데 어느 쪽이 더 중요하다고 보시나요?**
 
 ---
 
 ### 참고한 기사
 
-1. **행정안전부(9월10일 목요일)**
-   - [연합뉴스](https://news.google.com/rss/articles/CBMiW0FVX3lxTFBndlRabUNqM3E1V1UtUkFfNUw3RjJUX2dEb2JSOWVrdEJQLTFhMmlkODdZTGdLaXZGbGYxQXFOdmgtbFpRb0tzeG82TVdDZnViVW9PVmtoQl9uelnSAWBBVV95cUxQS2pZZXNPSkFVTjhncUdkcWp2MVh0blF5b2gxUnNEQzFMMXBFOS12MVFZMkFGeVBwbzN1TTcxWGtuaHhoa3lRamRYei1mMU9fLVJXSERyZ0lOd0NhcHVPN0Y?oc=5)
-   - [뉴시스·정치](https://www.newsis.com/view/NISX20260909_0003783324)
-   - [뉴스1](https://news.google.com/rss/articles/CBMiYEFVX3lxTE9rRHNYaVlGVXF2dEZvTC1BOVVJa25xeFNKRUlzRnhCQXhUajV5YzhTM3R3UENzb3VLN3dnSi1DdF95TUx5bWc2QjV0OGpXbGdKRTNET2NuWTFxR2JMU2lKLdIBYEFVX3lxTE9rRHNYaVlGVXF2dEZvTC1BOVVJa25xeFNKRUlzRnhCQXhUajV5YzhTM3R3UENzb3VLN3dnSi1DdF95TUx5bWc2QjV0OGpXbGdKRTNET2NuWTFxR2JMU2lKLQ?oc=5)
-   - [뉴시스·정치](https://www.newsis.com/view/NISX20260909_0003783362)
-2. **김민석 수첩에 ‘서울시장 후보 훈식 원식 청래’… 정청래 “불쾌하다”**
-   - [동아일보·정치](https://www.donga.com/news/Politics/article/all/20260910/134639480/2)
-   - [조선일보](https://news.google.com/rss/articles/CBMihgFBVV95cUxOT3l0aVNuU2EzRXJ2eXBNc0ZOVFZTRklIT3NNZlRqbnpLbmZGVW5ZVVNFaGFVdWJHNm5DRV9fSUJWajQ4UWQybUdPaWk3aVNVbXBMZUpGYnJzSTR5Z3dzSGp2czg1SDViVVZ3RVlrYWkzVXNfY0JaYlNuZlFPUU9aR202ZzFrUQ?oc=5)
-   - [주간조선](https://news.google.com/rss/articles/CBMia0FVX3lxTFB6OUxwbDZReTFxMjVKbWFmRGM3d1NkSTJHYjVtMzhOd1hYR00yZzV6bVVUU3k3VWJuSFRiNnVjRjZXQjZCeEIxMEY0ckpDUzJxNncwVExXaGdLUVFKMm1mNGxKVUdMV0JWRmIw0gFuQVVfeXFMTVYyWXRyLUN4bWw2Ym4tNXAzR3RySUUyVUdveVdQSGRPeXRrTkY1ZHd4T1o1aVZ1V2htUzRac0U3UWJvMTE1MXp6U2VEMEJqUTFHNFpSMjVkWDU4THVxdDBTajdlYVJ0d1FGcGY3LVE?oc=5)
-   - [경향신문·정치](https://www.khan.co.kr/article/202609092005001)
-3. **여야, 대정부질문 첫날 '김승원 격돌'…與 "수사자료 공개 위법" vs 野 "명심 개각 바꿔야"**
-   - [뉴시스·정치](https://www.newsis.com/view/NISX20260909_0003783259)
-   - [경향신문·정치](https://www.khan.co.kr/article/202609091813011)
-4. **법무장관 대행 “한동훈 ‘김승원 檢수사자료’ 유출됐다면 범죄…수사해야”**
-   - [동아일보·정치](https://www.donga.com/news/Politics/article/all/20260909/134636306/1)
-   - [경향신문·정치](https://www.khan.co.kr/article/202609091622021)
-   - [연합뉴스·정치](https://www.yna.co.kr/view/AKR20260909134200004)
-5. **韓총리, 한동훈 녹취록 공개 논란에 "유출경위·위법여부 확인"(종합)**
-   - [연합뉴스·정치](https://www.yna.co.kr/view/AKR20260909126851001)
-   - [BBS불교방송](https://news.google.com/rss/articles/CBMia0FVX3lxTFBMd2wyUlJFSHcxQ0tYWEpCamd4bGlYbFlrcThJUkwwenF0SEJMN0R2WVY0aVdzUm5RSTFhNzhUc0c4Sm9ibVVYQ2pxUUR1OWk4UHZ5cUQ1Q3VrMkZhTFBnR0x0X29YeWxjZ0hz?oc=5)
-   - [동아일보·정치](https://www.donga.com/news/Politics/article/all/20260909/134635540/1)
-   - [연합뉴스·정치](https://www.yna.co.kr/view/AKR20260909126800001)
+1. **선관위특검 손발 자르는 與…‘파견검사 수사권 박탈’ 법안 발의**
+   - [news.kbs.co.kr](https://news.google.com/rss/articles/CBMiW0FVX3lxTE1MZlp3WkVXRGlLT2JrWUpLNkt1cF9PakhpR1otM2Y5OTkxYy1LMlBlY3NrZk5VSzdXTkE5RGZ6Q2VpMFF1OU5EUEtCS2cwY1BKS3BoSzdxY190Rm8?oc=5)
+   - [동아일보·정치](https://www.donga.com/news/Politics/article/all/20260910/134642090/1)
+   - [머니투데이](https://news.google.com/rss/articles/CBMibEFVX3lxTFBJZGxrc1ZpM2ZLYWtHZnl6QlVZek9DQmRFaFpCTVVhMVN2VWpnbE83bE1qX21FUGViVDZjR2pSZU5oQTVoQllWVUFQMXo1d1gtR0hUQzJGR2VyckQ2dzROWFJwMThfUlNURlhEd9IBckFVX3lxTE9IRWxmNzIxWUxCRDJodFJmUXFLdm9ScHl6cHNTWVJrX0l3UUxnRG13RVNGOE05WkN6UXFHUmU5VG1PM3hpY1VLdEVzZEpBcHYycmVqS3FLYTFZUnk2c1lDSnl0cG1FQ0EwUVc4dUhHbFUwZw?oc=5)
+   - [뉴시스·정치](https://www.newsis.com/view/NISX20260910_0003784212)
+2. **한병도, 한동훈에 "檢 문건 유출 심각…캐비닛 이용 정치 공작"**
+   - [연합뉴스TV](https://news.google.com/rss/articles/CBMiZ0FVX3lxTFA2bjBRNXpJb2p4cWtfUUlUdUM3UVNSRGp4djQ1T2lMamUydGpjd1NpT2p6QlRETkoxV0dETTY5cTNpUDdKNTJyQXAwT0xodFRZZDBPM0pVUVc3dXpuQlRDUXBQQUx1cXc?oc=5)
+   - [v.daum.net](https://news.google.com/rss/articles/CBMiT0FVX3lxTFBoaEZab1FWSjZ1OWNURnBHaDhwLVF5WDJCN3BvXzBXa2hYS25TSUJmazNPS2ktN1JzNTB5U3hIS0RvOUdiRmNoSXRGUVdNNm8?oc=5)
+   - [daejonilbo.com](https://news.google.com/rss/articles/CBMic0FVX3lxTE1qdkwydWg4WHV3NnhZbWx2aDRvalNGa2loTVR5UnJPTXNFYUhrdndPNERqUmlWbTVxMFpCakt2d2dUM0R3dzJDSkNma2NTOTBZdXdyYmxVLXFSLTYwc1RDOE90d0Q0aGp6N0N0eHp1VllnUjQ?oc=5)
+   - [imnews.imbc.com](https://news.google.com/rss/articles/CBMieEFVX3lxTFBQYmhHX0wzR0FtQ050NjZxVUFJT3pYWUc2bEpvbVFQQXZHbmp3VHAxQWxrc0JyNFozdEViOUhsY2tRXzdCVmFxRV9VUGsyVWxuY3hBSU9uMURTZFA0SU92WDV3RVhmQWhKalRqdGJYbmZpcWZxMktZdNIBeEFVX3lxTFBQYmhHX0wzR0FtQ050NjZxVUFJT3pYWUc2bEpvbVFQQXZHbmp3VHAxQWxrc0JyNFozdEViOUhsY2tRXzdCVmFxRV9VUGsyVWxuY3hBSU9uMURTZFA0SU92WDV3RVhmQWhKalRqdGJYbmZpcWZxMktZdA?oc=5)
+3. **與, 한동훈 겨냥 "검찰 캐비닛 이용한 불법 정치공작…즉각 강제 수사해야"(종합)**
+   - [뉴시스·정치](https://www.newsis.com/view/NISX20260910_0003784009)
+   - [경기일보](https://news.google.com/rss/articles/CBMiW0FVX3lxTE9UWlprSGh3bEw2TTk1Q3ZMLXQ3Sk1SQllRb3VJdWhabm1ManFuRHdMUmNtOFVEN2dkZUE5ZUJiVEh1c2VsTEpfcVpwVF9idmpBVGJqMnZHSUhBLVE?oc=5)
+   - [v.daum.net](https://news.google.com/rss/articles/CBMiT0FVX3lxTE9RZHdzMEFXU2RwYXE0b0VnMXdiVm9VS2lhcHZjeWo3VWVVejVUNGFPWjRwYmlCeF9Sc0RpaXNsUWNGbnl2NjJwdGdCcHVrVHc?oc=5)
+4. **국힘 "與, 용혜인 청문회 파행 시도…증인 없는 맹탕 청문회 만들려 해"**
+   - [매일일보](https://news.google.com/rss/articles/CBMiZEFVX3lxTE5ET1YwMllnemp6dGJMVlhQVTY2Mml1NlhPOXdvcFlXSmkyR01sakRMbkFrVUE1bzZZRFpYaHZkZHh5SkFtU0FtTnB3RjlCZFBHQXlsSU4zeDVlWHNXdmVpRkpzc1M?oc=5)
+   - [머니투데이](https://news.google.com/rss/articles/CBMickFVX3lxTE5iNi1EcWVxZlR6THQtM1VhOUpCNnkyeFJZZXRnaUUyTFR0czBTTE9sNFpHR203WlY4NlZyaTlvWnRIaFhzU1RWX1ZwbWhSNGMzUkRmcm82YzJBNy1ONEJTTjhzREI3elA2aXN0ZTZKV2thUdIBckFVX3lxTE5iNi1EcWVxZlR6THQtM1VhOUpCNnkyeFJZZXRnaUUyTFR0czBTTE9sNFpHR203WlY4NlZyaTlvWnRIaFhzU1RWX1ZwbWhSNGMzUkRmcm82YzJBNy1ONEJTTjhzREI3elA2aXN0ZTZKV2thUQ?oc=5)
+   - [뉴시스·정치](https://www.newsis.com/view/NISX20260910_0003784222)
+5. **천하람 "강신철 본인은 물론 부친·고모·형도 철거민 특별분양"(종합)**
+   - [연합뉴스·정치](https://www.yna.co.kr/view/AKR20260910052451001)
+   - [뉴시스·정치](https://www.newsis.com/view/NISX20260910_0003783987)
+   - [동아일보·정치](https://www.donga.com/news/Politics/article/all/20260910/134641639/2)
+   - [연합뉴스·정치](https://www.yna.co.kr/view/AKR20260910052400001)
 
 ---
 

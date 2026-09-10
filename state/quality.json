@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-09T23:03:19",
+  "updated_at": "2026-09-10T06:49:35",
   "days": {
     "2026-09-08": {
       "ok": 11,
@@ -33,20 +33,16 @@
       "usd": 0.4484
     },
     "2026-09-10": {
-      "ok": 10,
-      "warn": 2,
+      "ok": 11,
+      "warn": 1,
       "fail": 0,
-      "verified": 0,
+      "verified": 4,
       "unverified": 0,
-      "no_text": 1,
-      "models": [
-        "claude-sonnet-5",
-        "claude-opus-5",
-        "claude-haiku-4-5"
-      ],
-      "blog_chars": 1572,
+      "no_text": 4,
+      "models": [],
+      "blog_chars": 1198,
       "issues": 5,
-      "usd": 0.5052
+      "usd": 0.0
     }
   }
 }

@@ -1,22 +1,15 @@
 {
   "date": "2026-09-10",
   "summary": {
-    "ok": 10,
-    "warn": 2,
+    "ok": 11,
+    "warn": 1,
     "fail": 0
   },
   "items": [
     {
       "key": "numbers",
       "level": "ok",
-      "title": "수치 1건 모두 기사 원문에서 확인",
-      "detail": "",
-      "lines": []
-    },
-    {
-      "key": "links",
-      "level": "ok",
-      "title": "출처 링크 29개 모두 정상",
+      "title": "수치 8건 모두 기사 원문에서 확인",
       "detail": "",
       "lines": []
     },
@@ -28,9 +21,16 @@
       "lines": []
     },
     {
+      "key": "balance",
+      "level": "ok",
+      "title": "양쪽 언급 균형 (언급 더불어민주당 5 · 국민의힘 7 · 인용 더불어민주당 0 · 국민의힘 1)",
+      "detail": "",
+      "lines": []
+    },
+    {
       "key": "blog_len",
       "level": "ok",
-      "title": "블로그 본문 1,572자",
+      "title": "블로그 본문 1,198자",
       "detail": "",
       "lines": []
     },
@@ -44,7 +44,7 @@
     {
       "key": "keyword",
       "level": "ok",
-      "title": "대표 검색어 '김승원 수사자료 유출' 가 제목·첫 문단·소제목에 모두 있음",
+      "title": "대표 검색어 '용혜인 인사청문회' 가 제목·첫 문단·소제목에 모두 있음",
       "detail": "",
       "lines": []
     },
@@ -64,12 +64,10 @@
     },
     {
       "key": "readability",
-      "level": "warn",
-      "title": "긴 문장 1개 — 휴대폰에서 답답해 보입니다",
-      "detail": "문장은 둘로 나누고, 문단은 두세 문장에서 끊으세요.",
-      "lines": [
-        "경향신문에 따르면 이 직무대행은 수사 자료 제공이 공무상 비밀누설과 개인정보보호법 위반에 해당할 수 있다며 …"
-      ]
+      "level": "ok",
+      "title": "문장·문단 길이 적당",
+      "detail": "",
+      "lines": []
     },
     {
       "key": "photos",
@@ -81,14 +79,14 @@
     {
       "key": "shorts_len",
       "level": "ok",
-      "title": "쇼츠 발화 137자 (약 25초)",
+      "title": "쇼츠 발화 320자 (약 58초)",
       "detail": "",
       "lines": []
     },
     {
       "key": "long_len",
       "level": "ok",
-      "title": "롱폼 발화 2,228자 (약 6.8분)",
+      "title": "롱폼 발화 2,825자 (약 8.6분)",
       "detail": "",
       "lines": []
     }

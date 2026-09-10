@@ -350,5 +350,18 @@
     }
   ],
   "warnings": [],
-  "filled_from_prefetch": []
+  "filled_from_prefetch": [],
+  "tracked": [
+    {
+      "query": "형사소송법",
+      "count": 161,
+      "pending": null,
+      "name": "형사소송법 일부개정법률안",
+      "proposer": "박지원의원 등 13인",
+      "date": "2026-09-03",
+      "stage": "소관위 회부",
+      "committee": "법제사법위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_T2T5S0T7A1B5Z1A1Y3Y4X3F2F6D0F2&ageFrom=22&ageTo=22"
+    }
+  ]
 }

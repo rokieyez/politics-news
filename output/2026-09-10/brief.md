@@ -1,148 +1,170 @@
-# 대정부질문 김승원 공방·김민석 수첩 논란
+# 특검법 개정안·장관 후보자 검증 놓고 여야 공방
 
 > **2026-09-10 정치 데일리 브리핑**
-> 기사 29건 · 매체 14곳 · 선정 이슈 4개
-> 생성 2026-09-09 22:58
+> 기사 22건 · 매체 12곳 · 선정 이슈 4개
+> 생성 2026-09-10 06:48
 
-9일 정기국회 첫 대정부질문에서 여야는 김승원 법무부 장관 후보자의 '신약 임상시험 승인 청탁' 의혹과 한동훈 무소속 의원의 검찰 수사자료 공개를 둘러싸고 격돌했다. 한성숙 국무총리와 이진수 법무부 장관 직무대행은 자료 유출 경위와 위법 여부를 확인하겠다고 밝혔다. 같은 날 국회 본회의장에서는 김민석 더불어민주당 대표의 수첩에 적힌 '서울시장 후보' 관련 메모가 카메라에 포착돼 별도 논란이 됐다. 정청래 의원은 이에 대해 페이스북을 통해 불쾌감을 표했다.
+9월 10일 오전 국회에서는 기자회견 세 건과 여당 정책조정회의를 통한 공방이 이어졌습니다. 더불어민주당이 선거관리위원회 특검 내 파견검사의 수사권을 박탈하는 개정안을 발의하자 국민의힘 정점식 원내대표가 긴급 기자회견을 열어 비판했습니다. 민주당 한병도 원내대표는 검찰 기소계획서 유출을 문제 삼아 무소속 한동훈 의원을 겨냥해 국가수사본부의 수사를 촉구했습니다. 장관 후보자 검증에서는 용혜인 성평등가족부 장관 후보자의 인사청문회 일정이 증인 채택 문제로 잡히지 않았고, 강신철 국방부 장관 후보자를 향한 철거민 특별분양 의혹이 제기됐습니다.
 
-**정치권 온도** · 여야 모두 대정부질문에서 자료 유출·인사 검증 문제를 놓고 날 선 발언을 주고받았고, 총리와 법무부 직무대행이 잇따라 감찰·수사 확인 방침을 밝히며 긴장감이 이어졌다.
+**정치권 온도** · 오전에만 국회에서 기자회견 3건과 여당 정책조정회의 발언이 이어졌고, 다뤄진 사안은 특검법 개정안 1건과 장관 후보자 3명(김승원·용혜인·강신철) 관련 문제였다.
 
 **2026-09-09 와 달라진 점** · 새 이슈 4 · 이어지는 이슈 0 · 빠진 이슈 5
-- 🆕 김민석 수첩 '서울시장 후보' 메모 논란 / 대정부질문 김승원 자료유출 공방 / 법무차관 '김승원 수사자료 유출은 범죄' / 한총리 '녹취록 유출 경위 확인하겠다'
+- 🆕 선관위 특검 파견검사 수사권 / 검찰 기소계획서 유출 공방 / 용혜인 인사청문회 일정 불발 / 강신철 후보자 특별분양 의혹
 - ⏹ 이재명 대통령 지지율·프랑스 순방 / 정치분야 대정부질문 여야 충돌 / 한동훈, 김승원 브로커 녹취 공개 / 국힘, 김승원·용혜인 사퇴 촉구 / 박지원, 한동훈 청문위원 논란 비판
 
 ---
 
-## 1. 김민석 수첩 '서울시장 후보' 메모 논란
+## 1. 선관위 특검 파견검사 수사권
 
-`정당·공천` · **김민석 대표 수첩에 적힌 서울시장 후보 메모가 카메라에 포착돼 논란이 됐다.**
-*고른 이유 · 오늘 2위 · 매체 10곳 · 기사 13건 · 최신 09-10 04:30*
-
-**무슨 일이 있었나**
-
-- 9일 국회 본회의장에서 김민석 더불어민주당 대표가 살펴보던 수첩이 취재 카메라에 포착됐다.
-- 수첩 왼쪽 하단에는 '서울시장 후보'라는 문구와 함께 '훈식' '원식' '청래' 등으로 보이는 이름이 적혀 있었다.
-- 정치권에서는 이를 각각 강훈식 대통령비서실장, 우원식 전 국회의장, 정청래 의원의 이름으로 추정했다.
-- 경향신문에 따르면 수첩 오른편에는 이진숙 국민의힘 의원과 한동훈 무소속 의원 이름 옆에 'OUT'이라고 적혀 있었다.
-- 정청래 의원은 페이스북에 '불쾌하다'며 '서울시장의 꿈을 꾸다가 낙선한 민석, 영길 등도 적으라'는 취지로 반응했다.
-
-**왜 중요한가**
-
-오세훈 서울시장이 여론조사비 대납 혐의 1심에서 시장직 상실형을 받은 뒤 형이 확정될 경우 서울시장 보궐선거가 열릴 수 있다는 전망 속에, 여권 내 잠재 후보군의 이름이 노출되며 이후 공천 경쟁 구도에 관심이 쏠리게 됐다. 다만 오세훈 시장 형 확정 여부와 시점은 아직 정해지지 않았다.
-
-**영향받는 쪽** · 더불어민주당 잠재적 서울시장 후보군 / 정청래 의원 / 강훈식 대통령비서실장 / 우원식 전 국회의장 / 오세훈 서울시장
-
-> ⚠️ **확인 필요** — 수첩에 적힌 이름은 카메라에 포착된 것을 추정한 것으로, 일부 이름은 흐릿해 식별이 어렵다는 보도가 있다. 김민석 대표 본인의 공식 설명은 자료에 없다.
-
-<details><summary>근거 기사 6건</summary>
-
-- https://www.donga.com/news/Politics/article/all/20260910/134639480/2
-- https://news.google.com/rss/articles/CBMihgFBVV95cUxOT3l0aVNuU2EzRXJ2eXBNc0ZOVFZTRklIT3NNZlRqbnpLbmZGVW5ZVVNFaGFVdWJHNm5DRV9fSUJWajQ4UWQybUdPaWk3aVNVbXBMZUpGYnJzSTR5Z3dzSGp2czg1SDViVVZ3RVlrYWkzVXNfY0JaYlNuZlFPUU9aR202ZzFrUQ?oc=5
-- https://news.google.com/rss/articles/CBMia0FVX3lxTFB6OUxwbDZReTFxMjVKbWFmRGM3d1NkSTJHYjVtMzhOd1hYR00yZzV6bVVUU3k3VWJuSFRiNnVjRjZXQjZCeEIxMEY0ckpDUzJxNncwVExXaGdLUVFKMm1mNGxKVUdMV0JWRmIw0gFuQVVfeXFMTVYyWXRyLUN4bWw2Ym4tNXAzR3RySUUyVUdveVdQSGRPeXRrTkY1ZHd4T1o1aVZ1V2htUzRac0U3UWJvMTE1MXp6U2VEMEJqUTFHNFpSMjVkWDU4THVxdDBTajdlYVJ0d1FGcGY3LVE?oc=5
-- https://www.khan.co.kr/article/202609092005001
-- https://news.google.com/rss/articles/CBMihgFBVV95cUxPYno1c1JyVXZiTTFrM3k5d0x6NjRPU3Btd3YzLTBGaC1Mb2l5cHFjWThjeE0tY0o5VVhzUmVwcmRxdUdIM0c2dXlTNWV6eW5DYnZCcnZWQTBRZ2NfOGxEUFphQ1Zwa3BlTy1TT2VSV1BqTEdOcU5NRWNDUnNnM3ZDM1A2RFRudw?oc=5
-- https://www.yna.co.kr/view/AKR20260909159300001
-
-</details>
-
----
-
-## 2. 대정부질문 김승원 자료유출 공방
-
-`국회·입법` · **여야가 대정부질문에서 김승원 후보자 수사자료 유출 문제를 놓고 충돌했다.**
-*고른 이유 · 오늘 3위 · 매체 2곳 · 기사 2건 · 최신 09-09 18:37*
+`국회·입법` · **민주당 개정안 발의에 국민의힘 정점식 원내대표가 기자회견으로 반박했습니다.**
+*고른 이유 · 오늘 1위 · 매체 5곳 · 기사 5건 · 최신 09-10 14:09*
 
 **무슨 일이 있었나**
 
-- 9일 국회 대정부질문 첫날, 여야는 김승원 법무부 장관 후보자의 '신약 임상시험 승인 청탁' 의혹을 놓고 공방했다.
-- 더불어민주당 이해식 의원은 한동훈 무소속 의원이 녹취록을 '가위질·짜깁기'했다며 감찰과 관련자 처벌을 요구했다.
-- 같은 당 전용기 의원은 검찰 내부 수사자료가 특정 정치인에게 전달됐다는 취지로 문제를 제기했다.
-- 국민의힘 나경원 의원은 김현지 청와대 실장 등 인사검증 시스템 문제와 용혜인 성평등가족부 장관 후보자의 의원직 유지 문제를 제기했다.
-- 민주당 채현일 의원은 조희대 대법원장이 대법관 후보 서면 제청을 209일 동안 미뤘다고 비판했다.
+- 더불어민주당이 선거관리위원회 특별검사(특검 이태한) 내 파견검사의 수사권을 박탈하는 내용의 특검법 개정안을 발의했다.
+- 동아일보와 v.daum.net 보도에 따르면 이 개정안은 선관위 특검 발족 하루 만에 발의됐다.
+- 정점식 국민의힘 원내대표는 9월 10일 국회에서 긴급 기자회견을 열고 이를 두고 여야 합의로 이뤄진 특검법을 무력화하려는 행태라고 비판했다.
+- 정 원내대표는 민주당이 기소와 수사를 독점한 3대 특검을 추진한 데 이어 종합특검까지 도입했다고 지적했다.
+- 정 원내대표는 최근 개정된 형사소송법이 검사의 보완수사권을 폐지하면서도 부칙을 통해 특검 내 파견검사의 수사권은 인정하고 있다고 주장했다.
 
 **숫자로 보면**
 
 | 항목 | 값 | 기준 시점 | 맥락 | 출처 |
 | --- | --- | --- | --- | --- |
-| 대법관 후보 서면 제청 지연 기간(채현일 의원 주장) | **209일** | - | 조희대 대법원장의 대법관 재제청 관련 | 뉴시스 |
+| 정점식 원내대표가 언급한 민주당 추진 특검 규모 | **3대** | 2026-09-10 기자회견 | 종합특검을 별도로 도입했다는 주장이 함께 나옴 | 정점식 국민의힘 원내대표 기자회견 |
+| 선관위 특검 발족부터 개정안 발의까지 기간 | **1일** | 2026-09-10 보도 | 동아일보·v.daum.net 단독 보도 기준 | 동아일보 |
 
 **왜 중요한가**
 
-한성숙 국무총리가 유출 경위와 위법 여부 확인을 지시하면서, 실제 감찰·수사 착수 여부와 김승원 후보자 인사청문 절차의 향방이 다음 단계로 남았다. 대법관 재제청 문제 역시 조희대 대법원장의 향후 조치 여부에 관심이 쏠린다.
+개정안은 발의된 단계여서 상임위 심사와 본회의 표결이라는 절차가 그대로 남아 있습니다. 처리되면 이태한 특검팀 안에서 파견검사가 수사에 관여할 수 있는 범위가 달라지고, 처리되지 않으면 현행 특검법대로 수사가 이어집니다. 지금 정해진 것은 발의 사실 하나뿐이고 심사 일정과 처리 여부는 아직 정해지지 않았습니다.
 
-**영향받는 쪽** · 김승원 법무부 장관 후보자 / 한동훈 무소속 의원 / 용혜인 성평등가족부 장관 후보자 / 조희대 대법원장
+**영향받는 쪽** · 선관위 특검팀에 파견된 검사 / 이태한 특검의 수사 대상이 되는 기관과 관계자 / 개정안을 심사하게 될 국회 상임위 소속 의원
 
-> ⚠️ **확인 필요** — 신약 임상시험 승인 청탁 의혹은 아직 수사·확정 단계가 아니며, 자료 유출 여부도 확인되지 않았다. 한동훈 의원 측의 구체적 반박은 이 자료에는 제한적으로만 확인된다.
-
-<details><summary>근거 기사 2건</summary>
-
-- https://www.newsis.com/view/NISX20260909_0003783259
-- https://www.khan.co.kr/article/202609091813011
-
-</details>
-
----
-
-## 3. 법무차관 '김승원 수사자료 유출은 범죄'
-
-`사법·수사` · **법무부 장관 직무대행이 한동훈 의원의 녹취록 공개를 두고 유출이면 범죄라고 밝혔다.**
-*고른 이유 · 오늘 4위 · 매체 3곳 · 기사 3건 · 최신 09-09 16:33*
-
-**무슨 일이 있었나**
-
-- 이진수 법무부 장관 직무대행(차관)은 9일 국회 대정부질문에서 한동훈 무소속 의원이 공개한 녹취록 등이 '검찰 내부에서 유출됐다면 범죄'라고 말했다.
-- 이 직무대행은 전용기 민주당 의원 질의에 '공개된 내용 상당 부분이 검찰의 사건 처리 예정 보고서와 상당히 동일하다는 보고를 받았다'고 답했다.
-- 경향신문에 따르면 이 직무대행은 '수사 자료 제공은 공무상 비밀누설, 개인정보보호법 위반에 해당할 수 있다'며 '수사 담당자와 대검 보고라인이 특정된 상태'라고 말했다.
-- 한동훈 의원은 같은 날 '검찰로부터 자료를 받은 거 없다'며 김민석 대표를 고발하겠다고 밝혔다(뉴시스 헤드라인).
-
-**왜 중요한가**
-
-법무부 직무대행이 유출을 '범죄'로 규정하면서, 실제 수사 착수 여부와 대상 특정 여부가 다음 단계로 남았다. 이는 한동훈 의원이 이어온 김승원 후보자 의혹 제기 방식 자체에 대한 법적 공방으로 번질 수 있다.
-
-**영향받는 쪽** · 한동훈 무소속 의원 / 김승원 법무부 장관 후보자 / 검찰 내부 관계자
-
-> ⚠️ **확인 필요** — '범죄'라는 표현은 이진수 직무대행의 발언으로, 수사 결과나 기소 여부가 확정된 것은 아니다. 한동훈 의원의 반박은 뉴시스 헤드라인으로만 짧게 확인되며 상세 내용은 자료에 없다.
-
-<details><summary>근거 기사 4건</summary>
-
-- https://www.donga.com/news/Politics/article/all/20260909/134636306/1
-- https://www.khan.co.kr/article/202609091622021
-- https://www.yna.co.kr/view/AKR20260909134200004
-- https://www.newsis.com/view/NISX20260909_0003783324
-
-</details>
-
----
-
-## 4. 한총리 '녹취록 유출 경위 확인하겠다'
-
-`대통령실·정부` · **한성숙 총리가 한동훈 의원의 녹취록 공개에 유출 경위 확인을 지시했다.**
-*고른 이유 · 오늘 5위 · 매체 4곳 · 기사 5건 · 최신 09-09 18:16*
-
-**무슨 일이 있었나**
-
-- 한성숙 국무총리는 9일 국회 대정부질문에서 한동훈 무소속 의원의 김승원 후보자 관련 녹취록 공개에 대해 '관계 기관을 통해 유출 경위와 위법 여부, 사실관계를 면밀히 확인하도록 지시하겠다'고 말했다.
-- 이해식 민주당 의원이 법무부·검찰 시스템 접속기록 등 전면 감사를 요구하자, 한 총리는 '비공개 수사자료가 적법한 절차를 거치지 않고 외부로 유출·활용됐다면 매우 엄중한 사안'이라고 답했다.
-- 한 총리는 이진숙 국민의힘 의원이 주최한 '5·18 토론회' 논란에 대해 '진심으로 참담한 기분이 들었다'며 '기본정신을 훼손한 데 대해 합당한 조치가 필요하다'고 말했다.
-- 이재명 대통령의 개헌·연임 논란에 대해 한 총리는 '개헌 관련 부분은 해당 시기의 대통령께는 해당되지 않는 것으로 분명하게 명시돼 있다'고 답했다.
-- 경찰개혁 추진 체계에 대해서는 '총리실에서 최종안을 내는 것으로 진행하고 있다'고 밝혔다.
-
-**왜 중요한가**
-
-총리의 유출 경위 확인 지시가 실제 감찰·수사로 이어질지, 그리고 그 결과가 김승원 후보자 인사청문 절차에 어떤 영향을 줄지가 다음 단계로 남았다. 경찰개혁 최종안 발표 시점도 확인이 필요한 사안으로 남아 있다.
-
-**영향받는 쪽** · 한동훈 무소속 의원 / 김승원 법무부 장관 후보자 / 이진숙 국민의힘 의원 / 경찰개혁 관련 기관
-
-> ⚠️ **확인 필요** — '엄중한 사안'이라는 평가는 한성숙 총리의 발언이며, 유출 여부나 위법성은 아직 확인되지 않았다.
+> ⚠️ **확인 필요** — 개정안의 구체적 조문, 대표발의 의원, 발의 취지에 대한 민주당 측 설명은 자료에 없어 한쪽 주장만 확인된다. '3바퀴', '사기적 행태' 등은 정 원내대표의 표현이며 사실로 확인된 평가가 아니다. 형사소송법 부칙 관련 설명도 정 원내대표의 주장으로, 조문 내용 자체는 자료에 없다.
 
 <details><summary>근거 기사 5건</summary>
 
-- https://www.yna.co.kr/view/AKR20260909126851001
-- https://news.google.com/rss/articles/CBMia0FVX3lxTFBMd2wyUlJFSHcxQ0tYWEpCamd4bGlYbFlrcThJUkwwenF0SEJMN0R2WVY0aVdzUm5RSTFhNzhUc0c4Sm9ibVVYQ2pxUUR1OWk4UHZ5cUQ1Q3VrMkZhTFBnR0x0X29YeWxjZ0hz?oc=5
-- https://www.donga.com/news/Politics/article/all/20260909/134635540/1
-- https://www.yna.co.kr/view/AKR20260909126800001
-- https://www.newsis.com/view/NISX20260909_0003782839
+- https://news.google.com/rss/articles/CBMiW0FVX3lxTE1MZlp3WkVXRGlLT2JrWUpLNkt1cF9PakhpR1otM2Y5OTkxYy1LMlBlY3NrZk5VSzdXTkE5RGZ6Q2VpMFF1OU5EUEtCS2cwY1BKS3BoSzdxY190Rm8?oc=5
+- https://www.donga.com/news/Politics/article/all/20260910/134642090/1
+- https://news.google.com/rss/articles/CBMibEFVX3lxTFBJZGxrc1ZpM2ZLYWtHZnl6QlVZek9DQmRFaFpCTVVhMVN2VWpnbE83bE1qX21FUGViVDZjR2pSZU5oQTVoQllWVUFQMXo1d1gtR0hUQzJGR2VyckQ2dzROWFJwMThfUlNURlhEd9IBckFVX3lxTE9IRWxmNzIxWUxCRDJodFJmUXFLdm9ScHl6cHNTWVJrX0l3UUxnRG13RVNGOE05WkN6UXFHUmU5VG1PM3hpY1VLdEVzZEpBcHYycmVqS3FLYTFZUnk2c1lDSnl0cG1FQ0EwUVc4dUhHbFUwZw?oc=5
+- https://www.newsis.com/view/NISX20260910_0003784212
+- https://news.google.com/rss/articles/CBMiT0FVX3lxTE9JREJtWHN1elo5UmltdDh6MlRRVU9TUjIzRVlWejYyZkpjRWs2UVIxSTBITmFKekUyRzk0elpQYWgweEcwb0k1LTlhOUItXzQ?oc=5
+
+</details>
+
+---
+
+## 2. 검찰 기소계획서 유출 공방
+
+`사법·수사` · **민주당이 한동훈 의원의 검찰 자료 사용을 문제 삼아 수사를 촉구했습니다.**
+*고른 이유 · 오늘 2위 · 매체 6곳 · 기사 7건 · 최신 09-10 12:03*
+
+**무슨 일이 있었나**
+
+- 한병도 더불어민주당 원내대표는 9월 10일 오전 국회에서 열린 정책조정회의에서 무소속 한동훈 의원을 겨냥해 발언했다.
+- 한 원내대표는 수사자료 제공이 공무상 비밀누설이나 개인정보보호법 위반에 해당한다고 주장했다.
+- 한 원내대표는 수사팀과 대검찰청 지휘부 등 극히 일부만 열람할 수 있었던 기소계획서가 외부로 나가 SNS 콘텐츠로 쓰였다고 말했다.
+- 민주당은 한동훈 의원이 김승원 법무부 장관 후보자의 신약 청탁 의혹을 제기하는 데 이 자료를 사용했다고 보고 국가수사본부의 수사를 촉구했다.
+- 민주당은 한 의원의 문제 제기를 황색 저널리즘이라고 규정하며 김승원 후보자를 엄호했다.
+
+**왜 중요한가**
+
+민주당이 요구한 것은 국가수사본부의 수사 착수여서, 다음에 확인될 절차는 고발이나 수사 의뢰가 실제로 접수되는지와 입건 여부입니다. 동시에 김승원 법무부 장관 후보자의 인사청문 절차가 남아 있어 이 자료의 출처와 신빙성이 청문 과정의 쟁점이 될 수 있습니다. 현재 확인된 것은 민주당의 수사 촉구 발언뿐이며 수사 개시 여부는 자료에 없습니다.
+
+**영향받는 쪽** · 김승원 법무부 장관 후보자 / 법무부 장관 인사청문을 담당할 국회 상임위 소속 의원 / 검찰 내부 문서를 다루는 수사기관 관계자
+
+> ⚠️ **확인 필요** — 한동훈 의원 측의 해명이나 반박은 자료에 없어 상대편 입장이 확인되지 않는다. 문건 유출 경위와 유출자, 수사 착수 여부도 자료에 없다. 신약 청탁 의혹은 제기된 단계로 사실로 확인된 바 없다. 이슈 2와 이슈 3은 같은 사안을 다룬 보도여서 하나로 묶어 정리했다.
+
+<details><summary>근거 기사 9건</summary>
+
+- https://news.google.com/rss/articles/CBMiZ0FVX3lxTFA2bjBRNXpJb2p4cWtfUUlUdUM3UVNSRGp4djQ1T2lMamUydGpjd1NpT2p6QlRETkoxV0dETTY5cTNpUDdKNTJyQXAwT0xodFRZZDBPM0pVUVc3dXpuQlRDUXBQQUx1cXc?oc=5
+- https://news.google.com/rss/articles/CBMiT0FVX3lxTFBoaEZab1FWSjZ1OWNURnBHaDhwLVF5WDJCN3BvXzBXa2hYS25TSUJmazNPS2ktN1JzNTB5U3hIS0RvOUdiRmNoSXRGUVdNNm8?oc=5
+- https://news.google.com/rss/articles/CBMic0FVX3lxTE1qdkwydWg4WHV3NnhZbWx2aDRvalNGa2loTVR5UnJPTXNFYUhrdndPNERqUmlWbTVxMFpCakt2d2dUM0R3dzJDSkNma2NTOTBZdXdyYmxVLXFSLTYwc1RDOE90d0Q0aGp6N0N0eHp1VllnUjQ?oc=5
+- https://news.google.com/rss/articles/CBMieEFVX3lxTFBQYmhHX0wzR0FtQ050NjZxVUFJT3pYWUc2bEpvbVFQQXZHbmp3VHAxQWxrc0JyNFozdEViOUhsY2tRXzdCVmFxRV9VUGsyVWxuY3hBSU9uMURTZFA0SU92WDV3RVhmQWhKalRqdGJYbmZpcWZxMktZdNIBeEFVX3lxTFBQYmhHX0wzR0FtQ050NjZxVUFJT3pYWUc2bEpvbVFQQXZHbmp3VHAxQWxrc0JyNFozdEViOUhsY2tRXzdCVmFxRV9VUGsyVWxuY3hBSU9uMURTZFA0SU92WDV3RVhmQWhKalRqdGJYbmZpcWZxMktZdA?oc=5
+- https://news.google.com/rss/articles/CBMiVEFVX3lxTE1CS3l6SVgzVXVjbWotcEVpVG15OHFfblVsc2hRQ2xTTWRGTC1KT2laODRIYnR2dFlTbWVRblp5bmZuQlRGcFAtaUNIQjJaZWJ6b0RUUQ?oc=5
+- https://news.google.com/rss/articles/CBMiT0FVX3lxTE1FOTdCbzhPNmdFRFNHdFduc1gwVHluSkdoLVF0VEdzblhZNnJMcGxQMFlNZHRFbkotNzJxUWFtRXFLb1RaWUl0dzZjUmR6bHc?oc=5
+- https://www.newsis.com/view/NISX20260910_0003784009
+- https://news.google.com/rss/articles/CBMiW0FVX3lxTE9UWlprSGh3bEw2TTk1Q3ZMLXQ3Sk1SQllRb3VJdWhabm1ManFuRHdMUmNtOFVEN2dkZUE5ZUJiVEh1c2VsTEpfcVpwVF9idmpBVGJqMnZHSUhBLVE?oc=5
+- https://news.google.com/rss/articles/CBMiT0FVX3lxTE9RZHdzMEFXU2RwYXE0b0VnMXdiVm9VS2lhcHZjeWo3VWVVejVUNGFPWjRwYmlCeF9Sc0RpaXNsUWNGbnl2NjJwdGdCcHVrVHc?oc=5
+
+</details>
+
+---
+
+## 3. 용혜인 인사청문회 일정 불발
+
+`국회·입법` · **증인 채택에 합의하지 못해 청문회 개최 일정도 정해지지 않았습니다.**
+*고른 이유 · 오늘 4위 · 매체 3곳 · 기사 3건 · 최신 09-10 13:27*
+
+**무슨 일이 있었나**
+
+- 용혜인 성평등가족부 장관 후보자에 대한 인사청문회 일정이 증인 채택 문제 등으로 불발됐다.
+- 국회 성평등가족위원회 소속 국민의힘 의원들은 9월 10일 국회에서 기자회견을 열었다.
+- 국민의힘은 증인 채택을 위해 28명을 요구했으나 민주당이 1명을 제외한 27명을 거부했다고 밝혔다.
+- 국민의힘은 국정 공백을 줄이기 위해 일정을 조율했지만 증인 채택 합의에 실패하면서 청문회 개최 일정에도 합의하지 못했다고 밝혔다.
+- 국민의힘은 증인 없는 청문회는 검증이 아니라 후보자에게 변명 기회만 주는 자리가 된다며 파행의 책임이 민주당에 있다고 주장했다.
+
+**숫자로 보면**
+
+| 항목 | 값 | 기준 시점 | 맥락 | 출처 |
+| --- | --- | --- | --- | --- |
+| 국민의힘이 요구한 인사청문회 증인 수 | **28명** | 2026-09-10 | 국민의힘 기자회견에서 공개한 숫자 | 국회 성평등가족위원회 소속 국민의힘 의원 |
+| 민주당이 수용했다고 국민의힘이 밝힌 증인 수 | **1명** | 2026-09-10 | 요구 28명 가운데 1명 | 국회 성평등가족위원회 소속 국민의힘 의원 |
+| 민주당이 거부했다고 국민의힘이 밝힌 증인 수 | **27명** | 2026-09-10 | 요구 28명 가운데 나머지 | 국회 성평등가족위원회 소속 국민의힘 의원 |
+
+**왜 중요한가**
+
+증인 채택 합의가 이뤄지지 않으면서 청문회 날짜까지 함께 미정 상태가 됐습니다. 다음에 정해져야 하는 것은 증인 명단과 청문회 개최일 두 가지입니다. 지금 확인된 것은 합의 실패라는 사실뿐이고 재협의 일정은 자료에 없습니다.
+
+**영향받는 쪽** · 용혜인 성평등가족부 장관 후보자 / 국회 성평등가족위원회 소속 의원 / 장관 임명 일정에 맞춰 업무를 준비하는 성평등가족부 관계자
+
+> ⚠️ **확인 필요** — 28명·1명·27명 수치는 국민의힘 기자회견에서 나온 주장이며 민주당의 확인이나 반론은 자료에 없다. 민주당이 어떤 이유로 증인 채택을 거부했는지도 자료에 없다. 청문회가 언제로 다시 잡히는지에 대한 정보도 없다.
+
+<details><summary>근거 기사 3건</summary>
+
+- https://news.google.com/rss/articles/CBMiZEFVX3lxTE5ET1YwMllnemp6dGJMVlhQVTY2Mml1NlhPOXdvcFlXSmkyR01sakRMbkFrVUE1bzZZRFpYaHZkZHh5SkFtU0FtTnB3RjlCZFBHQXlsSU4zeDVlWHNXdmVpRkpzc1M?oc=5
+- https://news.google.com/rss/articles/CBMickFVX3lxTE5iNi1EcWVxZlR6THQtM1VhOUpCNnkyeFJZZXRnaUUyTFR0czBTTE9sNFpHR203WlY4NlZyaTlvWnRIaFhzU1RWX1ZwbWhSNGMzUkRmcm82YzJBNy1ONEJTTjhzREI3elA2aXN0ZTZKV2thUdIBckFVX3lxTE5iNi1EcWVxZlR6THQtM1VhOUpCNnkyeFJZZXRnaUUyTFR0czBTTE9sNFpHR203WlY4NlZyaTlvWnRIaFhzU1RWX1ZwbWhSNGMzUkRmcm82YzJBNy1ONEJTTjhzREI3elA2aXN0ZTZKV2thUQ?oc=5
+- https://www.newsis.com/view/NISX20260910_0003784222
+
+</details>
+
+---
+
+## 4. 강신철 후보자 특별분양 의혹
+
+`국회·입법` · **천하람 권한대행이 일가 4명의 철거민 특별분양을 문제 삼으며 사퇴를 요구했습니다.**
+*고른 이유 · 오늘 5위 · 매체 3곳 · 기사 4건 · 최신 09-10 13:37*
+
+**무슨 일이 있었나**
+
+- 천하람 개혁신당 당대표 권한대행 겸 원내대표는 9월 10일 국회에서 기자회견을 열었다.
+- 천 권한대행은 강신철 국방부 장관 후보자와 부친, 고모, 형 등 일가 4명이 철거민 자격을 얻어 서울 아파트를 특별분양 받았다고 주장했다.
+- 천 권한대행은 강 후보자가 2008년 3월 강원도 화천 7사단 최전방 부대에서 복무하며 군인아파트에 주민등록을 두고 있다가 서울 구로구 천왕동의 빈집으로 전입신고를 했고, 배우자와 제주도에 거주하던 부친도 같은 날 함께 전입했다고 밝혔다.
+- 천 권한대행은 부친이 사흘 뒤인 3월 24일 옆집으로 주민등록을 옮겨 세대를 분리하면서 강 후보자와 부친이 각각 철거 대상 주택의 소유자이자 세대주가 됐다고 말했다.
+- 천 권한대행은 강 후보자의 실제 생활 근거지가 성남 분당 양지마을이었다고 주장하며 후보자의 사퇴를 촉구했다.
+
+**숫자로 보면**
+
+| 항목 | 값 | 기준 시점 | 맥락 | 출처 |
+| --- | --- | --- | --- | --- |
+| 천하람 권한대행이 지목한 강신철 후보자 일가 인원 | **4명** | 2026-09-10 기자회견 | 본인·부친·고모·형 | 천하람 개혁신당 당대표 권한대행 |
+| 천하람 권한대행이 주장한 철거민 특별분양 자격 건수 | **4건** | 2026-09-10 기자회견 | '철거민 딱지 4개'라는 표현으로 언급 | 천하람 개혁신당 당대표 권한대행 |
+| 강신철 후보자 부친의 세대 분리 시점 | **2008-03-24** | 2008년 3월 | 전입 사흘 뒤 옆집으로 주민등록 이전했다는 주장 | 동아일보 |
+
+**왜 중요한가**
+
+국방부 장관 후보자 지명 단계에서 위장전입과 특별분양 자격이라는 쟁점이 새로 추가됐습니다. 다음에 확인돼야 하는 것은 후보자 측의 사실관계 설명입니다. 천 권한대행은 사퇴를 요구했지만 후보자 거취에 대해 정해진 것은 없고, 청문회 일정이나 관계 기관의 조사 착수 여부도 자료에 담기지 않았습니다.
+
+**영향받는 쪽** · 강신철 국방부 장관 후보자와 그 가족 / 국방부 장관 인사청문을 담당할 국회 국방위원회 위원 / 철거민 특별공급 제도를 운영하는 기관
+
+> ⚠️ **확인 필요** — 모두 천하람 권한대행이 기자회견에서 제기한 주장이며, 강신철 후보자 측의 해명이나 반박은 자료에 없다. 수사나 조사가 시작됐다는 내용도 없어 의혹이 제기된 단계다. 동아일보 기사에서 '4월 10일 영등포 대체교정시설 신축 사업 실시' 이후 서술은 문장이 끊겨 확인되지 않는다. 정확한 전입 신고일도 자료에 명시돼 있지 않다.
+
+<details><summary>근거 기사 4건</summary>
+
+- https://www.yna.co.kr/view/AKR20260910052451001
+- https://www.newsis.com/view/NISX20260910_0003783987
+- https://www.donga.com/news/Politics/article/all/20260910/134641639/2
+- https://www.yna.co.kr/view/AKR20260910052400001
 
 </details>
 
@@ -150,19 +172,35 @@
 
 ## 숫자 검산
 
-브리핑의 수치 1건을 기사 제목·본문과 대조했습니다 — 확인 0 · **미확인 0** · 대조 불가 1
+브리핑의 수치 8건을 기사 제목·본문과 대조했습니다 — 확인 4 · **미확인 0** · 대조 불가 4
 
 미확인 수치가 없습니다.
 
-<details><summary>대조 불가 1건 (본문을 수집하지 못한 기사)</summary>
+<details><summary>확인된 수치 4건 — 원문 문장 보기</summary>
 
-- 대정부질문 김승원 자료유출 공방 · 대법관 후보 서면 제청 지연 기간(채현일 의원 주장) **209일**
+- **1명** 민주당이 수용했다고 국민의힘이 밝힌 증인 수 · [원문](https://www.newsis.com/view/NISX20260910_0003784222)
+  > 10일 039 28명 1명 27명 1 3억 2일 96건
+- **27명** 민주당이 거부했다고 국민의힘이 밝힌 증인 수 · [원문](https://www.newsis.com/view/NISX20260910_0003784222)
+  > 10일 039 28명 1명 27명 1 3억 2일 96건
+- **4명** 천하람 권한대행이 지목한 강신철 후보자 일가 인원 · [원문](https://www.yna.co.kr/view/AKR20260910052451001)
+  > 4명
+- **2008-03-24** 강신철 후보자 부친의 세대 분리 시점 · [원문](https://www.newsis.com/view/NISX20260910_0003783987)
+  > 10일 4명 2008년 3월 7 7개 10월 039 21일 2년 2010년 8월 27일 30만 1 2009년 4월 24일 2 2013년 8일 84 23일 4 071818
+
+</details>
+
+<details><summary>대조 불가 4건 (본문을 수집하지 못한 기사)</summary>
+
+- 선관위 특검 파견검사 수사권 · 정점식 원내대표가 언급한 민주당 추진 특검 규모 **3대**
+- 선관위 특검 파견검사 수사권 · 선관위 특검 발족부터 개정안 발의까지 기간 **1일**
+- 용혜인 인사청문회 일정 불발 · 국민의힘이 요구한 인사청문회 증인 수 **28명**
+- 강신철 후보자 특별분양 의혹 · 천하람 권한대행이 주장한 철거민 특별분양 자격 건수 **4건**
 
 </details>
 
 ## 내일 확인할 것
 
-- [ ] 10일 오후 2시 국회 대정부질문(외교·통일·안보) 진행 예정
-- [ ] 10일 국회 국방위원회 전체회의 개최 예정
-- [ ] 한성숙 총리가 지시한 김승원 후보자 관련 수사자료 유출 경위 확인 결과 발표 여부
-- [ ] 10일 개혁신당의 강신철 국방부 장관 후보자 인사청문 관련 기자회견 예정
+- [ ] 용혜인 성평등가족부 장관 후보자 인사청문회 증인 채택 재협의 여부 — 자료에 확정 날짜 없음
+- [ ] 선관위 특검법 개정안의 상임위 회부와 심사 일정 — 자료에 일정 없음
+- [ ] 검찰 기소계획서 유출 관련 국가수사본부의 입건 여부 — 자료에 진행 상황 없음
+- [ ] 강신철 국방부 장관 후보자 측의 공식 입장 발표 여부 — 자료에 예고 없음
