@@ -763,6 +763,18 @@ def test_answer_parser_accepts_the_shapes_people_actually_paste():
                       ensure_ascii=False)
     assert set(answer.parse_answer(one)) == {"brief", "blog"}
 
+    # 채팅 화면에서 복사하면 펜스가 떨어져 객체 셋이 그냥 이어붙는다 (2026-09-10 첫 왕복, 이슈 #3)
+    glued = "\n".join(_json.dumps(o.model_dump(mode="json"), ensure_ascii=False, indent=2)
+                      for o in (make_brief(), make_post(), make_pack()))
+    assert set(answer.parse_answer(glued)) == {"brief", "blog", "script"}
+    # 사이에 설명 문장이 껴 있어도 읽는다
+    assert set(answer.parse_answer("정리했습니다.\n\n" + glued.replace("}\n{", "}\n\n다음은 블로그입니다.\n\n{", 1))) \
+        == {"brief", "blog", "script"}
+
+    # 묶음(질문)을 답 자리에 붙여 넣은 경우 — 이슈 #2 가 그랬다
+    with _pytest.raises(answer.AnswerError, match="묶음"):
+        answer.parse_answer("당신은 한국 정치 뉴스를 매일 정리하는 뉴스 애널리스트입니다.\n\n절대 규칙:\n1. …")
+
     # 브리핑이 없으면 아무것도 못 만든다
     with _pytest.raises(answer.AnswerError, match="brief"):
         answer.parse_answer(_answer_text(post=make_post()))

@@ -104,6 +104,10 @@ TAGS = ("brief", "blog", "script")
 MODELS = {"brief": DailyBrief, "blog": BlogPost, "script": VideoPack}
 
 
+# 묶음(질문)을 답 자리에 붙여 넣었는지 알아보는 표식 — `prompts.ANALYST_SYSTEM` 첫 줄
+_PACK_MARK = "뉴스 애널리스트입니다"
+
+
 class AnswerError(ValueError):
     pass
 
@@ -111,6 +115,31 @@ class AnswerError(ValueError):
 def _blocks(text: str) -> list[tuple[str, str]]:
     """코드 블록 (표식, 본문) 목록. 표식이 없으면 빈 문자열."""
     return [(m.group(1).strip().lower(), m.group(2).strip()) for m in _FENCE.finditer(text or "")]
+
+
+def _scan_objects(text: str) -> list[dict]:
+    """글 안에 있는 JSON 객체를 앞에서부터 모두 꺼낸다.
+
+    채팅 화면에서 답을 복사하면 코드 펜스(```)가 떨어져 나가, 객체 셋이 그냥 이어붙은 글이 된다
+    (2026-09-10 첫 왕복에서 실제로 그랬음: `Extra data: line 170`). 그래서 통째로 읽지 않고
+    `raw_decode` 로 한 덩이씩 끊어 읽는다. 사이에 낀 설명 문장은 건너뛴다.
+    """
+    dec = json.JSONDecoder()
+    out: list[dict] = []
+    i, n = 0, len(text or "")
+    while i < n:
+        i = text.find("{", i)
+        if i < 0:
+            break
+        try:
+            obj, end = dec.raw_decode(text, i)
+        except ValueError:
+            i += 1
+            continue
+        if isinstance(obj, dict):
+            out.append(obj)
+        i = end
+    return out
 
 
 def _guess_tag(obj: dict) -> str:
@@ -131,20 +160,24 @@ def parse_answer(text: str) -> dict:
     ③ 블록 없이 {"brief": …, "blog": …, "script": …} 객체 하나. 사람이 채팅에서 복사하다 보면
     표식이 빠지거나 한 덩이만 오는 일이 흔해서다.
     """
+    if _PACK_MARK in (text or "")[:400]:
+        # 1단계(묶음)와 4단계(답)를 바꿔 넣은 경우. 2026-09-10 이슈 #2 가 실제로 그랬다.
+        raise AnswerError(
+            "이건 답이 아니라 붙여넣기 묶음(질문)입니다. 이 묶음을 claude.ai 채팅에 붙여 넣고, "
+            "거기서 온 답을 이슈 본문에 넣어 주세요."
+        )
+
     raw: dict[str, dict] = {}
+    found: list[tuple[str, dict]] = []
     blocks = _blocks(text)
-    if not blocks:
-        stripped = (text or "").strip()
-        if stripped.startswith("{"):
-            blocks = [("", stripped)]
-    for tag, body in blocks:
-        try:
-            obj = json.loads(body)
-        except ValueError as exc:
-            raise AnswerError(f"JSON 을 읽지 못했습니다({tag or '표식 없음'}): {exc}") from exc
-        if not isinstance(obj, dict):
-            continue
-        if not tag and set(obj) & set(TAGS) and all(isinstance(obj.get(t, {}), dict) for t in TAGS):
+    if blocks:
+        for tag, body in blocks:
+            found.extend((tag, obj) for obj in _scan_objects(body))
+    if not found:
+        # 펜스가 없거나(화면에서 복사한 경우) 펜스 안이 비었으면 글 전체를 훑는다
+        found = [("", obj) for obj in _scan_objects(text or "")]
+    for tag, obj in found:
+        if tag not in TAGS and set(obj) & set(TAGS) and all(isinstance(obj.get(t, {}), dict) for t in TAGS):
             for t in TAGS:
                 if isinstance(obj.get(t), dict):
                     raw.setdefault(t, obj[t])
@@ -153,7 +186,10 @@ def parse_answer(text: str) -> dict:
         if tag and tag not in raw:
             raw[tag] = obj
     if not raw:
-        raise AnswerError("답에서 JSON 블록을 찾지 못했습니다. ```json brief 로 시작하는 블록이 있어야 합니다.")
+        raise AnswerError(
+            "답에서 JSON 을 찾지 못했습니다. 「{」 로 시작하는 브리핑 덩이가 통째로 들어 있어야 합니다 — "
+            "복사할 때 중간이 잘리지 않았는지 확인해 주세요."
+        )
 
     out: dict = {}
     problems = []
