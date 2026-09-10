@@ -258,17 +258,6 @@
   ],
   "warnings": [],
   "tracked_pool": {
-    "농지법": {
-      "query": "농지법",
-      "count": 50,
-      "pending": null,
-      "name": "농지법 일부개정법률안",
-      "proposer": "윤준병의원 등 10인",
-      "date": "2026-08-13",
-      "stage": "소관위 회부",
-      "committee": "농림축산식품해양수산위원회",
-      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_F2G6E0A7A2Y8Z1Y6Y4W3X0F5D9E6C4&ageFrom=22&ageTo=22"
-    },
     "정원법": {
       "query": "정원법",
       "count": 3,
@@ -279,6 +268,17 @@
       "stage": "소관위 회부",
       "committee": "법제사법위원회",
       "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_B2A6A0Z9A0H7I1G0F2F8D1F7A8A9Z5&ageFrom=22&ageTo=22"
+    },
+    "농지법": {
+      "query": "농지법",
+      "count": 50,
+      "pending": null,
+      "name": "농지법 일부개정법률안",
+      "proposer": "윤준병의원 등 10인",
+      "date": "2026-08-13",
+      "stage": "소관위 회부",
+      "committee": "농림축산식품해양수산위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_F2G6E0A7A2Y8Z1Y6Y4W3X0F5D9E6C4&ageFrom=22&ageTo=22"
     },
     "정치자금법": {
       "query": "정치자금법",
@@ -316,11 +316,11 @@
   },
   "pool_queried": [
     "의료인법",
+    "정원법",
     "농협법",
     "자체법",
     "사회보험법",
     "농지법",
-    "정원법",
     "국회동의법",
     "정치자금법",
     "공직선거법",
@@ -328,5 +328,5 @@
     "폐지법",
     "특검법"
   ],
-  "prefetched_at": "2026-09-10T21:45:16+00:00"
+  "prefetched_at": "2026-09-10T22:25:14+00:00"
 }
