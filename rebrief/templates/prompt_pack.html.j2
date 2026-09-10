@@ -31,8 +31,9 @@
   <div class="box">
     <ol class="steps">
       <li><b>묶음 복사</b> 버튼을 누르고 → claude.ai 새 대화에 붙여 넣기 → 보내기</li>
-      <li>답이 다 나오면 <b>답 전체 복사</b> (답 아래의 복사 아이콘)</li>
-      <li><b>답 붙여 넣을 곳 열기</b> 버튼 → 본문 칸에 붙여 넣고 → <b>Submit new issue</b></li>
+      <li>답이 다 나오면 <b>claude.ai 가 돌려준 답</b>을 전체 복사 (덩이마다 복사해 이어 붙여도 됩니다)</li>
+      <li><b>답 붙여 넣을 곳 열기</b> 버튼 → 본문 칸에 붙여 넣고 → <b>Submit new issue</b><br>
+        <small>여기 넣는 것은 <b>답</b>입니다. 위 묶음을 그대로 넣으면 안 됩니다.</small></li>
       <li>2~3분 뒤 이 사이트에 블로그 글·카드뉴스·대본이 생깁니다 (알림도 옵니다)</li>
     </ol>
   </div>
@@ -46,7 +47,8 @@
     <textarea id="pack" readonly>{{ pack }}</textarea>
   </details>
 
-  <p class="note">답은 <code>```json brief</code> · <code>```json blog</code> · <code>```json script</code> 세 덩이여야 합니다.
+  <p class="note">답은 브리핑·블로그·대본 세 덩이입니다. 화면에서 복사하면 <code>```</code> 표시가 떨어져 나가는데,
+  그대로 넣어도 읽습니다. 사이에 설명 문장이 껴 있어도 됩니다.
   한 덩이가 빠져도 나머지는 만들어지고, 형식이 틀리면 이슈에 무엇이 틀렸는지 댓글이 달립니다.
   이슈 제목은 그대로 두세요 — 날짜를 거기서 읽습니다.</p>
 </div>

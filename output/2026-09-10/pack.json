@@ -1,0 +1,482 @@
+{
+ "saved_at": "2026-09-10T14:26:20",
+ "clusters": [
+  {
+   "key": "f446d0e1ac5363c7",
+   "score": 25.746863302074047,
+   "categories": [
+    "국회·입법",
+    "정당·공천",
+    "대통령실·정부",
+    "선거·여론조사",
+    "사법·수사"
+   ],
+   "matched_keywords": [
+    "법안",
+    "개정안",
+    "입법",
+    "원내대표",
+    "국민의힘",
+    "더불어민주당",
+    "민주당",
+    "기자회견",
+    "선관위",
+    "선거관리위원회",
+    "특검",
+    "특별검사",
+    "기소",
+    "수사"
+   ],
+   "articles": [
+    {
+     "id": "f446d0e1ac5363c7",
+     "title": "정점식, 민주당 ‘파견검사 수사권 박탈’ 법안에 “‘깡통 선관위 특검’ 흉계”",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1MZlp3WkVXRGlLT2JrWUpLNkt1cF9PakhpR1otM2Y5OTkxYy1LMlBlY3NrZk5VSzdXTkE5RGZ6Q2VpMFF1OU5EUEtCS2cwY1BKS3BoSzdxY190Rm8?oc=5",
+     "feed_id": "gnews_election",
+     "feed_name": "구글뉴스·선거",
+     "publisher": "news.kbs.co.kr",
+     "published": "2026-09-10T05:09:00+00:00",
+     "summary": "정점식, 민주당 ‘파견검사 수사권 박탈’ 법안에 “‘깡통 선관위 특검’ 흉계” &nbsp;&nbsp; news.kbs.co.kr",
+     "source_weight": 1.0,
+     "tags": [],
+     "numbers": []
+    },
+    {
+     "id": "67bb02a26a8a1b1f",
+     "title": "선관위특검 손발 자르는 與…‘파견검사 수사권 박탈’ 법안 발의",
+     "url": "https://www.donga.com/news/Politics/article/all/20260910/134642090/1",
+     "feed_id": "donga_politics",
+     "feed_name": "동아일보·정치",
+     "publisher": "",
+     "published": "2026-09-10T03:54:00+00:00",
+     "summary": "정점식 국민의힘 원내대표가 더불어민주당이 발의한 선거관리위원회 특별검사(이태한 특검) 내 파견검사의 수사권 박탈을 핵심으로 하는 법안 개정안을 두고 “여야 합의로 이뤄진 특검법을 무력화하려는 사기적 행태”라며 비판했다.정 원내대표는 10일 국회에서 긴급 기자회견을 열고 “(민주당의 개정안 발의는) 선관위의 무능과 부패를 비호하는 것을 넘어 국민의 참정권 침해 사태를 암장해 버리겠다는 선언”이라고 밝혔다. 정 원내대표는 민주당의 입법 행태가 형평성이 어긋나고 법적 모순이 있다고 지적했다. 그는 “민주당은 기소와 수사를 독점한 3대 특검을 추진한 것도 모자라 종합특검까지 도입해 무려 3바퀴를 돌렸다”며 “그런데 국민 참정권을 침해한 가장 심각한 사안에 대해서는 유독 파견검사의 수사권을 박탈하려 시도하고 있다”고 비판했다.이어 “최근 개정된 형사소송법 역시 검사의 보완수사권을 폐지하면서도 부칙을 통해 특검 내 파견검사의 수사권은 인정하고 있다”며 “이번 특검법 개정안은 이미 악법인",
+     "source_weight": 1.0,
+     "tags": [],
+     "numbers": [
+      "10일",
+      "3"
+     ]
+    },
+    {
+     "id": "f2ef2d774e08a348",
+     "title": "與, 선관위 특검 '파견검사 수사권 폐지'…정점식 \"참정권 파괴 카르텔\" - 머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBJZGxrc1ZpM2ZLYWtHZnl6QlVZek9DQmRFaFpCTVVhMVN2VWpnbE83bE1qX21FUGViVDZjR2pSZU5oQTVoQllWVUFQMXo1d1gtR0hUQzJGR2VyckQ2dzROWFJwMThfUlNURlhEd9IBckFVX3lxTE9IRWxmNzIxWUxCRDJodFJmUXFLdm9ScHl6cHNTWVJrX0l3UUxnRG13RVNGOE05WkN6UXFHUmU5VG1PM3hpY1VLdEVzZEpBcHYycmVqS3FLYTFZUnk2c1lDSnl0cG1FQ0EwUVc4dUhHbFUwZw?oc=5",
+     "feed_id": "gnews_election",
+     "feed_name": "구글뉴스·선거",
+     "publisher": "머니투데이",
+     "published": "2026-09-10T03:50:33+00:00",
+     "summary": "與, 선관위 특검 '파견검사 수사권 폐지'…정점식 \"참정권 파괴 카르텔\" - 머니투데이 &nbsp;&nbsp; 머니투데이",
+     "source_weight": 1.0,
+     "tags": [],
+     "numbers": []
+    },
+    {
+     "id": "4f53d7023ca9438f",
+     "title": "정점식, 與 '선관위 특검 파견검사 수사권 폐지' 법안에 \"참정권 파괴 카르텔\"",
+     "url": "https://www.newsis.com/view/NISX20260910_0003784212",
+     "feed_id": "newsis_politics",
+     "feed_name": "뉴시스·정치",
+     "publisher": "",
+     "published": "2026-09-10T03:13:50+00:00",
+     "summary": "[서울=뉴시스]하지현 전상우 기자 = 정점식 국민의힘 원내대표는 10일 더불어민주당이 선거관리위원회 특검(특별검사 이태한) 내 파견검사의 수사권을 박탈하는 개정안을 발의한 것을 두고 &quot;여야 합의 특검법을 무력화하는 사기적 행태&quot;라고 비판했다. 정 원내대표는 이날 국회에서 기자회견을 열고 &quot;(민주당의 개정안 발의는) 선관위의 무능과 부패를 비호하는 것을 넘어 국민 참정권 침해 사태를 암장해 버리겠다는 것&quot;이라고 말했다. 그는 &quot;민주당은 기소와 수사를 독점한 3대 특검을 추진한 것도 모자라 종합특검까지 도입해 무려 3바퀴를 돌렸다&quot;며 &quot;그런데 국민 참정권을 침해한 가장 심각한 사안에는 파견검사의 수사권을 박탈하려고 시도하고 있다&quot;고 했다. 이어 &quot;이번에 개정한 형사소송법도 검사의 보완수사권을 폐지하면서도 부칙에서는 특검의 파견검사 수사권은 인정하고 있다&quot;며 &quot;그런데 유독 국민참정권 침해 특검만 그 수사권을 박탈하겠다는 것이다. 형사소송법 개정안도 이미 악법인데, 이번 특검법 개정안은 그 악법과도 충돌하고 있다&quot;고 비판했다. 정 원내대표는 &quot;오늘부로 민주당과 선관위는 &#039;참정권 파괴 카르텔&#039;이라고 선언하는 것이다. 특검 자체를 깡통으로 만들겠다는 흉계&quot;라며 &quot;국민의힘은 모든 수단을 동원해 이 악법을 저지하겠다&quot;고 밝혔다. ◎공감언론 뉴시스 judyha@newsis.com, swoo@newsis.com",
+     "source_weight": 1.2,
+     "tags": [],
+     "numbers": [
+      "10일",
+      "3",
+      "039"
+     ]
+    },
+    {
+     "id": "1147ccb5980d2cd4",
+     "title": "민주, 선관위특검 발족 하루만 ‘파견검사 수사권’ 폐지안 발의",
+     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9JREJtWHN1elo5UmltdDh6MlRRVU9TUjIzRVlWejYyZkpjRWs2UVIxSTBITmFKekUyRzk0elpQYWgweEcwb0k1LTlhOUItXzQ?oc=5",
+     "feed_id": "gnews_election",
+     "feed_name": "구글뉴스·선거",
+     "publisher": "v.daum.net",
+     "published": "2026-09-10T02:21:09+00:00",
+     "summary": "[단독]민주, 선관위특검 발족 하루만 ‘파견검사 수사권’ 폐지안 발의 &nbsp;&nbsp; v.daum.net",
+     "source_weight": 1.0,
+     "tags": [
+      "단독"
+     ],
+     "numbers": []
+    }
+   ]
+  },
+  {
+   "key": "b8051220ba656576",
+   "score": 22.8246952337151,
+   "categories": [
+    "국회·입법",
+    "정당·공천",
+    "대통령실·정부",
+    "선거·여론조사",
+    "사법·수사"
+   ],
+   "matched_keywords": [
+    "원내대표",
+    "더불어민주당",
+    "민주당",
+    "장관 후보자",
+    "후보",
+    "검찰",
+    "기소",
+    "수사"
+   ],
+   "articles": [
+    {
+     "id": "b8051220ba656576",
+     "title": "한병도, 한동훈에 \"검찰 문건 유출 심각…캐비닛 정치 공작\"",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFA2bjBRNXpJb2p4cWtfUUlUdUM3UVNSRGp4djQ1T2lMamUydGpjd1NpT2p6QlRETkoxV0dETTY5cTNpUDdKNTJyQXAwT0xodFRZZDBPM0pVUVc3dXpuQlRDUXBQQUx1cXc?oc=5",
+     "feed_id": "gnews_politics",
+     "feed_name": "구글뉴스·정치",
+     "publisher": "연합뉴스TV",
+     "published": "2026-09-10T03:03:00+00:00",
+     "summary": "한병도, 한동훈에 \"검찰 문건 유출 심각…캐비닛 정치 공작\" &nbsp;&nbsp; 연합뉴스TV",
+     "source_weight": 1.0,
+     "tags": [],
+     "numbers": []
+    },
+    {
+     "id": "06bd7379fd8f9f68",
+     "title": "한병도, 한동훈 겨냥 \"검찰 캐비닛 이용한 정치공작...단호히 대응\" [TF사진관]",
+     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBoaEZab1FWSjZ1OWNURnBHaDhwLVF5WDJCN3BvXzBXa2hYS25TSUJmazNPS2ktN1JzNTB5U3hIS0RvOUdiRmNoSXRGUVdNNm8?oc=5",
+     "feed_id": "gnews_politics",
+     "feed_name": "구글뉴스·정치",
+     "publisher": "v.daum.net",
+     "published": "2026-09-10T02:30:00+00:00",
+     "summary": "한병도, 한동훈 겨냥 \"검찰 캐비닛 이용한 정치공작...단호히 대응\" [TF사진관] &nbsp;&nbsp; v.daum.net",
+     "source_weight": 1.0,
+     "tags": [],
+     "numbers": []
+    },
+    {
+     "id": "3e7d17b9ddba13c6",
+     "title": "한병도, 한동훈에 \"검찰 캐비닛 이용한 불법 정치 공작\" |",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1qdkwydWg4WHV3NnhZbWx2aDRvalNGa2loTVR5UnJPTXNFYUhrdndPNERqUmlWbTVxMFpCakt2d2dUM0R3dzJDSkNma2NTOTBZdXdyYmxVLXFSLTYwc1RDOE90d0Q0aGp6N0N0eHp1VllnUjQ?oc=5",
+     "feed_id": "gnews_politics",
+     "feed_name": "구글뉴스·정치",
+     "publisher": "daejonilbo.com",
+     "published": "2026-09-10T02:27:48+00:00",
+     "summary": "한병도, 한동훈에 \"검찰 캐비닛 이용한 불법 정치 공작\" | &nbsp;&nbsp; daejonilbo.com",
+     "source_weight": 1.0,
+     "tags": [],
+     "numbers": []
+    },
+    {
+     "id": "dd0989ac2d1c6c6b",
+     "title": "한병도 \"한동훈, 검찰 캐비닛으로 불법 정치 공작‥처벌 대상\"",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBQYmhHX0wzR0FtQ050NjZxVUFJT3pYWUc2bEpvbVFQQXZHbmp3VHAxQWxrc0JyNFozdEViOUhsY2tRXzdCVmFxRV9VUGsyVWxuY3hBSU9uMURTZFA0SU92WDV3RVhmQWhKalRqdGJYbmZpcWZxMktZdNIBeEFVX3lxTFBQYmhHX0wzR0FtQ050NjZxVUFJT3pYWUc2bEpvbVFQQXZHbmp3VHAxQWxrc0JyNFozdEViOUhsY2tRXzdCVmFxRV9VUGsyVWxuY3hBSU9uMURTZFA0SU92WDV3RVhmQWhKalRqdGJYbmZpcWZxMktZdA?oc=5",
+     "feed_id": "gnews_politics",
+     "feed_name": "구글뉴스·정치",
+     "publisher": "imnews.imbc.com",
+     "published": "2026-09-10T02:04:35+00:00",
+     "summary": "한병도 \"한동훈, 검찰 캐비닛으로 불법 정치 공작‥처벌 대상\" &nbsp;&nbsp; imnews.imbc.com",
+     "source_weight": 1.0,
+     "tags": [],
+     "numbers": []
+    },
+    {
+     "id": "dd2c2c2ff15f33c6",
+     "title": "한병도 \"검찰 기소계획서 유출은 불법 캐비닛 정치공작…국수본 수사해야\"",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1CS3l6SVgzVXVjbWotcEVpVG15OHFfblVsc2hRQ2xTTWRGTC1KT2laODRIYnR2dFlTbWVRblp5bmZuQlRGcFAtaUNIQjJaZWJ6b0RUUQ?oc=5",
+     "feed_id": "gnews_politics",
+     "feed_name": "구글뉴스·정치",
+     "publisher": "이투데이",
+     "published": "2026-09-10T01:56:00+00:00",
+     "summary": "한병도 \"검찰 기소계획서 유출은 불법 캐비닛 정치공작…국수본 수사해야\" &nbsp;&nbsp; 이투데이",
+     "source_weight": 1.0,
+     "tags": [],
+     "numbers": []
+    },
+    {
+     "id": "91228c360a4519de",
+     "title": "與 \"한동훈 '캐비닛 정치공작'…국수본 철저한 수사 촉구\"",
+     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1FOTdCbzhPNmdFRFNHdFduc1gwVHluSkdoLVF0VEdzblhZNnJMcGxQMFlNZHRFbkotNzJxUWFtRXFLb1RaWUl0dzZjUmR6bHc?oc=5",
+     "feed_id": "gnews_politics",
+     "feed_name": "구글뉴스·정치",
+     "publisher": "v.daum.net",
+     "published": "2026-09-10T01:12:00+00:00",
+     "summary": "與 \"한동훈 '캐비닛 정치공작'…국수본 철저한 수사 촉구\" &nbsp;&nbsp; v.daum.net",
+     "source_weight": 1.0,
+     "tags": [],
+     "numbers": []
+    },
+    {
+     "id": "33ce46254eaccd71",
+     "title": "한병도, 한동훈에 \"檢 문건 유출 심각…캐비닛 이용 정치 공작\"",
+     "url": "https://www.yna.co.kr/view/AKR20260910049000001",
+     "feed_id": "yna_politics",
+     "feed_name": "연합뉴스·정치",
+     "publisher": "",
+     "published": "2026-09-10T01:11:24+00:00",
+     "summary": "(서울=연합뉴스) 김남권 최주성 기자 = 더불어민주당 한병도 원내대표는 10일 김승원 법무부 장관 후보자의 &apos;신약 임상실험 승인 청탁 의혹&apos; 공...",
+     "source_weight": 1.3,
+     "tags": [],
+     "numbers": [
+      "10일"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "ad7e72ae91de5b6e",
+   "score": 21.600536430130504,
+   "categories": [
+    "국회·입법",
+    "정당·공천",
+    "대통령실·정부",
+    "선거·여론조사",
+    "사법·수사"
+   ],
+   "matched_keywords": [
+    "인사청문회",
+    "청문회",
+    "원내대표",
+    "더불어민주당",
+    "민주당",
+    "장관 후보자",
+    "후보",
+    "검찰",
+    "기소",
+    "수사"
+   ],
+   "articles": [
+    {
+     "id": "ad7e72ae91de5b6e",
+     "title": "與, 한동훈 겨냥 \"검찰 캐비닛 이용한 불법 정치공작…즉각 강제 수사해야\"(종합)",
+     "url": "https://www.newsis.com/view/NISX20260910_0003784009",
+     "feed_id": "newsis_politics",
+     "feed_name": "뉴시스·정치",
+     "publisher": "",
+     "published": "2026-09-10T01:51:35+00:00",
+     "summary": "[서울=뉴시스]정금민 김난영 김윤영 기자 = 더불어민주당은 10일 이재명 정부 &#039;2기 내각&#039; 인선 중 김승원 법무부 장관 후보자에 대한 한동훈 무소속 의원의 공세를 &quot;황색 저널리즘&quot;이라고 규정하며 김 후보 엄호에 나섰다. 또 한 의원이 불법 유출된 검찰 수사 자료를 김 후보자의 신약 청탁 의혹 제기 수단으로 사용했다고 보고 관련 수사를 촉구했다. 한병도 원내대표는 이날 오전 국회에서 열린 정책조정회의에서 한 의원을 향해 &quot;수사자료 제공은 공무상 비밀누설이나 개인정보보호법 위반에 해당하는 명백한 범죄&quot;라며 &quot;수사팀과 대검찰청 지휘부 등 극히 일부만 열람할 수 있었던 기소계획서가 정치검찰 출신 정치인의 손에 들어가 SNS(소셜미디어) 콘텐츠로 전락했다&quot;고 했다. 그는 &quot;검찰의 의사 결정 과정에서 작성되는 내부 보고서는 어떠한 경위로도 외부에 유출돼서는 안 된다&quot;라며 &quot;현직 공무원 뿐만 아니라 공무원이었던 자 또한 처벌 대상&quot;이라고 강조했다. 이어 &quot;검찰 내부 문건 유출은 정말 심각한 사안이다. 검찰 캐비닛을 이용한 불법 정치공작 아닌가&quot;라며 &quot;나아가 공직 기강을 송두리째 뒤흔드는 중대 사건&quot;이라고 했다. 그는 &quot;이미 고발장이 접수된 만큼 국가수사본부는 신속한 수사로 관련 사건의 진상을 명명백백하게 규명해야 할 것&quot;이라며 &quot;국무위원 인사청문회가 법과 절차에 따라 엄중히 이뤄지도록 모든 정치공작과 훼방 행위에 단호히 대응하겠다&quot;고 했다. 김한규 원내 정책수석부대표도 &quot;한 의원이 연일 &#039;오빠게이트&#039;라는 말을 쏟아내고 있다&quot;며 &quot;자극적인 호칭을 앞세워 관심을 끄는 방식은 황색 저널리즘과 다를 게 없다&quot;고 했다. 그는 &quot;검찰에서 유출된 자료를 국회의원이 활용하는 행위는 공익신고자 법에 따른 보호대상이 아니다&quot;라며 &quot;위법하게 수집된 증거가 재판에서 사용될 수 없듯이 정치에 악용되어서도 안 된다. 이번 기회에 단호하게 &#039;정치는 불법을 용인할 수 없다&#039;는 원칙을 세우겠다&quot;고 했다. 천준호 원내 운영수석부대표도 &quot;한 의원에게 경고한다. 지금부터 휴대전화에 손을 대서 증거 인멸하는 것은 꿈꾸지 말아라&quot;며&quot;한 의원은 수사자료 유출 혐의에 대한 수사 대상&quot;이라고 했다. 그는 &quot;수사관련 자료를 악의적으로 편집하고 핵심 부분은 빼고 서로 다른 대화의 중간은 자르고 시간 순서를 뒤섞어서 김승원 후보자와 관계없는 이야기를 하나의 사건 처럼 엮었다&quot;며 &quot;&#039;식약처장에게 부탁할 것은 아니다&#039;, &#039;왜 지연되는지 확인만 해달라&#039;는 내용은 왜 삭제했냐&quot;고 했다. 그러면서 &quot;정치검사 시절 여론 재판, 짜맞추기 수사, 조작기소 행태&quot;라며 &quot;수사기관은 즉각 강제 수사에 착수해야 한다&quot;고 했다. 허영 의원도 &quot;한 의원이 공개되지 않은 사건 관련 자료 뿐만 아니라 녹취 등 수사 과정에서 확보·관리되는 정보까지 어떻게 취득하고 있는가가 가장 큰 문제&quot;라며 &quot;이게 개별적인 유출 사건인지 아니면 검찰 내부의 정보가 특정 검찰 출신 정치인에게 지속적으로 전달되는 구조가 존재하는지를 밝혀야 한다&quot;고 했다. 그러면서 &quot;정부와 수사기관은 한 의원이 확보한 녹취와 검찰 내부 자료 출처와 전달 경로를 명확히 규명하고, 강제 수사를 통해서 위법한 유출이 확인될 경우 관련자에게 엄정한 책임을 물어야 한다&quot;고 했다. 민주당은 김 후보자와 관련해 한 의원의 이른바 &#039;신약 청탁 의혹&#039; 공세가 이어지자 대응을 최소화한다는 기존 방침에서 적극 대응으로 선회했다. 김민석 대표는 &quot;국면이 변했다&quot;며 청문회와 별도의 진상 규명 및 조치를 거론했다. 이주희 원내대변인은 이날 정책조정회의 후 취재진과 만나 &quot;한 의원의 불법 자료 유출 사건, 불법 캐비닛 사건은 경위를 소상하게 밝혀야 한다&quot;며 &quot;이는 청문회 절차와 완전 별개인 또다른 게이트&quot;라고 했다. 이어 &quot;이 사태 엄중함 대해 저희는 아주 집중적이고 적극적으로 대응하겠다&quot;고 했다. 또 김 대표가 한 의원 등을 겨냥해 &#039;자격 정지를 추진하겠다&#039;고 언급한 데 대해서는 &quot;원내에서 구체적으로 논의하기에는 시간이 조금 부족했던 것 같다. 수사 절차가 진행되는 것을 지켜보며 국회에서 할 수 있는 일을 적극적으로 해나갈 것&quot;이라고 했다. ◎공감언론 뉴시스 happy7269@newsis.com, imzero@newsis.com, youn@newsis.com",
+     "source_weight": 1.2,
+     "tags": [],
+     "numbers": [
+      "10일",
+      "039",
+      "2",
+      "7269"
+     ]
+    },
+    {
+     "id": "f143083db539007e",
+     "title": "한병도, 한동훈 겨냥 “검찰 캐비닛 이용 불법 정치 공작”",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9UWlprSGh3bEw2TTk1Q3ZMLXQ3Sk1SQllRb3VJdWhabm1ManFuRHdMUmNtOFVEN2dkZUE5ZUJiVEh1c2VsTEpfcVpwVF9idmpBVGJqMnZHSUhBLVE?oc=5",
+     "feed_id": "gnews_politics",
+     "feed_name": "구글뉴스·정치",
+     "publisher": "경기일보",
+     "published": "2026-09-10T01:39:10+00:00",
+     "summary": "한병도, 한동훈 겨냥 “검찰 캐비닛 이용 불법 정치 공작” &nbsp;&nbsp; 경기일보",
+     "source_weight": 1.0,
+     "tags": [],
+     "numbers": []
+    },
+    {
+     "id": "f801417b5d1a33db",
+     "title": "한병도, 한동훈 겨냥 \"불법 정치 공작, 국수본 신속히 수사해야\"",
+     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9RZHdzMEFXU2RwYXE0b0VnMXdiVm9VS2lhcHZjeWo3VWVVejVUNGFPWjRwYmlCeF9Sc0RpaXNsUWNGbnl2NjJwdGdCcHVrVHc?oc=5",
+     "feed_id": "gnews_politics",
+     "feed_name": "구글뉴스·정치",
+     "publisher": "v.daum.net",
+     "published": "2026-09-10T01:13:00+00:00",
+     "summary": "한병도, 한동훈 겨냥 \"불법 정치 공작, 국수본 신속히 수사해야\" &nbsp;&nbsp; v.daum.net",
+     "source_weight": 1.0,
+     "tags": [],
+     "numbers": []
+    }
+   ]
+  },
+  {
+   "key": "e7857fa307fde422",
+   "score": 21.42314059679717,
+   "categories": [
+    "국회·입법",
+    "정당·공천",
+    "대통령실·정부",
+    "선거·여론조사"
+   ],
+   "matched_keywords": [
+    "인사청문회",
+    "청문회",
+    "국민의힘",
+    "더불어민주당",
+    "민주당",
+    "당대표",
+    "최고위원",
+    "대통령",
+    "대통령실",
+    "장관 후보자",
+    "기자회견",
+    "비서실장",
+    "후보"
+   ],
+   "articles": [
+    {
+     "id": "e7857fa307fde422",
+     "title": "국민의힘 \"與, 용혜인 청문회 파행 시도…직에 연연하는 모습\"",
+     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5ET1YwMllnemp6dGJMVlhQVTY2Mml1NlhPOXdvcFlXSmkyR01sakRMbkFrVUE1bzZZRFpYaHZkZHh5SkFtU0FtTnB3RjlCZFBHQXlsSU4zeDVlWHNXdmVpRkpzc1M?oc=5",
+     "feed_id": "gnews_president",
+     "feed_name": "구글뉴스·대통령실",
+     "publisher": "매일일보",
+     "published": "2026-09-10T04:27:34+00:00",
+     "summary": "국민의힘 \"與, 용혜인 청문회 파행 시도…직에 연연하는 모습\" &nbsp;&nbsp; 매일일보",
+     "source_weight": 1.1,
+     "tags": [],
+     "numbers": []
+    },
+    {
+     "id": "197db84938a34870",
+     "title": "국민의힘 \"與, 용혜인 청문회 파행 시도…직에 연연하는 모습 안쓰러\" - 머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5iNi1EcWVxZlR6THQtM1VhOUpCNnkyeFJZZXRnaUUyTFR0czBTTE9sNFpHR203WlY4NlZyaTlvWnRIaFhzU1RWX1ZwbWhSNGMzUkRmcm82YzJBNy1ONEJTTjhzREI3elA2aXN0ZTZKV2thUdIBckFVX3lxTE5iNi1EcWVxZlR6THQtM1VhOUpCNnkyeFJZZXRnaUUyTFR0czBTTE9sNFpHR203WlY4NlZyaTlvWnRIaFhzU1RWX1ZwbWhSNGMzUkRmcm82YzJBNy1ONEJTTjhzREI3elA2aXN0ZTZKV2thUQ?oc=5",
+     "feed_id": "gnews_president",
+     "feed_name": "구글뉴스·대통령실",
+     "publisher": "머니투데이",
+     "published": "2026-09-10T03:51:39+00:00",
+     "summary": "국민의힘 \"與, 용혜인 청문회 파행 시도…직에 연연하는 모습 안쓰러\" - 머니투데이 &nbsp;&nbsp; 머니투데이",
+     "source_weight": 1.1,
+     "tags": [],
+     "numbers": []
+    },
+    {
+     "id": "01f936f51c1f1f1f",
+     "title": "국힘 \"與, 용혜인 청문회 파행 시도…증인 없는 맹탕 청문회 만들려 해\"",
+     "url": "https://www.newsis.com/view/NISX20260910_0003784222",
+     "feed_id": "newsis_politics",
+     "feed_name": "뉴시스·정치",
+     "publisher": "",
+     "published": "2026-09-10T03:19:30+00:00",
+     "summary": "[서울=뉴시스]하지현 전상우 기자 = 국민의힘 의원들은 10일 용혜인 성평등가족부 장관 후보자에 대한 인사청문회 일정이 증인 채택 문제 등으로 불발되자 &quot;인사청문회 파행의 모든 책임은 오롯이 더불어민주당의 몫&quot;이라고 반발했다. 국회 성평등가족위원회 소속 국민의힘 의원들은 이날 국회에서 기자회견을 열고 &quot;민주당은 &#039;용혜인 후보자 인사청문회&#039; 파행 시도를 즉각 중단하라&quot;며 &quot;‘증인 없는 청문회’는 검증이 아니라, 후보자에게 변명의 기회만 주는 ‘맹탕 청문회’가 될 뿐&quot;이라고 했다. 이들은 &quot;각종 의혹 해소와 검증에 필요한 증인 채택을 위해 국민의힘은 28명을 요구했으나 민주당은 1명을 제외하고 27명을 거부했다&quot;고 밝혔다. 이어 &quot;국정 공백을 최소화하기 위해 민주당과 청문회 일정을 조율했지만 증인 채택 합의에 실패하면서 결국 청문회 개최 일정에도 합의하지 못했다&quot;고 말했다. 국민의힘은 강훈식 대통령실 비서실장과 김현지 대통령실 제1부속실장, 김길오 코리아보드게임즈 대표, 박기홍 기본소득당 최고위원, 김윤영 전 노동당 여성위원장 등 28명을 증인으로 요구했다고 밝혔다. 그러나 민주당이 문미정 전 기본소득당 당대표 권한대행을 제외한 27명의 채택을 거부했다고 지적했다. 이들은 &quot;후보자 본인의 진술만으로는 각종 의혹을 규명할 수 없고 사실관계 확인을 위해 관련자의 증언이 반드시 필요하다&quot;고 강조했다. 그러면서 &quot;용 후보자를 둘러싼 위성정당을 통한 두 차례 비례대표 당선과 장관직 겸직·국고보조금 문제, 정치자금 약 3억원의 특별당비 납부, 당내 성차별 묵인 및 세월호 침묵시위 차명기획 논란, 배우자 박기홍 최고위원의 &#039;셀프 인사&#039; 및 &#039;가족 소득당&#039; 논란, 김포공항 귀빈실 사적 이용 논란, 정부지원금 부정수령 및 시·도당 사무소 허위등록 의혹 등을 검증해야 한다&quot;고 촉구했다. 용 후보자의 자료 제출과 해명 태도도 문제 삼았다. 이들은 &quot;후보자는 지난 2일 첫 출근 이후 모든 질문에 &#039;인사청문회에서 소상히 말씀드리겠다&#039;는 답변만 반복하고 기본소득당 대변인단 뒤에 숨고 있다&quot;며 &quot;국민의힘이 요구한 96건의 자료제출 요구에도 답하지 않고 있다&quot;고 했다. 이어 &quot;본인 해명은 청문회로 미루면서 기본소득당 대변인 입으로 &#039;대리 해명&#039;을 하는 것은 자기모순&quot;이라며 &quot;민주당은 국민의힘이 요구한 증인을 전부 채택하라. 용 후보자는 청문회 전에 본인이 직접 해명하라&quot;고 말했다. 이들은 &quot;성평등가족부는 우리 사회의 성평등과 고용평등, 청소년 및 가족정책 등을 총괄하는 중앙행정기관&quot;이라며 &quot;그 수장이 되겠다는 후보자에게 성차별 묵인 의혹이 있다면 검증의 기준은 국민 눈높이보다 더 높아져야 한다&quot;고 강조했다. ◎공감언론 뉴시스 judyha@newsis.com, swoo@newsis.com",
+     "source_weight": 1.2,
+     "tags": [],
+     "numbers": [
+      "10일",
+      "039",
+      "28명",
+      "1명",
+      "27명",
+      "1",
+      "3억",
+      "2일",
+      "96건"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "15cf1d4426d2d964",
+   "score": 20.384490893596944,
+   "categories": [
+    "국회·입법",
+    "정당·공천",
+    "대통령실·정부",
+    "선거·여론조사",
+    "외교·안보"
+   ],
+   "matched_keywords": [
+    "원내대표",
+    "개혁신당",
+    "당대표",
+    "장관 후보자",
+    "기자회견",
+    "후보",
+    "국방부"
+   ],
+   "articles": [
+    {
+     "id": "15cf1d4426d2d964",
+     "title": "천하람 \"강신철 본인은 물론 부친·고모·형도 철거민 특별분양\"(종합)",
+     "url": "https://www.yna.co.kr/view/AKR20260910052451001",
+     "feed_id": "yna_politics",
+     "feed_name": "연합뉴스·정치",
+     "publisher": "",
+     "published": "2026-09-10T04:37:11+00:00",
+     "summary": "(서울=연합뉴스) 박수윤 김철선 기자 = 강신철 국방부 장관 후보자 본인과 부친, 고모, 형까지 일가족 4명이 계획적으로 철거민 특별분양 자격을...",
+     "source_weight": 1.3,
+     "tags": [],
+     "numbers": [
+      "4명"
+     ]
+    },
+    {
+     "id": "08a042a245259da9",
+     "title": "천하람 \"강신철, 본인·부친 뿐 아니라 형·고모도 철거민 특별공급 신청…부정청약\"",
+     "url": "https://www.newsis.com/view/NISX20260910_0003783987",
+     "feed_id": "newsis_politics",
+     "feed_name": "뉴시스·정치",
+     "publisher": "",
+     "published": "2026-09-10T02:17:14+00:00",
+     "summary": "[서울=뉴시스]한은진 임다빈 수습 기자 = 천하람 개혁신당 당대표 권한대행은 10일 강신철 국방부 장관 후보자 일가 4명이 철거민 자격을 얻어 서울 아파트를 부정하게 특별분양 받았다고 주장했다. 천 권한대행은 이날 오전 국회에서 기자회견을 열고 &quot;강 후보자는 실제로는 성남 분당 양지마을에 살면서 철거민 딱지를 받아야 하는 그 시기에만 구로 천왕동으로 악의적이고 고의적으로 위장 전입을 했다&quot;고 말했다. 이어 &quot;후보자는 살지도 않는 집의 주거이전비 등 금전적 보상을 노렸을 뿐만 아니라 서울 아파트에 대한 철거민 특별분양권을 노리고 생활 근거지인 분당 양지마을도 아닌 천왕동에 고의적인 불법 위장 전입을 하고 철거민 부정청약을 한 것&quot;이라고 했다. 천 권한대행에 따르면 강 후보자는 2008년 3월 강원도 화천 7사단 최전방 부대에 복무하면서 군인아파트에 주민등록을 두고 있다가 빈집이었던 서울 구로구 천왕동 주택에 전입신고를 했다. 7개월 뒤인 2008년 10월, 구로구가 천왕동 주택을 보상 매입하면서 후보자는 &#039;철거민 특별분양&#039;으로 서울 서초네이처힐 아파트를 분양받았다. 천 권한대행은 &quot;강 후보자의 부친은 철거민 특별분양을 신청하기 이틀 전인 2008년 10월 21일, 본인이 소유한 제주 서귀포 주택을 다른 사람에게 증여했다. 그리고 2년 뒤인 2010년 8월 27일, 증여했던 제주 서귀포 주택을 도로 사왔다&quot;며 &quot;등기부에 적힌 거래금액은 단돈 30만원이었다&quot;고 했다. 이어 &quot;이것은 철거민 특별공급 신청 자격인 1주택 요건을 만들기 위한 것이다. 1주택 심사를 통과하는 동안만 남의 이름 뒤에 제주도 주택을 숨겨 뒀던 것&quot;이라며 &quot;철거민 보상이 마무리 되자 후보자의 주민등록은 강원도 화천 군인아파트로, 후보자 부친의 주민등록도 제주로 돌아갔다&quot;고 했다. 또 &quot;강 후보자의 형도 철거민 자격을 얻어 2009년 4월 24일 천왕 2지구로 특별공급을 신청했고, 2013년 8월 8일 천왕연지타운1단지 84제곱미터형 신축 아파트를 취득했다&quot;며 &quot;강 후보자의 고모 역시 동일하게 철거민 자격을 얻어, 2008년 10월 23일 우면 2지구 철거민 특별공급을 신청했다&quot;고 설명했다. 그는 &quot;삶의 터전을 잃은 철거민을 위해 만든 제도가 후보자 일가의 재테크 수단이 됐다&quot;며 &quot;오직 철거민에게만 분양되는 아파트를 부자가 나란히 받게 된 것&quot;이라고 했다. 이어 &quot;4성 장군 출신으로 엘리트 군인인줄 알았는데 엘리트 투기꾼이었다&quot;며 &quot;본인 뿐 아니라 아버지, 형, 고모까지 일가가 총동원된 &#039;철거민 딱지 확보 작전&#039;의 핵심 역할을 수행했다&quot;고 말했다. 천 권한대행은 &quot;규정상으로도 철거민 딱지를 받으려면 무조건 전입신고가 필요했다. 공무상 예외는 &#039;토지보상법&#039; 상 이주대책대상자 지정 요건이지, 후보자가 취득한 &#039;철거민 특별공급대상자&#039; 요건이 아니다&quot;라고 했다. 그는 &quot;전입 날짜를 맞추고, 살지도 않는 곳에 전입을 하고, 주택을 타인에게 증여했다가 30만원에 되찾는 일까지, 이 모든 것이 후보자와 그 일가의 조직적이고 계획적인 &#039;철거민 딱지 확보 작전&#039;이었다&quot;며 &quot;이런 작전의 중심에서 위장전입을 하고, 아버지와 정확한 타이밍에 세대분리를 해가면서 철거민 딱지 확보 작전의 핵심역할을 수행한 강 후보자가 전체 작전내용을 몰랐을 리 없다&quot;고 했다. 그러면서 &quot;저 천하람과 개혁신당은 강 후보자의 사퇴를 촉구한다. 아울러 부정청약을 통해 취득한 철거민 몫의 아파트를 즉각 반납할 것을 강력히 촉구한다&quot;고 덧붙였다. ◎공감언론 뉴시스 gold@newsis.com, dabin071818@newsis.com",
+     "source_weight": 1.2,
+     "tags": [],
+     "numbers": [
+      "10일",
+      "4명",
+      "2008년",
+      "3월",
+      "7",
+      "7개",
+      "10월",
+      "039",
+      "21일",
+      "2년",
+      "2010년",
+      "8월",
+      "27일",
+      "30만",
+      "1",
+      "2009년",
+      "4월",
+      "24일",
+      "2",
+      "2013년",
+      "8일",
+      "84",
+      "23일",
+      "4",
+      "071818"
+     ]
+    },
+    {
+     "id": "bc8d0290a0d16005",
+     "title": "“강신철 본인·부친·고모·형 차례로 철거민 딱지 취득”",
+     "url": "https://www.donga.com/news/Politics/article/all/20260910/134641639/2",
+     "feed_id": "donga_politics",
+     "feed_name": "동아일보·정치",
+     "publisher": "",
+     "published": "2026-09-10T02:01:00+00:00",
+     "summary": "천하람 개혁신당 대표 권한대행 겸 원내대표는 10일 강신철 국방부 장관 후보자와 가족들이 조직적인 불법 위장전입으로 철거민 자격을 확보해 서울 아파트 특별분양을 받았다고 주장하며 후보자의 사퇴를 촉구했다.천 권한대행은 이날 국회에서 기자회견을 열고 “후보자의 아버지, 형, 고모 등 후보자 일가가 다 같이 조직적이고 계획적으로 철거민 딱지 확보 작전을 펼쳐 4명이 철거민 딱지 4개를 확보했다”고 밝혔다.그는 강 후보자가 2008년 3월 강원도 화천 7사단 최전방 부대에서 복무하던 중 서울 구로구 천왕동의 빈집으로 주민등록을 옮겼다며, 당시 강 후보자와 배우자가 함께 전입했고, 같은 날 제주도에 거주하던 강 후보자의 부친도 해당 주택으로 전입했다고 했다.그러면서 강 후보자의 부친이 사흘 뒤인 3월 24일 바로 옆집으로 주민등록을 옮겨 세대를 분리하면서 강 후보자와 부친이 각각 철거 대상 주택의 소유자이자 세대주가 됐다고 밝혔다.이어 4월 10일 영등포 대체교정시설 신축 사업 실시",
+     "source_weight": 1.0,
+     "tags": [],
+     "numbers": [
+      "10일",
+      "4명",
+      "4개",
+      "2008년",
+      "3월",
+      "7",
+      "24일",
+      "4월"
+     ]
+    },
+    {
+     "id": "d4e5eb24cf9b04dc",
+     "title": "천하람 \"강신철 본인은 물론 부친·고모·형도 철거민 특별분양\"",
+     "url": "https://www.yna.co.kr/view/AKR20260910052400001",
+     "feed_id": "yna_politics",
+     "feed_name": "연합뉴스·정치",
+     "publisher": "",
+     "published": "2026-09-10T01:38:30+00:00",
+     "summary": "(서울=연합뉴스) 박수윤 기자 = 강신철 국방부 장관 후보자 본인과 부친, 고모, 형까지 일가족 4명이 계획적으로 철거민 특별분양 자격을 획득한...",
+     "source_weight": 1.3,
+     "tags": [],
+     "numbers": [
+      "4명"
+     ]
+    }
+   ]
+  }
+ ]
+}
