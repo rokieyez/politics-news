@@ -1,0 +1,74 @@
+<!doctype html>
+{# 날짜 폴더의 첫 페이지. latest/ 로도 복사되므로 텔레그램의 `…/latest/` 링크가 여기로 온다.
+   이게 없으면 GitHub Pages 가 404 를 낸다 (2026-09-10 사용자 제보). #}
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icon-512.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="브리핑">
+<meta name="theme-color" content="#256abf">
+<title>{{ headline or "브리핑" }} — {{ date }}</title>
+{{ meta|default('', true)|safe }}
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0 16px 60px; background: #f2f4f6; color: #1a1a1a;
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.7; -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; }
+  header { padding: 26px 0 18px; }
+  .date { font-size: 13px; color: #6b7178; margin-bottom: 4px; }
+  h1 { font-size: 20px; margin: 0; line-height: 1.45; }
+  a.big {
+    display: block; text-decoration: none; margin-bottom: 10px;
+    padding: 16px 18px; border-radius: 10px;
+    background: #fff; border: 1px solid #e4e7ea; color: #1a1a1a;
+  }
+  a.big:active { background: #eef0f3; }
+  a.big .step { font-size: 12px; opacity: .8; display: block; margin-bottom: 2px; }
+  a.big .label { font-weight: 700; font-size: 16px; display: block; }
+  a.big .desc { font-size: 13px; color: #6b7178; display: block; margin-top: 3px; }
+  a.big.primary { background: #03c75a; border-color: #03c75a; color: #fff; }
+  a.big.primary .desc { color: rgba(255,255,255,.88); }
+  a.big.zip { background: #f7f8fa; }
+  footer { margin-top: 26px; font-size: 13px; color: #8b9096; text-align: center; }
+  footer a { color: #0068c3; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="date">{{ date }}</div>
+    <h1>{{ headline or "오늘의 브리핑" }}</h1>
+  </header>
+
+  {% for page in pages %}
+  <a class="big {% if loop.first %}primary{% endif %}" href="{{ page.href }}">
+    <span class="step">{{ loop.index }}</span>
+    <span class="label">{{ page.label }}</span>
+    <span class="desc">{{ page.description }}</span>
+  </a>
+  {% endfor %}
+
+  {% if cards %}
+  <a class="big zip" href="{{ cards.href }}">
+    <span class="label">⬇ 카드뉴스 내려받기</span>
+    <span class="desc">유튜브 게시물용 정사각 카드 {{ cards.count }}장 · {{ cards.size }} (zip)</span>
+  </a>
+  {% endif %}
+  {% if bundle %}
+  <a class="big zip" href="{{ bundle.href }}">
+    <span class="label">⬇ 그림 묶음 내려받기</span>
+    <span class="desc">파일 {{ bundle.count }}개 · {{ bundle.size }} (zip)</span>
+  </a>
+  {% endif %}
+
+  <footer><a href="../">← 첫 화면 (지난 날짜·주간·월간)</a></footer>
+</div>
+</body>
+</html>

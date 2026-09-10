@@ -583,6 +583,29 @@ def _build_day(env, day: Path, dest: Path, cfg: Config) -> dict:
             (dest / "checklist.html").write_text(html, encoding="utf-8")
         except (json.JSONDecodeError, OSError):
             pass
+
+    # 날짜 폴더의 첫 페이지. 이게 없으면 `latest/` 주소가 GitHub Pages 에서 404 가 난다 —
+    # 텔레그램 알림이 그 주소를 보내므로 실제로 사용자가 404 를 봤다 (2026-09-10).
+    links = list(pages)
+    if (dest / "checklist.html").exists():
+        links.append({"href": "checklist.html", "label": "발행 전 점검",
+                      "description": "고칠 곳이 있는지 한 번 훑고 발행하기"})
+    (dest / "index.html").write_text(
+        env.get_template("site_day.html.j2").render(
+            date=day.name, headline=info["headline"], pages=links, bundle=bundle, cards=cards,
+            meta=meta_tags(
+                site_base(cfg),
+                title=f"{info['headline'] or '브리핑'} — {day.name}",
+                description=info["description"],
+                path=f"{day.name}/",
+                image=f"{day.name}/{info['image']}" if info["image"] else "",
+                image_size=info["size"],
+                published=day.name,
+                channel=str((cfg.get("video", {}) or {}).get("channel_name", "") or ""),
+            ),
+        ),
+        encoding="utf-8",
+    )
     return entry
 
 

@@ -355,6 +355,11 @@ def test_site_bundles_attachments_into_one_zip(cfg, tmp_path):
     assert (dest / "latest" / "2026-09-07_blogfiles.zip").exists()
     assert "2026-09-07_blogfiles.zip" in (dest / "latest" / "images.html").read_text(encoding="utf-8")
     assert 'href="latest/2026-09-07_blogfiles.zip"' in (dest / "index.html").read_text(encoding="utf-8")
+    # 텔레그램 알림이 보내는 주소가 `…/latest/` 라, 날짜 폴더에 첫 페이지가 없으면 404 가 난다
+    # (2026-09-10 사용자 제보). 날짜 폴더와 그 복사본 둘 다 index.html 이 있어야 한다.
+    day_index = (dest / "latest" / "index.html").read_text(encoding="utf-8")
+    assert (dest / "2026-09-07" / "index.html").exists()
+    assert 'href="images.html"' in day_index and 'href="../"' in day_index
 
 
 def test_site_packs_cards_into_their_own_zip(cfg, tmp_path):
