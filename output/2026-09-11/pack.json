@@ -1,63 +1,26 @@
 {
- "saved_at": "2026-09-10T22:27:54",
+ "saved_at": "2026-09-10T23:27:22",
  "clusters": [
   {
-   "key": "6137108c37bb8285",
-   "score": 25.402657274606415,
+   "key": "481b499158859dce",
+   "score": 15.069162579358405,
    "categories": [
     "국회·입법",
     "정당·공천",
-    "대통령실·정부",
     "선거·여론조사",
     "사법·수사"
    ],
    "matched_keywords": [
-    "법사위",
     "법안",
-    "개정안",
-    "원내대표",
-    "국민의힘",
     "더불어민주당",
     "민주당",
-    "기자회견",
-    "지방선거",
     "선관위",
-    "선거관리위원회",
     "특검",
-    "특별검사",
-    "검찰",
-    "기소",
     "수사"
    ],
    "articles": [
     {
-     "id": "6137108c37bb8285",
-     "title": "공소취소 특검 의식했나… 與, 파견검사 수사권 폐지안 냈다가 철회",
-     "url": "https://www.chosun.com/politics/assembly/2026/09/11/F4IZS67X6FC3JGDDDJJCFRQBEI",
-     "feed_id": "chosun_politics",
-     "feed_name": "조선일보·정치",
-     "publisher": "",
-     "published": "2026-09-10T15:41:00+00:00",
-     "summary": "",
-     "source_weight": 1.0,
-     "tags": [],
-     "numbers": []
-    },
-    {
-     "id": "7454cfb8bbf5b32b",
-     "title": "민주당, ‘선관위 특검 파견 검사 수사권 삭제’ 법안 냈다가 철회",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE05dnpkMWVqM2VpX1N4anNlbnJJWHNTR1NzMmJsQm15ZlFwT0VWSjhiWV8tRkQxdmZPYW5CYnFYRUkzWGlaOHdvejdkNW5od0k1aUczVmlOUU0yNHM?oc=5",
-     "feed_id": "gnews_election",
-     "feed_name": "구글뉴스·선거",
-     "publisher": "KBS 뉴스",
-     "published": "2026-09-10T09:31:00+00:00",
-     "summary": "민주당, ‘선관위 특검 파견 검사 수사권 삭제’ 법안 냈다가 철회 &nbsp;&nbsp; KBS 뉴스",
-     "source_weight": 1.0,
-     "tags": [],
-     "numbers": []
-    },
-    {
-     "id": "4ec44ccc97533786",
+     "id": "481b499158859dce",
      "title": "與, '선관위 특검 파견검사 수사권 삭제' 법안냈다가 철회",
      "url": "https://www.yna.co.kr/view/AKR20260910140900001",
      "feed_id": "yna_politics",
@@ -68,680 +31,245 @@
      "source_weight": 1.3,
      "tags": [],
      "numbers": []
-    },
-    {
-     "id": "23a0b5d16070d353",
-     "title": "민주, '선관위 특검 검사 수사권 폐지법안' 발의했다가 철회",
-     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE0wLUFxNmJrUm9IQ3ZabXZib2ZSUU82VnFWZkFEb1NRa21PeFhwN1I2X0ZibnVHVHRxQzEwcFpoc0g2NC1icEJiVVVMOXU0MUk?oc=5",
-     "feed_id": "gnews_election",
-     "feed_name": "구글뉴스·선거",
-     "publisher": "v.daum.net",
-     "published": "2026-09-10T08:23:09+00:00",
-     "summary": "민주, '선관위 특검 검사 수사권 폐지법안' 발의했다가 철회 &nbsp;&nbsp; v.daum.net",
-     "source_weight": 1.0,
-     "tags": [],
-     "numbers": []
-    },
-    {
-     "id": "5cc2965e7a23b9ca",
-     "title": "선관위 특검 \"민주, 파견검사 수사권 폐지안 철회…별도 조치 없다\"(종합)",
-     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBDaHRQcmZYZTlYN08xbFNnRGFJSnp6dzFtOEtLNzBpRGx6X1VIYkJsTGdyRWhUUjU3b3ZEWDlHWngwWWpJTTNtRWFEemNqR0QwS3dQd0hFcW94SUJnUTVDLUZEem91LVotWTA1eVlBTzJlck92THd6YtIBeEFVX3lxTFBDaHRQcmZYZTlYN08xbFNnRGFJSnp6dzFtOEtLNzBpRGx6X1VIYkJsTGdyRWhUUjU3b3ZEWDlHWngwWWpJTTNtRWFEemNqR0QwS3dQd0hFcW94SUJnUTVDLUZEem91LVotWTA1eVlBTzJlck92THd6Yg?oc=5",
-     "feed_id": "gnews_election",
-     "feed_name": "구글뉴스·선거",
-     "publisher": "뉴시스",
-     "published": "2026-09-10T08:18:55+00:00",
-     "summary": "선관위 특검 \"민주, 파견검사 수사권 폐지안 철회…별도 조치 없다\"(종합) &nbsp;&nbsp; 뉴시스",
-     "source_weight": 1.0,
-     "tags": [],
-     "numbers": []
-    },
-    {
-     "id": "5bfbe8b3a811f999",
-     "title": "與 '파견검사 수사권' 폐지안 철회…\"특검 기간 수사 가능토록 재발의\"(종합)",
-     "url": "https://www.newsis.com/view/NISX20260910_0003784680",
-     "feed_id": "newsis_politics",
-     "feed_name": "뉴시스·정치",
-     "publisher": "",
-     "published": "2026-09-10T07:09:14+00:00",
-     "summary": "[서울=뉴시스]신재현 정금민 기자 = 국회 법제사법위원회 소속 더불어민주당 의원들이 선거관리위원회 특별검사 공식 발족 하루 만에 특검 내 파견 검사의 수사권 근거를 없애는 내용의 특검법 개정안을 발의했다. 국민의힘이 &#039;특검을 깡통으로 만든다&#039;고 반발하자 민주당은 개정안을 철회키로 했다. 10일 국회에 따르면, 김용민 민주당 의원 등 여당 법사위 소속 전체 의원들은 지난 8일 &#039;제9회 전국동시지방선거 투표용지 부족 사태 등 국민참정권 침해 의혹 진상규명을 위한 특별검사의 임명 등에 관한 법률 개정안&#039;을 공동발의했다. 여기에는 특검 내 파견검사가 수사권을 갖는 근거인 부칙 제5조 1·2항을 전면 삭제하는 내용이 담겼다. 이 부칙은 검사의 직접 수사권이 폐지되더라도 특검의 직무 범위에 대해서는 특검법 시행 당시의 검찰청법 등을 적용해 파견검사에 수사권을 인정하도록 한 내용이다. 그런데 이를 삭제한 것이다. 김 의원 등은 개정안 제안 이유로 &quot;오는 10월 2일 시행 예정인 검찰청 폐지와 공소청법 및 중대범죄수사청(중수청) 조직 및 운영에 관한 법률에 따라 수사와 기소가 제도적으로 분리되는 새로운 형사사법 체계의 행정조직 기반이 마련됐다&quot;며 &quot;이에 맞추어 지난 8월 검사의 직접수사권을 폐지해 공소제기 및 공소유지를 담당하도록 하는 등 형사사법 체계에 맞게 정비한 바 있다&quot;고 했다. 이어 &quot;이러한 형사사법 체계의 개편에 맞추어 새로운 형사사법 체계와 맞지 않는 내용을 정비하려는 것&quot;이라고 말했다. 국민의힘은 민주당이 합의를 무력화했다며 즉각 반발했다. 정점식 원내대표는 이날 국회에서 기자회견을 열고 &quot;여야 합의 특검법을 무력화하는 사기적 행태&quot;라며 &quot;(민주당의 개정안 발의는) 선관위의 무능과 부패를 비호하는 것을 넘어 국민 참정권 침해 사태를 암장해 버리겠다는 것&quot;이라고 비판했다. 민주당은 검사 수사권을 완전히 폐지하는 형사소송법에 맞게 선관위특검법개정안을 조정하는 과정에서 야당과의 합의 취지와 다르게 발의됐다고 설명했다. 이주희 원내대변인은 출입기자단 공지를 통해 &quot;선관위특검법개정안 관련하여, 여야는 ‘특검 파견 검사의 수사가 가능하다‘고 합의를 했으나, 최근 140개 법안을 일괄적으로 개정 형사소송법에 맞게 조정하는 과정에서 특검법개정안이 합의 취지와 다르게 정리, 발의되었다&quot;고 밝혔다. 이 원내대변인은 &quot;법사위에서는 발의된 선관위특검법 개정안을 철회하고, 파견 검사가 특검 기간동안 수사가 가능하도록 법안을 재발의하기로 했다&quot;고 부연했다. ◎공감언론 뉴시스 again@newsis.com, happy7269@newsis.com",
-     "source_weight": 1.2,
-     "tags": [],
-     "numbers": [
-      "039",
-      "10일",
-      "8일",
-      "9",
-      "5조",
-      "1",
-      "2",
-      "10월",
-      "2일",
-      "8월",
-      "140개",
-      "7269"
-     ]
     }
    ]
   },
   {
-   "key": "587c3ed8c8768554",
-   "score": 23.4903599970294,
+   "key": "c0fbb82efddf5c75",
+   "score": 12.253492936501265,
    "categories": [
-    "국회·입법",
     "정당·공천",
     "대통령실·정부",
+    "선거·여론조사"
+   ],
+   "matched_keywords": [
+    "민주당",
+    "대통령",
+    "지지율"
+   ],
+   "articles": [
+    {
+     "id": "c0fbb82efddf5c75",
+     "title": "이재명 대통령·민주당 지지율 동반하락…집권세력 전체에 대한 경고",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5tWHVNQ1Mtc3h6MHFvYnA1SXlZUW4xZkVVTURBeUtNS011aTZNSllxdzJ5em5oazRCaWlrYU9vSEwtUUlESzBtM09CY3Rma3cwcTBzZ2Z4UVZ3U2tRZ2ZScE04cTJ0ZGVWNWZNV01KQdIBckFVX3lxTFBUNkxBaFFUdFp4TWg1OUF5S3hPWVA2cEVRVnpKcTl4UkVET3RMM2t3VzN2ZVZPSmZCVkgxRWVqclRwUHBNUXBYZE1jYzZmU2J5aWJJUFdmcVhOQ3llSTFuYVh3WDRoTzFpY1EtbC0tbGNuQQ?oc=5",
+     "feed_id": "gnews_president",
+     "feed_name": "구글뉴스·대통령실",
+     "publisher": "강릉뉴스",
+     "published": "2026-09-10T17:41:18+00:00",
+     "summary": "[강릉뉴스 특집분석] 이재명 대통령·민주당 지지율 동반하락…집권세력 전체에 대한 경고 &nbsp;&nbsp; 강릉뉴스",
+     "source_weight": 1.1,
+     "tags": [
+      "강릉뉴스 특집분석"
+     ],
+     "numbers": []
+    }
+   ]
+  },
+  {
+   "key": "997921e8c7f99000",
+   "score": 9.98388685913348,
+   "categories": [
+    "사법·수사",
     "외교·안보"
    ],
    "matched_keywords": [
-    "본회의",
-    "개정안",
-    "입법",
-    "국회의장",
-    "원내대표",
-    "국민의힘",
-    "더불어민주당",
-    "민주당",
-    "조국혁신당",
-    "개혁신당",
-    "진보당",
-    "당대표",
-    "최고위원",
-    "대통령",
-    "총리",
-    "기자회견",
-    "한미",
-    "국방부",
-    "통일부",
+    "수사",
     "외교부"
    ],
    "articles": [
     {
-     "id": "587c3ed8c8768554",
-     "title": "행정안전부(9월11일 금요일)",
-     "url": "https://www.newsis.com/view/NISX20260910_0003784978",
-     "feed_id": "newsis_politics",
-     "feed_name": "뉴시스·정치",
+     "id": "997921e8c7f99000",
+     "title": "韓 네팔 구호대 1·2진 교대... 2진은 재건복구팀으로 구성",
+     "url": "https://www.chosun.com/politics/diplomacy-defense/2026/09/11/5TL2C4CBJFBCNAXE4BKYOQL5PE",
+     "feed_id": "chosun_politics",
+     "feed_name": "조선일보·정치",
      "publisher": "",
-     "published": "2026-09-10T21:00:00+00:00",
-     "summary": "[서울=뉴시스] ◇장관 ▲통상일정 ◇차관 ▲국외출장(몽골)",
-     "source_weight": 1.2,
-     "tags": [
-      "오늘의 주요일정"
-     ],
-     "numbers": []
-    },
-    {
-     "id": "94feb40e2c4e876f",
-     "title": "9월 11일(금)",
-     "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE02OXd1Nzg3ay1DNUZPRWI0SENzUW1ubmJ5M19ZOTZBYkdaSDE3SWVuZmU0NWRCVDRycDN0aTNMS0owNXJlczNPNnR1VlhuMjZOTlBV?oc=5",
-     "feed_id": "gnews_politics",
-     "feed_name": "구글뉴스·정치",
-     "publisher": "news.nate.com",
-     "published": "2026-09-10T20:01:00+00:00",
-     "summary": "[오늘의 정치일정] 9월 11일(금) &nbsp;&nbsp; news.nate.com",
-     "source_weight": 1.0,
-     "tags": [
-      "오늘의 정치일정"
-     ],
-     "numbers": [
-      "9월",
-      "11일"
-     ]
-    },
-    {
-     "id": "d2c3d3d4745d20f5",
-     "title": "정치(9월11일 금요일)",
-     "url": "https://www.newsis.com/view/NISX20260910_0003785046",
-     "feed_id": "newsis_politics",
-     "feed_name": "뉴시스·정치",
-     "publisher": "",
-     "published": "2026-09-10T20:00:00+00:00",
-     "summary": "[서울=뉴시스] ◇청와대【대통령】 14:00 대통령 주재 수석보좌관회의(청와대 여민관) ◇총리실【총리】 11:00 주한미국상공회의소 간담회(서울 중구) ◇국방부【장관】 크로아티아 국외출장 ◇외교부【장관】 주요 일정 없음 ◇통일부【장관】 10:00 「2026 평화바람주간(8.11~21)』 개막행사 참석(남북회담본부) ◇더불어민주당【당대표】 09:10 충북 최고위원회의(충북도청 신관 6층 문화홀, 충북 청주시 상당구 상당로 82) 10:10 2026 더불어민주당 충북 예산정책협의회(충북도청 대회의실) 14:00 대정부질문(국회 본회의장) 【원내대표】 09:10 충북 최고위원회의(충북도청 신관 6층 문화홀, 충북 청주시 상당구 상당로 82) 10:10 2026 더불어민주당 충북 예산정책협의회(충북도청 대회의실) 14:00 대정부질문(국회 본회의장) ◇국민의힘【당대표】 11:00 해군사관학교 이전 반대 현장간담회(진해구청 2층 중회의실, 경남 창원시 진해대로 1101) 11:50 충무공 이순신 장군 동상 참배 및 헌화(북원로터리, 경남 창원시 진해구 도천동 13) 13:30 해군사관학교 방문 (해군사관학교, 경남 창원시 진해구 안곡동 46) 【원내대표】 09:00 원내대책회의(국회 본관 245호) 14:00 대정부질문(경제)(국회 본회의장) ◇조국혁신당【당대표】 14:00 본회의 【원내대표】 12:05 MBC라디오 출연 13:40 호르무즈 파병 반대 개혁진보 4당 공동기자회견(소통관 기자회견장) 14:00 본회의 14:30 매불쇼 출연 ◇개혁신당【당대표 권한대행】 14:00 본회의(국회 본회의장) ◇진보당【대표】 08:30 BBS 라디오 정혜승의 아침저널 인터뷰 14:00 진보당 당무위 워크숍(비공개) 【원내대표】 13:40 호르무즈 파병 반대 개혁진보 4당 공동기자회견(국회 소통관) 14:00 본회의(국회 본회의장)",
-     "source_weight": 1.2,
-     "tags": [
-      "오늘의 주요일정"
-     ],
-     "numbers": [
-      "14",
-      "00",
-      "11",
-      "10",
-      "2026 평",
-      "8.11",
-      "21",
-      "09",
-      "6",
-      "82",
-      "2026",
-      "2",
-      "1101",
-      "50",
-      "13",
-      "30",
-      "46",
-      "00 원",
-      "245호",
-      "12",
-      "05",
-      "40 호",
-      "4",
-      "08"
-     ]
-    },
-    {
-     "id": "3e38a924d66c0ab6",
-     "title": "국회(9월11일 금요일)",
-     "url": "https://www.newsis.com/view/NISX20260910_0003785047",
-     "feed_id": "newsis_politics",
-     "feed_name": "뉴시스·정치",
-     "publisher": "",
-     "published": "2026-09-10T20:00:00+00:00",
-     "summary": "[서울=뉴시스] ◇국회의장 10:30 2기 세종의사당 건립위 위촉식(국회 접견실) 14:00 본회의-대정부질문(경제)(본회의장) ◇본회의 및 위원회 14:00 본회의-대정부질문(경제)(본회의장) 10:00 보건복지위원회 전체회의(본관 601호) ◇의원실 세미나 09:30 이인영 의원실 등, 한반도 경제협력의 길(의원회관 제1세미나실) 09:40 민병덕 의원실 등, 대형마트 새벽배송, 누구를 위한 규제완화인가(의원회관 제2간담회의실) 10:00 서영석 의원실 등, 군의관·공보의 복무기간 현실화를 위한 국회 토론회(의원회관 제1소회의실) 10:00 이강일 의원실 등, 배달앱 갑질 피해사례와 수수료상한제법 도입 방향 토론회(의원회관 제5간담회의실) 10:00 박홍배 의원실 등, 청년 프리랜서, 독립계약 노동 현실 이대로 좋은가?(의원회관 제11간담회의실) 13:30 최보윤 의원실 등, UN 장애인권리협약 이행 입법 전문가 포럼(의원회관 제2소회의실) 13:40 박홍근 의원실 등, 동물복지기본법 제정을 위한 전문가 토론회(의원회관 제1세미나실) 14:00 김태선 의원실, 동구 재정 진단과 제도 개선을 위한 토론회(동구종합사회복지관 다목적 강당) 14:00 김우영 의원실 등, 인공지능(AI) 시대, 디지털 신뢰 인프라 구축과 블록체인 산업 진흥을 위한 국회 토론회(의원회관 제8간담회의실) 14:00 주호영 의원실 등, 제26차 2·28 민주포럼 : 2·28민주운동과 한국 민주주의의 미래(의원회관 제1소회의실) 15:00 최혁진 의원실 등, 사회연대경제기본법 시행령 제정 토론회(의원회관 제2세미나실) 15:00 이주영 의원실 등, 파킨슨병·이상운동질환 치료 환경 개선을 위한 정책토론회(의원회관 제7간담회의실) ◇소통관 기자회견 09:20 박홍배 의원, [부산 오방가르드 사태 해결을 위한 개정안 발의 기자회견] 10:00 김은혜 의원, [현안 관련 기자회견] 13:40 윤종오 의원, [호르무즈 파병 반대 기자회견]",
-     "source_weight": 1.2,
-     "tags": [
-      "오늘의 주요일정"
-     ],
-     "numbers": [
-      "10",
-      "30",
-      "2",
-      "14",
-      "00",
-      "601호",
-      "09",
-      "1",
-      "40",
-      "5",
-      "11",
-      "13",
-      "8",
-      "26차",
-      "28",
-      "15",
-      "7",
-      "20"
-     ]
-    },
-    {
-     "id": "5bba780bfe1571f2",
-     "title": "국회 일정 9월 11일",
-     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBpWWdpZ01ndWRPTXRpM3dPUlZ0M21WR0xEY0hudHRtLTN3d1lGREt4WDN3VUZpQkx3bXd6OEdFNTRkWm9YWUFMUExGZnpLcHJ5MXJYWHhNV0VuUHRFWlgyTjNsZklpZEs2?oc=5",
-     "feed_id": "gnews_assembly",
-     "feed_name": "구글뉴스·국회",
-     "publisher": "2news.co.kr",
-     "published": "2026-09-10T19:43:20+00:00",
-     "summary": "국회 일정 9월 11일 &nbsp;&nbsp; 2news.co.kr",
-     "source_weight": 1.1,
-     "tags": [],
-     "numbers": [
-      "9월",
-      "11일",
-      "2"
-     ]
-    }
-   ]
-  },
-  {
-   "key": "5fa67496692085e3",
-   "score": 23.37289536984451,
-   "categories": [
-    "국회·입법",
-    "정당·공천",
-    "대통령실·정부",
-    "선거·여론조사",
-    "사법·수사"
-   ],
-   "matched_keywords": [
-    "개정안",
-    "제정안",
-    "입법",
-    "더불어민주당",
-    "민주당",
-    "조국혁신당",
-    "대통령",
-    "후보",
-    "검찰",
-    "기소",
-    "수사"
-   ],
-   "articles": [
-    {
-     "id": "5fa67496692085e3",
-     "title": "이 대통령, ‘공소청 직제안’ 수정 지시",
-     "url": "https://www.khan.co.kr/article/202609102101005",
-     "feed_id": "khan_politics",
-     "feed_name": "경향신문·정치",
-     "publisher": "",
-     "published": "2026-09-10T12:01:00+00:00",
-     "summary": "귀국 직후 보고 받고, 검사 정원·‘사법통제부’ 명칭 등 정부안 미흡 지적이재명 대통령이 공소청 검사의 정원을 그대로 유지하는 내용의 공소청과 소속기관 직제 제정안과 검사정원법 시행령 개정안에 대해 수정·보완을 지시했다. 이 대통령은 공소청 직제안에 포함된 ‘사법통제부’라는 명칭에 대해서도 질타한 것으로 전해졌다.청와대에 따르면 이 대통령은 10일 프랑스 ···",
-     "source_weight": 1.0,
-     "tags": [],
-     "numbers": [
-      "10일"
-     ]
-    },
-    {
-     "id": "4d4bc41807f0d655",
-     "title": "이 대통령, 공소청 직제안 수정 지시…'검사 정원·사법통제부 명칭' 지적",
-     "url": "https://www.newsis.com/view/NISX20260910_0003784988",
-     "feed_id": "newsis_politics",
-     "feed_name": "뉴시스·정치",
-     "publisher": "",
-     "published": "2026-09-10T10:59:46+00:00",
-     "summary": "[서울=뉴시스]이인준 기자 = 이재명 대통령이 법무부가 최근 마련한 &#039;공소청과 소속기관 직제&#039; 제정안과 &#039;검사정원법 시행령&#039;에 대해 미흡하다는 지적과 함께 수정·보완 지시를 내렸다. 10일 프랑스 국빈방문을 마치고 귀국한 이 대통령은 곧장 청와대 집무실로 향해 현안 보고를 받으며 이같이 지시했다고 청와대 관계자가 전했다. 공소청 직제안은 기존 검찰청에서 인지·합동수사를 담당해온 부를 폐지하고, 중대범죄전담부 29곳으로 재편하는 내용이 골자다. 하지만 직제안이 나온 이후 이를 두고 범여권 내부에서 문제 제기가 나오고 있다. 특히 정원 문제와 관련해 공소청 전체 정원은 총 8412명으로 구성돼 기존보다 약 20% 감소하는데, 검사의 정원(2292명)은 그대로 유지해 논란이 일고 있다. 이 대통령은 법무부가 검사 정원·직제·명칭 등을 꼼꼼하게 살펴봤어야 했는데 그러지 못했다는 취지로 지적했다고 청와대 관계자는 전했다. 또 경찰의 불송치 사건을 심사하는 부서의 명칭을 &#039;사법통제부&#039;로 정한 것도 이 대통령이 부적절하다고 지적한 것으로 알려졌다. 불송치 사건을 검토한다는 취지와 맞지도 않을뿐더러 굳이 논쟁적인 이름을 붙여 오해를 살 필요가 없다는 취지라는 게 청와대 측의 설명이다. 이 대통령의 수정·보완 지시에 따라 법무부는 조만간 입법예고 기간을 늘려 재검토 작업에 들어갈 것으로 보인다. ◎공감언론 뉴시스 ijoinon@newsis.com",
-     "source_weight": 1.2,
-     "tags": [],
-     "numbers": [
-      "039",
-      "10일",
-      "29곳",
-      "8412명",
-      "20%",
-      "2292명"
-     ]
-    },
-    {
-     "id": "89ed9cd5397c5cf2",
-     "title": "이 대통령, ‘검사 정원 유지’ 공소청 직제안 수정 지시…“꼼꼼히 살펴봤어야”",
-     "url": "https://www.khan.co.kr/article/202609101935001",
-     "feed_id": "khan_politics",
-     "feed_name": "경향신문·정치",
-     "publisher": "",
-     "published": "2026-09-10T10:35:00+00:00",
-     "summary": "프랑스 국빈 방문을 마치고 귀국한 이재명 대통령과 김혜경 여사가 10일 오후 서울공항에 도착해 공군 1호기에서 내려 마중나온 김민석 더불어민주당 대표 등과 인사를 마치고 이동하고 있다. 이준헌 기자이재명 대통령이 공소청 검사의 정원을 그대로 유지하는 내용의 공소청과 소속기관 직제 제정안과 검사정원법 시행령 개정안에 대해 수정·보완을 지시했다. 이 대통령은 ···",
-     "source_weight": 1.0,
-     "tags": [],
-     "numbers": [
-      "10일",
-      "1호"
-     ]
-    },
-    {
-     "id": "4ef8ac8c1c2cbd66",
-     "title": "李대통령, 공소청 직제안 재검토 지시…'檢정원·사법통제부' 지적",
-     "url": "https://www.hankyung.com/article/2026091075117",
-     "feed_id": "hankyung_politics",
-     "feed_name": "한국경제·정치",
-     "publisher": "",
-     "published": "2026-09-10T09:55:05+00:00",
+     "published": "2026-09-10T23:14:38+00:00",
      "summary": "",
      "source_weight": 1.0,
      "tags": [],
      "numbers": []
     },
     {
-     "id": "4fcb38e0d06f3c8e",
-     "title": "李대통령, 공소청 직제안 수정지시…'檢정원·사법통제부' 지적",
-     "url": "https://www.yna.co.kr/view/AKR20260910162000001",
+     "id": "8bb6455a7b1ab482",
+     "title": "韓구호대 2진 네팔로 출발…재건복구팀으로 구성",
+     "url": "https://www.yna.co.kr/view/AKR20260911016700504",
      "feed_id": "yna_politics",
      "feed_name": "연합뉴스·정치",
      "publisher": "",
-     "published": "2026-09-10T09:46:38+00:00",
-     "summary": "(서울=연합뉴스) 임형섭 기자 = 이재명 대통령이 법무부가 최근 마련한 &apos;공소청과 소속기관 직제&apos; 제정안과 &apos;검사정원법 시행령&apos;에 대해 미흡하다...",
+     "published": "2026-09-10T22:50:02+00:00",
+     "summary": "(서울=연합뉴스) 민선희 기자 = 네팔 대홍수 피해 대응을 위한 대한민국 해외긴급구호대(KDRT) 2진이 11일 구호물자를 싣고 네팔로 출발했다...",
      "source_weight": 1.3,
-     "tags": [],
-     "numbers": []
+     "tags": [
+      "네팔 대홍수"
+     ],
+     "numbers": [
+      "2",
+      "11일",
+      "55분",
+      "330",
+      "1억",
+      "8천",
+      "2명",
+      "8명",
+      "7일",
+      "2일",
+      "44명",
+      "1",
+      "12일",
+      "7명",
+      "2026",
+      "09",
+      "11",
+      "07",
+      "50",
+      "2026년",
+      "09월",
+      "50분"
+     ]
     },
     {
-     "id": "d731aaa287a26129",
-     "title": "조국혁신당, 윤호중 만나 \"공소청 직제안 수정해야…중수청장 후보 반대\"",
-     "url": "https://www.newsis.com/view/NISX20260910_0003784601",
+     "id": "9661a96e8ed2969e",
+     "title": "韓 긴급구호대 2진, 네팔로 출국…수색·재건복구 활동",
+     "url": "https://www.newsis.com/view/NISX20260911_0003785155",
      "feed_id": "newsis_politics",
      "feed_name": "뉴시스·정치",
      "publisher": "",
-     "published": "2026-09-10T06:49:36+00:00",
-     "summary": "[서울=뉴시스] 이창환 기자 = 조국혁신당은 10일 윤호중 행정안전부 장관을 만나 정부 &#039;공소청과 그 소속기관 직제&#039; 개정안 등 수정을 촉구하는 항의 서한을 전달했다. 조국혁신당에 따르면 차규근·황운하·김형연·정춘생·서왕진·강경숙 의원은 이날 서울 종로구 정부서울청사를 찾아 윤 장관을 면담한 자리에서 입법예고된 수사준칙과 직제안 등의 수정을 촉구하는 항의 서한을 전했다. 먼저 조국혁신당 의원들은 이날 수사준칙 재입법예고 가능성에 대한 의지를 확인했다. 윤 장관은 이와 관련해 &quot;빈말이 아니다&quot;라는 취지로 답변했다고 조국혁신당 측은 전했다. 또 이들은 공소청 직제안과 관련해 &quot;검사들의 냄새가 물씬 풍겼다&quot;면서, 행정안전부가 직제안에 대해 소극적으로 임한 것 아니냐고 문제 제기에 나섰다. 그러면서 &quot;검사정원법 개정이 빨리 이뤄져야 하고, 정부가 관련 개정안을 조속히 마련해야 한다&quot;는 요구를 전달했다고 한다. 검사 인력에 대해서도 행정안전부가 엄격하게 조직 진단을 해야 한다는 의견을 냈다. 이에 윤 장관은 &quot;검사정원법이 개정되지 않은 상태여서 현행법에 맞춰 직제안을 마련할 수밖에 없었다&quot;며 &quot;중대범죄수사청으로 이관·지원되는 검사 인력만큼은 줄여야 하는 것 아니냐는 입장을 행안부도 갖고 있었다&quot;고 했다. 그러면서 &quot;시한에 쫓기다 보니 우선 현재 규모대로 입법예고가 이뤄졌지만 수정 여지는 남아 있다&quot;고 대답했다. 또 조국혁신당은 김지용 중대범죄수사청장 후보자에 대해선 반대 의견을 전달했다. 이들은 면담을 마친 뒤 &quot;오늘 급히 행안부 장관을 방문한 이유는 입법예고된 안을 빨리 고쳐 제대로 된 제정안 및 개정안을 만들라고 촉구하기 위한 것&quot;이라며 &quot;아직 행안부가 할 수 있는 일이 있다는 장관의 답변에 큰 의미가 있다&quot;고 말했다. 아울러 &quot;밀리지 말고 국민들이 지금까지 요청해 온 여러 염원을 빨리 담아 수정해야 할 부분을 수정해달라고 요청했다&quot;고 덧붙였다. 조국혁신당은 &quot;수사·기소 완전 분리라는 검찰개혁의 원칙이 시행령과 직제 단계에서 후퇴하거나 변질되지 않도록 끝까지 점검하고 바로잡아 나갈 것&quot;이라고 강조했다. ◎공감언론 뉴시스 leech@newsis.com",
+     "published": "2026-09-10T22:48:15+00:00",
+     "summary": "[서울=뉴시스] 유자비 기자 = 네팔 홍수 피해 대응을 위해 파견되는 대한민국 해외 긴급구호대(KDRT) 2진이 11일 네팔로 출발했다. 외교부에 따르면 KDRT 2진은 이날 오전 2시55분께 구호물자 약 4t과 함께 우리 군 수송기(KC-330) 편으로 네팔로 출발했다. KDRT 2진은 네팔 현지시간으로 이날 오전 중 도착할 것으로 예상된다. KDRT 2진은 외교부, 소방대원, 코이카(KOICA), 의료진 각 2명씩 총 8명으로 구성됐다. 파견 기간은 7일로 네팔 현지에서 활동하게 된다. 2진은 수색·구조 외에 재건·복구에 중점을 뒀다. 네팔 측에 전달될 구호물자는 국내 비정부기구(NGO)가 국내 기업으로부터 기부받은 1억8000만원 상당의 방한의류, 담요, 텐트 등이다. 앞서 파견된 KDRT 1진은 10일간의 활동을 마치고 이날 네팔에서 출발해 12일 오전 귀국할 예정이다. KDRT 1진 복귀 후 정부합동신속대응팀의 일부 운영 계획도 조정된다. 정부합동신속대응팀은 12일부터 &#039;정부합동대응팀&#039;으로 명칭이 변경된다. 외교부, 경찰청, 국립과학수사연구원 인원 총 7명으로 재편될 예정이며, 필요시 교체 혹은 추가 파견이 이뤄질 수 있다. ◎공감언론 뉴시스 jabiu@newsis.com",
      "source_weight": 1.2,
      "tags": [],
      "numbers": [
-      "10일",
-      "039"
+      "2026.09.11",
+      "15.7",
+      "07",
+      "48",
+      "15",
+      "08",
+      "12",
+      "24",
+      "2",
+      "11일",
+      "10",
+      "127",
+      "5개",
+      "100",
+      "8일",
+      "4개",
+      "10%",
+      "11년",
+      "7000,",
+      "1년",
+      "6000곳",
+      "30",
+      "1000만",
+      "6",
+      "1위",
+      "50명",
+      "300",
+      "400만",
+      "600",
+      "0.3%",
+      "0.97%",
+      "18",
+      "500",
+      "1개",
+      "6400억",
+      "5분",
+      "12일",
+      "5",
+      "8월",
+      "21.9조",
+      "53%",
+      "0.6%",
+      "0.65%",
+      "9월",
+      "70%",
+      "16%",
+      "1.13%",
+      "0.25%",
+      "2.50%",
+      "9억",
+      "1000",
+      "8억",
+      "9000",
+      "10월",
+      "2분",
+      "2.7조",
+      "43%",
+      "300만",
+      "2030년",
+      "100조",
+      "9",
+      "11",
+      "1",
+      "1 조",
+      "6명",
+      "80%",
+      "2650억",
+      "13",
+      "11월",
+      "3만",
+      "2만",
+      "29"
      ]
     }
    ]
   },
   {
-   "key": "94fca1ee17814c45",
-   "score": 23.034620500099027,
+   "key": "2546f3dc02500680",
+   "score": 9.856439365072694,
    "categories": [
     "국회·입법",
-    "정당·공천",
-    "대통령실·정부",
-    "선거·여론조사",
-    "사법·수사"
+    "선거·여론조사"
    ],
    "matched_keywords": [
-    "본회의",
-    "민주당",
+    "청문회",
+    "지지율"
+   ],
+   "articles": [
+    {
+     "id": "2546f3dc02500680",
+     "title": "지지율은 ‘데드크로스’인데…청문회는 ‘무증인’, 김민석은 ‘OUT 정치’",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFA2Z3hKOUNIajNDV016djZDcEpkV1pPZldnS01PVGl6ckxMdklzVlRFVWQ4ellKLW95WnVpNkZuLWpCQ09aUkpiczRaWGNIMWZaU1FteGJUalF1Rmc3ZkIwQVJSbml3aC1SSkdv0gFvQVVfeXFMT1F2aHozaERQWFEwbDNYNThzc0NGOEVlN1c3SUprTlh0bjNIVjdtd1JrOXZWWUR5cUJUc0FSMkEtOWUtWDV1Wk1VMU5sejNhWlVreGJEcER1Y3dKR192NWg0QzBHT09Pc1EwYlF2Qi1F?oc=5",
+     "feed_id": "gnews_politics",
+     "feed_name": "구글뉴스·정치",
+     "publisher": "펜앤마이크",
+     "published": "2026-09-10T22:58:12+00:00",
+     "summary": "[양준서의 정조준] 지지율은 ‘데드크로스’인데…청문회는 ‘무증인’, 김민석은 ‘OUT 정치’ &nbsp;&nbsp; 펜앤마이크",
+     "source_weight": 1.0,
+     "tags": [
+      "양준서의 정조준"
+     ],
+     "numbers": []
+    }
+   ]
+  },
+  {
+   "key": "6bb9f4bcb72fc4a5",
+   "score": 8.015010793644121,
+   "categories": [
+    "대통령실·정부"
+   ],
+   "matched_keywords": [
     "국무총리",
     "총리",
-    "장관 후보자",
-    "기자회견",
-    "후보",
-    "기소",
-    "수사"
+    "기자회견"
    ],
    "articles": [
     {
-     "id": "94fca1ee17814c45",
-     "title": "한동훈 \"총리실이 야당의원 사찰하나\"… 한성숙 \"과한 말씀\"",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5SbTFoeHFrckU0TDNnZ3FMODdwUUNoeWxWajYzNUtLMHBSVjBtOGZOUVg3QWV5NGNETEZJcE9sT1FCRDZDOWNKQVdaRWc5Mnp3ejdvY0JYcXcxNnpocDN6cXdGRGQzNElmNl91RWx30gFzQVVfeXFMTk9zTnpiQXNKSlJpQTFoQjJ1X3lZR0R6bVVLbjdTZWo5UWNwR0VLZXVtYmhLVFc4OHJVVEk1WWZlZGRIRTNsdEZfQ0NIZkc1TVZjUUtxcDhyYkplWDJOWVBaeU0tbC0xdklFM2NyVk9uN2JFOA?oc=5",
-     "feed_id": "gnews_politics",
-     "feed_name": "구글뉴스·정치",
-     "publisher": "한국일보",
-     "published": "2026-09-10T13:10:00+00:00",
-     "summary": "한동훈 \"총리실이 야당의원 사찰하나\"… 한성숙 \"과한 말씀\" &nbsp;&nbsp; 한국일보",
-     "source_weight": 1.0,
-     "tags": [],
-     "numbers": []
-    },
-    {
-     "id": "33bd553cde7aa63e",
-     "title": "한동훈 \"총리가 낄 때냐\"…'야당 의원 사찰' 논란 확산",
-     "url": "https://www.hankyung.com/article/2026091076177",
-     "feed_id": "hankyung_politics",
-     "feed_name": "한국경제·정치",
+     "id": "6bb9f4bcb72fc4a5",
+     "title": "한동훈 “로텐더홀에 누구나? 계엄군도 들어올 수 있나”···총리실 ‘사찰 아냐’ 해명 반박",
+     "url": "https://www.khan.co.kr/article/202609110819001",
+     "feed_id": "khan_politics",
+     "feed_name": "경향신문·정치",
      "publisher": "",
-     "published": "2026-09-10T13:02:58+00:00",
-     "summary": "",
-     "source_weight": 1.0,
-     "tags": [],
-     "numbers": []
-    },
-    {
-     "id": "6eed1de2a201ef48",
-     "title": "한동훈 \"野의원 사찰하나\"…韓총리 \"굉장히 부적절한 말씀\"",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE4zNko5Y3ZIZHRBY2JQa01RMlZJT0ZnWG5BLUNxQXB6bWpoVEFodnYyWDJDUG5QVkdmd0JDNm1HaTNNR0NzQkVPODJ3VG53VUt2cHRkOA?oc=5",
-     "feed_id": "gnews_assembly",
-     "feed_name": "구글뉴스·국회",
-     "publisher": "nocutnews.co.kr",
-     "published": "2026-09-10T12:35:00+00:00",
-     "summary": "한동훈 \"野의원 사찰하나\"…韓총리 \"굉장히 부적절한 말씀\" &nbsp;&nbsp; nocutnews.co.kr",
-     "source_weight": 1.1,
-     "tags": [],
-     "numbers": []
-    },
-    {
-     "id": "1cdfdc53143d119b",
-     "title": "한동훈 \"총리실이 사찰\"…韓총리 \"과한말씀, 부적절시 엄정처리\"(종합)",
-     "url": "https://www.yna.co.kr/view/AKR20260910161151001",
-     "feed_id": "yna_politics",
-     "feed_name": "연합뉴스·정치",
-     "publisher": "",
-     "published": "2026-09-10T10:45:07+00:00",
-     "summary": "(서울=연합뉴스) 이상현 노선웅 기자 = 한성숙 국무총리와 무소속 한동훈 의원이 10일 국회 본회의에서 총리실 직원이 한 의원의 기자회견에 개입...",
-     "source_weight": 1.3,
-     "tags": [],
-     "numbers": [
-      "10일"
-     ]
-    },
-    {
-     "id": "6a1e75f045d4a5ff",
-     "title": "한동훈 \"야당 의원 사찰?\" vs. 한성숙 \"공개 질문이 사찰?\"",
-     "url": "https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003266402",
-     "feed_id": "ohmynews_politics",
-     "feed_name": "오마이뉴스·정치",
-     "publisher": "",
-     "published": "2026-09-10T10:26:06+00:00",
-     "summary": "한동훈 의원 : \"총리실이 야당 국회의원 사찰합니까?\" 한성숙 국무총리 : \"그건 굉장히 적절하지 않은 말씀이다.\" 한동훈 무소속 의원이 10일 외교·통일·안보 분야 국회 대정부질문에서 한성숙 총리에게 '사찰' 여부를 따졌다. 본인이 이날 오후 김승원 법무부 장관 후보자 '신약 승인 청탁' 의혹 관련 기자들과 질의응답을 할 때 총리실 직원이 기자인 척 가장해 한 총리를 옹호하는 질문을 한 것에 대한 문제제기였다. 해당 직원은 당시 한 의원에게 \"페이스북에 '총리가 수사지휘를 한다'고 올렸는데 실제로 그렇게 생각하나\", \"확인을 지시한 것 아니냐\"고 물었다. 이에 한 의원은 \"어제 (대정부질문 때) 이해식 의원(민주당) 질의에 (총리가) '관계기관에 엄정한 확인을 지시하겠다'고 했다\"면서 \"총리에게 수사를 지휘할 권한이 없고 수사가 진행 중인 상황에서 그걸 감찰이라는 명목으로 엄정하게 확인해 보라는 것은 어불성설\"이라고 답했다. 또한 해당 직원이 기자가 아닌 점을 확인한 뒤에는 페이스북을 통해 해당 직원의 이름과 직책을 공개하고 \"정말 황당하고 기괴한 일이다. 책임을 묻겠다\"고 밝혔다. 한 총리에게 야당 의원 사찰 여부를 따지고 나선 건 그에 대한 질문인 셈이다. 특히 그는 당시 해당 직원이 '총리님 + 주요간부방'이라는 제목의 텔레그램 대화방을 휴대전화에 띄운 채 질문을 했던 점을 지적하면서 \"(해당 직원이) 저걸 보고 총리님 지시 보고한 것 아니냐\"고 따졌다. 아울러 \"이해식 의원 질문엔 가정을 전제로 답하던데 저게 다 사실이라면 적절하냐\"고 물었다. 한 총리는 해당 직원이 총리실 직원임을 인정했지만 해당 상황을 알진 못했고 지시를 내린 적도 없었다고 밝혔다. 한 의원이 거듭 \"사실이라면 엄정 조치하겠냐\"라고 따지자, \"저 부분이 사실이라면 상황 파악하고 말씀드린 것처럼 적절한 조치를 취하겠다\"고도 답했다. \"총리가 왜 수사 지휘?\" vs. \"감찰 사안\" 한 의원은 김승원 후보자 신약 승인 청탁 의혹 관련 녹취록 및 기소계획서를 유출했다는 의혹과 관련해 한 총리가 사실 여부를 확인하겠다고 한 부분을 문제 삼았다. 전체 내용보기",
+     "published": "2026-09-10T23:19:00+00:00",
+     "summary": "한동훈 무소속 의원이 10일 국회 로텐더홀에서 취재진의 질의에 답변하고 있다. 연합뉴스한동훈 무소속 의원이 자신의 국회 기자회견에 “일반인”이라 밝히며 공격적인 질문을 한 국무조정실 관계자에 관한 국무총리실 해명에 “로텐더홀에 누구나 갈 수 있다면 계엄군도 로텐더홀 들어올 수 있냐”고 반박했다.한 의원은 지난 10일 밤 페이스북에 “한성숙 총리실이 입장문을···",
      "source_weight": 1.0,
      "tags": [],
      "numbers": [
       "10일"
-     ]
-    },
-    {
-     "id": "a035156f3b5b5fc9",
-     "title": "한동훈 \"총리실이 사찰\"…韓총리 \"과한 말씀, 부적절시 엄정처리\"",
-     "url": "https://www.yna.co.kr/view/AKR20260910161100001",
-     "feed_id": "yna_politics",
-     "feed_name": "연합뉴스·정치",
-     "publisher": "",
-     "published": "2026-09-10T09:58:14+00:00",
-     "summary": "(서울=연합뉴스) 이상현 노선웅 기자 = 한성숙 국무총리는 10일 무소속 한동훈 의원이 자신의 기자회견 중에 총리실 직원이 개입했다고 비판하자 ...",
-     "source_weight": 1.3,
-     "tags": [],
-     "numbers": [
-      "10일"
-     ]
-    },
-    {
-     "id": "b9c9a7b02d30d573",
-     "title": "총리실 직원이 '일반인'이라며 한동훈에 질문…韓 \"野 의원 사찰하나\"",
-     "url": "https://www.newsis.com/view/NISX20260910_0003784942",
-     "feed_id": "newsis_politics",
-     "feed_name": "뉴시스·정치",
-     "publisher": "",
-     "published": "2026-09-10T09:27:21+00:00",
-     "summary": "[서울=뉴시스]하지현 한은진 김윤영 기자 = 국무총리실 직원이 한동훈 무소속 의원에게 자신을 &#039;일반인&#039;이라고 소개하며 질문을 하다가 신원이 공개되는 일이 벌어졌다. 한 의원은 &quot;야당 국회의원을 사찰하는 것이냐&quot;고 반발했고, 한 총리는 &quot;부적절한 말씀&quot;이라며 공방을 벌였다. 한 의원은 10일 오후 국회 외교·통일·안보 분야 대정부질문에서 한 총리에게 &quot;대정부 질의를 준비하기 위해 기자를 상대하고 있었는데 어떤 분이 총리를 옹호하고 저를 공격하는 질문을 했다&quot;며 &quot;소속이 어디냐고 하니 &#039;일반인입니다&#039;라고 했다. 저분 아시나&quot;라고 물었다. 한 총리가 &quot;총리실 직원&quot;이라고 답하자 한 의원은 &quot;총리실이 야당 국회의원 사찰하나&quot;라고 쏘아붙였다. 한 총리가 &quot;적절치 않은 말씀&quot;이라고 반박하자, 한 의원은 &quot;기자인 척 와서 일반인이라고 거짓말하고 총리를 옹호하는 질의를 하는 건 적절하나&quot;라고 맞받았다. 한 의원은 해당 직원의 휴대전화 화면에 찍힌 텔레그램 대화방 사진을 공개하며 &quot;&#039;총리님 플러스 주요 간부 참가자 34명&#039;이라는 텔레그램 방에 (한 총리가) 들어가 있나&quot;라고 물었고, 한 총리는 &quot;들어가 있다&quot;고 답했다. 한 의원은 &quot;제게 질문하는 직원이 총리 지시를 받고 한 거 아닌가&quot;라며 &quot;총리실 직원이 국회 출입인가. (한 총리) 본인이 (질문을) 시킨 것 아닌가&quot;라고 했다. 한 총리는 &quot;제가 (질문을) 시킨 것은 아니다&quot;라며 &quot;상황을 파악해 보겠다&quot;고 답했다. 한 의원은 재차 &quot;저 텔레그램방은 뭐 하는 방인가. (해당 직원의 질문은) 제가 총리 발언을 문제 삼은 것에 대해 &#039;뭐가 문제냐&#039;고 따지는 질문이었다. 본인이 시킨 것 아닌가&quot;라며 &quot;한 총리 책임 아닌가&quot;라고 따졌다. 한 총리는 &quot;(텔레그램 대화방은) 내부 업무를 진행하면서 주요 이슈를 논의하는 방&quot;이라며 &quot;제가 시킨 건 정확히 아니고, 사실이라면 적절치 않은 부분이라고 생각한다. 필요한 조치를 취하겠다&quot;고 말했다. 한 의원은 &quot;야당 국회의원이 공식 기자회견을 하는데, 기자인 척 들어와서 총리를 옹호하고 야당 의원을 공격하는 발언을 하다가 지적받으니까 &#039;일반인&#039;이라고 두번 거짓말하다 나갔다&quot;고 했다. 앞서 한 의원은 이날 국회 대정부질문에 앞서 기자들과 만나 김승원 법무부 장관 후보자의 &#039;신약 청탁 의혹&#039; 등을 설명했다. 이 과정에서 한 남성이 &quot;오늘 페이스북에 총리가 수사 지휘한다고 올렸는데, 실제로 수사 지휘라고 생각하느냐&quot;고 물었다. 한 총리는 전날 한 의원이 김 후보자의 청탁 의혹 관련 녹취를 공개한 것을 두고 &#039;관계 기관 (수사 자료) 유출 경위와 위법 여부 등을 확인하도록 지시했다&#039;고 밝힌 바 있다. 한 의원이 이에 &quot;어제 이해식 (민주당) 의원 질의에 대해 (한 총리가) &#039;관계 기관에 엄정한 확인을 지시하겠다&#039;…&quot;고 하자, 해당 남성은 중간에 말을 끊고 &quot;그러니까 확인을 지시한 거지&quot;라고 말했다. 한 의원이 &quot;어느 분이시냐. 어디 기자시냐&quot;고 묻자 그는 &quot;일반인&quot;이라고 답했다. 한 의원은 이날 한 총리의 수사 지휘 지시를 놓고도 &quot;낄 때 끼고 빠질 때 빠져야 하는 거다. 이러다 다치신다. 그러니까 (총리실 직원이) 저런 짓거리 하는 것 아닌가. 총리가 속해 있는 단체 대화방을 보면서 저를 공격한 것&quot;이라고 했다. ◎공감언론 뉴시스 judyha@newsis.com, gold@newsis.com, youn@newsis.com",
-     "source_weight": 1.2,
-     "tags": [],
-     "numbers": [
-      "039",
-      "10일",
-      "34명"
-     ]
-    }
-   ]
-  },
-  {
-   "key": "179e4041d1eb5ef1",
-   "score": 22.784993416591995,
-   "categories": [
-    "국회·입법",
-    "정당·공천",
-    "선거·여론조사",
-    "사법·수사"
-   ],
-   "matched_keywords": [
-    "법사위",
-    "법안",
-    "개정안",
-    "국민의힘",
-    "더불어민주당",
-    "민주당",
-    "지방선거",
-    "선관위",
-    "선거관리위원회",
-    "특검",
-    "특별검사",
-    "검찰",
-    "영장",
-    "기소",
-    "수사"
-   ],
-   "articles": [
-    {
-     "id": "179e4041d1eb5ef1",
-     "title": "‘선관위 특검 무력화’ 논란에…與, 파견검사 수사권 박탈안 철회",
-     "url": "https://www.donga.com/news/Politics/article/all/20260910/134644534/1",
-     "feed_id": "donga_politics",
-     "feed_name": "동아일보·정치",
-     "publisher": "",
-     "published": "2026-09-10T08:00:00+00:00",
-     "summary": "더불어민주당이 ‘선관위 특검’ 출범 바로 다음날 파견검사의 수사권을 박탈하는 특검법 개정안을 발의했다가 논란이 되자 이틀 만에 철회했다. 검찰청 폐지가 22일 앞으로 다가온 상황에서 집권 여당이 혼란을 가중시켰다는 지적이 나온다.국회 법제사법위원회 소속 민주당 의원 10명 전원은 8일 6·3 지방선거 투표용지 부족 사태 등 선거관리위원회를 둘러싼 각종 의혹을 규명할 선관위 특검법 개정안을 발의했다. 투표용지 부족을 비롯해 통계 조작, 외유성 출장, 부정채용 등 12개 의혹을 수사하는 선관위 특검이 현판식을 연 지 하루 만이다. 당내 강경파인 김용민 의원이 대표 발의한 개정안에선 특검 파견검사가 수사할 수 있는 근거가 되는 부칙을 모두 삭제했다. 기존 특검법은 검사의 수사권을 전면 박탈한 공소청법과 형사소송법이 시행되더라도 특검법 시행 당시 검찰청법 등을 적용토록 해 파견검사의 수사가 가능하도록 했다. 개정안이 그대로 통과되면 파견 검사 20명이 수사에서 배제될 수 있는 것.국민의힘",
-     "source_weight": 1.0,
-     "tags": [],
-     "numbers": [
-      "22일",
-      "10명",
-      "8일",
-      "6",
-      "3",
-      "12개",
-      "20명"
-     ]
-    },
-    {
-     "id": "3d5d05443b7abfc5",
-     "title": "\"특검법 무력화냐\" 비판에…與 '파견검사 수사권 폐지안' 일단 철회 - 머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBaUG9BV1c3RVJpVDZYcDB1RkdYU1BKS3BiRm44UnZfWVhOZXV5N2xTOFZ2SE14ZUZvUUNSbDY0emJwS2RvQllSVTJIVHdhZEt3VW1FdFFQcFdVSUQyWkZCY25Xc01TWGxfMUVDYVVWVzlwd9IBckFVX3lxTFBaUG9BV1c3RVJpVDZYcDB1RkdYU1BKS3BiRm44UnZfWVhOZXV5N2xTOFZ2SE14ZUZvUUNSbDY0emJwS2RvQllSVTJIVHdhZEt3VW1FdFFQcFdVSUQyWkZCY25Xc01TWGxfMUVDYVVWVzlwdw?oc=5",
-     "feed_id": "gnews_election",
-     "feed_name": "구글뉴스·선거",
-     "publisher": "머니투데이",
-     "published": "2026-09-10T07:45:30+00:00",
-     "summary": "\"특검법 무력화냐\" 비판에…與 '파견검사 수사권 폐지안' 일단 철회 - 머니투데이 &nbsp;&nbsp; 머니투데이",
-     "source_weight": 1.0,
-     "tags": [],
-     "numbers": []
-    },
-    {
-     "id": "8b1837416ea93ee2",
-     "title": "‘선관위 특검 검사 수사권 박탈’... 與, 법안 낸지 이틀만에 “철회”",
-     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxObGFIZ2trUHNKRGVrak1zYmNhQzVtYzdpa011a0VaUUxtOXQ5UFZlOXl0WHlkQzB1N0ZJYzBKd0ZpelZ1aTdnb3pjVkxWaDVGcXZmWDFLRmF6WEtRLVdqSzBweXo4VVV5aWxaWkw1YWlodV85NGZXV0F6Z0hUT0NYOUlwODQzUQ?oc=5",
-     "feed_id": "gnews_election",
-     "feed_name": "구글뉴스·선거",
-     "publisher": "조선일보",
-     "published": "2026-09-10T07:40:03+00:00",
-     "summary": "‘선관위 특검 검사 수사권 박탈’... 與, 법안 낸지 이틀만에 “철회” &nbsp;&nbsp; 조선일보",
-     "source_weight": 1.0,
-     "tags": [],
-     "numbers": []
-    },
-    {
-     "id": "450cad50544e9f35",
-     "title": "민주 \"선관위 특검 검사 수사권 없애는 법안 철회\"",
-     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE53SU5BVVRfMFZVcm5qNV9MNnJTR3RCdVR0UWFweHhXVkdzcUdWNW5IbWFWdHN1bi1HNmtJUlBYOVFwWEtHY0ZyTjA0WExEaTVhVkZNUS1OYTZBcktjY0ZVM254VTRMbUU?oc=5",
-     "feed_id": "gnews_election",
-     "feed_name": "구글뉴스·선거",
-     "publisher": "yonhapnewstv.co.kr",
-     "published": "2026-09-10T07:37:00+00:00",
-     "summary": "민주 \"선관위 특검 검사 수사권 없애는 법안 철회\" &nbsp;&nbsp; yonhapnewstv.co.kr",
-     "source_weight": 1.0,
-     "tags": [],
-     "numbers": []
-    },
-    {
-     "id": "a0a71773fa3926ee",
-     "title": "민주당, 선관위특검 수사권 박탈하려다 '철회'",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBNRXVfYjJPOVpRNFFyU0g3NDJ3a2RHazVFTDNMbHhZYzhwMHRTMGxpeldDNWt2N2lWUmdsV05LV2VkdnpBQ2Vzbm84Y3VkZmVSQlZMYzg2bXlLQk9QZkJIaVI0bnBJd3VtNW0w0gFvQVVfeXFMUHp3c1dQYVUycHdEbFd4YUZNYmIzQzlETXdtT08xRXVYWXVyWXpyMng3OXUxWDlxQTROT0V1WUxJUzB3UmJvQlJCZ2RZZU5HQzBxQlBYbnMzN1JVWElHY0k2Nnl6SjFIRlF6aUpxSEpV?oc=5",
-     "feed_id": "gnews_election",
-     "feed_name": "구글뉴스·선거",
-     "publisher": "펜앤마이크",
-     "published": "2026-09-10T07:24:01+00:00",
-     "summary": "민주당, 선관위특검 수사권 박탈하려다 '철회' &nbsp;&nbsp; 펜앤마이크",
-     "source_weight": 1.0,
-     "tags": [],
-     "numbers": []
-    },
-    {
-     "id": "58708fd12ea6d025",
-     "title": "與 “선관위 특검 파견검사 수사권 폐지안 잘못 발의…철회하겠다”",
-     "url": "https://www.donga.com/news/Politics/article/all/20260910/134644396/1",
-     "feed_id": "donga_politics",
-     "feed_name": "동아일보·정치",
-     "publisher": "",
-     "published": "2026-09-10T07:22:00+00:00",
-     "summary": "국회 법제사법위원회 소속 더불어민주당 의원들이 ‘선관위 특검’ 발족 하루 만인 이달 8일 특검 파견 검사의 수사권을 없애는 특검법 개정안을 발의했다. 논란이 커지자 민주당은 “잘못 발의한 것”이라며 법안을 철회하겠다고 밝혔다.민주당 이주희 원내대변인은 이날 언론공지를 통해 “최근 140개 법안을 일괄적으로 개정 형소법에 맞게 조정하는 과정에서 특검법개정안이 합의 취지와 다르게 정리, 발의됐다”며 “이에 법사위에서는 발의된 선관위특검법 개정안을 철회하고, 파견 검사가 특검 기간동안 수사가 가능하도록 법안을 재발의하기로 했다”고 밝혔다. 사실상 법사위 소속 민주당 의원들의 실수였다고 인정한 셈이다.앞서 민주당 김용민 의원 등 여당 법사위 소속 전체 의원들은 8일 ‘제9회 전국동시지방선거 투표용지 부족 사태 등 국민참정권 침해 의혹 진상규명을 위한 특별검사의 임명 등에 관한 법률 개정안’을 공동발의했다. 이 개정안엔 검사의 수사권을 폐지한 개정 형사소송법에 맞춰 특검 파견검사도 수사",
-     "source_weight": 1.0,
-     "tags": [],
-     "numbers": [
-      "8일",
-      "140개",
-      "9"
-     ]
-    },
-    {
-     "id": "bc51929e4b440442",
-     "title": "與 \"선관위 특검 파견검사 '수사권 유지' 법 개정안 발의\"",
-     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5jMlRjX3pqT3djck9sOWtXQnB0TlZ2Sl9vR0lvOUVqb293M0JiYWl6UVQ4Nk4tNkVKUTRqRTM5djl2ejRhcFYya3dpQWh2OUdZOEdqSXlMQ2tyN0NnVElIZVNKWnY?oc=5",
-     "feed_id": "gnews_election",
-     "feed_name": "구글뉴스·선거",
-     "publisher": "매일일보",
-     "published": "2026-09-10T07:08:52+00:00",
-     "summary": "與 \"선관위 특검 파견검사 '수사권 유지' 법 개정안 발의\" &nbsp;&nbsp; 매일일보",
-     "source_weight": 1.0,
-     "tags": [],
-     "numbers": []
-    },
-    {
-     "id": "505aeba3ab783861",
-     "title": "민주 “선관위특검 ‘파견검사 수사권’ 폐지안 발의 철회”",
-     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBqcC04NnFBRGpTUWx0M1dxQ1BTVDBMTFVKcFY1d05lQ3hCM2tPOWFaMkJuXzJ2S2tjRUpkTVVDTHM0aC1FV1hhdmpsbHNjcmx2aWtGRHdwYUVFTDJ5NlhWeUV3?oc=5",
-     "feed_id": "gnews_election",
-     "feed_name": "구글뉴스·선거",
-     "publisher": "미주중앙일보",
-     "published": "2026-09-10T07:07:00+00:00",
-     "summary": "민주 “선관위특검 ‘파견검사 수사권’ 폐지안 발의 철회” &nbsp;&nbsp; 미주중앙일보",
-     "source_weight": 1.0,
-     "tags": [],
-     "numbers": []
-    },
-    {
-     "id": "c6815f9227afb3ff",
-     "title": "선관위 특검하겠다면서...與 “파견 검사 수사권 박탈”",
-     "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE05QTVNcF9INXJwN2NNVE8yRWRBcTB2UElpbWhmM0lOWVlOVzE2amFxMkE3dXNaaGRUdDFTOUdsV016VG15WmRneWNlM0tlMDAxT1BZ0gFTQVVfeXFMTTlBNU1wX0g1cnA3Y01UTzJFZEFxMHZQSWltaGYzSU5ZWU5XMTZqYXEyQTd1c1poZFR0MVM5R2xXTXpUbXlaZGd5Y2UzS2UwMDFPUFk?oc=5",
-     "feed_id": "gnews_election",
-     "feed_name": "구글뉴스·선거",
-     "publisher": "서울경제",
-     "published": "2026-09-10T06:52:55+00:00",
-     "summary": "선관위 특검하겠다면서...與 “파견 검사 수사권 박탈” &nbsp;&nbsp; 서울경제",
-     "source_weight": 1.0,
-     "tags": [],
-     "numbers": []
-    },
-    {
-     "id": "a1229ea6421a3f2b",
-     "title": "선관위 특검 발족하자 與, 파견검사 수사권 박탈 발의.. 野 \"3대 특검 돌려놓고\"",
-     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9vQ0dzT2htVlpiUDFwSWxfWWRwSTRObUFvRUJSMTV4N1FwWXp6Q0dlWXBHQ0ljT1NxLWtVQWhwNmZ2bjdiakt0UFBnazhIbDA?oc=5",
-     "feed_id": "gnews_election",
-     "feed_name": "구글뉴스·선거",
-     "publisher": "v.daum.net",
-     "published": "2026-09-10T06:48:21+00:00",
-     "summary": "선관위 특검 발족하자 與, 파견검사 수사권 박탈 발의.. 野 \"3대 특검 돌려놓고\" &nbsp;&nbsp; v.daum.net",
-     "source_weight": 1.0,
-     "tags": [],
-     "numbers": [
-      "3"
-     ]
-    },
-    {
-     "id": "8082da7a4a45d194",
-     "title": "與 법사위, 선관위특검 발족 하루만에 '파견검사 수사권' 폐지안 발의",
-     "url": "https://www.newsis.com/view/NISX20260910_0003784470",
-     "feed_id": "newsis_politics",
-     "feed_name": "뉴시스·정치",
-     "publisher": "",
-     "published": "2026-09-10T05:58:22+00:00",
-     "summary": "[서울=뉴시스]정금민 기자 = 국회 법제사법위원회 소속 더불어민주당 의원들이 선거관리위원회 특별검사 공식 발족 하루 만에 특검 내 파견 검사의 수사권 근거를 없애는 내용의 특검법 개정안을 발의했다. 10일 국회에 따르면, 김용민 민주당 의원 등 여당 법사위 소속 전체 의원들은 지난 8일 &#039;제9회 전국동시지방선거 투표용지 부족 사태 등 국민참정권 침해 의혹 진상규명을 위한 특별검사의 임명 등에 관한 법률 개정안&#039;을 공동발의했다. 여기에는 특검 내 파견검사가 수사권을 갖는 근거인 부칙 제5조 1·2항을 전면 삭제하는 내용이 담겼다. 이 부칙은 검사의 직접 수사권이 폐지되더라도 특검의 직무 범위에 대해서는 특검법 시행 당시의 검찰청법 등을 적용해 파견검사에 수사권을 인정하도록 한 내용이다. 그런데 이를 삭제한 것이다. 김 의원 등은 개정안 제안 이유로 &quot;오는 10월 2일 시행 예정인 검찰청 폐지와 공소청법 및 중대범죄수사청(중수청) 조직 및 운영에 관한 법률에 따라 수사와 기소가 제도적으로 분리되는 새로운 형사사법 체계의 행정조직 기반이 마련됐다&quot;며 &quot;이에 맞추어 지난 8월 검사의 직접수사권을 폐지해 공소제기 및 공소유지를 담당하도록 하는 등 형사사법 체계에 맞게 정비한 바 있다&quot;고 했다. 이어 &quot;이러한 형사사법 체계의 개편에 맞추어 새로운 형사사법 체계와 맞지 않는 내용을 정비하려는 것&quot;이라고 말했다. ◎공감언론 뉴시스 happy7269@newsis.com",
-     "source_weight": 1.2,
-     "tags": [],
-     "numbers": [
-      "10일",
-      "8일",
-      "039",
-      "9",
-      "5조",
-      "1",
-      "2",
-      "10월",
-      "2일",
-      "8월",
-      "7269"
-     ]
-    },
-    {
-     "id": "553e2cf35aa17d52",
-     "title": "선관위 특검 \"손발 묶나\"…민주당 '파견검사 수사권 폐지안'에 당혹",
-     "url": "https://www.newsis.com/view/NISX20260910_0003784380",
-     "feed_id": "newsis_politics",
-     "feed_name": "뉴시스·정치",
-     "publisher": "",
-     "published": "2026-09-10T05:31:30+00:00",
-     "summary": "[서울=뉴시스]박선정 기자 = 더불어민주당이 선거관리위원회 특별검사팀(특별검사 이태한)에 파견된 검사의 수사권을 없애는 법안을 발의하자 특검 내부에서는 &quot;당혹스럽다&quot;는 반응이 나오고 있다. 공식 수사를 시작한 지 불과 하루 만에 특검 수사의 핵심 인력인 파견검사의 역할을 대폭 축소하는 법안이 발의되면서, 특검 수사에 제동이 걸릴 수 있다는 우려가 나온다. 10일 법조계에 따르면 선관위 특검 내부에서는 해당 개정안이 국회를 통과해 실제 시행될 경우 수사에 상당한 제약이 생길 수 있다는 우려가 제기되고 있다. 특검 내부에서는 &quot;특검은 정해진 기간 안에 수사와 기소를 마쳐야 하는 조직인데, 출범하자마자 파견검사들의 수사권을 없앤다니 황당하다&quot;는 반응이 나온 것으로 전해졌다. 개정안 발의에 앞서 특검 측과 별도의 협의는 없었던 것으로 파악됐다. 한 특검 관계자는 &quot;우선 당혹스럽고 우려스럽다&quot;며 &quot;인력에 한계가 있는 상태인데, 파견검사들의 권한까지 삭제하면 사실상 아무것도 하지 말라는 것 아니냐&quot;고 말했다. 특검의 파견검사 정원은 20명이다. 공식 출범일 기준 검사 15명이 파견됐고, 특검은 남은 정원을 채우기 위해 법무부와 협의를 이어가고 있다. 내부에서는 파견검사들이 직접 수사 업무에서 배제될 경우 수사 동력이 크게 떨어질 수밖에 없다고 보고 있다. 특검은 현재 개정안의 구체적인 내용과 수사에 미칠 영향 등을 검토하고 있는 것으로 전해졌다. 내부적으로는 &quot;법안이 그대로 시행되면 수사에 큰 차질이 불가피하다&quot; &quot;국회 논의 과정에서 관련 조항이 바로잡혀야 한다&quot;는 기류가 강한 것으로 알려졌다. 앞서 국회 법제사법위원회 소속 민주당 의원 10명은 특검 내 파견검사의 수사권을 삭제하는 개정안을 발의했다. 특검이 지난 7일 공식 현판식을 통해 정식 출범한 지 하루 만에 나온 법안이다. 김용민 민주당 의원이 대표 발의하고 김의겸, 서영교 의원 등이 공동발의자로 이름을 올렸다. 이 개정안은 선관위 특검에 파견된 검사가 직접 수사를 진행할 수 있도록 한 기존 특검법 부칙 제5조 1항과 2항을 전면 삭제하는 것을 골자로 한다. 부칙 제5조 1항은 공소청법과 개정 형사소송법 시행 등으로 검사의 직접 수사권이 없어지더라도 특검의 직무 범위에 한해서는 특검법 시행 당시의 검찰청법과 형소법을 적용해 파견검사의 수사권을 예외적으로 인정하는 내용이다. 같은 조문 2항은 파견검사가 수사 과정에서 작성한 서류나 신문 조서의 증거 능력을 담보하는 내용을 담고 있다. 이 같은 개정안이 시행되면 파견검사는 피의자 조사, 영장 청구 등 수사 업무에서 전면 배제되고, 법리 검토나 공소 유지 업무에만 참여하게 될 것으로 보인다. 개정안은 대신 특검이 수사 지원이나 인력 파견을 요청할 수 있는 기관에 중대범죄수사청을 추가했다. 중수청이나 경찰 등에서 파견된 수사 인력이 직접수사를 주도하는 구조로 전환하려는 취지로 풀이된다. 해당 개정안은 오는 14일 국회 법사위 법안심사제1소위원회에 상정돼 논의될 것으로 전망된다. ◎공감언론 뉴시스 sun@newsis.com",
-     "source_weight": 1.2,
-     "tags": [],
-     "numbers": [
-      "10일",
-      "20명",
-      "15명",
-      "10명",
-      "7일",
-      "5조",
-      "1",
-      "2",
-      "14일"
      ]
     }
    ]
