@@ -4,7 +4,7 @@
   "since": "2026-09-04",
   "sample": false,
   "bills": {
-    "count": null,
+    "count": 219,
     "latest": [
       {
         "name": "공항시설법 일부개정법률안",
@@ -42,11 +42,11 @@
         "committee": ""
       }
     ],
-    "sample": true,
+    "sample": false,
     "age_total": 19411
   },
   "plenary": {
-    "count": null,
+    "count": 1,
     "by_result": {
       "철회": 1
     },
@@ -62,7 +62,7 @@
         "link": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2S6R0S6Z2Y9Y1X1Y3W8W4S3Q9R9Q6"
       }
     ],
-    "sample": true
+    "sample": false
   },
   "polls": [
     {
@@ -257,8 +257,5 @@
     }
   ],
   "warnings": [],
-  "filled_from_prefetch": [
-    "bills",
-    "plenary"
-  ]
+  "filled_from_prefetch": []
 }

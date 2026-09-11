@@ -1,253 +1,111 @@
 {
- "saved_at": "2026-09-10T23:27:22",
+ "saved_at": "2026-09-11T00:20:18",
  "clusters": [
   {
-   "key": "481b499158859dce",
-   "score": 15.069162579358405,
+   "key": "32ac7f9e46de5c14",
+   "score": 15.67818422986436,
    "categories": [
     "국회·입법",
     "정당·공천",
     "선거·여론조사",
+    "지방정치"
+   ],
+   "matched_keywords": [
+    "본회의",
+    "원내대표",
+    "국민의힘",
+    "더불어민주당",
+    "민주당",
+    "지지율",
+    "보궐선거",
+    "후보",
+    "서울시장",
+    "지자체장"
+   ],
+   "articles": [
+    {
+     "id": "32ac7f9e46de5c14",
+     "title": "정점식 \"김민석, 사법부에 오세훈 유죄 판결 내리도록 압박…낙서 일부러 사진 찍혔나\"",
+     "url": "https://www.newsis.com/view/NISX20260910_0003784652",
+     "feed_id": "newsis_politics",
+     "feed_name": "뉴시스·정치",
+     "publisher": "",
+     "published": "2026-09-10T07:01:31+00:00",
+     "summary": "[서울=뉴시스]한은진 기자 = 정점식 국민의힘 원내대표는 10일 &#039;서울시장 후보 청래&#039; 등이 적힌 김민석 더불어민주당 대표의 수첩이 언론에 노출되자 &quot;마치 내년 4월 서울시장 보궐선거가 열리는 것을 기정사실로 해서 &#039;오세훈 서울시장은 유죄&#039;라고 여론몰이하고, 유죄 판결을 내리도록 사법부를 압박하는 시그널을 보낸 것 아닌가&quot;라고 말했다. 정 원내대표는 이날 자신의 페이스북에 &quot;본회의장에서 &#039;이당 저당 섞어 앉아서 서로 자기 당 의원 흉도 보자&#039;고 제안하시더니, 정작 본인은 본회의장에서 동료 의원을 상대로 &#039;데스노트&#039; 같은 낙서나 쓰고 있었는가&quot;라고 적었다. 정 원내대표는 &quot;동료 의원을 상대로 앞뒤 맥락도 없이 OUT이라고 낙서나 하는 김 대표의 모습에서 집권여당 대표의 품격을 전혀 찾아볼 수 없다&quot;며 &quot;그런데 OUT 메시지는 대중의 관심을 끌어모으기 위한 연막탄이고, 실제 의도는 오세훈 서울시장에게 유죄판결을 내리도록 사법부를 압박하는 것 아닌가 한다&quot;고 내다봤다. 그는 &quot;일부러 낙서를 사진에 찍히게 한 것이라면 아주 졸렬한 정치공작이고, 얄팍한 꼼수&quot;라며 &quot;지지율 폭락 반전을 위한 정국 전환 대책이라고 내놓은게 고작 야당 지자체장 몰아내기 위한 치졸한 사법부 겁박이란 말인가&quot;라고 했다. 이어 &quot;정부여당은 졸렬한 야당 지자체장 흔들기와 사법부 압박을 중단하라. 지지율 하락에는 국민에게 정직한 정공법으로 대응해야 한다&quot;고 촉구했다. 그러면서 &quot;얄팍한 잔머리로 상황을 타개하려 들면 지지율의 앞 숫자가 3에서 2로 바뀌는건 시간문제&quot;라고 덧붙였다. ◎공감언론 뉴시스 gold@newsis.com",
+     "source_weight": 1.2,
+     "tags": [],
+     "numbers": [
+      "10일",
+      "039",
+      "4월",
+      "3",
+      "2"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "6b597dd0e3d37f7c",
+   "score": 10.032187206054836,
+   "categories": [
+    "국회·입법",
+    "대통령실·정부"
+   ],
+   "matched_keywords": [
+    "청문회",
+    "대통령"
+   ],
+   "articles": [
+    {
+     "id": "6b597dd0e3d37f7c",
+     "title": "또 증인 없는 청문회…여당도 못 믿는 대통령 인사? [앵커리포트]",
+     "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5SUGcyaC1FYnllT01ZTHNzclhYcUZ2V1Vfc1VGdW4ydVhfbXBHcWRJSDlwUE03VEhxeWZ6RUEwaUdGVl9raTdzYjZBaWQxX3ZXMnJZ?oc=5",
+     "feed_id": "gnews_parties",
+     "feed_name": "구글뉴스·여야",
+     "publisher": "Nate News",
+     "published": "2026-09-10T21:34:00+00:00",
+     "summary": "또 증인 없는 청문회…여당도 못 믿는 대통령 인사? [앵커리포트] &nbsp;&nbsp; Nate News",
+     "source_weight": 1.0,
+     "tags": [],
+     "numbers": []
+    }
+   ]
+  },
+  {
+   "key": "08e19b9c16e2e048",
+   "score": 8.928258634626264,
+   "categories": [
+    "선거·여론조사",
     "사법·수사"
    ],
    "matched_keywords": [
-    "법안",
-    "더불어민주당",
-    "민주당",
     "선관위",
     "특검",
     "수사"
    ],
    "articles": [
     {
-     "id": "481b499158859dce",
-     "title": "與, '선관위 특검 파견검사 수사권 삭제' 법안냈다가 철회",
-     "url": "https://www.yna.co.kr/view/AKR20260910140900001",
-     "feed_id": "yna_politics",
-     "feed_name": "연합뉴스·정치",
-     "publisher": "",
-     "published": "2026-09-10T08:27:39+00:00",
-     "summary": "(서울=연합뉴스) 최주성 이율립 기자 = 여야 합의로 처리한 선거관리위 특검법에 따라 특검이 출범한 직후에 국회 법제사법위원회 소속 더불어민주당...",
-     "source_weight": 1.3,
-     "tags": [],
-     "numbers": []
-    }
-   ]
-  },
-  {
-   "key": "c0fbb82efddf5c75",
-   "score": 12.253492936501265,
-   "categories": [
-    "정당·공천",
-    "대통령실·정부",
-    "선거·여론조사"
-   ],
-   "matched_keywords": [
-    "민주당",
-    "대통령",
-    "지지율"
-   ],
-   "articles": [
-    {
-     "id": "c0fbb82efddf5c75",
-     "title": "이재명 대통령·민주당 지지율 동반하락…집권세력 전체에 대한 경고",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5tWHVNQ1Mtc3h6MHFvYnA1SXlZUW4xZkVVTURBeUtNS011aTZNSllxdzJ5em5oazRCaWlrYU9vSEwtUUlESzBtM09CY3Rma3cwcTBzZ2Z4UVZ3U2tRZ2ZScE04cTJ0ZGVWNWZNV01KQdIBckFVX3lxTFBUNkxBaFFUdFp4TWg1OUF5S3hPWVA2cEVRVnpKcTl4UkVET3RMM2t3VzN2ZVZPSmZCVkgxRWVqclRwUHBNUXBYZE1jYzZmU2J5aWJJUFdmcVhOQ3llSTFuYVh3WDRoTzFpY1EtbC0tbGNuQQ?oc=5",
-     "feed_id": "gnews_president",
-     "feed_name": "구글뉴스·대통령실",
-     "publisher": "강릉뉴스",
-     "published": "2026-09-10T17:41:18+00:00",
-     "summary": "[강릉뉴스 특집분석] 이재명 대통령·민주당 지지율 동반하락…집권세력 전체에 대한 경고 &nbsp;&nbsp; 강릉뉴스",
-     "source_weight": 1.1,
-     "tags": [
-      "강릉뉴스 특집분석"
-     ],
-     "numbers": []
-    }
-   ]
-  },
-  {
-   "key": "997921e8c7f99000",
-   "score": 9.98388685913348,
-   "categories": [
-    "사법·수사",
-    "외교·안보"
-   ],
-   "matched_keywords": [
-    "수사",
-    "외교부"
-   ],
-   "articles": [
-    {
-     "id": "997921e8c7f99000",
-     "title": "韓 네팔 구호대 1·2진 교대... 2진은 재건복구팀으로 구성",
-     "url": "https://www.chosun.com/politics/diplomacy-defense/2026/09/11/5TL2C4CBJFBCNAXE4BKYOQL5PE",
-     "feed_id": "chosun_politics",
-     "feed_name": "조선일보·정치",
-     "publisher": "",
-     "published": "2026-09-10T23:14:38+00:00",
-     "summary": "",
+     "id": "08e19b9c16e2e048",
+     "title": "100일 맞는 올공 시위, 수사권 박탈될 뻔한 선관위 특검",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBfUHhURUtNUWhESzVXX2dpYkRJclliUzZiT1hkczdFY1owT0xqNkRqV005REc5T05JcTJteUdicS1sWktiU3V3ZGU4aGxsUmNwSG1JazBn?oc=5",
+     "feed_id": "gnews_election",
+     "feed_name": "구글뉴스·선거",
+     "publisher": "중앙일보",
+     "published": "2026-09-10T15:20:00+00:00",
+     "summary": "[사설] 100일 맞는 올공 시위, 수사권 박탈될 뻔한 선관위 특검 &nbsp;&nbsp; 중앙일보",
      "source_weight": 1.0,
-     "tags": [],
-     "numbers": []
-    },
-    {
-     "id": "8bb6455a7b1ab482",
-     "title": "韓구호대 2진 네팔로 출발…재건복구팀으로 구성",
-     "url": "https://www.yna.co.kr/view/AKR20260911016700504",
-     "feed_id": "yna_politics",
-     "feed_name": "연합뉴스·정치",
-     "publisher": "",
-     "published": "2026-09-10T22:50:02+00:00",
-     "summary": "(서울=연합뉴스) 민선희 기자 = 네팔 대홍수 피해 대응을 위한 대한민국 해외긴급구호대(KDRT) 2진이 11일 구호물자를 싣고 네팔로 출발했다...",
-     "source_weight": 1.3,
      "tags": [
-      "네팔 대홍수"
+      "사설"
      ],
      "numbers": [
-      "2",
-      "11일",
-      "55분",
-      "330",
-      "1억",
-      "8천",
-      "2명",
-      "8명",
-      "7일",
-      "2일",
-      "44명",
-      "1",
-      "12일",
-      "7명",
-      "2026",
-      "09",
-      "11",
-      "07",
-      "50",
-      "2026년",
-      "09월",
-      "50분"
-     ]
-    },
-    {
-     "id": "9661a96e8ed2969e",
-     "title": "韓 긴급구호대 2진, 네팔로 출국…수색·재건복구 활동",
-     "url": "https://www.newsis.com/view/NISX20260911_0003785155",
-     "feed_id": "newsis_politics",
-     "feed_name": "뉴시스·정치",
-     "publisher": "",
-     "published": "2026-09-10T22:48:15+00:00",
-     "summary": "[서울=뉴시스] 유자비 기자 = 네팔 홍수 피해 대응을 위해 파견되는 대한민국 해외 긴급구호대(KDRT) 2진이 11일 네팔로 출발했다. 외교부에 따르면 KDRT 2진은 이날 오전 2시55분께 구호물자 약 4t과 함께 우리 군 수송기(KC-330) 편으로 네팔로 출발했다. KDRT 2진은 네팔 현지시간으로 이날 오전 중 도착할 것으로 예상된다. KDRT 2진은 외교부, 소방대원, 코이카(KOICA), 의료진 각 2명씩 총 8명으로 구성됐다. 파견 기간은 7일로 네팔 현지에서 활동하게 된다. 2진은 수색·구조 외에 재건·복구에 중점을 뒀다. 네팔 측에 전달될 구호물자는 국내 비정부기구(NGO)가 국내 기업으로부터 기부받은 1억8000만원 상당의 방한의류, 담요, 텐트 등이다. 앞서 파견된 KDRT 1진은 10일간의 활동을 마치고 이날 네팔에서 출발해 12일 오전 귀국할 예정이다. KDRT 1진 복귀 후 정부합동신속대응팀의 일부 운영 계획도 조정된다. 정부합동신속대응팀은 12일부터 &#039;정부합동대응팀&#039;으로 명칭이 변경된다. 외교부, 경찰청, 국립과학수사연구원 인원 총 7명으로 재편될 예정이며, 필요시 교체 혹은 추가 파견이 이뤄질 수 있다. ◎공감언론 뉴시스 jabiu@newsis.com",
-     "source_weight": 1.2,
-     "tags": [],
-     "numbers": [
-      "2026.09.11",
-      "15.7",
-      "07",
-      "48",
-      "15",
-      "08",
-      "12",
-      "24",
-      "2",
-      "11일",
-      "10",
-      "127",
-      "5개",
-      "100",
-      "8일",
-      "4개",
-      "10%",
-      "11년",
-      "7000,",
-      "1년",
-      "6000곳",
-      "30",
-      "1000만",
-      "6",
-      "1위",
-      "50명",
-      "300",
-      "400만",
-      "600",
-      "0.3%",
-      "0.97%",
-      "18",
-      "500",
-      "1개",
-      "6400억",
-      "5분",
-      "12일",
-      "5",
-      "8월",
-      "21.9조",
-      "53%",
-      "0.6%",
-      "0.65%",
-      "9월",
-      "70%",
-      "16%",
-      "1.13%",
-      "0.25%",
-      "2.50%",
-      "9억",
-      "1000",
-      "8억",
-      "9000",
-      "10월",
-      "2분",
-      "2.7조",
-      "43%",
-      "300만",
-      "2030년",
-      "100조",
-      "9",
-      "11",
-      "1",
-      "1 조",
-      "6명",
-      "80%",
-      "2650억",
-      "13",
-      "11월",
-      "3만",
-      "2만",
-      "29"
+      "100일"
      ]
     }
    ]
   },
   {
-   "key": "2546f3dc02500680",
-   "score": 9.856439365072694,
-   "categories": [
-    "국회·입법",
-    "선거·여론조사"
-   ],
-   "matched_keywords": [
-    "청문회",
-    "지지율"
-   ],
-   "articles": [
-    {
-     "id": "2546f3dc02500680",
-     "title": "지지율은 ‘데드크로스’인데…청문회는 ‘무증인’, 김민석은 ‘OUT 정치’",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFA2Z3hKOUNIajNDV016djZDcEpkV1pPZldnS01PVGl6ckxMdklzVlRFVWQ4ellKLW95WnVpNkZuLWpCQ09aUkpiczRaWGNIMWZaU1FteGJUalF1Rmc3ZkIwQVJSbml3aC1SSkdv0gFvQVVfeXFMT1F2aHozaERQWFEwbDNYNThzc0NGOEVlN1c3SUprTlh0bjNIVjdtd1JrOXZWWUR5cUJUc0FSMkEtOWUtWDV1Wk1VMU5sejNhWlVreGJEcER1Y3dKR192NWg0QzBHT09Pc1EwYlF2Qi1F?oc=5",
-     "feed_id": "gnews_politics",
-     "feed_name": "구글뉴스·정치",
-     "publisher": "펜앤마이크",
-     "published": "2026-09-10T22:58:12+00:00",
-     "summary": "[양준서의 정조준] 지지율은 ‘데드크로스’인데…청문회는 ‘무증인’, 김민석은 ‘OUT 정치’ &nbsp;&nbsp; 펜앤마이크",
-     "source_weight": 1.0,
-     "tags": [
-      "양준서의 정조준"
-     ],
-     "numbers": []
-    }
-   ]
-  },
-  {
-   "key": "6bb9f4bcb72fc4a5",
-   "score": 8.015010793644121,
+   "key": "644cd93cd683a2d1",
+   "score": 7.965937206054835,
    "categories": [
     "대통령실·정부"
    ],
@@ -258,7 +116,7 @@
    ],
    "articles": [
     {
-     "id": "6bb9f4bcb72fc4a5",
+     "id": "644cd93cd683a2d1",
      "title": "한동훈 “로텐더홀에 누구나? 계엄군도 들어올 수 있나”···총리실 ‘사찰 아냐’ 해명 반박",
      "url": "https://www.khan.co.kr/article/202609110819001",
      "feed_id": "khan_politics",
@@ -271,6 +129,34 @@
      "numbers": [
       "10일"
      ]
+    }
+   ]
+  },
+  {
+   "key": "14f76bc630de3c88",
+   "score": 7.595937206054835,
+   "categories": [
+    "대통령실·정부"
+   ],
+   "matched_keywords": [
+    "대통령",
+    "기자회견"
+   ],
+   "articles": [
+    {
+     "id": "14f76bc630de3c88",
+     "title": "이 대통령, 추석 전 기자회견 검토",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1MeFRpNjZiN0dsMEZFUFUxdFczUjRfcDBOMXhVX0RVYlpSLTJOVlUzU3BsUGRfeC1HR2lKRTBtU05UQVBhLVJWemlNLWx1MTNTUDN1NHU1aHk3OXVTc1lFVk9zc0hXSU9ESk9jdkpRMmtVYlUw?oc=5",
+     "feed_id": "gnews_politics",
+     "feed_name": "구글뉴스·정치",
+     "publisher": "한겨레",
+     "published": "2026-09-11T00:15:00+00:00",
+     "summary": "[뷰리핑] 이 대통령, 추석 전 기자회견 검토 &nbsp;&nbsp; 한겨레",
+     "source_weight": 1.0,
+     "tags": [
+      "뷰리핑"
+     ],
+     "numbers": []
     }
    ]
   }
