@@ -66,6 +66,25 @@
   },
   "polls": [
     {
+      "reg_no": "17264",
+      "agency": "한국갤럽조사연구소",
+      "client": "한국갤럽 자체 조사",
+      "method": "무선전화면접",
+      "title": "전국 정기(정례)조사 정당지지도",
+      "registered": "2026-09-10",
+      "region": "전국",
+      "ntt_id": "19508",
+      "period": "2026-09-08~10",
+      "sample_size": 1000,
+      "response_rate": "9.4%",
+      "margin": "95% 신뢰수준에 ±3.1%p",
+      "outlet": "한국갤럽 홈페이지",
+      "publish_at": "2026-09-11 10시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19508&menuNo=200467",
+      "extra": {},
+      "summary": "한국갤럽조사연구소 · 한국갤럽 자체 조사 의뢰 · 2026-09-08~10 · 1,000명 · 무선전화면접 · 응답률 9.4% · 95% 신뢰수준에 ±3.1%p"
+    },
+    {
       "reg_no": "17263",
       "agency": "(주)엠브레인퍼블릭",
       "client": "㈜엠브레인퍼블릭, 케이스탯리서치, ㈜코리아리서치인터내셔널, ㈜한국리서치",
@@ -207,15 +226,15 @@
       "registered": "2026-09-05",
       "region": "전국",
       "ntt_id": "19500",
-      "period": "2026-09-04~05",
-      "sample_size": 1002,
-      "response_rate": "9.8%",
-      "margin": "95% 신뢰수준에 ±3.1%p",
-      "outlet": "유튜브 '김어준의 겸손은 힘들다 뉴스공장' 생방송 공표",
-      "publish_at": "2026-09-07 06시 00분",
+      "period": "",
+      "sample_size": null,
+      "response_rate": "",
+      "margin": "",
+      "outlet": "",
+      "publish_at": "",
       "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19500&menuNo=200467",
       "extra": {},
-      "summary": "(주)여론조사꽃 · 2026-09-04~05 · 1,002명 · 무선전화면접 · 응답률 9.8% · 95% 신뢰수준에 ±3.1%p"
+      "summary": "(주)여론조사꽃 · 무선전화면접"
     },
     {
       "reg_no": "17255",

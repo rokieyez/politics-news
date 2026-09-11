@@ -1,69 +1,91 @@
 # 수집 기사 원본 — 2026-09-11
 
-기사 500건 · 매체 132곳 · 피드 17/17개 정상
+기사 500건 · 매체 120곳 · 피드 17/17개 정상
 
-링크 점검 5개 중 전부 정상
+링크 점검 15개 중 전부 정상
 
 ---
 
-## 1. 정점식 "김민석, 사법부에 오세훈 유죄 판결 내리도록 압박…낙서 일부러 사진 찍혔나"
+## 1. 국힘 "김승원·용혜인 임명 강행은 민심과의 전면전 선포" 총공세
 
-`국회·입법 · 정당·공천 · 선거·여론조사 · 지방정치` · 보도 1건 · 점수 15.68
+`국회·입법 · 정당·공천 · 대통령실·정부 · 선거·여론조사 · 사법·수사 · 외교·안보` · 보도 1건 · 점수 22.96
 
-- [뉴시스·정치] [정점식 "김민석, 사법부에 오세훈 유죄 판결 내리도록 압박…낙서 일부러 사진 찍혔나"](https://www.newsis.com/view/NISX20260910_0003784652) — 09-10 07:01
-## 2. 또 증인 없는 청문회…여당도 못 믿는 대통령 인사? [앵커리포트]
+- [뉴시스·정치] [국힘 "김승원·용혜인 임명 강행은 민심과의 전면전 선포" 총공세](https://www.newsis.com/view/NISX20260911_0003785570) — 09-11 01:33
+## 2. 정점식 "김승원 의혹, 단순 비리 아닌 게이트…국정조사 받아야"
 
-`국회·입법 · 대통령실·정부` · 보도 1건 · 점수 10.03
+`국회·입법 · 정당·공천 · 대통령실·정부 · 선거·여론조사 · 사법·수사` · 보도 5건 · 점수 22.78
 
-- [Nate News] [또 증인 없는 청문회…여당도 못 믿는 대통령 인사? [앵커리포트]](https://news.google.com/rss/articles/CBMiU0FVX3lxTE5SUGcyaC1FYnllT01ZTHNzclhYcUZ2V1Vfc1VGdW4ydVhfbXBHcWRJSDlwUE03VEhxeWZ6RUEwaUdGVl9raTdzYjZBaWQxX3ZXMnJZ?oc=5) — 09-10 21:34
-## 3. 100일 맞는 올공 시위, 수사권 박탈될 뻔한 선관위 특검
+- [대전일보] [정점식 "김승원 의혹, 단순 비리 아닌 게이트…국정조사 받아야"](https://news.google.com/rss/articles/CBMib0FVX3lxTE9BbEVuV2lmR2xIa0I4MWltSkltWGJuNHZQVFk2UGNvNlhzb2JQZ3VDbEh4T3MtUGNGQkpLbmotNzBNXzBndDA2Y1BvczBNdnRjOUpiRE5VcFplSi1fS3lmcEtnYjdjSVZiTHR2UEU4RQ?oc=5) — 09-11 03:00
+- [BBS불교방송] [정점식 "김승원, 인사청문회 아닌 국정조사 받아야"](https://news.google.com/rss/articles/CBMia0FVX3lxTE01MkVZNTBRSkdvVmZxemlxN1ZsYVVaTzYwS0xjSkF2RV81UFE1V2NxSUFCT0x0QlR5SG1qbURVbzhKR2h2cXQyZEpkTFFYYnFhZGxRTzk0TjlTUV9MWm1JbUxRc01taEJmOHMw?oc=5) — 09-11 01:37
+- [연합뉴스·정치] [정점식 "김승원 의혹, 단순비리 아닌 게이트…인청 아닌 국조해야"](https://www.yna.co.kr/view/AKR20260911038200001) — 09-11 00:27
+- [뉴시스·정치] [정점식 "김승원, 인사청문회 아닌 국정조사 받아야…개인 비리 아닌 권력형 게이트"](https://www.newsis.com/view/NISX20260911_0003785394) — 09-11 00:23
+- [동아일보·정치] [정점식 “김승원 국정조사 받아야…로비·주가조작 게이트”](https://www.donga.com/news/Politics/article/all/20260911/134648636/1) — 09-11 00:23
+## 3. 김민석, 김승원 지명 “볼수록 잘된 인사…지킬 것”
 
-`선거·여론조사 · 사법·수사` · 보도 1건 · 점수 8.93
+`국회·입법 · 정당·공천 · 대통령실·정부 · 선거·여론조사 · 사법·수사` · 보도 7건 · 점수 22.66
 
-- [중앙일보] [100일 맞는 올공 시위, 수사권 박탈될 뻔한 선관위 특검](https://news.google.com/rss/articles/CBMiVkFVX3lxTFBfUHhURUtNUWhESzVXX2dpYkRJclliUzZiT1hkczdFY1owT0xqNkRqV005REc5T05JcTJteUdicS1sWktiU3V3ZGU4aGxsUmNwSG1JazBn?oc=5) — 09-10 15:20
-## 4. 한동훈 “로텐더홀에 누구나? 계엄군도 들어올 수 있나”···총리실 ‘사찰 아냐’ 해명 반박
+- [BBS불교방송] [김민석, 김승원 지명 “볼수록 잘된 인사…지킬 것”](https://news.google.com/rss/articles/CBMia0FVX3lxTFBWTS1sYlBfc2VhN0MwZjNTV2twcjBpNjVLem9jOXVsZkJIY0g3ZVB5WXROQXNNWm9kblNMdjJnUGpqdmJtOV8tbmR2QkxIaXplenQwWTZMVnpBNzFQdk45ZTFGUjJKeExfdHNv?oc=5) — 09-11 02:53
+- [v.daum.net] [김민석 "김승원 지킬 것...한동훈 관종 정치는 검찰 잔당의 내란 연속 행위"](https://news.google.com/rss/articles/CBMiT0FVX3lxTE5OUzNnUkJ3NG9pX090eFZpcGktRENzb244aHBLelBUWjlGTERHLWM2Ui1WVWw0TDZkeXhmODYwSTB4Y2x3TWZtWDNYV0JGMms?oc=5) — 09-11 02:35
+- [한국경제·정치] [김민석 "김승원, 지켜보면 지켜볼수록 잘된 인사…지킬 것"](https://www.hankyung.com/article/2026091186547) — 09-11 02:24
+- [연합뉴스·정치] [김민석 "김승원, 보면 볼수록 잘된 인사…한동훈, 반드시 처벌"](https://www.yna.co.kr/view/AKR20260911070200001) — 09-11 02:23
+- [경향신문·정치] [김민석, ‘신약 로비 논란’ 김승원 후보자에 “보면 볼수록 잘된 인사”](https://www.khan.co.kr/article/202609111110001) — 09-11 02:10
+- [아시아투데이] [김민석 “김승원, 지켜볼수록 잘 된 인사”…한동훈엔 “관종 정치”](https://news.google.com/rss/articles/CBMibkFVX3lxTE52LXJvZklIZ214UDFENlppbmVOc0lMZlA4RE5UaWRhbnB1S1JSaDZCaTRiMXlCRlRvN0JVempTRUZXVHZhcVBxZ3czU1lrNVl1cldFeVU5Sk5idjBBZkZhVmtjX193TVF4ZFBDSlFB?oc=5) — 09-11 01:53
+- [조선일보·정치] [김민석 “김승원 지킬 것, 지켜볼수록 잘된 인사… ‘한동훈 처벌’ 여론 높아”](https://www.chosun.com/politics/assembly/2026/09/11/WZY746D6E5E3FI575VZRMCEMUQ) — 09-11 01:45
+## 4. 與 "김승원 후보 지킬 것" 엄호 지속…용혜인은 '거리두기'(종합)
 
-`대통령실·정부` · 보도 1건 · 점수 7.97
+`국회·입법 · 정당·공천 · 대통령실·정부 · 선거·여론조사 · 사법·수사` · 보도 1건 · 점수 20.72
 
-- [경향신문·정치] [한동훈 “로텐더홀에 누구나? 계엄군도 들어올 수 있나”···총리실 ‘사찰 아냐’ 해명 반박](https://www.khan.co.kr/article/202609110819001) — 09-10 23:19
-## 5. 이 대통령, 추석 전 기자회견 검토
+- [뉴시스·정치] [與 "김승원 후보 지킬 것" 엄호 지속…용혜인은 '거리두기'(종합)](https://www.newsis.com/view/NISX20260911_0003785715) — 09-11 02:51
+## 5. 국힘 "與, 청문회 증인 거부하며 용혜인·김승원 방탄…맹탕청문회 만들려 해"
 
-`대통령실·정부` · 보도 1건 · 점수 7.60
+`국회·입법 · 정당·공천 · 대통령실·정부 · 선거·여론조사 · 사법·수사` · 보도 1건 · 점수 20.36
 
-- [한겨레] [이 대통령, 추석 전 기자회견 검토](https://news.google.com/rss/articles/CBMidEFVX3lxTE1MeFRpNjZiN0dsMEZFUFUxdFczUjRfcDBOMXhVX0RVYlpSLTJOVlUzU3BsUGRfeC1HR2lKRTBtU05UQVBhLVJWemlNLWx1MTNTUDN1NHU1aHk3OXVTc1lFVk9zc0hXSU9ESk9jdkpRMmtVYlUw?oc=5) — 09-11 00:15
+- [뉴시스·정치] [국힘 "與, 청문회 증인 거부하며 용혜인·김승원 방탄…맹탕청문회 만들려 해"](https://www.newsis.com/view/NISX20260911_0003785708) — 09-11 02:14
 ---
 
-## 이슈로 선정되지 않은 기사 (28건)
+## 이슈로 선정되지 않은 기사 (40건)
 
 <details><summary>펼치기</summary>
 
-- [SBS·정치] ["하늘서 무료 와이파이를"…대한항공·아시아나, 스타링크 도입](https://news.sbs.co.kr/news/endPage.do?news_id=N1008748236&plink=RSSLINK&cooper=RSSREADER)
-- [SBS·정치] [금리 줄줄이 '인상'…주식 줄고 예금 늘까](https://news.sbs.co.kr/news/endPage.do?news_id=N1008747890&plink=RSSLINK&cooper=RSSREADER)
-- [연합뉴스·정치] [원주시, 민긍호 의병장 외증손녀 옥사나 텐에 친서 전달](https://www.yna.co.kr/view/AKR20260911034300062)
-- [Vietnam.vn] [정치 실험의 양면](https://news.google.com/rss/articles/CBMib0FVX3lxTFBfUUFkaHh2TGVkTURFekVQODd1TEhfTHhtSmw2cE5mMmVlTHlGNmlqNW5rR01CN2RSeGVrbmRyTG40dFNYclkzdEtMaEVGdlV5TEJ2aFAybmR2TEJzUzNrc0pSNG8yU3MwY1hBX05ZOA?oc=5)
-- [v.daum.net] ["수십억 줄 테니 정치 좀 해주세요"…연봉 38억 쥐여주는 나라 [스프]](https://news.google.com/rss/articles/CBMiT0FVX3lxTFBHN2ZIQXNUNERORkVBY0VCalh2YXBSRzdLNVRCd0pod1VIbzFUdGhUejNmMHl2TWwxZlNHZk16Y29haWNMN1FfYzhXdER6SXM?oc=5)
-- [천지일보] [국회 사흘째 대정부질문… 부동산·예산안 놓고 공방](https://news.google.com/rss/articles/CBMiakFVX3lxTE5XcDNTWmVjTjRIWnBqNE5mNFg5b3hVbHNfMkF1Z1BoZEJ1UmFCX1NEcWxWWDhWZ1VQMTg4NnNBMkFxalIwQm9PQjBvMExwT3lURk1aNm1Pc1A3TVFLUkJ2WHNLclRMN3J4SFE?oc=5)
-- [뉴시스·정치] [靑, 하태경 정책실장 급부상 보도에 "사실무근…허구 보도에 강한 유감"](https://www.newsis.com/view/NISX20260911_0003785296)
-- [홍성신문] [홍성군, 자살 예방 우수 ‘복지부장관 표창’](https://news.google.com/rss/articles/CBMia0FVX3lxTE5vb1c1dnF4TE03TlQtbUVDYXdvWW1nSGk1THAybHJoczNsTVVUc3dsRHdHUU9KX1FwcmN4WU5HSUNEUV9HX0ZjUWZXMVJQakF2QTgyRHhuR1RpWHpYZTlJVkpfTlVzT2w5M1RV?oc=5)
-- [뉴시스] [토큰증권 상품부족 해소 '신탁법안' 속도…15일 정무위 문턱 넘을까](https://news.google.com/rss/articles/CBMiYEFVX3lxTE5xSmg0Q0tpQm52R1hTZzJxMUQ0akNUWV81dmNESlFIQXVBMy05LS1oUFpzUHJsWEFSZXpNUjYyMUN0VWYwalp3Y2pDb0Z2NFZDV1N0cGIyR3lKNjJGT3ZULQ?oc=5)
-- [중앙일보] [뭐가 문제냐는 용혜인…靑 “기자회견 하는 것도 몰랐다”](https://news.google.com/rss/articles/CBMiVkFVX3lxTE1BbEdZakllQUJQWWVhRE1TbWt2RVoxOWFyUkpVN2ZHcTdlRXlFZGtyOUU4LWUxSFlJdHdvRlVoNUdta2FyNHFiX0tpOUVFRl83RGhrenZ3?oc=5)
-- [v.daum.net] [용혜인, 여당에 "억측·악선동" 반발…언론에 "이성 찾아달라"](https://news.google.com/rss/articles/CBMiT0FVX3lxTFB2TWRQc2lTeENESVNhWVAyaVZncjF2NXhQZVIyQWZHTVRYUGh1NW9hRUdTN3Q4Rm00Y1FEOEx6RUdmNWxUUGFyeHM1dDNyems?oc=5)
-- [v.daum.net] ['공천 수혜' 김영선은 징역형…'공익 신고' 강혜경은 벌금형](https://news.google.com/rss/articles/CBMiT0FVX3lxTFAtMXZTVWxRdDVhZzhNTHJJYWV0T29SS05MRG1GY1hOS0lGOF9SUWFyN1BwbGNmNDhsdjl5bXJ5Rm8zR1FKUzBkSnJjeXRSYlk?oc=5)
-- [v.daum.net] [TK보다 싸늘한 서울 민심…李에 드리운 ‘20%대 지지율’의 그림자](https://news.google.com/rss/articles/CBMiT0FVX3lxTE5JOXBYOU1tZlRES1RyMW9uVjl4UEVuU2gybHE4bHp6aXB0MGk4TnhoZVZmcTVCcldtdk5Wbk9CME9BVUF6cXh4YWxPZ2g0SkU?oc=5)
-- [투데이신문] [대법관 공석 장기화 막는다...송영길, ‘대법관 제청 지연 방지법’ 대표 발의](https://news.google.com/rss/articles/CBMia0FVX3lxTE1PSE80NUVHZWFrSHdabWFGVGFRWHJhWS15WW81SmFBanh6Q2FkaThQa3RfVm9USG55dmhIRUlVb0VpX1U2Tl9FMUw5czA0TnlMdHVxdHg5SXllbTV5TFh3bndZczNacjl5S2hR0gFvQVVfeXFMTXI0WUdWSnhoeU5sTnpTM0REZXh2bFA3M2h5QWlYbFVqVFpGakJ0OC1kUDJueUUyNzNlelBuY2VxTUdoVkV0ZGgwS0plT2hYNEFLcXRxMmwxLXBMU1FFc2lidXJ4cUM3dFo3REM4QjFR?oc=5)
-- [theonetv.kr] [이재명 귀국…청와대 “연임 안 한다는 뜻” 추석 전 회견 검토](https://news.google.com/rss/articles/CBMiaEFVX3lxTFA4Qk9NTWVLRTNxZEppeXJCMHdQc2I4UGlKSzhFZ25BRkpMRjZVVF9HV0pDR21uWE9uUzdZd2pQSU0xdUVkYmtCTE9rcWk2YVByQkFFLWlQZk1tcGFUbEhFakl2VVFnSThC?oc=5)
-- [Vietnam.vn] [베트남 대통령실 당위원회는 제14차 중앙위원회 제3차 전체회의 결의안을 연구, 이해, 전파 및 이행하기 위한 회의를 개최했습니다.](https://news.google.com/rss/articles/CBMikAJBVV95cUxPUkdsaWYtVjBqRkthQlhvTlJyQTNpNmdNNC0ySURMcEEzd2hTaF9xcGhUYnphVk1nbmdEUDdoZ0hDUFV3UHE0b3hjZ2JHNkxmanJNMjlaMVdZZWxyMVhiMExsNmY0N0tBU0EwR1plUlVrN095ekZZYlFwTWlYTl93Uk42ZTZ4YXhFMHIzUHl4ZElOaHR6cGFjRHdRQkx0aUFWejBYckhvdlN4Z2dzdE5jclFCeVhDQlcxYWFvTUpEam4waVpTR2thaXQyS2tPUWhnTDI4em5aVGhyYUxzYXJ4X1NTU19GcHNhOFVib2VQNDl5VUswc3h6Tk53eG13WDM1VmxRNTQxMnN4OGRyUGN5Qg?oc=5)
-- [뉴시안] [美 요구에 빨라지는 대미외교…호르무즈 파병·대미투자 ‘국익 시험대’](https://news.google.com/rss/articles/CBMia0FVX3lxTFBQekl5YnIwREdqMUNlZWljdW0wWGJ5Q2JqVmRUTXc2ZU5TV3RLVXpsZXg5RllVa1hZNlRCTzdSNVc2TXRoZ25aZHNFYTNWWTgtaFpZc0VmMXN2dElkODY1YmpsTkZVaTdsM1FJ0gFuQVVfeXFMTzVSOFFqLVE3XzlfSDBqU2hlQXg5dmxpckVoWVpRZUhHSDltSHJtOGdqcW5abGJ5dnJ6SVNzalNUeG5mU1ktZzh6Y0RPc0d5RWZ1VjUzLVd6SktIVXFHV0VKeU5Uc0VLbWtIODJ0Qmc?oc=5)
-- [뉴시스] [이란, 외국 석유·가스 운반선에 10% 할증료 징수 일시 중단](https://news.google.com/rss/articles/CBMiYEFVX3lxTE1UT082dUtHeTlfRGJwOFBoWUtDaldjOFBsZUgwUGF1NTFxTU9CYWxUX21KMzlKYUJBWks3OHBCY0NfLUpCOENGektMTEN1d3p3S3VNbGgyaWhtRXZ5UXl6dtIBeEFVX3lxTE85LU9aVE9PWEUzVGxvdGNBN1NvSzU1YzhTZkJJT0FERFhoazZ1ZF9EZ1d5azRFdTBZa1hhWlpMamxjZU1JcGhMZ3F0WldYU3ZxVnJNWm5NUEMtQ3poOTNscTNrREhxSkZNV0FZeXNpeUF6YnppV25yZA?oc=5)
-- [kmctimes.com] [충청연회 감독선거 후보들, 제2차 합동정책발표회서 연회 향한 비전 제시](https://news.google.com/rss/articles/CBMiakFVX3lxTE91UG5jTFRrRWN0eFl1X0VwZTJZQXdueDliNnB4aDNhWFRINElSSllWOEhLMDZJdFI5STVuM2ZmWGNhVVFBNm45VjNoZ3FDRzRlSUZCVmJkNkhzSHJXMkhsLS0tNGcyeGNQeUE?oc=5)
-- [더팩트] ['이종섭 범인도피 의혹' 윤석열 오늘 1심 선고](https://news.google.com/rss/articles/CBMiVkFVX3lxTFBKVHJjYXVucVZYQlFCOUN0LWpVeWs2NWtaX3ZmMXpuTUlkVzhncWN0NXJxZmRvOURNSGFOZ1FxdlpEMFlTeld4dXZyZVpMRVZVVWJhMFVn0gFQQVVfeXFMTW5Fa1BLSGtVQmh0UWQyNlZXSWVmYnRXMnQwallBNWxhczVsRjVCMlRZVjB4WV8zcUpIU2ZhcnVPVmxQcmVqUXJiZ09peG93LWQ?oc=5)
-- [Vietnam.vn] [대통령령으로 15개 법률 개정: 절차 대폭 간소화](https://news.google.com/rss/articles/CBMimwFBVV95cUxQMm8ta2NSZEFSeDlKbnVhOGE2dXdRTjQxY01HUGVpWGhNTUoyODRocmRjVHNsUENMUzJLSFFPREpxbU5rcWpUd0hlNm5oSlZqSlNfMkwtTXItTTFNcXpjSklDVm9tZ3ctdjN0d1hjZHBYcTFKaDN4M3I4c2JnNDRWa21rUmdLSGFQb3F2WUJXYk9fb3J0dkxqQ3JfUQ?oc=5)
-- [평택시민신문] [정장선 북콘서트, 평택 31년의 시간을 말하다](https://news.google.com/rss/articles/CBMiaEFVX3lxTE9hMGQ0MUcyM3g2YVRrdHJPVzkxYjhPaWdJZ2JzdjNFcVZ1QkFJMFU3Y2M3dXRyOWltdnpJbWY0dmJ3RS1xaFRlRWtfVldXbll2NjREeTdBMkZtX1l4SWJtYWFTcF9KZTYw?oc=5)
-- [v.daum.net] [김영선 전 의원, 정치자금 수수 혐의 '유죄' … 산단 정보 누설 '무죄'](https://news.google.com/rss/articles/CBMiT0FVX3lxTE5CSXVjWlY5dW1kNHNPNGFJbWFqTXBja2RIQU9jNWlVU00tYnJ4UUlhbUxaNS1nSVVqOUJoT1Y5d0xhM1RXeUE4cUdzR1FVWFU?oc=5)
-- [v.daum.net] [국회 대정부질문 이틀째…‘호르무즈 파병’ 여당은 “신중”·야당은 “언제?”](https://news.google.com/rss/articles/CBMiT0FVX3lxTE5qX0Vqck45OUE1ZDBnQTZyMUR6VTNFN256ZnFtdU55SGNOdGJhdExpelFNX3JVZHNNa21BQkdvSVVPWWNsWS1BSHF3U0lMbE0?oc=5)
-- [서울신문] [서영교 “개혁은 단단하게, 정치는 부드럽게” [인터뷰]](https://news.google.com/rss/articles/CBMiV0FVX3lxTE9sMGlVQXAzX2dEa18ydVBJNXFqU1pySFByRWRsVGJrN1V2S2k4WXZqdmViRTYyWVNMdUdYU1IyVTJ5amtBMFhhNV9rNlBKMllQQi1maEF5WQ?oc=5)
-- [v.daum.net] [노르웨이 "젤렌스키 비행기, 러 드론에 피격될 뻔"…우 "과장"(종합)](https://news.google.com/rss/articles/CBMiVEFVX3lxTE4wbmllbUpwX3lRNGN4TzBhS25VN0swT1N5U0t5NXhJOHlhcm9mYllkNl9tdzd2dllweVZyMjhuRkFIYVpqRWY2YUc4TDJZRlNRd0xpZQ?oc=5)
-- [쿠키뉴스] [프랑스서 돌아온 李, 다시 ‘민심의 시간’…직접 소통 나설까](https://news.google.com/rss/articles/CBMiY0FVX3lxTE1kZlJmamx3S2VaMHlrZGVMeGwxOTdOenU2RzBoeW9aZVRoSE9XbkphV3E4Nkl4cVZuTURtYjI2elVsVVVUVkd4UkotNk05V0t1T0JJUUxwMkRPWkhqSnEwLUpNQQ?oc=5)
-- [스브스프리미엄] ["수십억 줄 테니 정치 좀 해주세요"…연봉 38억 쥐여주는 나라](https://news.google.com/rss/articles/CBMiVkFVX3lxTE9PZHBCajVLMWlFeWpkZzNxMG5lTnFfMU9GaEJhMlpUYXItd1lUWnZNNk9rOGktdkhzQzY1Sm9SZlFIZVh1UnZWVDdwNlZUWE9iaDlPSHJR?oc=5)
+- [천지일보] [조희대 “법원, 타기관·정치 권력으로부터 간섭·영향 받지 않아야”](https://news.google.com/rss/articles/CBMiakFVX3lxTE5oaS1tekM2OUdzTFdDWXRCeXFHMEhYdVMtNzhJMjR2TFZjR2d6MEhCb2pUUkRFSS1vWlBZclNJSkZCSjZ2ODl1Uk1YS2owOXE2S1hQcEEyRkkyTTNmdEZfZ2x4Y1l0R3dLenc?oc=5)
+- [v.daum.net] ['여론조사 무상 수수' 윤석열 2심 징역 4년 구형…내달 7일 선고(종합)](https://news.google.com/rss/articles/CBMiT0FVX3lxTFA0d1REWllYaXByR1BCNWhBVzh6NkFqcUVUSnlEamlLVldqWGZHTktJYXJyT2JrNHJmUGpVR1BHWWJoQmNaQ0N4cEJibkVFZDQ?oc=5)
+- [동아일보·정치] [특검, ‘명태균 무상 여론조사’ 윤석열 2심서 징역 4년 구형](https://www.donga.com/news/Society/article/all/20260911/134649900/1)
+- [BBS불교방송] [민주평통 "'평화통일 100만 국민인터뷰'에 지난 5개월간 20만명 참여"](https://news.google.com/rss/articles/CBMia0FVX3lxTE9rZ19vc1VDaVlPMUduYVk4MWtkVkJ4TEkxR1JHRjhHYTBQVzBTOFNjdUp1OXBXR0Z1enZWSEk4TEhZSm1SSWF4TGJObklkUFNsbHBRZjhmaWVlbUZ4V2ZuYU1COG9VdUlaRzdB?oc=5)
+- [머니투데이] [조희대 대법원장 "법원, 정치권력 부당한 간섭 없이 재판해야" - 머니투데이](https://news.google.com/rss/articles/CBMieEFVX3lxTE9wWGRzYXJGd0ZXVnZobGdvZF91bXNWSUlJaG5Qck11cS0wLXZ6azZFb0lfcElJTGpWbHBUd21IUldFblgzVG9vSWVWTHl1RXVrZ1pRdi1YeEVwLWpUdHY0d25ISXZrNllScnlsMHNDaUYwYTBkMlFYNdIBfkFVX3lxTE15U1BvOUlJZHFCaWtGTGo2TE1vdHdsTVVxbE9CenhsQnpMY1ZNcUhBQlFWdUVCbnFFd3JwZ2M0V2x3dHE4R3ZVZjhHYnl2SHRVbThRYTlfVE92Mmtxc09XZTdRSXgtNlZDdmxRV1ZOa1NtMWhEZXhBY3dTWDZWQQ?oc=5)
+- [평화뉴스] ['장관 후보 인선 파장'...이 대통령 38%, 또 '최저'](https://news.google.com/rss/articles/CBMiY0FVX3lxTE5RU2Y4bE5JWUhYTnNDdTdISHQ4a2pxNk5iODIxb0xiSjlKQTVFcTg1SmJxenIwTm11QnAxQUdycjFrQ3FLbnFDcUlxd0lKWHZjdS14T0lMY21STUNFZXhkNEFIMA?oc=5)
+- [제주도민일보] [제주도 ‘사람’보다 ‘차량’ 중심 사회 지향하나?](https://news.google.com/rss/articles/CBMibkFVX3lxTFBEWmYwTEl5U19VamMwcktwV18tZ3FZQjhPNXpVVVVGcElkOXVnc0ZSdzFYQlZHcElkbzdVYnNmUXY2ZFloc0d3cWh4QXJOekJNMG1zSDZONENtS291WTk0LVZjalpaOGlZN1lySy1n?oc=5)
+- [뉴시스·정치] [정부, '성범죄 피해정보 유출' 구글 고발 검토…"타사도 조사"(종합)](https://www.newsis.com/view/NISX20260911_0003785819)
+- [연합뉴스·정치] [검찰, 김병기 구속영장 보완수사 요구…"구속 필요성 소명 부족"(종합)](https://www.yna.co.kr/view/AKR20260910140351004)
+- [v.daum.net] [조희대 "정치권력 부당한 간섭 안 돼"…대법관 제청 갈등 속 사법독립 강조](https://news.google.com/rss/articles/CBMiT0FVX3lxTE1FQmNabElZZjhobWJUeWVOaGh6MmljSmt0c0p0Z3NMY3NNb1JWR2twR0pfNEQ3RS1IQ0ZpTmJTcnJiVEg1Y0RidTJMUi1reHc?oc=5)
+- [서울경제] [조희대 “법원, 국가기관·정치권력 부당한 간섭 받지 않아야”](https://news.google.com/rss/articles/CBMiUkFVX3lxTFA1VmZjdVRJd2VIbUVNYm5EeTI5T3Rta1RTTHVzU2MyRWJSMENXdjlrTWlXMFl4WlZPbjczY0NDNlJYcG5pNTFDX1JnMEI1OGhjQWfSAVNBVV95cUxOZTVPTWMwT29YMkRVd3U0d3VqTWpEZTJFR3RUUHdocVItNGdiV0tkc3BSc3VLM0xPZmZsSmhkRVhZNGg5UjYwTnpXN0JPSWxRbG5zVQ?oc=5)
+- [법률신문] [조희대 대법원장 “정치 권력·외부 간섭으로부터 사법권 독립 지켜야”](https://news.google.com/rss/articles/CBMibkFVX3lxTE9kbXdYcnBXNU5mLVhVMy1nOWVsSFZlQmFvQTNxU1ZWUmtTN2VlQ2lGaHdLSHdWYVVmX2p1bzJ3Mzc5eVVuWWdFN3dQTjdfYzk3WkV0QlcwVldMbzFnVDJMWHlYaTlTOUYwM0Y5b0tn0gFyQVVfeXFMUFZscFZEQkRXa3ItVXdMdVBLQm5yNmtvYWU2YXZEbWpjY0psdy1GRTMxWEdkeUhkWVFFZ3pxaERWaWRZWTB4YldOajJWMTRtZjZlelJmanNfeVZWUEwtYzBGRERNQmVhN21WNjNmMVozdmN3?oc=5)
+- [BBS불교방송] [조희대 "법원, 정치권력 부당한 간섭 없어야"](https://news.google.com/rss/articles/CBMia0FVX3lxTE5ZS0dVSFlGSG1taFNsSE5ST2JITEN4bzFWNmpLOVg1S0hQNlI3S3lOUHJWMzNPTjB0ZlcyV3BtbHpDNFp6aV9pN193d3p4akR5bUtCOG1JZk1EMlExNjBSQUFNV3VTZm9nOEpv?oc=5)
+- [동아일보] [조희대 “법원, 정치권력 등 부당한 간섭 받지 않아야”](https://news.google.com/rss/articles/CBMidkFVX3lxTE5RRzc4QVU5MWw2ZUhMWlVhRHMzTGVWWXpIZEtjS2E1NHFJMTdJYWxQdzYxVTFlNE95T3JGWFBaLW5PN1hMUUxrY0JEd3NuR0hOMTZnR0FZTlFJc05QYU5ONnQ0RlY0aVZZVmwzUFBFczkwMzZ6OVHSAWZBVV95cUxOU1M1cnZkUmMwOUxQSFA4MU5PWmZ6cXB1UXZkOHlBb0pzZXVLQS1FUDJjV05uaURsX3R6ZTFTY0VTZHZLWkI3R0JGVUJvQlBDTkR5Q3ktXzVWUlRyX2ZuM2V0eHprUUE?oc=5)
+- [Vietnam.vn] [국회에서 통과된 15개 법률에 대한 대통령령 발표.](https://news.google.com/rss/articles/CBMimgFBVV95cUxNVlZOX1dCLWNUdWVMbGVnWThBbl9VSHEybXBPZ1J1NUdqck9YYloyX3UxYUFBLW9CeVpBWk1xMURka2xlZ0w2XzdnUDlVRkdQUkF6WnZGX3NmSGlNTHNYS2ZrSGk2NjNra3J6SFV2b281S0llbmJ6UUUySnVOenBxNG9RdzdsM3RFX2JtdFJMeFJfbVpQWnhiVG13?oc=5)
+- [hankyung.com] [조희대 "정치권력 간섭 없이 재판해야 법치주의 실현"](https://news.google.com/rss/articles/CBMiWkFVX3lxTE4zY0lvSHRqOUhJNVNHdm45QU9LOGdpOEVwV2VBN1Z4ZmRUamRkZFRiZmQ2TVVtS2VJZHl0RUo0ZEhlTUw0TWJpSnkzRE5yNEt0RVRZSGYwblZPUQ?oc=5)
+- [국민일보] [조희대 “정치권력의 부당한 간섭 받지 않아야 법치주의 실현”](https://news.google.com/rss/articles/CBMihwFBVV95cUxNZ0FrSDNRS2t3Mk9NVko2TGV5MHIxbjJ4S2Y3UDgyTnZLVnk5LXY3X0F4TUVTN0hXdEw4MDJVNWsyLWFDbGJ1d3NmYTR5UWZON3RxLW5BOGdwLTg2WE9xTkJlZmltVUpPSFVWSXE0bXc1N0poczkzMGdISkZQUDJzbDJsdm00MknSAWxBVV95cUxNR2t1OHFYMjJ1eFBBX3BmOFRBNHZyTWRqSU1iRGllYmF4YmR6Qk1KYVNPdjYyUTRycHFidjlSdjNfRzgwX3lkYnUwbnBHZXd4SzFFanNSR0prRV9pWTFFbTBubGdRMG52QzRRRTk?oc=5)
+- [뉴시스·정치] [장동혁 "사관학교 통폐합, 초등학생이 국방정책 하는 듯…시민에겐 생존 문제"](https://www.newsis.com/view/NISX20260911_0003785817)
+- [KBC광주방송] ['靑과 갈등' 조희대 "법원, 다른 국가기관·정치권력 부당간섭에 영향 받지 않아야"](https://news.google.com/rss/articles/CBMiYEFVX3lxTFBINDJUZ0V2TG11MDZhOHJaNzUxVTRTR2xjZEhtbU4teFJ4SFdaRzk4SWxRN1ZqUnZwbUNwV3dGMUZ2N3BFTlRzWVZuMmFZUGNYUGFZaFhRTEV0TzNiUU5pdw?oc=5)
+- [뉴시스·정치] [김승원 '신약 청탁·주가조작 의혹' 피해자들 "임상승인 의혹 밝혀달라"](https://www.newsis.com/view/NISX20260911_0003785801)
+- [연합뉴스·정치] [민심악화에 與 '용혜인 리스크' 우려…'김승원 지키기'엔 총력](https://www.yna.co.kr/view/AKR20260911078600001)
+- [뉴시스·정치] [윤상현 "尹 시절 총리실 직원이었으면 정권 퇴진 외쳤을 것"](https://www.newsis.com/view/NISX20260911_0003785736)
+- [연합뉴스·정치] [與 "용혜인, 국민 눈높이서 엄중히 볼 것…비상하게 의견 취합"](https://www.yna.co.kr/view/AKR20260911080200001)
+- [광주뉴스] [광주시·불교계, 남한산성 불교문화 관광 연계 논의](https://news.google.com/rss/articles/CBMiZ0FVX3lxTE92UkpJZGhyQllKVHc2LXpRdkFEd2l6YlNkVjJMejRxNGg3RXZMWFJqR0JMd0RPb1Y4VkJ4T291RTBrSXFRU2sxdVdZWEpsUjItSTY4VFE0d3lreHRWdkNTdzJWX01nUWc?oc=5)
+- [연합뉴스·정치] [국힘 "제보자 신원공개는 만행"…與 '김승원 지키기'에 역공](https://www.yna.co.kr/view/AKR20260911074900001)
+- [뉴시스·정치] [조희대 "법원, 정치 권력에 부당한 간섭·영향 받지 않아야"](https://www.newsis.com/view/NISX20260911_0003785803)
+- [매일신문] [김민석 '김승원 내연 의혹, 대장동 사진 조작 수준·한동훈 관종 정치'…용혜인엔 민주 '국민 눈높이 엄중'](https://news.google.com/rss/articles/CBMiYkFVX3lxTE1tb3A1YnVNWUxTUzNTTGN5Nl9OVk5uQWR3ZlJDWGVvMGJFRnVQOXUwZmxyS1FSSUpkNU5odlN3QkFvclB6Yk5nZEJkc1RVX1Z3S05Tb3lKRGNwSW9janY0ZkZ3?oc=5)
+- [동아일보·정치] [與 “용혜인, 국민 눈높이서 엄중히 보면서 의견 취합중”](https://www.donga.com/news/Politics/article/all/20260911/134649784/1)
+- [v.daum.net] [조희대 “법원이 정치권력의 부당한 간섭 받지 않아야”](https://news.google.com/rss/articles/CBMiT0FVX3lxTFA1RkpGbXNtTERna0NRcWVwY1VoT0RRRVVmQmIydE1ZUGRNb0xJNjZlRE54UXZWUV9nMFJrN3FvU1g1YkZVWDltUXc0c09QVHM?oc=5)
+- [news1.kr] [조희대 "법원, 다른 국가기관·정치권력 등 부당한 간섭 받지 않아야"](https://news.google.com/rss/articles/CBMiZEFVX3lxTE04bnVBNklfODVRSGV3SzVBYVhTZDNXMDBsLVBuYkVOS3pieVhTYWlzMWNhZ1ducFVtRzFMbGFGelRKbHVOU2NINVVjTDZMM2xNR0QzYk9qZjYwcGZieWZsN2o0M2jSAWpBVV95cUxNZG9JVUw5NEE0UnBaNFhuM3JabFB1cUNPX2taYVY4UVdiX1FjOHRYakhjQ2dydHJ3ckY3LWdCMUZjU0drbmtHd0NiRk9hdUlXcGY1VTlmUFNmYVo3OFVLVHRiN1hGWWc0V1dB?oc=5)
+- [연합뉴스·정치] ['유럽 4번째 돌파!'…크로아티아에 다연장로켓 천무 18대 수출](https://www.yna.co.kr/view/AKR20260911079100704)
+- [조선일보] [조희대 "법원, 정치 권력의 부당한 간섭 받지 않아야"](https://news.google.com/rss/articles/CBMihwFBVV95cUxNcVhyaEtwLWkwTmUydmhVMTJNTEpJd0lTV0x2XzJ0SUY0YTV2S19Ha1FidHJ3cm5KMFVRS2lSQkFWRTFmbzBMd1pTNlBKcE9kZFI3SDkyLVoxLWJoU2VlOEQ3Qnp6TmVzVVhIS3hqNkQzMzFrZWI0X2FkeFZjUnRvV1ZXZmFjVVU?oc=5)
+- [약사공론] [복지위, 첫 회의부터 '대립'...정쟁에 밀린 상임위 법안](https://news.google.com/rss/articles/CBMibEFVX3lxTE1rWW1BZTg0NHRTMkh6OExaMUlITFVWQ1hLY2l5ZVM3ZlJva05TRk9PcW45aEhGNzY3cVFVTWpuOUNCenNCamg1ZE1wYWZ1Q19ZcF9NLXVtaTd6MFUyTUlfQTBLMncwUUpnRy1GQw?oc=5)
+- [한국일보] [전용기 "김민석 고소한 한동훈, 흥분 말고… '김승원 자료' 출처 어디인가"](https://news.google.com/rss/articles/CBMibkFVX3lxTE1DSHBkWVBDdmdOQzZMN2ozNUxmYTFuOEVGY1g0d1F4UURLdDItSFFIM3dfallaOTRtWmZTVVd1ZDQ3Rko3Ti1FaTVIbnZxb1pqMDctYXhrckc0YmFJelZmOWRxdy1PbTBNbjdnX3B30gFzQVVfeXFMT2haSlFRc19vMDBRSGxxclJQSndtejFVZUpVZFYxWXktZVdObF9OWDVCdE5Ra3dkRUVTNndQeGhsZUV1bWJtWmhTVExnMkVsdGI2MF9tM3RpRlFKNU4tWEthVlZoNFk3cnU5RXllOURZbDhiMA?oc=5)
+- [대전일보] [용혜인 장관 임명 '반대' 61%…김승원은 '찬성' 42%](https://news.google.com/rss/articles/CBMib0FVX3lxTE5lYzVXSXlmZmFRdjVVYlpZMzFjaEtBMDZOUk56VzJlbUlLNW4xN1hmNTMzbXdZWmxjQ3VsSTBVa1BpVW9xOWFOckl1WVVZNzZiMFdNMmtkdEZRN0ZDR1A3XzBGWjd6dTZhYm4xMnh2MNIBc0FVX3lxTFBBX1E4TC1QWEdHSW90TGRnZGI0MUFsTHpqazMxOHBuY3pmQXQ0SE9fMkZvX3pxbTF0dHNYNm9vRVhxVmpQOUZaaTMxcjI4Wmd5QXRxa2MxQnhhY08ySmtidmFLLWl4eDE3TzhKTERGWFN4aEk?oc=5)
+- [뉴시스·정치] [사회연대경제법 제정·부적절 서훈 취소…'특별성과' 포상](https://www.newsis.com/view/NISX20260911_0003785373)
+- [뉴시스·정치] [5급 공채 신임 사무관 313명, 14일부터 부처 근무 시작](https://www.newsis.com/view/NISX20260911_0003785660)
+- [오마이뉴스·정치] [충남 친환경농산물 판로 넓힌다…공공기관 우선구매 지원 추진](https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003266499)
+- [동아일보·정치] [주진우, 용혜인 고발…“농장을 시도당 등록, 정당법 위반”](https://www.donga.com/news/Politics/article/all/20260911/134649763/1)
+- [연합뉴스·정치] [육군 23경비여단, 14∼18일 강릉·동해·삼척서 합동훈련](https://www.yna.co.kr/view/AKR20260911080000062)
 
 </details>

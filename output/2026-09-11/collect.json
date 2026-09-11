@@ -1,6 +1,6 @@
 {
   "date": "2026-09-11",
-  "collected_at": "2026-09-11T00:18:55+00:00",
+  "collected_at": "2026-09-11T03:54:51+00:00",
   "feeds": [
     {
       "id": "gnews_politics",
@@ -11,37 +11,37 @@
     {
       "id": "gnews_assembly",
       "ok": true,
-      "count": 56,
+      "count": 49,
       "error": null
     },
     {
       "id": "gnews_parties",
       "ok": true,
-      "count": 34,
+      "count": 35,
       "error": null
     },
     {
       "id": "gnews_president",
       "ok": true,
-      "count": 60,
+      "count": 33,
       "error": null
     },
     {
       "id": "gnews_bills",
       "ok": true,
-      "count": 24,
+      "count": 28,
       "error": null
     },
     {
       "id": "gnews_polls",
       "ok": true,
-      "count": 39,
+      "count": 51,
       "error": null
     },
     {
       "id": "gnews_election",
       "ok": true,
-      "count": 53,
+      "count": 54,
       "error": null
     },
     {
