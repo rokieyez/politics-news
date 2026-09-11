@@ -39,7 +39,8 @@ concurrency:
 jobs:
   brief:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 구독 자동 답하기가 세 덩이를 한 번에 쓰므로 넉넉히 (답 하나에 몇 분~십여 분).
+    timeout-minutes: 60
 
     steps:
       - uses: actions/checkout@v7
@@ -60,7 +61,10 @@ jobs:
           # 이 저장소는 첫 실행이 8분 만에 끝나 운 좋게 피했을 뿐 같은 경주가 있습니다.
           git fetch --quiet --depth=1 origin "$GITHUB_REF_NAME"
           git reset --quiet --hard FETCH_HEAD
-          if [ -z "${{ inputs.date }}" ] && [ -f "output/$DATE/data.json" ]; then
+          # 0원 방식에서는 data.json 이 답을 받아야 생깁니다. 답을 기다리는 날도 '있음' 입니다 —
+          # pack.json 을 안 보면 2026-09-11 처럼 07:27·08:27·09:20 세 번 돌며 묶음과 기사 목록을 갈아엎습니다
+          # (먼저 받은 묶음으로 쓴 답의 근거 번호가 다른 기사를 가리키게 됩니다).
+          if [ -z "${{ inputs.date }}" ] && { [ -f "output/$DATE/data.json" ] || [ -f "output/$DATE/pack.json" ]; }; then
             echo "오늘($DATE) 요약이 이미 있습니다 — 여기서 끝냅니다 (다시 만들려면 date 를 지정하세요)."
             echo "skip=true" >> "$GITHUB_OUTPUT"
           else
@@ -98,10 +102,20 @@ jobs:
             echo "::warning::크롬이 없어 PNG 변환을 건너뜁니다 (SVG 만 생성)"
           fi
 
+      - name: Claude Code 설치 (구독으로 자동 답하기)
+        if: steps.guard.outputs.skip != 'true'
+        # 설치에 실패해도 실행은 계속한다 — 그날은 예전처럼 사람이 묶음을 붙여 넣는다.
+        run: |
+          npm install -g --silent @anthropic-ai/claude-code >/dev/null 2>&1 \
+            && echo "Claude Code $(claude --version)" \
+            || echo "::warning::Claude Code 설치 실패 — 오늘은 붙여넣기로 넘깁니다"
+
       - name: 브리핑 생성
         if: steps.guard.outputs.skip != 'true'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # 자동 답하기가 이어서 돌 수 있는지 판단하는 데만 쓴다 (있으면 '붙여넣기 차례' 알림을 미룬다).
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           # 정부 통계 인증키. 등록돼 있지 않으면 그 단계만 조용히 건너뜁니다.
@@ -115,6 +129,24 @@ jobs:
           if [ -n "${{ inputs.date }}" ]; then ARGS="$ARGS --date ${{ inputs.date }}"; fi
           if [ "${{ inputs.no_llm }}" = "true" ]; then ARGS="$ARGS --no-llm"; fi
           python -m rebrief $ARGS
+
+      - name: 구독으로 답하기 (붙여넣기 묶음 → 글·카드·대본)
+        if: steps.guard.outputs.skip != 'true'
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          ASSEMBLY_API_KEY: ${{ secrets.ASSEMBLY_API_KEY }}
+        # 3 = 준비가 안 됐거나 멈춤 — 실패가 아니다(묶음은 남아 있고 사람이 붙여 넣으면 된다).
+        run: |
+          DATE="${{ inputs.date }}"
+          [ -z "$DATE" ] && DATE=$(TZ=Asia/Seoul date +%F)
+          set +e
+          python -m rebrief -v auto --date "$DATE"
+          CODE=$?
+          [ "$CODE" = "3" ] && exit 0
+          exit $CODE
 
       - name: 실행 결과 요약
         if: always() && steps.guard.outputs.skip != 'true'

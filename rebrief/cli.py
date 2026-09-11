@@ -99,6 +99,9 @@ def build_parser() -> argparse.ArgumentParser:
     p_civ.add_argument("--refresh", action="store_true",
                        help="아침에 못 받은 항목을 다시 받아 output/<날짜>/civics.* 를 채움 (낮 보충 워크플로)")
 
+    p_auto = sub.add_parser("auto", help="붙여넣기 묶음을 구독(Claude Code)으로 답해 그날 글·카드·대본 만들기")
+    p_auto.add_argument("--date", help="산출물 날짜 (기본: 오늘)")
+
     p_ans = sub.add_parser("answer", help="채팅(claude.ai)에서 받은 답으로 그날 글·카드·대본 만들기 (0원 방식)")
     p_ans.add_argument("--date", help="날짜 (YYYY-MM-DD, 기본 오늘)")
     p_ans.add_argument("--file", required=True, help="답을 붙여 넣은 파일 (- 는 표준 입력)")
@@ -152,6 +155,8 @@ def main(argv: list[str] | None = None) -> int:
         return _cmd_civics(cfg, args)
     if args.command == "answer":
         return _cmd_answer(cfg, args)
+    if args.command == "auto":
+        return _cmd_auto(cfg, args)
     return 1
 
 
@@ -162,9 +167,42 @@ def _cmd_run(cfg, args) -> int:
     use_llm = False if args.no_llm else None
     result = run_pipeline(cfg, run_date=args.date, use_llm=use_llm, limit=args.limit)
     _report(result)
-    _notify_result(cfg, result)
+    if _auto_follows(cfg, result):
+        # 곧 `auto` 가 묶음을 답한다 — "붙여넣기 차례" 알림을 먼저 보내면 사람이 헛걸음한다.
+        # 알림은 auto 가 보낸다 (다 되면 완료, 멈추면 붙여넣기 안내).
+        print("구독 자동 답하기가 이어서 돕니다 — 알림은 그쪽에서 보냅니다.")
+    else:
+        _notify_result(cfg, result)
     # 자료가 3일치 미만이라 건너뛴 건 실패가 아니다 — 워크플로가 빨간 X 로 보이지 않게 0
     return 0 if (result.files or result.skipped) else 1
+
+
+def _auto_follows(cfg, result) -> bool:
+    """이번 실행이 묶음을 남겼고 구독 자동 답하기가 준비돼 있는가."""
+    from .auto import PACK_NAME, ready
+
+    return (not result.llm_used and not getattr(result, "quiet", False)
+            and (result.out_dir / PACK_NAME).exists() and not ready(cfg))
+
+
+def _cmd_auto(cfg, args) -> int:
+    """구독으로 묶음을 답한다. 준비가 안 됐거나 멈추면 붙여넣기 안내를 보내고 3 을 돌려준다
+    (워크플로는 3 을 실패로 보지 않는다 — 그날은 사람이 붙여 넣으면 된다)."""
+    from .auto import answer_today, paste_needed_message, ready
+    from .notify import send_telegram, telegram_configured
+
+    date_str = args.date or local_now(cfg).strftime("%Y-%m-%d")
+    why = ready(cfg)
+    if not why:
+        result, why = answer_today(cfg, date_str)
+        if result is not None:
+            _report(result)
+            _notify_result(cfg, result)
+            return 0 if result.files else 1
+    print(f"자동 답하기를 못 했습니다: {why}")
+    if why != "꺼져 있음" and "묶음이 없습니다" not in why and telegram_configured():
+        print("📨 텔레그램 알림 " + ("전송" if send_telegram(paste_needed_message(cfg, date_str, why)) else "실패"))
+    return 3
 
 
 def _cmd_collect(cfg, args) -> int:

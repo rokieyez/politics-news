@@ -843,3 +843,142 @@ def test_answer_command_reads_a_file(cfg, monkeypatch, capsys):
     assert "브리핑·블로그·대본" in capsys.readouterr().out
     path.write_text("이건 답이 아닙니다", encoding="utf-8")
     assert cli.main(["answer", "--date", RUN_DATE, "--file", str(path)]) == 1
+
+
+# ── 구독으로 자동 답하기 (9/11): 러너 안의 Claude Code 가 묶음을 받아 답한다 ──
+
+_FAKE_CLAUDE = r'''#!{python}
+import json, os, sys
+prompt = sys.stdin.read()
+d = os.environ["FAKE_CLAUDE_DIR"]
+with open(os.path.join(d, "calls.log"), "a", encoding="utf-8") as fh:
+    fh.write(json.dumps({{"args": sys.argv[1:], "cwd": os.getcwd(), "chars": len(prompt),
+                         "api_key": bool(os.environ.get("ANTHROPIC_API_KEY"))}}) + "\n")
+n = sum(1 for _ in open(os.path.join(d, "calls.log"), encoding="utf-8"))
+plan = os.environ.get("FAKE_CLAUDE_PLAN", "ok").split(",")
+what = plan[min(n, len(plan)) - 1]
+if what == "limit":
+    print(json.dumps({{"type": "result", "is_error": True, "result": "Claude usage limit reached"}}))
+    sys.exit(1)
+answer = open(os.path.join(d, "brief-only.md" if what == "brief-only" else "answer.md"), encoding="utf-8").read()
+print(json.dumps({{"type": "result", "is_error": False, "result": answer, "usage": {{"output_tokens": 99}}}}))
+'''
+
+
+def _fake_claude(tmp_path, monkeypatch, plan: str = "ok"):
+    import os
+    import stat
+    import sys
+
+    d = tmp_path / "fake-claude"
+    (d / "bin").mkdir(parents=True)
+    (d / "answer.md").write_text(_answer_text(make_brief(), make_post(), make_pack()), encoding="utf-8")
+    (d / "brief-only.md").write_text(_answer_text(make_brief()), encoding="utf-8")
+    exe = d / "bin" / "claude"
+    exe.write_text(_FAKE_CLAUDE.format(python=sys.executable), encoding="utf-8")
+    exe.chmod(exe.stat().st_mode | stat.S_IEXEC)
+    monkeypatch.setenv("PATH", f"{d / 'bin'}{os.pathsep}{os.environ.get('PATH', '')}")
+    monkeypatch.setenv("FAKE_CLAUDE_DIR", str(d))
+    monkeypatch.setenv("FAKE_CLAUDE_PLAN", plan)
+    monkeypatch.setenv("CLAUDE_CODE_OAUTH_TOKEN", "sk-ant-oat01-테스트")
+    return d
+
+
+def _fake_calls(d) -> list[dict]:
+    path = d / "calls.log"
+    return [json.loads(x) for x in path.read_text(encoding="utf-8").splitlines()] if path.exists() else []
+
+
+def test_auto_answers_the_pack_with_the_subscription(cfg, monkeypatch, tmp_path):
+    from rebrief import cli
+
+    d = _fake_claude(tmp_path, monkeypatch)
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "sk-ant-남은키")     # 넘기면 구독 대신 API 로 청구된다
+    cfg.settings["auto"]["enabled"] = True
+    sent = []
+    monkeypatch.setattr("rebrief.cli._notify_result", lambda c, r: sent.append(("done", r.date)))
+
+    pipeline.run(cfg, run_date=RUN_DATE, use_llm=False)
+    out = cfg.output_dir / RUN_DATE
+    assert (out / "prompt-pack.md").exists()
+
+    class Args:
+        date = RUN_DATE
+    assert cli._cmd_auto(cfg, Args()) == 0
+    for name in ("brief.md", "data.json", "blog-naver.html", "script-longform.md", "checklist.md"):
+        assert (out / name).exists(), name
+    assert not (out / "prompt-pack.md").exists()          # 답을 받았으니 묶음은 치운다
+    assert sent == [("done", RUN_DATE)]
+
+    calls = _fake_calls(d)
+    assert len(calls) == 1 and calls[0]["chars"] > 1000
+    assert not calls[0]["api_key"], "ANTHROPIC_API_KEY 가 claude 에 넘어갔다"
+    assert calls[0]["cwd"] != str(cfg.repo_root), "저장소 안에서 돌면 긴 CLAUDE.md 를 읽는다"
+    assert "--tools" in calls[0]["args"] and "--bare" not in calls[0]["args"]
+
+    # 묶음이 없으면(이미 답을 받음) 조용히 3
+    assert cli._cmd_auto(cfg, Args()) == 3
+
+
+def test_auto_retries_then_hands_over_to_a_person(cfg, monkeypatch, tmp_path):
+    from rebrief import cli
+
+    cfg.settings["auto"]["enabled"] = True
+    cfg.settings["llm"]["model"] = "claude-opus-5"
+    cfg.settings["llm"]["fallback_model"] = "claude-sonnet-5"
+    messages = []
+    monkeypatch.setattr("rebrief.notify.telegram_configured", lambda: True)
+    monkeypatch.setattr("rebrief.notify.send_telegram", lambda text: messages.append(text) or True)
+
+    class Args:
+        date = RUN_DATE
+
+    # ① 빠진 덩이가 있으면 한 번 더 묻고, 두 번째 답으로 만든다
+    d = _fake_claude(tmp_path, monkeypatch, plan="brief-only,ok")
+    monkeypatch.setattr("rebrief.cli._notify_result", lambda c, r: None)
+    pipeline.run(cfg, run_date=RUN_DATE, use_llm=False)
+    assert cli._cmd_auto(cfg, Args()) == 0 and len(_fake_calls(d)) == 2
+    assert (cfg.output_dir / RUN_DATE / "blog-naver.html").exists()
+
+    # ② 한도에 걸리면 대체 모델로 한 번 더, 그래도 안 되면 붙여넣기 안내를 보내고 3
+    import shutil
+    shutil.rmtree(tmp_path / "fake-claude")
+    d = _fake_claude(tmp_path, monkeypatch, plan="limit,limit")
+    pipeline.run(cfg, run_date=RUN_DATE, use_llm=False)
+    assert cli._cmd_auto(cfg, Args()) == 3
+    calls = _fake_calls(d)
+    assert len(calls) == 2 and "claude-opus-5" in calls[0]["args"] and "claude-sonnet-5" in calls[1]["args"]
+    assert messages and "자동 답하기가 멈췄습니다" in messages[-1] and "usage limit" in messages[-1]
+    assert (cfg.output_dir / RUN_DATE / "prompt-pack.md").exists()      # 사람이 붙여 넣을 묶음은 남는다
+
+
+def test_morning_run_holds_the_paste_notice_when_auto_follows(cfg, monkeypatch, tmp_path):
+    """자동 답하기가 이어서 돌면 '붙여넣기 차례' 알림을 먼저 보내지 않는다 (사람이 헛걸음한다)."""
+    from rebrief import cli
+
+    sent = []
+    monkeypatch.setattr("rebrief.cli._notify_result", lambda c, r: sent.append(r.date))
+    monkeypatch.setattr("rebrief.cli.run_pipeline", lambda c, **k: pipeline.run(c, run_date=RUN_DATE, use_llm=False))
+
+    class Args:
+        date = RUN_DATE
+        no_llm = False
+        limit = None
+
+    cfg.settings["auto"]["enabled"] = False
+    cli._cmd_run(cfg, Args())
+    assert sent == [RUN_DATE]                              # 꺼져 있으면 예전처럼 바로 알림
+
+    _fake_claude(tmp_path, monkeypatch)
+    cfg.settings["auto"]["enabled"] = True
+    sent.clear()
+    cli._cmd_run(cfg, Args())
+    assert sent == []                                      # 자동이 이어서 돌면 알림은 그쪽 몫
+
+
+def test_auto_says_why_it_cannot_start(cfg, monkeypatch):
+    from rebrief import auto
+
+    assert auto.ready(cfg) == "꺼져 있음"                    # conftest 가 꺼 둔다
+    cfg.settings["auto"]["enabled"] = True
+    assert "구독 토큰" in auto.ready(cfg)

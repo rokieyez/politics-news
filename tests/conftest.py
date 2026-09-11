@@ -42,7 +42,7 @@ class FakeResponse:
 # **로컬은 통과하고 러너는 실패하는** 시험이 생긴다 (실제로 월간 결산 시험이 그랬다).
 @pytest.fixture(autouse=True)
 def _no_optional_keys(monkeypatch):
-    for name in ("DATA_GO_KR_KEY", "REB_API_KEY", "ANTHROPIC_API_KEY"):
+    for name in ("DATA_GO_KR_KEY", "REB_API_KEY", "ANTHROPIC_API_KEY", "CLAUDE_CODE_OAUTH_TOKEN"):
         monkeypatch.delenv(name, raising=False)
 
 
@@ -59,7 +59,7 @@ def cfg(tmp_path: Path, monkeypatch) -> Config:
     real = load_config()
     # load_config 이 .env 를 다시 읽어 위 autouse 픽스처가 비운 열쇠를 되살린다. 그대로 두면
     # cfg 를 쓰는 시험이 진짜 모델을 부른다 (2026-09-09 인물 조사 시험이 실제로 한 번 불렀다, 약 $0.5).
-    for name in ("DATA_GO_KR_KEY", "REB_API_KEY", "ANTHROPIC_API_KEY"):
+    for name in ("DATA_GO_KR_KEY", "REB_API_KEY", "ANTHROPIC_API_KEY", "CLAUDE_CODE_OAUTH_TOKEN"):
         monkeypatch.delenv(name, raising=False)
     settings = json.loads(json.dumps(real.settings, default=str))
     settings["output"]["dir"] = str(tmp_path / "output")
@@ -72,6 +72,7 @@ def cfg(tmp_path: Path, monkeypatch) -> Config:
     settings["collect"]["check_links"] = False        # 링크 점검은 별도 테스트에서 스텁으로
     settings.setdefault("stats", {})["enabled"] = False  # 정부 통계는 개별 테스트에서만 켠다
     settings.setdefault("civics", {})["enabled"] = False  # 국회·여론조사 집계도 망을 탄다
+    settings.setdefault("auto", {})["enabled"] = False    # 구독 자동 답하기는 진짜 claude 를 부른다 — 그 시험에서만 가짜로 켠다
 
     # 피드는 픽스처 하나만 쓴다.
     sources = yaml.safe_load(yaml.safe_dump(real.sources, allow_unicode=True))
