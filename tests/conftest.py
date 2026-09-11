@@ -73,6 +73,8 @@ def cfg(tmp_path: Path, monkeypatch) -> Config:
     settings.setdefault("stats", {})["enabled"] = False  # 정부 통계는 개별 테스트에서만 켠다
     settings.setdefault("civics", {})["enabled"] = False  # 국회·여론조사 집계도 망을 탄다
     settings.setdefault("auto", {})["enabled"] = False    # 구독 자동 답하기는 진짜 claude 를 부른다 — 그 시험에서만 가짜로 켠다
+    # 시험은 가짜 생성기(FakeGenerator)와 API 키 흉내로 돈다. 구독 경로는 그 시험에서 가짜 claude 로 켠다.
+    settings.setdefault("llm", {})["transport"] = "api"
 
     # 피드는 픽스처 하나만 쓴다.
     sources = yaml.safe_load(yaml.safe_dump(real.sources, allow_unicode=True))

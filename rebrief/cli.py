@@ -421,7 +421,7 @@ def _cmd_policy(cfg, args) -> int:
     for doc in docs:
         policy_mod.download(doc, renderer.out_dir / "policy", cfg)
         doc.summary = policy_mod.extractive_summary(doc)
-    if not args.no_llm and cfg.api_key:
+    if not args.no_llm and cfg.llm_ready:
         from .llm import ContentGenerator, LLMError
 
         try:
@@ -722,8 +722,8 @@ def _cmd_profile(cfg, args) -> int:
 
     if not args.llm:
         return 0
-    if not cfg.api_key:
-        print("ANTHROPIC_API_KEY 가 없어 AI 정리 글은 만들지 못했습니다. --pack 으로 자료묶음을 만들어 붙여 넣으세요.",
+    if not cfg.llm_ready:
+        print("모델을 부를 인증(구독 토큰 CLAUDE_CODE_OAUTH_TOKEN 또는 ANTHROPIC_API_KEY)이 없어 AI 정리 글은 만들지 못했습니다. --pack 으로 자료묶음을 만들어 붙여 넣으세요.",
               file=sys.stderr)
         return 1
 

@@ -1,6 +1,6 @@
 name: 구독 자동 답하기 시험
 
-# 아침 데일리를 그대로 한 번 돌리고 이어서 구독으로 답하되, 결과를 **임시 폴더**에 두고 커밋·알림을 하지 않는다.
+# 아침 데일리를 그대로 한 번 돌리되(구독으로 모델 부르기), 결과를 **임시 폴더**에 두고 커밋·알림을 하지 않는다.
 # 구독 토큰(CLAUDE_CODE_OAUTH_TOKEN)이 살아 있는지, 답이 끝까지 글·카드·대본이 되는지 확인할 때 쓴다.
 # 토큰은 1년짜리라 갱신한 뒤에도 이걸로 확인하면 된다. 구독 사용량을 하루치만큼 쓴다.
 
@@ -42,18 +42,24 @@ jobs:
           yaml.safe_dump(s, open(p, "w", encoding="utf-8"), allow_unicode=True)
           PY
 
-      - name: 아침 실행 (묶음 만들기)
-        env:
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-          ASSEMBLY_API_KEY: ${{ secrets.ASSEMBLY_API_KEY }}
-        run: python -m rebrief --config "$RUNNER_TEMP/cfg" -v run --date "$(TZ=Asia/Seoul date +%F)"
-
-      - name: 구독으로 답하기
+      - name: 아침 실행 (구독으로 브리핑·블로그·대본)
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           ASSEMBLY_API_KEY: ${{ secrets.ASSEMBLY_API_KEY }}
-        run: python -m rebrief --config "$RUNNER_TEMP/cfg" -v auto --date "$(TZ=Asia/Seoul date +%F)"
+        run: python -m rebrief --config "$RUNNER_TEMP/cfg" -v run --date "$(TZ=Asia/Seoul date +%F)"
+
+      - name: 묶음이 남았으면 구독으로 답하기 (브리핑부터 막힌 날의 대비책)
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          ASSEMBLY_API_KEY: ${{ secrets.ASSEMBLY_API_KEY }}
+        run: |
+          set +e
+          python -m rebrief --config "$RUNNER_TEMP/cfg" -v auto --date "$(TZ=Asia/Seoul date +%F)"
+          CODE=$?
+          [ "$CODE" = "3" ] && exit 0      # 3 = 묶음이 없음(위에서 다 만들었음) 또는 멈춤
+          exit $CODE
 
       - name: 결과
         if: always()

@@ -126,7 +126,7 @@ def run(
     )
 
     link_status = renderer.last_link_status
-    want_llm = cfg.llm_enabled if use_llm is None else (use_llm and bool(cfg.api_key))
+    want_llm = cfg.llm_enabled if use_llm is None else (use_llm and cfg.llm_ready)
     model = _budget_guard(cfg, result) if want_llm else None
     if want_llm and model == "":
         want_llm = False                      # 월 예산 초과
@@ -154,9 +154,9 @@ def run(
         artifacts = _generate_with_llm(cfg, renderer, issues, date_str, result, model=model,
                                        stats_data=stats_data, civics_data=civics_data)
     else:
-        if use_llm is not False and not cfg.api_key:
+        if use_llm is not False and not cfg.llm_ready:
             result.warnings.append(
-                "ANTHROPIC_API_KEY 가 없어 요약을 건너뛰었습니다. prompt-pack.md 를 사용하세요."
+                "모델을 부를 인증(구독 토큰 또는 API 키)이 없어 요약을 건너뛰었습니다. prompt-pack.md 를 사용하세요."
             )
         renderer.brief_fallback(issues, stats)
         renderer.prompt_pack(build_prompt_pack(cfg, issues, date_str),
@@ -211,7 +211,7 @@ def rerender(cfg: Config, run_date: str, *, use_llm: bool | None = None) -> RunR
     )
 
     link_status = renderer.last_link_status
-    want_llm = cfg.llm_enabled if use_llm is None else (use_llm and bool(cfg.api_key))
+    want_llm = cfg.llm_enabled if use_llm is None else (use_llm and cfg.llm_ready)
     model = _budget_guard(cfg, result) if want_llm else None
     if want_llm and model == "":
         want_llm = False
@@ -258,7 +258,11 @@ def _generate_with_llm(
         log.error("브리핑 생성 실패: %s", exc, exc_info=not isinstance(exc, LLMError))
         result.warnings.append(f"브리핑 생성 실패 — {exc}")
         renderer.brief_fallback(issues, _stats_from_clusters(issues))
-        renderer.prompt_pack(build_prompt_pack(cfg, issues, date_str))
+        # 구독 한도·토큰 만료로 막힌 날 — 0원 방식의 붙여넣기 묶음을 남긴다. 다음 단계 `auto` 가 한 번
+        # 더 해 보고, 그래도 안 되면 텔레그램으로 알려 사람이 붙여 넣게 한다 (「답 받기」가 나머지를 만든다).
+        renderer.prompt_pack(build_prompt_pack(cfg, issues, date_str),
+                             articles=sum(c.size for c in issues), issues=len(issues))
+        answer_mod.save_pack(renderer.out_dir, issues)
         return made
 
     result.llm_used = True

@@ -46,8 +46,8 @@ rank:
   source: 0.8        # 매체 가중치
   breaking: 1.2      # [단독]/[속보] 가점
 
-# 구독으로 자동 답하기 (2026-09-11 사용자 결정). 아침 데일리가 남긴 붙여넣기 묶음을 러너 안의 Claude Code 가
-# 받아 답하고, 「답 받기」와 같은 처리로 글·카드·대본을 만듭니다 — 사람 손이 필요 없습니다.
+# 구독으로 묶음 답하기 (2026-09-11). 붙여넣기 묶음이 남은 날(위 llm 이 꺼져 있거나 브리핑부터 막힌 날)에만 돕니다.
+# 러너 안의 Claude Code 가 묶음에 답하고, 「답 받기」와 같은 처리로 글·카드·대본을 만듭니다.
 # 저장소 Secret CLAUDE_CODE_OAUTH_TOKEN(맥에서 `claude setup-token`, 1년짜리)이 있어야 돌고, API 요금이 아니라
 # 구독 사용량으로 처리됩니다. 한도·만료로 멈추면 텔레그램으로 알리고, 그날은 예전처럼 사람이 붙여 넣습니다.
 auto:
@@ -57,10 +57,17 @@ auto:
   timeout_seconds: 1500     # 한 번 묻는 데 기다리는 상한
 
 llm:
-  # 0원 방식 (2026-09-10, 사용자 선택). 아침 실행은 모델을 부르지 않고 붙여넣기 묶음만 만듭니다.
-  # 묶음을 claude.ai 에 붙여 넣고 답을 이슈에 붙여 넣으면 「답 받기」 워크플로가 글·카드·대본을 만듭니다.
-  # 다시 자동(하루 약 $0.5)으로 돌리려면 true. 아래 모델 설정은 그때 쓰입니다(인물 조사 --llm 도).
-  enabled: false
+  # 예전(API) 길 그대로, 모델만 구독 토큰으로 부릅니다 (2026-09-11 사용자 "예전처럼 … 크레딧 차감 없이
+  # 자체 토큰만으로"). 브리핑·블로그·대본·정부 발표 요약·금지 표현 고쳐쓰기·주간/월간 결산·인물 조사 --llm 모두.
+  # false 로 두면 0원 방식(묶음만 만들고 사람이 claude.ai 에 붙여 넣기)으로 돌아갑니다.
+  enabled: true
+  # 무엇으로 부를지.
+  #   subscription — 구독(Pro/Max) 토큰으로 Claude Code 를 부른다. API 요금 0원.
+  #                  저장소 Secret CLAUDE_CODE_OAUTH_TOKEN (맥에서 `claude setup-token`, 1년짜리).
+  #                  토큰이 없으면 API 키가 있어도 **쓰지 않는다** — 요금이 다시 나가지 않게.
+  #   api          — ANTHROPIC_API_KEY 로 부른다 (하루 약 $0.5, 잔액 필요).
+  # 구독이 한도·만료로 브리핑부터 막히면 붙여넣기 묶음을 남기고 아래 auto 가 한 번 더 해 본 뒤 텔레그램으로 알립니다.
+  transport: subscription
   model: claude-opus-5      # 바꾸려면: claude-sonnet-5 (더 저렴), claude-haiku-4-5
   effort: high              # low | medium | high | xhigh | max
   max_tokens: 16000

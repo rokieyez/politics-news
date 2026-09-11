@@ -47,10 +47,19 @@ jobs:
           cache: pip
           cache-dependency-path: requirements.txt
       - run: pip install -r requirements.txt
+      - name: Claude Code 설치 (구독으로 모델 부르기)
+        # llm.transport: subscription — API 요금 없이 구독 토큰으로 부른다. 설치에 실패해도 계속한다.
+        run: |
+          npm install -g --silent @anthropic-ai/claude-code >/dev/null 2>&1 \
+            && echo "Claude Code $(claude --version)" \
+            || echo "::warning::Claude Code 설치 실패 — 모델을 부르지 못하면 프롬프트 팩만 남습니다"
+
       - name: 조사
         # 입력값은 셸 문자열에 끼워 넣지 않고 환경변수로 넘긴다.
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # 구독 토큰 (claude setup-token). llm.transport: subscription 이면 이것으로 부르고 위 키는 쓰지 않는다.
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           ASSEMBLY_API_KEY: ${{ secrets.ASSEMBLY_API_KEY }}
           IN_NAME: ${{ inputs.name }}
           IN_BIRTH: ${{ inputs.birth }}
