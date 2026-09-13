@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이번 주 정치: 청문회 증인 44명과 지지율 37.4%</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  /* 바탕색은 body 가 아니라 뒤에 깔린 고정 층(body::before)에 칠한다.
+     Chrome 은 '본문 복사' 때 글자 덩어리마다 조상(html·body 까지)의 배경색을 찾아
+     background-color 로 박아 넣는다. 그래서 body 에 회색을 칠하면 네이버에 붙였을 때
+     문단마다 연한 회색 형광펜이 깔린다 (2026-09-08 실측: 문단·제목 18곳에
+     rgb(245,246,248)). html·body·.card 를 전부 투명하게 두면 그 배경색이 사라진다.
+     .card 의 흰색도 같은 이유로 그림자·테두리로만 구분한다. */
+  html, body { background: transparent; }
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; background: #f5f6f8;
+  }
+  body {
+    margin: 0; padding: 0 16px 80px;
+    color: #1a1a1a;
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.8; font-size: 16px;
+  }
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    margin: 0 -16px 20px; padding: 12px 16px;
+    background: #03c75a; color: #fff;
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  }
+  .bar strong { margin-right: auto; font-size: 15px; }
+  .bar button {
+    border: 0; border-radius: 6px; padding: 8px 14px;
+    background: rgba(255,255,255,.18); color: #fff;
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    font-family: inherit;
+  }
+  .bar button:hover { background: rgba(255,255,255,.3); }
+  .bar button.done { background: #fff; color: #03c75a; }
+  .bar a.write {
+    border-radius: 6px; padding: 8px 14px; background: #fff; color: #03c75a;
+    font-size: 14px; font-weight: 700; text-decoration: none;
+  }
+  @media (max-width: 560px) {
+    /* 휴대폰에서는 제목 줄을 따로 두고 버튼을 꽉 채운다 */
+    .bar { gap: 6px; }
+    .bar strong { flex-basis: 100%; margin: 0 0 4px; font-size: 14px; }
+    .bar button, .bar a.write { flex: 1 1 0; text-align: center; padding: 10px 6px; font-size: 13px; }
+    .card { padding: 22px 16px; }
+    .title { font-size: 21px; }
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  /* 흰 바탕 대신 테두리 — 배경을 칠하면 복사본에 흰 형광펜이 실린다 (위 설명). */
+  .card { background: transparent; border: 1px solid #e4e7ea; border-radius: 10px; padding: 32px 28px; }
+  .title { font-size: 24px; font-weight: 700; line-height: 1.45; margin: 0 0 6px; }
+  .meta { color: #888; font-size: 13px; margin-bottom: 28px; }
+  /* 구분선은 **꼭지와 꼭지 사이**에 둔다 — 둘째 소제목부터 앞에 <hr> 이 온다
+     (render.section_dividers). 예전에는 h2 의 border-top 으로 그었는데, 네이버 에디터가
+     제목의 테두리를 받지 않고 얇은 회색 선으로 바꿨다 (2026-09-08). <hr> 로 보내면
+     에디터가 제 구분선 부품으로 바꾼다. 색은 네이버에서 고를 수 없어 회색이 된다 —
+     여기 초록은 미리보기용이다. */
+  #post h2 { font-size: 20px; font-weight: 700; margin: 8px 0 16px; }
+  #post hr { border: 0; border-top: 2px solid #03c75a; margin: 56px 0 26px; }
+  #post h3 { font-size: 17px; font-weight: 700; margin: 38px 0 10px; }
+  #post p { margin: 0 0 18px; }
+  #post ul, #post ol { margin: 0 0 18px; padding-left: 22px; }
+  #post li { margin-bottom: 8px; }
+  #post table { border-collapse: collapse; width: 100%; margin: 0 0 20px; font-size: 15px; }
+  #post th, #post td { border: 1px solid #ddd; padding: 9px 12px; text-align: left; }
+  #post th { background: #f2f4f6; font-weight: 700; }
+  #post blockquote {
+    margin: 0 0 18px; padding: 12px 16px;
+    background: #f7f8fa; border-left: 4px solid #03c75a; color: #444;
+  }
+  #post a { color: #0068c3; }
+  .imgslot {
+    margin: 0 0 20px; padding: 22px 16px; text-align: center;
+    border: 2px dashed #c9cdd2; border-radius: 8px;
+    background: #fafbfc; color: #6b7178; font-size: 14px;
+  }
+  .imgslot.has-file { border-color: #03c75a; background: #f2fbf5; color: #2c6e45; }
+  .photo-links { margin: -12px 0 20px; font-size: 13px; color: #6b7178; text-align: center; }
+  .photo-links a { color: #0068c3; }
+  .imgslot small { display: block; margin-top: 6px; font-size: 13px; color: #5a6a60; }
+  .preview { display: block; max-width: 100%; height: auto; margin: -8px 0 22px; border: 1px solid #e4e7ea; border-radius: 8px; }
+  .tags { margin: 36px 0 0; color: #0068c3; font-size: 15px; word-break: keep-all; }
+  .hint {
+    max-width: 720px; margin: 20px auto 0; padding: 16px 18px;
+    background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px;
+    font-size: 14px; line-height: 1.75; color: #5f4b16;
+  }
+  .hint ol { margin: 8px 0 0; padding-left: 20px; }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <strong>네이버 블로그 붙여넣기</strong>
+  <button type="button" data-copy="title">제목 복사</button>
+  <button type="button" data-copy="post">본문 복사</button>
+  <button type="button" data-copy="tags">태그 복사</button>
+  <a class="write" href="https://blog.naver.com/keyboardpolitics?Redirect=Write&amp;" target="_blank" rel="noopener">글쓰기 열기</a>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h1 class="title" id="title">이번 주 정치: 청문회 증인 44명과 지지율 37.4%</h1>
+    <div class="meta">2026-W37 · 정치</div>
+
+    <div id="post">
+<p style="margin:0 0 14px;font-size:14px;color:#767676">이 글은 2026년 37주차 기준으로 정리한 내용입니다.</p><p><strong>이번 주 다섯 줄</strong></p>
+<ol>
+<li>김승원 청문회 증인 <span class="hl" style="background-color:#fff59d">44명</span> 요청, 채택 불발</li>
+<li>대통령 지지율 <span class="hl" style="background-color:#fff59d">37.4%</span>, 8주 연속 하락 보도</li>
+<li>정점식 43분 연설로 개헌 논의 거부 선언</li>
+<li>검찰개혁 후속입법 법사소위 8일→14일 연기</li>
+<li>다음 주 대법관 <span class="hl" style="background-color:#fff59d">1명</span>·장관 5명 청문회 예정</li>
+</ol>
+<p>여러분, 이번 주(9월 8~13일) 정치는 <strong>'다음 주 청문회를 위한 준비 싸움'</strong> 한마디로 정리됩니다. 법안 처리와 개헌 논의는 뒤로 밀리고, 여야 화력이 대부분 장관·대법관 후보자 검증과 증인 명단 싸움에 쏠렸습니다.</p>
+<p>브리핑에 담긴 수치들은 대체로 '누가 주장한 숫자'인지가 중요합니다. 아래 표에도 발언 주체를 함께 적었으니, 확정된 사실과 주장을 구분해서 읽어주시면 좋겠습니다.</p>
+<h2>1. 청문회 증인 채택, 한 주 내내 이어진 공방</h2>
+<p>이번 주 가장 오래 반복된 장면입니다. 10일 국회 성평등가족위원회 소속 국민의힘 의원들은 용혜인 후보자 청문회 증인으로 <span class="hl" style="background-color:#fff59d">28명</span>을 요구했는데 민주당이 1명만 수용하고 <span class="hl" style="background-color:#fff59d">27명</span>은 거부했다고 밝혔습니다. 증인 합의가 안 되면서 용혜인 후보자 청문회 개최 일정 자체도 정해지지 않았습니다.</p>
+<p>11일에는 같은 구도가 김승원 후보자로 옮겨갔습니다. 국민의힘은 '방탄청문회'라고 비판했고, 12~13일 보도에서는 김승원 후보자 청문회 증인 44명·참고인 <span class="hl" style="background-color:#fff59d">4명</span> 요청이 민주당 거부로 사실상 불발됐다는 내용이 이어졌습니다. 즉 '28명 중 27명'에서 '44명'으로 숫자가 커지며 같은 갈등이 확대된 한 주였습니다.</p>
+<table>
+<thead>
+<tr>
+<th>날짜</th>
+<th>항목</th>
+<th>수치</th>
+<th>출처·주체</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9/10</td>
+<td>용혜인 청문회 요구 증인</td>
+<td>28명</td>
+<td>성평등가족위 국민의힘 의원</td>
+</tr>
+<tr>
+<td>9/10</td>
+<td>민주당 수용 / 거부</td>
+<td>1명 / 27명</td>
+<td>국민의힘 기자회견</td>
+</tr>
+<tr>
+<td>9/11</td>
+<td>용혜인 관련 부정 응답</td>
+<td>72.2%</td>
+<td>김소희 의원 인용</td>
+</tr>
+<tr>
+<td>9/12~13</td>
+<td>김승원 청문회 요청 증인</td>
+<td>44명</td>
+<td>뉴시스</td>
+</tr>
+<tr>
+<td>9/12~13</td>
+<td>함께 요청한 참고인</td>
+<td>4명</td>
+<td>뉴시스</td>
+</tr>
+</tbody>
+</table>
+<hr><h2>2. 김승원 후보자 의혹, 주장과 반박이 함께 나왔습니다</h2>
+<p>9일 한동훈 의원은 신약 로비 브로커의 녹취록을 공개하며 여권 인사가 거론됐다고 밝혔습니다. 녹취록에는 2021년 9월 제넨셀의 정부지원금 150억원 신청 언급이 포함됐다고 보도됐습니다. 반면 박지원 의원은 같은 날 과거 검찰이 검사 11명을 투입해 3년간 수사했던 사안이라며 한동훈 의원의 청문위원 자격을 문제 삼았습니다.</p>
+<p>11일 정점식 원내대표는 이를 '권력형 주가조작 게이트'라고 규정하며 작전 세력 추정 수익 180억원, 손실을 본 개미투자자 약 3만 명, 식약처장 연락 후 임상시험 승인까지 2주를 언급하고 국정조사와 특검을 요구했습니다. 같은 날 김민석 민주당 대표는 충북도청 최고위원회의에서 '잘된 인사'라며 '지킬 것'이라고 밝혔고, 민주당은 용혜인 후보자 겸직 논란에는 거리를 뒀다고 보도됐습니다. 10일에는 민주당이 한동훈 의원의 검찰 기소계획서 사용을 문제 삼아 수사를 촉구하기도 했습니다.</p>
+<p>여기서 나온 수치는 모두 <strong>특정 의원의 발언에 담긴 주장</strong>이라는 점을 기억해 주세요. 사실 확인은 15일 청문회 이후의 몫입니다.</p>
+<hr><h2>3. 개헌·검찰개혁, 43분 연설과 6일 연기</h2>
+<p>8일 정점식 원내대표는 A4 29장 분량, 약 43분간의 교섭단체 대표연설에서 이재명 정부의 개헌 논의를 거부했습니다. 연설에서는 대통령 지지율 40% 붕괴와 특정 조사의 34.7%가 언급됐는데, 조사기관과 기간은 밝혀지지 않았습니다. 2월 공소취소 모임에 가입한 민주당 의원 105명, 대법관 26명 증원안과 임기 중 22명 임명 가능 주장도 함께 나왔습니다. 본회의장에서는 연설 중 고성이 오갔습니다.</p>
+<p>같은 날 여야는 검찰개혁 후속입법 처리 방식에 합의하며 법사위 소위를 8일 오후에서 14일로 연기했습니다. 부칙이 약 130개(여당 관계자), 개별 상임위에서 다룰 법안이 140개(김한규 의원)라는 규모가 거론됐습니다. 10일에는 민주당이 선관위 특검 파견검사 수사권 관련 개정안을 발의했고, 정점식 원내대표는 특검 발족 하루 만의 개정안이라며 '3대 특검에 종합특검까지' 도입됐다고 반박했습니다.</p>
+<hr><h2>4. 지지율과 다른 후보자들</h2>
+<p>9일 그래픽뉴스는 이재명 대통령 국정수행 긍정평가가 37.4%로 8주 연속 하락, 취임 후 최저치라고 보도했습니다. 같은 날 대통령은 프랑스 순방에서 호르무즈 공조를 논의했습니다. 지지율 하락과 후보자 검증 공세가 겹친 흐름이라는 해석이 야당 측에서 나왔습니다.</p>
+<p>다른 후보자 검증도 이어졌습니다. 강민국 의원은 이형일 경제부총리 후보자가 주택을 17년 보유하면서 실거주는 4개월, 시세차익은 약 20억원이라고 주장했습니다. 홍지선 국토부 장관 후보자에게는 86개 기관에 2643건의 자료 요구가 들어갔습니다. 10일 천하람 개혁신당 권한대행은 강신철 후보자 일가 4명(본인·부친·고모·형)의 철거민 특별분양 자격 4건을 문제 삼으며 사퇴를 요구했고, 부친이 2008년 3월 24일 전입 사흘 뒤 옆집으로 주민등록을 옮겼다는 주장도 함께 나왔습니다.</p>
+<table>
+<thead>
+<tr>
+<th>날짜</th>
+<th>항목</th>
+<th>수치</th>
+<th>출처·주체</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9/8</td>
+<td>이형일 주택 보유 / 실거주</td>
+<td>17년 / 4개월</td>
+<td>강민국 의원</td>
+</tr>
+<tr>
+<td>9/8</td>
+<td>이형일 시세차익 주장</td>
+<td>약 20억원</td>
+<td>강민국 의원</td>
+</tr>
+<tr>
+<td>9/8</td>
+<td>홍지선 자료요구</td>
+<td>86개 기관·2643건</td>
+<td>뉴시스</td>
+</tr>
+<tr>
+<td>9/9</td>
+<td>대통령 긍정평가</td>
+<td>37.4%</td>
+<td>뉴시스 그래픽뉴스</td>
+</tr>
+<tr>
+<td>9/10</td>
+<td>강신철 일가 특별분양</td>
+<td>4명·4건</td>
+<td>천하람 권한대행</td>
+</tr>
+</tbody>
+</table>
+<hr><h2>5. 다음 주 볼 것</h2>
+<p>14~16일에 대법관 1명과 장관 후보자 5명의 인사청문회가 연이어 예정돼 있습니다. 15일 김승원 후보자 청문회에서 신약 로비 의혹과 불기소 결정서가 쟁점이 될 전망이라고 보도됐습니다. 12일 김성수 대법관 후보자는 서면답변에서 대통령도 일반 국민과 동일하게 공정한 재판을 받아야 한다는 입장을 냈고, 13일 김승원 후보자는 대통령 공소취소 질문에 검찰 중립성을 강조했습니다.</p>
+<p>14일로 연기된 법사위 소위가 열리는지, 약 130개 부칙과 140개 법안을 어떤 방식으로 나눠 처리하는지도 확인할 지점입니다. 증인 채택이 끝내 불발된 용혜인 후보자 청문회 일정이 잡히는지, 청와대가 '설명 기회'를 언급한 뒤 지명 철회 여부에 어떤 입장을 내는지도 함께 보시면 좋겠습니다.</p>
+      <p class="tags" id="tags">#방구석배경지식 #이번주정치 #주간정치결산 #인사청문회 #김승원 #용혜인 #정점식 #김민석 #한동훈 #박지원 #천하람 #강신철 #이형일 #홍지선 #김성수대법관 #검찰개혁 #후속입법 #법사위소위 #선관위특검 #특검법개정안 #개헌논의 #대정부질문 #증인채택 #국정조사 #대통령지지율 #국회브리핑 #정치용어 #국회절차 #여야공방 #2026정치</p>
+    </div>
+  </div>
+
+  <div class="hint">
+    <strong>쓰는 법</strong>
+    <ol>
+      <li><b>글쓰기 열기</b> → 네이버 블로그 글쓰기 화면이 새 탭에서 열립니다</li>
+      <li><b>제목 복사</b> → 제목 칸에 붙여넣기</li>
+      <li><b>본문 복사</b> → 본문 칸에 붙여넣기. 소제목·표·굵게가 그대로 살아납니다.</li>
+      <li>점선 상자(<span style="color:#6b7178">📷 이미지</span>) 자리에 사진을 넣고 상자는 지웁니다.
+        <b>초록 상자</b>는 자동 생성된 그림이 있는 자리입니다 — 상자에 적힌 파일명을 같은 폴더에서 찾아 올리세요.
+        미리보기 그림은 복사에 포함되지 않습니다.</li>
+      <li><span style="background-color:#fff59d">형광펜</span>은 오늘의 핵심 수치가 <b>처음 나온 자리</b>에만 칠합니다.
+        같은 수치가 다시 나와도 표시하지 않습니다 — 강조가 많으면 아무것도 강조가 아니니까요.
+        붙여넣으면 그대로 따라가고, 마음에 안 들면 에디터에서 지우세요.</li>
+      <li>맨 아래 해시태그는 그대로 두면 네이버가 태그로 인식합니다.</li>
+    </ol>
+    이 안내문은 복사에 포함되지 않습니다.
+  </div>
+</div>
+
+<script>
+// 버튼이 지정한 영역만 클립보드에 담는다. 안내문과 상단 바는 복사되지 않는다.
+document.querySelectorAll("[data-copy]").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var node = document.getElementById(btn.dataset.copy);
+    if (!node) return;
+
+    // 미리보기 이미지(.nocopy)는 빼고 복사한다. 상대 경로 <img> 가 붙여넣기에 섞이면
+    // 네이버 에디터에 깨진 그림이 생긴다. 복사용 사본을 만들어 그것만 선택한다.
+    // 사본은 언제나 body 바로 아래에 둔다 — Chrome 이 복사본에 조상의 배경색을 박아
+    // 넣으므로, 흰 .card 안에서 복사하면 문단마다 흰 형광펜이 실린다. html·body 는
+    // 투명이라 body 아래에서 복사하면 배경색이 붙지 않는다 (2026-09-08 실측).
+    var clone = node.cloneNode(true);
+    clone.querySelectorAll(".nocopy").forEach(function (el) { el.remove(); });
+    clone.style.position = "fixed"; clone.style.left = "-9999px"; clone.style.top = "0";
+    document.body.appendChild(clone);
+    var copyNode = clone;
+
+    // 서식을 살리려면 선택 영역을 만들어 복사해야 한다.
+    // execCommand 는 구식이지만 file:// 에서 서식 복사가 확실하게 되는 유일한 방법이다.
+    var range = document.createRange();
+    range.selectNodeContents(copyNode);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    sel.removeAllRanges();
+    var plainText = copyNode.innerText;
+    clone.remove();
+
+    if (!ok && navigator.clipboard) {
+      navigator.clipboard.writeText(plainText).then(flash, function () {
+        alert("복사에 실패했습니다. 직접 드래그해서 복사해 주세요.");
+      });
+      return;
+    }
+    flash();
+
+    function flash() {
+      var original = btn.textContent;
+      btn.textContent = "복사됨 ✓";
+      btn.classList.add("done");
+      setTimeout(function () {
+        btn.textContent = original;
+        btn.classList.remove("done");
+      }, 1400);
+    }
+  });
+});
+</script>
+</body>
+</html>
