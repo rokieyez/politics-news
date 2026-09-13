@@ -21,23 +21,31 @@ set -uo pipefail
 
 GH=/opt/homebrew/bin/gh
 REPO=rokieyez/politics-news
-LOG="$HOME/Library/Logs/politics-news-wake.log"
+# WAKE_* 는 시험용 덮어쓰기다 (가짜 저장소·로그로 미리 받기만 돌려 볼 때). 평소엔 비어 있다.
+LOG="${WAKE_LOG:-$HOME/Library/Logs/politics-news-wake.log}"
 
 mkdir -p "$(dirname "$LOG")"
 say() { echo "$(date '+%F %T') $*" >> "$LOG"; }
 
-# 잠에서 막 깬 참이면 네트워크가 아직 안 붙어 있을 수 있다. 최대 5분 기다린다.
-for i in $(seq 1 10); do
-    if /usr/bin/curl -sf -m 10 -o /dev/null https://api.github.com; then break; fi
-    say "네트워크를 기다립니다 ($i/10)"
-    sleep 30
-done
+# 잠에서 막 깬 참이면 네트워크가 아직 안 붙어 있을 수 있다. 처음엔 최대 5분 기다린다.
+wait_net() {
+    local tries="${1:-10}" i
+    for i in $(seq 1 "$tries"); do
+        /usr/bin/curl -sf -m 10 -o /dev/null https://api.github.com && return 0
+        say "네트워크를 기다립니다 ($i/$tries)"
+        sleep 30
+    done
+    return 1
+}
+wait_net 10 || true
 
 # ── 1. 맥에서 국회·여론조사 자료를 미리 받아 저장소에 밀어 넣기 ──────────────────
 # 작업 폴더(WORK)의 파이썬·설정·.env 로 받고, 커밋·푸시는 **따로 받아 둔 사본(CLONE)** 에서 한다.
 # 작업 폴더에는 편집 중인 것이 있을 수 있어 거기서 git 을 만지지 않는다.
-WORK="$HOME/Desktop/Projects/Active/politics-news"
-CLONE="$HOME/Library/Caches/rokiz/politics-news-wake"
+WORK="${WAKE_WORK:-$HOME/Desktop/Projects/Active/politics-news}"
+CLONE="${WAKE_CLONE:-$HOME/Library/Caches/rokiz/politics-news-wake}"
+REMOTE="${WAKE_REMOTE:-https://github.com/$REPO.git}"
+RETRY_SLEEP="${WAKE_RETRY_SLEEP:-20}"
 GIT=/usr/bin/git
 TODAY=$(TZ=Asia/Seoul date +%F)
 prefetch() {
@@ -48,18 +56,40 @@ prefetch() {
     say "미리 받음: $(echo "$out" | tail -2 | tr '\n' ' ')"
     local file="$WORK/state/civics/$TODAY.json"
     [ -f "$file" ] || { say "미리 받기 결과 파일이 없음"; return 1; }
+    # 작업 폴더는 곧바로 비운다 — 뒤에서 밀어 넣기가 실패해도 남겨 두면 나중에 git pull 이
+    # "추적하지 않는 파일을 덮어쓴다" 며 막힌다 (9/10 실제로 그랬고, 9/13 에도 실패 뒤 남아 있었다).
+    local keep
+    keep=$(mktemp -t politics-civics) && mv "$file" "$keep" || { say "임시 파일을 만들지 못함"; return 1; }
     if [ ! -d "$CLONE/.git" ]; then
         mkdir -p "$(dirname "$CLONE")"
-        "$GIT" clone -q --depth 1 "https://github.com/$REPO.git" "$CLONE" 2>>"$LOG" || { say "사본 받기 실패"; return 1; }
+        "$GIT" clone -q --depth 1 "$REMOTE" "$CLONE" 2>>"$LOG" || { say "사본 받기 실패"; rm -f "$keep"; return 1; }
     fi
-    (cd "$CLONE" && "$GIT" fetch -q --depth 1 origin main && "$GIT" reset -q --hard origin/main) 2>>"$LOG" \
-        || { say "사본 갱신 실패"; return 1; }
-    mkdir -p "$CLONE/state/civics" && cp "$file" "$CLONE/state/civics/"
-    rm -f "$file"       # 작업 폴더에 남겨 두면 나중에 git pull 이 "추적하지 않는 파일을 덮어쓴다" 며 막힌다 (9/10 실제로 그랬음)
-    (cd "$CLONE" && "$GIT" add state/civics && "$GIT" -c user.name="rokiz-mac" -c user.email="rokieyez@gmail.com" \
-        commit -q -m "국회 자료 미리 받음: $TODAY (맥)" && "$GIT" push -q origin HEAD:main) 2>>"$LOG" \
-        || { say "미리 받은 자료 푸시 실패 — 러너가 직접 받습니다"; return 1; }
-    say "미리 받은 자료를 밀어 넣었습니다: state/civics/$TODAY.json"
+    # 받기·올리기를 한 덩이로 세 번까지. 9/12 는 올리다, 9/13 은 받다가 연결이 끊겼다(Recv failure:
+    # Operation timed out) — 둘 다 막 깬 맥의 흔들리는 연결이었고, 한 번 더 했으면 됐을 일이다.
+    # 매번 원격 끝에 맞춘 뒤 파일을 다시 얹으므로, 사이에 러너가 밀어 넣어도 충돌하지 않는다.
+    publish() {
+        (cd "$CLONE" && "$GIT" fetch -q --depth 1 "$REMOTE" main && "$GIT" reset -q --hard FETCH_HEAD) 2>>"$LOG" \
+            || return 1
+        mkdir -p "$CLONE/state/civics" && cp "$keep" "$CLONE/state/civics/$TODAY.json"
+        (cd "$CLONE" && "$GIT" add state/civics \
+            && { "$GIT" diff --cached --quiet \
+                 || "$GIT" -c user.name="rokiz-mac" -c user.email="rokieyez@gmail.com" \
+                        commit -q -m "국회 자료 미리 받음: $TODAY (맥)"; } \
+            && "$GIT" push -q "$REMOTE" HEAD:main) 2>>"$LOG"
+    }
+    local n
+    for n in 1 2 3; do
+        if publish; then
+            say "미리 받은 자료를 밀어 넣었습니다: state/civics/$TODAY.json$([ "$n" -gt 1 ] && echo " ($n번째 시도)")"
+            rm -f "$keep"
+            return 0
+        fi
+        say "밀어 넣기 실패 ($n/3)"
+        [ "$n" -lt 3 ] && { sleep "$RETRY_SLEEP"; wait_net 3 || true; }
+    done
+    rm -f "$keep"
+    say "미리 받은 자료 푸시 실패 (세 번) — 러너가 직접 받습니다"
+    return 1
 }
 prefetch || true            # 07:25 두 번째 호출이면 한 번 더 받는다 — 몇십 초이고 더 새 자료다
 # 손으로 시험할 때: `scripts/wake-daily-brief.sh --prefetch-only` 는 여기서 멈춘다 (워크플로를 부르지 않는다).
