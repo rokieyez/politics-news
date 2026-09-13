@@ -21,7 +21,7 @@ import markdown as markdown_lib
 from .config import Config
 from .render import make_env
 from .sanitize import clean_html
-from .tts import narration
+from .tts import narration, speakable
 
 DATE_DIR = re.compile(r"\d{4}-\d{2}-\d{2}")
 
@@ -528,12 +528,14 @@ def _build_day(env, day: Path, dest: Path, cfg: Config) -> dict:
         else:
             href = filename.replace(".md", ".html")
             text = source_file.read_text(encoding="utf-8")
+            said = narration(filename, text)
             html = env.get_template("site_page.html.j2").render(
                 title=label,
                 date=day.name,
                 age_days=_age_days(day.name),
                 body_html=md_to_html(text),
-                tts=narration(filename, text),     # 대본이면 「자막만 복사」 버튼
+                tts=said,                          # 대본이면 「자막만 복사」 버튼
+                tts_read=speakable(said),          # 그리고 기호·단위를 풀어 쓴 글
                 meta=meta_tags(
                     site_base(cfg),
                     title=f"{info['headline'] or label} — {day.name}",
