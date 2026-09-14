@@ -3,53 +3,12 @@
   "days": 7,
   "since": "2026-09-07",
   "sample": false,
-  "bills": {
-    "count": 222,
-    "latest": [
-      {
-        "name": "미등기 사정토지 정비를 위한 특별법안",
-        "proposer": "박균택의원 등 10인",
-        "date": "2026-09-11",
-        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_B2C6A0Z9Z0X8Y1G1H3F1F0E8C6D6K8&ageFrom=22&ageTo=22",
-        "committee": ""
-      },
-      {
-        "name": "대한무역투자진흥공사법 일부개정법률안",
-        "proposer": "이언주의원 등 10인",
-        "date": "2026-09-11",
-        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_I2J6H0H9G0H1F1F3N1O6M2K9L6J9K1&ageFrom=22&ageTo=22",
-        "committee": ""
-      },
-      {
-        "name": "전자금융거래법 일부개정법률안",
-        "proposer": "박상혁의원 등 10인",
-        "date": "2026-09-11",
-        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Y2W6W0V9W1D1E1C6B1B8Z1A0W1W0V3&ageFrom=22&ageTo=22",
-        "committee": ""
-      },
-      {
-        "name": "전기통신금융사기 피해 방지 및 피해자산 환급에 관한 특별법 일부개정법률안",
-        "proposer": "박상혁의원 등 10인",
-        "date": "2026-09-11",
-        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2L6J0J9H1J1Q1R6P1O6O4M4N4V2V0&ageFrom=22&ageTo=22",
-        "committee": ""
-      },
-      {
-        "name": "조세특례제한법 일부개정법률안",
-        "proposer": "최은석의원 등 12인",
-        "date": "2026-09-11",
-        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_B2C6A0B7Z2A9V1U9U0T8U5S7S1B5Z6&ageFrom=22&ageTo=22",
-        "committee": ""
-      }
-    ],
-    "sample": false,
-    "age_total": 19447
-  },
+  "bills": {},
   "plenary": {
-    "count": 0,
+    "count": null,
     "by_result": {},
     "items": [],
-    "sample": false
+    "sample": true
   },
   "polls": [
     {
@@ -300,6 +259,11 @@
       "summary": "여론조사공정(주) · 펜앤마이크 의뢰 · 무선 ARS"
     }
   ],
-  "warnings": [],
-  "filled_from_prefetch": []
+  "warnings": [
+    "발의법률안을 받지 못했습니다 — ConnectTimeout"
+  ],
+  "filled_from_prefetch": [
+    "plenary"
+  ],
+  "tracked": []
 }

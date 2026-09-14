@@ -4,15 +4,7 @@
 여론조사는 중앙선거여론조사심의위원회(nesdc.go.kr) 등록부를 그대로 읽었습니다.
 
 ## 국회의원 발의 법률안
-2026-09-07 이후 발의 **222건** (제22대 국회 누적 19,447건)
-
-| 발의일 | 법률안 | 발의 |
-| --- | --- | --- |
-| 2026-09-11 | [미등기 사정토지 정비를 위한 특별법안](http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_B2C6A0Z9Z0X8Y1G1H3F1F0E8C6D6K8&ageFrom=22&ageTo=22) | 박균택의원 등 10인 |
-| 2026-09-11 | [대한무역투자진흥공사법 일부개정법률안](http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_I2J6H0H9G0H1F1F3N1O6M2K9L6J9K1&ageFrom=22&ageTo=22) | 이언주의원 등 10인 |
-| 2026-09-11 | [전자금융거래법 일부개정법률안](http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Y2W6W0V9W1D1E1C6B1B8Z1A0W1W0V3&ageFrom=22&ageTo=22) | 박상혁의원 등 10인 |
-| 2026-09-11 | [전기통신금융사기 피해 방지 및 피해자산 환급에 관한 특별법 일부개정법률안](http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2L6J0J9H1J1Q1R6P1O6O4M4N4V2V0&ageFrom=22&ageTo=22) | 박상혁의원 등 10인 |
-| 2026-09-11 | [조세특례제한법 일부개정법률안](http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_B2C6A0B7Z2A9V1U9U0T8U5S7S1B5Z6&ageFrom=22&ageTo=22) | 최은석의원 등 12인 |
+받지 못했습니다.
 
 ## 본회의 처리 법률안
 2026-09-07 이후 본회의에서 처리된 법률안이 없거나 받지 못했습니다.
@@ -33,5 +25,8 @@
 - **전국 정당지지도 정기(정례)조사** (전국) — 한길리서치 · 쿠키뉴스 의뢰 · 무선 ARS · [등록부](https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19503&menuNo=200467)
 - **전국 정기(정례)조사 정당지지도 대통령선거** (전국) — 조원씨앤아이 · 스트레이트뉴스 의뢰 · 무선 ARS · [등록부](https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19502&menuNo=200467)
 - **전국 정기(정례)조사 정당지지도 대통령선거** (전국) — 여론조사공정(주) · 펜앤마이크 의뢰 · 무선 ARS · [등록부](https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19501&menuNo=200467)
+
+## 받지 못한 것
+- 발의법률안을 받지 못했습니다 — ConnectTimeout
 
 *자세한 사항은 중앙선거여론조사심의위원회 홈페이지를 참조하세요. 본회의 표결 수는 열린국회정보 자료 그대로입니다.*
