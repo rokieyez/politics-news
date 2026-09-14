@@ -156,15 +156,15 @@
       "registered": "2026-09-10",
       "region": "전국",
       "ntt_id": "19508",
-      "period": "",
-      "sample_size": null,
-      "response_rate": "",
-      "margin": "",
-      "outlet": "",
-      "publish_at": "",
+      "period": "2026-09-08~10",
+      "sample_size": 1000,
+      "response_rate": "9.4%",
+      "margin": "95% 신뢰수준에 ±3.1%p",
+      "outlet": "한국갤럽 홈페이지",
+      "publish_at": "2026-09-11 10시 00분",
       "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19508&menuNo=200467",
       "extra": {},
-      "summary": "한국갤럽조사연구소 · 한국갤럽 자체 조사 의뢰 · 무선전화면접"
+      "summary": "한국갤럽조사연구소 · 한국갤럽 자체 조사 의뢰 · 2026-09-08~10 · 1,000명 · 무선전화면접 · 응답률 9.4% · 95% 신뢰수준에 ±3.1%p"
     },
     {
       "reg_no": "17263",
@@ -337,7 +337,6 @@
     }
   },
   "pool_queried": [
-    "충돌법",
     "선거법",
     "독재법",
     "해양수도법",
@@ -345,8 +344,7 @@
     "검사징계법",
     "광주지법",
     "자본시장법",
-    "금지법",
-    "공운법"
+    "금지법"
   ],
-  "prefetched_at": "2026-09-14T22:12:00+00:00"
+  "prefetched_at": "2026-09-14T22:58:56+00:00"
 }
