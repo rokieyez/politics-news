@@ -1467,7 +1467,7 @@ def test_jeonse_map_is_a_separate_metric():
     assert count_img.slug == "stats-map" and jeonse_img.slug == "stats-map-jeonse"
     assert "전세가율" in jeonse_img.title
     assert "38.8%" in jeonse_img.svg          # 칸에 %가 붙어야 한다 (건수 지도와 다른 형식)
-    assert "갱신 계약 제외" in jeonse_img.svg
+    assert "갱신 계약은 뺐습니다" in jeonse_img.svg
     # 없는 지표를 달라고 하면 조용히 안 그린다
     assert images.district_choropleth(data, "2026-09-07", metric="없는것") is None
     # 전세가율은 짝이 없는 구가 빠지므로 절반만 차면 그리지 않는다
