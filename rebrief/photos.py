@@ -20,6 +20,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import re
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass
@@ -47,7 +48,11 @@ QUERY_MAP: list[tuple[tuple[str, ...], str]] = [
 #   · 'election voting' 은 투표용지 든 손·기표하는 노인 — 사람이 나옵니다
 #   · 'gyeongbokgung'·'gwanghwamun square' 는 한복 입은 관광객이 섞입니다
 #   · 'seoul yeouido national assembly'·'seoul government building'·'seoul city hall'·
-#     'seoul gwanghwamun'(밤의 광화문 문루)·'seoul skyline han river' 는 서울 건물·풍경만 옵니다
+#     'seoul gwanghwamun'(밤의 광화문 문루)·'seoul skyline han river' 는 대체로 서울 건물·풍경이 옵니다
+#   · **다만 '대체로' 입니다** (2026-09-15, per_page 40 실측). 'seoul government building' 첫 결과가
+#     조지아 트빌리시 대통령궁이었고, 국회 검색어에는 하노이 국회·타이중 돔 건물이 섞였습니다.
+#     그래서 `_names_korea` 가 설명글에 한국 지명이 있는 사진부터 씁니다. 검색어를 'sejong government
+#     complex'(한국 7·외국 12)·'yongsan presidential office'(11·10) 로 바꿔 보니 더 나빠 그대로 둡니다.
 # 그래서 사법·선거·집회도 건물 검색어로 돌립니다. 첫 실행(2026-09-08)에서 'seoul courthouse'
 # 가 서양식 석조 기둥 건물을 올린 뒤 고쳤습니다.
 # **사람 얼굴이 나오는 사진은 피합니다** — 스톡 사진 속 인물이 특정 정치인으로 오해될
@@ -68,6 +73,23 @@ def _shows_people(hit: dict) -> bool:
     """설명글로 본 '사람 나옴'. 검색어로 못 거른 인물 사진을 한 번 더 뺀다 — 정치 카드에 얼굴은 안 된다."""
     alt = f" {str(hit.get('alt') or '').lower()} "
     return any(w in alt for w in PEOPLE_WORDS)
+
+
+# 설명글(alt)에 이 지명이 나오면 한국에서 찍은 사진입니다. **검색어에 'seoul' 을 넣어도 남의 나라
+# 사진이 섞입니다** — 2026-09-15 'seoul government building' 으로 받은 사진이 조지아 트빌리시
+# 대통령궁이었고, 설명글은 지명 없이 "A modern palace with a dome …" 뿐이었습니다. 설명글에 지명이
+# 없다고 다 외국은 아니지만(산업은행·DDP 사진도 지명이 없었음), 한국 지명이 적힌 사진이 검색어마다
+# 25장 넘게 오므로 그것부터 써도 모자라지 않습니다. 실측 표는 CLAUDE.md 의 사진 절에 있습니다.
+KOREA_WORDS = re.compile(
+    r"\b(?:seoul|korea|korean|han river|hangang|gyeongbokgung|gwanghwamun|yeouido|namsan|jongno|sejong"
+    r"|cheonggyecheon|bukchon|hanok|lotte world|jamsil|gangnam|yongsan|itaewon|myeongdong|dongdaemun"
+    r"|insadong|incheon|busan|daegu|daejeon|gwangju|ulsan|suwon|yongin|seongnam|goyang|guri|jeju|gyeonggi)\b",
+    re.IGNORECASE)
+
+
+def _names_korea(hit: dict) -> bool:
+    """설명글에 한국 지명이 있는가. 없는 사진은 뒤로 민다 — 한국 정치 카드에 남의 나라 청사가 붙으면 안 된다."""
+    return bool(KOREA_WORDS.search(str(hit.get("alt") or "")))
 
 
 @dataclass
@@ -152,6 +174,9 @@ def fetch(brief: dict, *, cache_dir: Path, ledger: Path, count: int = 3,
         # 장부에 없는 것부터 고르고, 한 장도 없으면 **그냥 앞의 것을 다시 씁니다.**
         # 되풀이를 막자고 사진을 아예 안 넣으면 카드가 표로 돌아갑니다 — 그게 더 나쁩니다.
         hits = [h for h in hits if not _shows_people(h)] or hits
+        # 한국 지명이 적힌 사진만 남기고, 한 장도 없을 때만 나머지를 씁니다. 장부에 있는 한국 사진을
+        # 다시 쓰는 편이 처음 보는 사진이 남의 나라 건물인 것보다 낫습니다.
+        hits = [h for h in hits if _names_korea(h)] or hits
         fresh = [h for h in hits if str(h.get("id") or "") not in seen]
         for hit in fresh or hits:
             ident = str(hit.get("id") or "")

@@ -782,6 +782,32 @@ PNG 는 **1배(1080×1080)** 로 뽑습니다(`images.png_scale_cards: 1`, 2026-
 * **찾을 말은 그날 이슈에서 뽑습니다** (`photos.QUERY_MAP`). 매일 같은 낱말로 찾으면 매일 같은
   사진이 옵니다. 국회→국회의사당, 선거→투표, 수사→법원 식입니다. **영어로 찾습니다** — 한국어로
   넣으면 몇 건 안 나옵니다.
+* **검색어에 seoul 을 넣어도 남의 나라 사진이 섞입니다 — 한국 지명이 적힌 사진부터 씁니다** (`photos._names_korea`,
+  2026-09-15). 대통령·정부 이슈에 쓰는 'seoul government building' 으로 받은 사진이 **조지아 트빌리시 대통령궁**이었습니다.
+  설명글(alt)은 "A modern palace with a dome surrounded by autumn trees under an overcast sky" 로 지명이 없었고, 같은 사진이
+  'yongsan presidential office' 결과에는 "Tbilisi's Presidential Palace" 라는 설명글의 다른 사진과 함께 올라와 확인했습니다
+  (미리보기로도 봤습니다). 이제 사람 거르개를 지난 사진 가운데 설명글에 한국 지명(seoul·korea·korean·han river·gyeongbokgung·
+  gwangju… 낱말 단위)이 있는 것만 남기고, 한 장도 없을 때만 나머지를 씁니다. **장부에 있는 한국 사진을 다시 쓰는 편이 처음
+  보는 외국 건물보다 낫다**고 보았습니다. `test_photo_fetch_prefers_pictures_that_name_korea`.
+  per_page 40 실측(맥, 2026-09-15). 「외국」은 설명글에 외국 지명이 적힌 것에 트빌리시 1장을 더한 수, 「지명 없음」은 설명글로는
+  어느 나라인지 모르는 것입니다.
+
+  | 검색어 (쓰는 곳) | 한국 지명 | 외국 | 지명 없음 | 사람 빼고 한국 지명 |
+  | --- | --- | --- | --- | --- |
+  | seoul yeouido national assembly (표지·국회) | 30 | 3 — 하노이 국회·타이중·트빌리시 | 7 | 26 |
+  | seoul government building (대통령·정부) | 29 | 1 — 트빌리시, **첫 번째 결과** | 10 | 26 |
+  | seoul city hall (선거·여론조사) | 33 | 0 | 7 | 26 |
+  | seoul gwanghwamun (사법·집회) | 38 | 0 | 2 | 32 |
+  | seoul skyline han river (지방) | 36 | 0 | 4 | 36 |
+
+  지명 없는 사진이 다 외국은 아닙니다 — 'seoul government building' 의 지명 없는 사진 넷을 미리보기로 봤더니 트빌리시 하나,
+  KDB산업은행·DDP 둘, 알 수 없는 고층 건물 하나였습니다. 그래도 한국 지명이 적힌 사진만 검색어마다 26장 이상 남아 돌려 쓰기에
+  모자라지 않습니다.
+  **검색어는 바꾸지 않았습니다.** 바꿀 후보를 같은 방식으로 쟀는데 더 나은 것이 없었습니다 — 'sejong government complex'
+  한국 7·외국 12(아이다호 의사당·룩셈부르크 법원·싱가포르…), 'gwanghwamun government complex' 32·4(인도 대통령궁 등),
+  'yongsan presidential office' 11·10(워싱턴·아스타나·트빌리시), 'seoul yongsan' 31·0 이지만 청사가 아니라 서울 거리·전경.
+  청사·대통령실을 곧이곧대로 찾을수록 **모양이 비슷한 남의 나라 청사**가 옵니다. 'seoul government building' 의 한국 사진은
+  경복궁·광화문·시청·서울 전경이라 정부 이슈에 무난합니다. 시험이 'government complex'·'presidential' 을 막습니다.
 * **시험은 망을 타면 안 됩니다.** `tests/conftest.py` 가 `images.photos = False` 로 끕니다.
   이 줄을 지우면 `.env` 에 키를 넣은 컴퓨터에서 시험이 조용히 인터넷을 쓰기 시작합니다.
 
