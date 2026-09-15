@@ -321,7 +321,9 @@ def _render_blog_part(cfg: Config, renderer: Renderer, issues: list[Cluster], da
                       result: RunResult, brief, post, made: dict, history: list[dict], generator,
                       stats_data: dict | None, civics_data: dict | None) -> tuple[dict, list]:
     """그림·카드·(글이 있으면) 표지·정책·블로그 두 벌. (그림 자리 파일, 핵심 수치) 를 돌려준다."""
-    slot_files = renderer.images(brief, history=history, post=post)
+    # 선관위 등록부를 넘기면 여론조사 그림이 조사기관 이름으로 개요를 찾아 답니다
+    slot_files = renderer.images(brief, history=history, post=post,
+                                 polls=(civics_data or {}).get("polls") or [])
     # 유튜브 게시물용 카드뉴스. 브리핑을 나눠 담을 뿐이라 모델을 다시 부르지 않는다.
     made["cards"] = renderer.cards(brief, civics=civics_data)
     keys: list = []
