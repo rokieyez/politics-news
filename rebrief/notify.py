@@ -50,7 +50,8 @@ def build_run_message(*, date: str, headline: str, issues: int, articles: int,
                       site_url: str, warnings: list[str], llm_used: bool,
                       images: int = 0, stats: dict | None = None,
                       usd: float = 0.0, krw_per_usd: float = 1400,
-                      quiet: bool = False, record_hint: str = "") -> str:
+                      quiet: bool = False, record_hint: str = "",
+                      index_hint: str = "") -> str:
     lines = [f"📅 {date} 정치 브리핑"]
     if headline:
         lines.append(headline)
@@ -67,6 +68,8 @@ def build_run_message(*, date: str, headline: str, issues: int, articles: int,
         lines.append(f"⚠️ {w}")
     if record_hint:
         lines.append(record_hint)
+    if index_hint:
+        lines.append(index_hint)
     if site_url:
         lines.append(f"🔗 {site_url.rstrip('/')}/latest/")
     return "\n".join(lines)
