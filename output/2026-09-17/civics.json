@@ -3,15 +3,61 @@
   "days": 7,
   "since": "2026-09-10",
   "sample": false,
-  "bills": {},
-  "plenary": {},
+  "bills": {
+    "count": 120,
+    "latest": [
+      {
+        "name": "돌봄기본법안",
+        "proposer": "남인순의원 등 17인",
+        "date": "2026-09-16",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_K2L6J0J9G1G1E1F5D5C9C4K0K3J9K4&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "전기통신사업법 일부개정법률안",
+        "proposer": "이훈기의원 등 10인",
+        "date": "2026-09-16",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_W2W6T0T9R1S4Q1P0P4X0X5W2X0V7T1&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "부동산 거래신고 등에 관한 법률 일부개정법률안",
+        "proposer": "김석기의원 등 10인",
+        "date": "2026-09-16",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_D2E6C0C9B0Z2A0V9W4V3V2T3U2T0A8&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "보안관찰법 일부개정법률안",
+        "proposer": "조승환의원 등 10인",
+        "date": "2026-09-16",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_P2P6N0O8M2N4V1T4U4S1S1R3S1A6Y0&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "도로교통법 일부개정법률안",
+        "proposer": "조승환의원 등 10인",
+        "date": "2026-09-16",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_U2V6T0T8B2A4A1Y4Z3Y9Y4G3E3F4D4&ageFrom=22&ageTo=22",
+        "committee": ""
+      }
+    ],
+    "sample": false,
+    "age_total": 19496
+  },
+  "plenary": {
+    "count": 0,
+    "by_result": {},
+    "items": [],
+    "sample": false
+  },
   "polls": [
     {
       "reg_no": "17272",
       "agency": "(주)코리아정보리서치",
       "client": "천지일보",
       "method": "무선 ARS",
-      "title": "전국 정기(정례)조사 대통령선거 정당지지도 국정현안 등",
+      "title": "전국 전체 정기(정례)조사대통령선거정당지지도 국정현안, 국회의원선거 등",
       "registered": "2026-09-16",
       "region": "전국",
       "ntt_id": "19521",
@@ -178,8 +224,6 @@
       "summary": "한국갤럽조사연구소 · 한국갤럽 자체 조사 의뢰 · 무선전화면접"
     }
   ],
-  "warnings": [
-    "발의법률안을 받지 못했습니다 — ConnectTimeout",
-    "본회의 처리안건을 받지 못했습니다 — ConnectTimeout"
-  ]
+  "warnings": [],
+  "tracked": []
 }

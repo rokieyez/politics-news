@@ -4,7 +4,15 @@
 여론조사는 중앙선거여론조사심의위원회(nesdc.go.kr) 등록부를 그대로 읽었습니다.
 
 ## 국회의원 발의 법률안
-받지 못했습니다.
+2026-09-10 이후 발의 **120건** (제22대 국회 누적 19,496건)
+
+| 발의일 | 법률안 | 발의 |
+| --- | --- | --- |
+| 2026-09-16 | [돌봄기본법안](http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_K2L6J0J9G1G1E1F5D5C9C4K0K3J9K4&ageFrom=22&ageTo=22) | 남인순의원 등 17인 |
+| 2026-09-16 | [전기통신사업법 일부개정법률안](http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_W2W6T0T9R1S4Q1P0P4X0X5W2X0V7T1&ageFrom=22&ageTo=22) | 이훈기의원 등 10인 |
+| 2026-09-16 | [부동산 거래신고 등에 관한 법률 일부개정법률안](http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_D2E6C0C9B0Z2A0V9W4V3V2T3U2T0A8&ageFrom=22&ageTo=22) | 김석기의원 등 10인 |
+| 2026-09-16 | [보안관찰법 일부개정법률안](http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_P2P6N0O8M2N4V1T4U4S1S1R3S1A6Y0&ageFrom=22&ageTo=22) | 조승환의원 등 10인 |
+| 2026-09-16 | [도로교통법 일부개정법률안](http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_U2V6T0T8B2A4A1Y4Z3Y9Y4G3E3F4D4&ageFrom=22&ageTo=22) | 조승환의원 등 10인 |
 
 ## 본회의 처리 법률안
 2026-09-10 이후 본회의에서 처리된 법률안이 없거나 받지 못했습니다.
@@ -12,7 +20,7 @@
 ## 등록된 선거 여론조사
 2026-09-10 이후 등록 **9건**. 글에서 인용할 때는 아래 개요를 함께 적어야 합니다 (공직선거법 108조).
 
-- **전국 정기(정례)조사 대통령선거 정당지지도 국정현안 등** (전국) — (주)코리아정보리서치 · 천지일보 의뢰 · 2026-09-14~15 · 1,009명 · 무선 ARS · 응답률 3.8% · 95% 신뢰수준에 ±3.1%p · 공표 천지일보 · [등록부](https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19521&menuNo=200467)
+- **전국 전체 정기(정례)조사대통령선거정당지지도 국정현안, 국회의원선거 등** (전국) — (주)코리아정보리서치 · 천지일보 의뢰 · 2026-09-14~15 · 1,009명 · 무선 ARS · 응답률 3.8% · 95% 신뢰수준에 ±3.1%p · 공표 천지일보 · [등록부](https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19521&menuNo=200467)
 - **전국 정기(정례)조사 정당지지도** (전국) — 케이에스오아이 주식회사(한국사회여론연구소) · 2026-09-14~15 · 1,001명 · 무선 ARS · 응답률 5.9% · 95% 신뢰수준에 ±3.1%p · 공표 KSOI 홈페이지(https://www.ksoi.org/) / 보도자료 · [등록부](https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19517&menuNo=200467)
 - **전국 정당지지도 기타 주요 인물 및 정당 신뢰도, 정부대응 신뢰도, 정책 신뢰도, 정당지지도** (전국) — 한국갤럽조사연구소 · 시사IN 의뢰 · 2026-09-06~08 · 1,013명 · 무선전화면접 · 응답률 8.7% · 95% 신뢰수준에 ±3.1%p · 공표 시사IN(잡지) · [등록부](https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19516&menuNo=200467)
 - **전국 정기(정례)조사 정당지지도 대통령선거** (전국) — (주)비전코리아 · 올리서치 의뢰 · 2026-09-12~13 · 1,020명 · 무선 ARS · 응답률 3.6% · 95% 신뢰수준에 ±3.1%p · 공표 올리서치 (www.allResearch.kr) · [등록부](https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19513&menuNo=200467)
@@ -21,9 +29,5 @@
 - **전국 정기(정례)조사 정당지지도 9월 2주차 주간집계** (전국) — (주)리얼미터 · 에너지경제신문 의뢰 · 2026-09-10~11 · 1,003명 · 무선 ARS · 응답률 3.6% · 95% 신뢰수준에 ±3.1%p · 공표 에너지경제신문 · [등록부](https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19510&menuNo=200467)
 - **전국 정기(정례)조사 국회의원선거 대통령선거** (전국) — 리서치웰 · 뉴데일리 의뢰 · 2026-09-09~10 · 1,001명 · 무선 ARS · 응답률 2.7% · 95% 신뢰수준에 ±3.1%p · 공표 뉴데일리 · [등록부](https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19509&menuNo=200467)
 - **전국 정기(정례)조사 정당지지도** (전국) — 한국갤럽조사연구소 · 한국갤럽 자체 조사 의뢰 · 무선전화면접 · [등록부](https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19508&menuNo=200467)
-
-## 받지 못한 것
-- 발의법률안을 받지 못했습니다 — ConnectTimeout
-- 본회의 처리안건을 받지 못했습니다 — ConnectTimeout
 
 *자세한 사항은 중앙선거여론조사심의위원회 홈페이지를 참조하세요. 본회의 표결 수는 열린국회정보 자료 그대로입니다.*
