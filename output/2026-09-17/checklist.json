@@ -1,0 +1,131 @@
+{
+  "date": "2026-09-17",
+  "summary": {
+    "ok": 9,
+    "warn": 7,
+    "fail": 0
+  },
+  "items": [
+    {
+      "key": "numbers",
+      "level": "warn",
+      "title": "수치 3건이 기사 원문에서 확인되지 않음",
+      "detail": "아래 '원문' 링크를 눌러 기사에서 직접 찾아보세요. 기사에 없는 값이면 글에서 빼는 게 안전합니다. [오늘의 정리 열기](brief.html)",
+      "lines": [
+        "윤호중, 김지용 후보 옹호 발언 · 김지용 후보자 제청일 **9월 7일** — [원문](https://www.hankyung.com/article/2026091798977)",
+        "윤호중, 김지용 후보 옹호 발언 · 김지용 후보자 지명일 **9월 8일** — [원문](https://www.hankyung.com/article/2026091798977)",
+        "윤호중, 김지용 후보 옹호 발언 · 중수청 출범 목표일 **10월 2일** — [원문](https://www.hankyung.com/article/2026091798977)"
+      ]
+    },
+    {
+      "key": "links",
+      "level": "warn",
+      "title": "출처 링크 1개가 열리지 않음",
+      "detail": "'기사 원문' 페이지의 ⚠️ 표시를 보고 링크를 바꾸거나 빼세요. [기사 원문 열기](sources.html)",
+      "lines": [
+        "https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003267891"
+      ]
+    },
+    {
+      "key": "banned",
+      "level": "ok",
+      "title": "금지 표현 없음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "balance",
+      "level": "ok",
+      "title": "양쪽 언급 균형 (언급 더불어민주당 5 · 국민의힘 5 · 인용 더불어민주당 2 · 국민의힘 0)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "blog_len",
+      "level": "ok",
+      "title": "블로그 본문 1,541자",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "tags",
+      "level": "ok",
+      "title": "태그 30개",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "keyword",
+      "level": "ok",
+      "title": "대표 검색어 '김승원 인사청문보고서 채택' 가 제목·첫 문단·소제목에 모두 있음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "overlap",
+      "level": "ok",
+      "title": "지난 글과 겹치는 문장 0%",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shape",
+      "level": "ok",
+      "title": "소제목 4개 · 메인 하나에 집중",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "readability",
+      "level": "warn",
+      "title": "긴 문장 2개 — 휴대폰에서 답답해 보입니다",
+      "detail": "문장은 둘로 나누고, 문단은 두세 문장에서 끊으세요.",
+      "lines": [
+        "국회 법사위원장 서영교 의원과 여당 간사 김의겸·김기표 의원(더불어민주당)은 16일 국회 소통관 기자회견에서…",
+        "협동조합 관련 의혹에 대해서는 \"배우자와 자녀는 실제 교육·돌봄 업무를 수행한 근로자\"라며, 일부 회계상 오…"
+      ]
+    },
+    {
+      "key": "photos",
+      "level": "warn",
+      "title": "직접 넣을 사진 자리 2곳",
+      "detail": "'네이버 블로그 글' 페이지의 점선 상자 아래 '사진 찾기' 링크를 쓰세요. [네이버 블로그 글 열기](blog-naver.html)",
+      "lines": []
+    },
+    {
+      "key": "shorts_len",
+      "level": "ok",
+      "title": "쇼츠 발화 245자 (약 45초)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shorts_voice",
+      "level": "warn",
+      "title": "쇼츠 자막이 제목 나열처럼 읽힙니다 — 문장으로 끝나는 컷이 29%",
+      "detail": "예: 장관 임명 30일 만에 / 김승원 법무부 장관 / 후보자를 둘러싼 → 종결어미로 맺는 문장으로 고치세요.",
+      "lines": []
+    },
+    {
+      "key": "long_len",
+      "level": "ok",
+      "title": "롱폼 발화 3,027자 (약 9.2분)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "warn",
+      "level": "warn",
+      "title": "발의법률안을 받지 못했습니다 — ConnectTimeout",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "warn",
+      "level": "warn",
+      "title": "본회의 처리안건을 받지 못했습니다 — ConnectTimeout",
+      "detail": "",
+      "lines": []
+    }
+  ]
+}
