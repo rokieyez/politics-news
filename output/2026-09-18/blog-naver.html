@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>김승원 청문보고서 채택, 9월 18일 정치 브리핑</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  /* 바탕색은 body 가 아니라 뒤에 깔린 고정 층(body::before)에 칠한다.
+     Chrome 은 '본문 복사' 때 글자 덩어리마다 조상(html·body 까지)의 배경색을 찾아
+     background-color 로 박아 넣는다. 그래서 body 에 회색을 칠하면 네이버에 붙였을 때
+     문단마다 연한 회색 형광펜이 깔린다 (2026-09-08 실측: 문단·제목 18곳에
+     rgb(245,246,248)). html·body·.card 를 전부 투명하게 두면 그 배경색이 사라진다.
+     .card 의 흰색도 같은 이유로 그림자·테두리로만 구분한다. */
+  html, body { background: transparent; }
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; background: #f5f6f8;
+  }
+  body {
+    margin: 0; padding: 0 16px 80px;
+    color: #1a1a1a;
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.8; font-size: 16px;
+  }
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    margin: 0 -16px 20px; padding: 12px 16px;
+    background: #03c75a; color: #fff;
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  }
+  .bar strong { margin-right: auto; font-size: 15px; }
+  .bar button {
+    border: 0; border-radius: 6px; padding: 8px 14px;
+    background: rgba(255,255,255,.18); color: #fff;
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    font-family: inherit;
+  }
+  .bar button:hover { background: rgba(255,255,255,.3); }
+  .bar button.done { background: #fff; color: #03c75a; }
+  .bar a.write {
+    border-radius: 6px; padding: 8px 14px; background: #fff; color: #03c75a;
+    font-size: 14px; font-weight: 700; text-decoration: none;
+  }
+  @media (max-width: 560px) {
+    /* 휴대폰에서는 제목 줄을 따로 두고 버튼을 꽉 채운다 */
+    .bar { gap: 6px; }
+    .bar strong { flex-basis: 100%; margin: 0 0 4px; font-size: 14px; }
+    .bar button, .bar a.write { flex: 1 1 0; text-align: center; padding: 10px 6px; font-size: 13px; }
+    .card { padding: 22px 16px; }
+    .title { font-size: 21px; }
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  /* 흰 바탕 대신 테두리 — 배경을 칠하면 복사본에 흰 형광펜이 실린다 (위 설명). */
+  .card { background: transparent; border: 1px solid #e4e7ea; border-radius: 10px; padding: 32px 28px; }
+  .title { font-size: 24px; font-weight: 700; line-height: 1.45; margin: 0 0 6px; }
+  .meta { color: #888; font-size: 13px; margin-bottom: 28px; }
+  /* 구분선은 **꼭지와 꼭지 사이**에 둔다 — 둘째 소제목부터 앞에 <hr> 이 온다
+     (render.section_dividers). 예전에는 h2 의 border-top 으로 그었는데, 네이버 에디터가
+     제목의 테두리를 받지 않고 얇은 회색 선으로 바꿨다 (2026-09-08). <hr> 로 보내면
+     에디터가 제 구분선 부품으로 바꾼다. 색은 네이버에서 고를 수 없어 회색이 된다 —
+     여기 초록은 미리보기용이다. */
+  #post h2 { font-size: 20px; font-weight: 700; margin: 8px 0 16px; }
+  #post hr { border: 0; border-top: 2px solid #03c75a; margin: 56px 0 26px; }
+  #post h3 { font-size: 17px; font-weight: 700; margin: 38px 0 10px; }
+  #post p { margin: 0 0 18px; }
+  #post ul, #post ol { margin: 0 0 18px; padding-left: 22px; }
+  #post li { margin-bottom: 8px; }
+  #post table { border-collapse: collapse; width: 100%; margin: 0 0 20px; font-size: 15px; }
+  #post th, #post td { border: 1px solid #ddd; padding: 9px 12px; text-align: left; }
+  #post th { background: #f2f4f6; font-weight: 700; }
+  #post blockquote {
+    margin: 0 0 18px; padding: 12px 16px;
+    background: #f7f8fa; border-left: 4px solid #03c75a; color: #444;
+  }
+  #post a { color: #0068c3; }
+  .imgslot {
+    margin: 0 0 20px; padding: 22px 16px; text-align: center;
+    border: 2px dashed #c9cdd2; border-radius: 8px;
+    background: #fafbfc; color: #6b7178; font-size: 14px;
+  }
+  .imgslot.has-file { border-color: #03c75a; background: #f2fbf5; color: #2c6e45; }
+  .photo-links { margin: -12px 0 20px; font-size: 13px; color: #6b7178; text-align: center; }
+  .photo-links a { color: #0068c3; }
+  .imgslot small { display: block; margin-top: 6px; font-size: 13px; color: #5a6a60; }
+  .preview { display: block; max-width: 100%; height: auto; margin: -8px 0 22px; border: 1px solid #e4e7ea; border-radius: 8px; }
+  .tags { margin: 36px 0 0; color: #0068c3; font-size: 15px; word-break: keep-all; }
+  .hint {
+    max-width: 720px; margin: 20px auto 0; padding: 16px 18px;
+    background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px;
+    font-size: 14px; line-height: 1.75; color: #5f4b16;
+  }
+  .hint ol { margin: 8px 0 0; padding-left: 20px; }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <strong>네이버 블로그 붙여넣기</strong>
+  <button type="button" data-copy="title">제목 복사</button>
+  <button type="button" data-copy="post">본문 복사</button>
+  <button type="button" data-copy="tags">태그 복사</button>
+  <a class="write" href="https://blog.naver.com/keyboardpolitics?Redirect=Write&amp;" target="_blank" rel="noopener">글쓰기 열기</a>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h1 class="title" id="title">김승원 청문보고서 채택, 9월 18일 정치 브리핑</h1>
+    <div class="meta">2026-09-18 · 정치</div>
+
+    <div id="post">
+<div class="imgslot has-file">📷 대표 이미지 — 검색 목록에 이 그림이 썸네일로 뜹니다<br><small>→ 파일 <b>img-0-cover.png</b> 을 <b>글 맨 위</b>에 올리고 상자는 지웁니다</small></div><img class="preview nocopy" src="img-0-cover.png" alt="대표 이미지"><p style="margin:0 0 14px;font-size:14px;color:#767676">이 글은 2026년 9월 18일 기준으로 정리한 내용입니다.</p><div style="background-color:#f2f8ff;border-left:4px solid #256abf;padding:14px 16px;margin:0 0 22px"><b style="font-size:15px">3줄 요약</b><ul style="margin:8px 0 0;padding-left:18px"><li style="margin-bottom:6px">김승원 청문보고서 채택, 국민의힘 퇴장 속 법사위 단독 의결</li><li style="margin-bottom:6px">국민의힘 퇴장까지 12분, 청문회 끝난 지 이틀 만의 처리</li><li style="margin-bottom:6px">다음 절차는 대통령의 임명 여부와 22일 국회 앞 집회</li></ul></div><p>김승원 청문보고서 채택이 17일 국회 법제사법위원회에서 이뤄졌습니다. 국민의힘 의원들이 퇴장한 가운데 더불어민주당 등 범여권 의원들이 단독으로 처리했습니다.</p>
+<p>남은 절차는 대통령의 임명 여부 결정입니다. 오늘 지켜볼 지점도 바로 여기입니다.</p>
+<div class="imgslot">📷 이미지 — 국회 법제사법위원회 전체회의장 전경</div><div class="photo-links nocopy">사진 찾기: <a href="https://unsplash.com/s/photos/korea-national-assembly-committee" target="_blank" rel="noopener">언스플래시</a> · <a href="https://www.pexels.com/ko-kr/search/korea%20national%20assembly%20committee/" target="_blank" rel="noopener">펙셀스</a> · <a href="https://pixabay.com/ko/images/search/korea%20national%20assembly%20committee/" target="_blank" rel="noopener">픽사베이</a></div>
+<h2>김승원 청문보고서 채택, 법사위에서 무슨 일이 있었나</h2>
+<p>인사청문경과보고서는 국회가 후보자 검증 결과를 정리해 대통령에게 보내는 문서입니다. 이 보고서가 채택되면 대통령은 임명을 진행할 절차적 요건을 갖추게 됩니다.</p>
+<p>국민의힘은 코로나19 신약 임상시험 청탁 의혹 등을 이유로 지명 철회를 요구하며 회의 시작 12분 만에 회의장을 떠났습니다.</p>
+<p>이 사안은 현재 '의혹'으로 제기된 단계입니다. 김 후보자 측의 구체적인 해명 내용은 자료에서 확인되지 않았습니다.</p>
+<p>국민의힘 박형수 의원은 퇴장 전 "보고서 채택 안건 상정은 지금까지의 청문회 자체가 요식 행위였다는 것을 증명해 준다"고 말했습니다.</p>
+<p>같은 당 곽규택 의원은 "내일 (대통령) 기자회견 하니까 오늘 (채택)하는 것 아니냐"고 항의했습니다. 이에 대한 민주당 측의 반박 발언은 자료에 담겨 있지 않습니다.</p>
+<p>같은 날 국방위원회도 강신철 국방부 장관 후보자 청문 절차를 진행했습니다. 강 후보자를 두고는 철거민 특별분양, 아들의 '이모 찬스' 논란이 제기된 상태입니다.</p>
+<hr><h2>숫자로 본 김승원 청문보고서 채택</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>국민의힘 퇴장까지 걸린 시간</td>
+<td>12분</td>
+</tr>
+<tr>
+<td>청문회 종료 후 보고서 채택까지</td>
+<td>2일</td>
+</tr>
+</tbody>
+</table>
+<p>(출처: 동아일보, 9월 17일 기준)</p>
+<div class="imgslot has-file">📷 이미지 — 국민의힘이 법사위 회의 시작 12분 만에 퇴장한 것을 보여주는 그래픽<br><small>→ 파일 <b>img-2-stat-card.png</b> 을 이 자리에 올리고 상자는 지웁니다</small></div><img class="preview nocopy" src="img-2-stat-card.png" alt="국민의힘이 법사위 회의 시작 12분 만에 퇴장한 것을 보여주는 그래픽">
+<hr><h2>김승원 청문보고서 채택 다음에 볼 것</h2>
+<p>국민의힘은 임명이 강행될 경우 추가 대응을 예고했습니다. 자당 소속 의원이 위원장인 국토교통위원회와 산업통상자원중소벤처기업위원회 회의는 이미 취소됐습니다.</p>
+<p>22일에는 국회 본관 앞 계단에서 '이재명 정부 실정 대국민 보고대회'를 열 계획입니다. 인사 검증, 부동산, 검찰 보완수사권 폐지 등을 다룰 예정이라고 합니다.</p>
+<p>정점식 원내대표는 "현재 내각은 주요 인사의 전과 총합이 34범"이라며 "임명을 강행하면 35범 범죄 내각으로 강화될 것"이라고 말했습니다.</p>
+<p>이 수치의 산출 근거와, 여당·후보자 측의 반박은 자료에 없습니다. 한편 국민의힘 내부에서도 투쟁 수위를 조절하자는 신중론이 나온다고 자료는 전하고 있습니다.</p>
+<hr><h2>그 밖의 오늘 소식</h2>
+<ul>
+<li>이재명 대통령, 18일 오전 10시 일곱 번째 기자회견(90분)</li>
+<li>리얼미터 조사 민주 <span class="hl" style="background-color:#fff59d"><strong>36.1%</strong></span>·국힘 <span class="hl" style="background-color:#fff59d"><strong>42.1%</strong></span>, 오차 ±<span class="hl" style="background-color:#fff59d"><strong>3.1%p</strong></span></li>
+<li>김민석 민주당 대표, 20일 기자간담회 예정</li>
+</ul>
+<div class="imgslot has-file">📷 이미지 — 리얼미터 9월 2주차 정당 지지도 비교 그래픽<br><small>→ 파일 <b>img-3-poll-chart.png</b> 을 이 자리에 올리고 상자는 지웁니다</small></div><img class="preview nocopy" src="img-3-poll-chart.png" alt="리얼미터 9월 2주차 정당 지지도 비교 그래픽"><div style="background-color:#f2f8ff;border-left:4px solid #256abf;padding:14px 16px;margin:26px 0 0"><b style="font-size:15px">그래서 나는?</b><ul style="margin:8px 0 0;padding-left:18px"><li style="margin-bottom:6px">뉴스만 보는 유권자라면, 보고서 채택과 임명은 다른 단계라는 점을 확인해 두세요</li><li style="margin-bottom:6px">국회 일정을 챙기는 분이라면, 18일 오전 10시 기자회견 시간을 메모해 두세요</li><li style="margin-bottom:6px">추석 연휴 계획이 있다면, 22일 국회 앞 집회 일정도 함께 살펴보세요</li></ul></div><div style="margin:28px 0 0;padding:16px 18px"><b>직접 센 숫자 — 국회·여론조사 (최근 7일)</b><p style="margin:10px 0 0">국회의원 발의 법률안 <b>107건</b>. 가장 최근은 진실·화해를 위한 진실규명결정사건 피해자 명예회복과 보상 등에 관한 법률안(이개호의원 등 10인).</p><p style="margin:8px 0 0;font-size:15px;color:#555555">본회의 처리 법률안 <b>70건</b> — 원안가결 40건 · 수정가결 30건</p><p style="margin:12px 0 4px"><b>이번 주 등록된 선거 여론조사 8건</b></p><ul style="margin:0;padding-left:18px;font-size:15px"><li>전국 전체 정기(정례)조사대통령선거정당지지도 국정현안, 국회의원선거 등 — (주)코리아정보리서치 · 천지일보 의뢰 · 2026-09-14~15 · 1,009명 · 무선 ARS · 응답률 3.8% · 95% 신뢰수준에 ±3.1%p</li><li>전국 정기(정례)조사 정당지지도 — 케이에스오아이 주식회사(한국사회여론연구소) · 2026-09-14~15 · 1,001명 · 무선 ARS · 응답률 5.9% · 95% 신뢰수준에 ±3.1%p</li><li>전국 정당지지도 기타 주요 인물 및 정당 신뢰도, 정부대응 신뢰도, 정책 신뢰도, 정당지지도 — 한국갤럽조사연구소 · 시사IN 의뢰 · 2026-09-06~08 · 1,013명 · 무선전화면접 · 응답률 8.7% · 95% 신뢰수준에 ±3.1%p</li></ul><p style="margin:12px 0 0;font-size:13px;color:#888888">열린국회정보·중앙선거여론조사심의위원회 자료를 직접 셌습니다. 여론조사의 자세한 사항은 중앙선거여론조사심의위원회 홈페이지를 참조하세요.</p></div><p style="padding:14px 16px;margin:28px 0 0"><b>여러분은 인사청문회 결과를 볼 때 후보자의 어떤 부분을 가장 먼저 확인하시나요?</b><br><span style="font-size:14px;color:#666666">댓글로 알려 주시면 다음 글에 반영하겠습니다.</span></p>
+      <p class="tags" id="tags">#정치 #국회 #김승원 #김승원청문보고서채택 #인사청문회 #인사청문경과보고서 #법제사법위원회 #법무부장관후보자 #강신철 #국방부장관후보자 #더불어민주당 #국민의힘 #이재명 #이재명기자회견 #김민석 #장동혁 #정점식 #상임위보이콧 #장외투쟁 #리얼미터 #정당지지도 #여론조사 #국토교통위원회 #산자중기위 #청와대 #개각 #연임개헌 #호르무즈파병 #정치브리핑 #시사정리</p>
+    </div>
+  </div>
+
+  <div class="hint">
+    <strong>쓰는 법</strong>
+    <ol>
+      <li><b>글쓰기 열기</b> → 네이버 블로그 글쓰기 화면이 새 탭에서 열립니다</li>
+      <li><b>제목 복사</b> → 제목 칸에 붙여넣기</li>
+      <li><b>본문 복사</b> → 본문 칸에 붙여넣기. 소제목·표·굵게가 그대로 살아납니다.</li>
+      <li>점선 상자(<span style="color:#6b7178">📷 이미지</span>) 자리에 사진을 넣고 상자는 지웁니다.
+        <b>초록 상자</b>는 자동 생성된 그림이 있는 자리입니다 — 상자에 적힌 파일명을 같은 폴더에서 찾아 올리세요.
+        미리보기 그림은 복사에 포함되지 않습니다.</li>
+      <li><span style="background-color:#fff59d">형광펜</span>은 오늘의 핵심 수치가 <b>처음 나온 자리</b>에만 칠합니다.
+        같은 수치가 다시 나와도 표시하지 않습니다 — 강조가 많으면 아무것도 강조가 아니니까요.
+        붙여넣으면 그대로 따라가고, 마음에 안 들면 에디터에서 지우세요.</li>
+      <li>맨 아래 해시태그는 그대로 두면 네이버가 태그로 인식합니다.</li>
+      <li><b>올린 뒤</b> 깃허브 → Actions → <b>발행 기록</b> 에 글 주소를 적고, 하루 이틀 뒤 같은 곳에
+        <b>조회수</b>를 적어 주세요 (date 칸에 <b>2026-09-18</b>). 이 두 숫자가 쌓여야 어떤 제목과 주제가
+        사람을 데려오는지 알 수 있습니다 — 안 적으면 아무것도 재지 못합니다.</li>
+    </ol>
+    이 안내문은 복사에 포함되지 않습니다.
+  </div>
+</div>
+
+<script>
+// 버튼이 지정한 영역만 클립보드에 담는다. 안내문과 상단 바는 복사되지 않는다.
+document.querySelectorAll("[data-copy]").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var node = document.getElementById(btn.dataset.copy);
+    if (!node) return;
+
+    // 미리보기 이미지(.nocopy)는 빼고 복사한다. 상대 경로 <img> 가 붙여넣기에 섞이면
+    // 네이버 에디터에 깨진 그림이 생긴다. 복사용 사본을 만들어 그것만 선택한다.
+    // 사본은 언제나 body 바로 아래에 둔다 — Chrome 이 복사본에 조상의 배경색을 박아
+    // 넣으므로, 흰 .card 안에서 복사하면 문단마다 흰 형광펜이 실린다. html·body 는
+    // 투명이라 body 아래에서 복사하면 배경색이 붙지 않는다 (2026-09-08 실측).
+    var clone = node.cloneNode(true);
+    clone.querySelectorAll(".nocopy").forEach(function (el) { el.remove(); });
+    clone.style.position = "fixed"; clone.style.left = "-9999px"; clone.style.top = "0";
+    document.body.appendChild(clone);
+    var copyNode = clone;
+
+    // 서식을 살리려면 선택 영역을 만들어 복사해야 한다.
+    // execCommand 는 구식이지만 file:// 에서 서식 복사가 확실하게 되는 유일한 방법이다.
+    var range = document.createRange();
+    range.selectNodeContents(copyNode);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    sel.removeAllRanges();
+    var plainText = copyNode.innerText;
+    clone.remove();
+
+    if (!ok && navigator.clipboard) {
+      navigator.clipboard.writeText(plainText).then(flash, function () {
+        alert("복사에 실패했습니다. 직접 드래그해서 복사해 주세요.");
+      });
+      return;
+    }
+    flash();
+
+    function flash() {
+      var original = btn.textContent;
+      btn.textContent = "복사됨 ✓";
+      btn.classList.add("done");
+      setTimeout(function () {
+        btn.textContent = original;
+        btn.classList.remove("done");
+      }, 1400);
+    }
+  });
+});
+</script>
+</body>
+</html>
