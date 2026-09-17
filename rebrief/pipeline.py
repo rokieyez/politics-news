@@ -41,6 +41,7 @@ class RunResult:
     stats: dict = field(default_factory=dict)      # 실거래 집계 (알림·요약에 쓴다) — 이 저장소에선 꺼 둠
     civics: dict = field(default_factory=dict)     # 국회·여론조사 집계
     quiet: bool = False                            # 한산해서 일부러 안 만든 날 (실패가 아니다)
+    voice_file: str = ""                           # 쇼츠 음성(mp3) 파일 이름 — 알림에 내려받기 주소로 붙는다
 
 
 def local_now(cfg: Config) -> datetime:
@@ -358,12 +359,36 @@ def _render_video_part(cfg: Config, renderer: Renderer, issues: list[Cluster], d
     """대본·제작 메모·썸네일. 마지막에 금지 표현 자동 고침(키가 있을 때만)."""
     made["pack"] = pack
     renderer.shorts(pack)
-    renderer.longform(pack)
+    if pack.longform is not None:               # 롱폼은 주간 결산 때만 (video.longform: weekly)
+        renderer.longform(pack)
     renderer.production_notes(brief, pack)
     renderer.thumbnails(pack, key_numbers=keys)
-    _record_titles(cfg, date_str, longform=pack.longform.title_candidates,
-                   shorts=pack.shorts.title_candidates)
+    _record_titles(cfg, date_str, shorts=pack.shorts.title_candidates,
+                   longform=pack.longform.title_candidates if pack.longform else [])
+
     _autofix_banned(cfg, renderer, made, issues, slot_files, result)
+    # 음성은 금지 표현을 고친 **뒤에** 만든다 — 앞에서 만들면 글이 바뀐 날 두 번 읽혀 글자 수가 두 번 나간다
+    made["voice"] = _shorts_voice(cfg, renderer, result)
+
+
+def _shorts_voice(cfg: Config, renderer: Renderer, result: "RunResult | None", pick: str = "",
+                  force: bool = False):
+    """쇼츠 대본을 일레븐랩스로 읽혀 mp3 로 남긴다. 열쇠가 없으면 조용히 넘어간다."""
+    from . import voice
+
+    made = voice.make_shorts_voice(cfg, renderer.out_dir, renderer.asset_name("script-shorts", "mp3"),
+                                   pick=pick, force=force)
+    if made.ok and not made.reused:
+        renderer.written.append(renderer.out_dir / made.file)
+        renderer.written.append(renderer.out_dir / voice.SIDECAR)
+    line = voice.summary_line(made)
+    if made.ok:
+        log.info(line)
+        if result is not None:
+            result.voice_file = made.file
+    elif result is not None and voice.api_key():
+        result.warnings.append(line)          # 열쇠를 아직 안 넣은 날까지 날마다 경고를 띄우지는 않는다
+    return made
 
 
 def answer(cfg: Config, run_date: str, text: str) -> RunResult:
@@ -849,7 +874,8 @@ def _autofix_banned(cfg: Config, renderer: Renderer, made: dict, issues: list[Cl
         targets.append(("블로그", post.body_markdown))
     if pack is not None:
         targets.append(("쇼츠", "\n".join(l.text for l in pack.shorts.lines)))
-        targets.append(("롱폼", "\n".join(s.script for s in pack.longform.sections)))
+        if pack.longform is not None:
+            targets.append(("롱폼", "\n".join(s.script for s in pack.longform.sections)))
     if not any(cl.sentences_with(t, phrases) for _, t in targets):
         return
 
@@ -874,14 +900,15 @@ def _autofix_banned(cfg: Config, renderer: Renderer, made: dict, issues: list[Cl
             if ch:
                 changed = True
                 fixed += [f"쇼츠: {a} → {b}" for a, b in ch]
-        for sec in pack.longform.sections:
+        for sec in (pack.longform.sections if pack.longform else []):
             sec.script, ch = cl.autofix(sec.script, phrases, lambda s, p: gen.rewrite(s, p, tone))
             if ch:
                 changed = True
                 fixed += [f"롱폼: {a} → {b}" for a, b in ch]
         if changed:
             renderer.shorts(pack)
-            renderer.longform(pack)
+            if pack.longform is not None:
+                renderer.longform(pack)
     if fixed:
         result.warnings.append(f"금지 표현이 든 문장 {len(fixed)}개를 {model} 로 고쳐 썼습니다 (checklist.md 에 전후 기록)")
         made["autofixed"] = fixed

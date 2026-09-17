@@ -123,6 +123,8 @@ jobs:
           REB_API_KEY: ${{ secrets.REB_API_KEY }}
           # 카드뉴스 위쪽 사진. 없으면 인포그래픽으로 갑니다.
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          # 쇼츠 음성(일레븐랩스). 없으면 음성만 조용히 건너뜁니다.
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           ASSEMBLY_API_KEY: ${{ secrets.ASSEMBLY_API_KEY }}
         run: |
           ARGS="-v run"
@@ -137,6 +139,8 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          # 쇼츠 음성(일레븐랩스). 없으면 음성만 조용히 건너뜁니다.
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           ASSEMBLY_API_KEY: ${{ secrets.ASSEMBLY_API_KEY }}
         # 3 = 준비가 안 됐거나 멈춤 — 실패가 아니다(묶음은 남아 있고 사람이 붙여 넣으면 된다).
         run: |
