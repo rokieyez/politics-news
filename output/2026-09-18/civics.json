@@ -177,6 +177,25 @@
   },
   "polls": [
     {
+      "reg_no": "17273",
+      "agency": "한국갤럽조사연구소",
+      "client": "한국갤럽 자체 조사",
+      "method": "무선전화면접",
+      "title": "전국 정기(정례)조사 정당지지도",
+      "registered": "2026-09-18",
+      "region": "전국",
+      "ntt_id": "19523",
+      "period": "2026-09-15~17",
+      "sample_size": 1002,
+      "response_rate": "9.8%",
+      "margin": "95% 신뢰수준에 ±3.1%p",
+      "outlet": "한국갤럽 홈페이지",
+      "publish_at": "2026-09-18 10시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19523&menuNo=200467",
+      "extra": {},
+      "summary": "한국갤럽조사연구소 · 한국갤럽 자체 조사 의뢰 · 2026-09-15~17 · 1,002명 · 무선전화면접 · 응답률 9.8% · 95% 신뢰수준에 ±3.1%p"
+    },
+    {
       "reg_no": "17272",
       "agency": "(주)코리아정보리서치",
       "client": "천지일보",
@@ -318,17 +337,18 @@
       "registered": "2026-09-11",
       "region": "전국",
       "ntt_id": "19509",
-      "period": "2026-09-09~10",
-      "sample_size": 1001,
-      "response_rate": "2.7%",
-      "margin": "95% 신뢰수준에 ±3.1%p",
-      "outlet": "뉴데일리",
-      "publish_at": "2026-09-11 14시 00분",
+      "period": "",
+      "sample_size": null,
+      "response_rate": "",
+      "margin": "",
+      "outlet": "",
+      "publish_at": "",
       "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19509&menuNo=200467",
       "extra": {},
-      "summary": "리서치웰 · 뉴데일리 의뢰 · 2026-09-09~10 · 1,001명 · 무선 ARS · 응답률 2.7% · 95% 신뢰수준에 ±3.1%p"
+      "summary": "리서치웰 · 뉴데일리 의뢰 · 무선 ARS"
     }
   ],
   "warnings": [],
-  "filled_from_prefetch": []
+  "filled_from_prefetch": [],
+  "tracked": []
 }
