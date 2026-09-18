@@ -1,0 +1,108 @@
+{
+  "date": "2026-09-19",
+  "summary": {
+    "ok": 8,
+    "warn": 5,
+    "fail": 0
+  },
+  "items": [
+    {
+      "key": "numbers",
+      "level": "ok",
+      "title": "수치 5건 모두 기사 원문에서 확인",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "links",
+      "level": "warn",
+      "title": "출처 링크 1개가 열리지 않음",
+      "detail": "'기사 원문' 페이지의 ⚠️ 표시를 보고 링크를 바꾸거나 빼세요. [기사 원문 열기](sources.html)",
+      "lines": [
+        "https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003268643"
+      ]
+    },
+    {
+      "key": "banned",
+      "level": "ok",
+      "title": "금지 표현 없음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "blog_len",
+      "level": "ok",
+      "title": "블로그 본문 1,547자",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "tags",
+      "level": "ok",
+      "title": "태그 30개",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "keyword",
+      "level": "ok",
+      "title": "대표 검색어 '김성수 대법관 임명' 가 제목·첫 문단·소제목에 모두 있음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "overlap",
+      "level": "ok",
+      "title": "지난 글과 겹치는 문장 0%",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shape",
+      "level": "ok",
+      "title": "소제목 4개 · 메인 하나에 집중",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "readability",
+      "level": "warn",
+      "title": "긴 문장 2개 — 휴대폰에서 답답해 보입니다",
+      "detail": "문장은 둘로 나누고, 문단은 두세 문장에서 끊으세요.",
+      "lines": [
+        "이재명 대통령은 9월 18일 기자회견에서 국회에 계류된 '조작기소 특검법'의 공소취소권(검찰이 이미 낸 재판…",
+        "특별감찰관 청문회에서 국민의힘 주진우 의원은 이재명 대통령 아들 관련 의혹도 제기했는데, 더불어민주당 박지원…"
+      ]
+    },
+    {
+      "key": "photos",
+      "level": "warn",
+      "title": "직접 넣을 사진 자리 2곳",
+      "detail": "'네이버 블로그 글' 페이지의 점선 상자 아래 '사진 찾기' 링크를 쓰세요. [네이버 블로그 글 열기](blog-naver.html)",
+      "lines": []
+    },
+    {
+      "key": "shorts_len",
+      "level": "ok",
+      "title": "쇼츠 발화 261자 (약 47초)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shorts_voice",
+      "level": "warn",
+      "title": "쇼츠 자막이 제목 나열처럼 읽힙니다 — 문장으로 끝나는 컷이 21%",
+      "detail": "예: 대통령이 국회에 / 법안 조항을 빼달라고 / 9월18일 이재명 대통령은 → 종결어미로 맺는 문장으로 고치세요.",
+      "lines": []
+    },
+    {
+      "key": "repeat",
+      "level": "warn",
+      "title": "'김성수 대법관 임명' 은 2일 전에도 다뤘습니다",
+      "detail": "그대로 또 쓰면 재탕으로 보입니다. 그때와 달라진 숫자를 앞세우거나 후속 국면을 잡으세요.",
+      "lines": [
+        "2026-09-17 · 본회의 김성수 대법관 임명동의안 표결"
+      ]
+    }
+  ]
+}
