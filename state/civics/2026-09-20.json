@@ -1,0 +1,168 @@
+{
+  "as_of": "2026-09-20",
+  "days": 7,
+  "since": "2026-09-13",
+  "sample": true,
+  "bills": {
+    "count": null,
+    "latest": [
+      {
+        "name": "선거관리위원회법 일부개정법률안",
+        "proposer": "한동훈의원 등 20인",
+        "date": "2026-09-18",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_V2T6U0J7J2H3I1H7F3F4N3O1M3N2L2&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "콘텐츠산업의 국가전략산업 육성에 관한 특별법안",
+        "proposer": "이헌승의원 등 14인",
+        "date": "2026-09-18",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_T2T6P0Q8O2O5N1L4M1T2V4T5T3S1Q5&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "국가재정법 일부개정법률안",
+        "proposer": "이헌승의원 등 11인",
+        "date": "2026-09-18",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_F2E6E0C9D1L8M1K3K2J3J4I3Q2Q6P7&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "출입국관리법 일부개정법률안",
+        "proposer": "송석준의원 등 11인",
+        "date": "2026-09-18",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_R2P6O0P9N1N8J0K9I3J8H2F4G2O4P2&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "도시 및 주거환경정비법 일부개정법률안",
+        "proposer": "김남근의원 등 14인",
+        "date": "2026-09-18",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2M6K0S9T1R0S1Q9R3P6P4Y5W3W5V8&ageFrom=22&ageTo=22",
+        "committee": ""
+      }
+    ],
+    "sample": true,
+    "age_total": 19544
+  },
+  "plenary": {
+    "count": null,
+    "by_result": {
+      "원안가결": 5
+    },
+    "items": [
+      {
+        "name": "아동·청소년의 성보호에 관한 법률 일부개정법률안(대안)(성평등가족위원장)",
+        "result": "원안가결",
+        "date": "2026-09-17",
+        "committee": "성평등가족위원회",
+        "yes": 152,
+        "no": 34,
+        "blank": 3,
+        "link": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_K2I6A0X9N1O5Q1Y1N3R4K1M0U6E3T0"
+      },
+      {
+        "name": "발달장애인 권리보장 및 지원에 관한 법률 일부개정법률안(대안)(보건복지위원장)",
+        "result": "원안가결",
+        "date": "2026-09-17",
+        "committee": "보건복지위원회",
+        "yes": 198,
+        "no": 2,
+        "blank": 4,
+        "link": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_A2V6V0E9S1C5Z2X0C3U3B3E0O5P0S4"
+      },
+      {
+        "name": "군사기밀 보호법 일부개정법률안(대안)(국방위원장)",
+        "result": "원안가결",
+        "date": "2026-09-17",
+        "committee": "국방위원회",
+        "yes": 155,
+        "no": 49,
+        "blank": null,
+        "link": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_P2S6K0P9O1A6K1U0I4F1C5A1E4I3B7"
+      },
+      {
+        "name": "노인복지법 일부개정법률안(대안)(보건복지위원장)",
+        "result": "원안가결",
+        "date": "2026-09-17",
+        "committee": "보건복지위원회",
+        "yes": 157,
+        "no": 37,
+        "blank": 4,
+        "link": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_V2G6Z0Z9V1L5C2O0A3O0D5X6O9U2F3"
+      },
+      {
+        "name": "장애인복지법 일부개정법률안(대안)(보건복지위원장)",
+        "result": "원안가결",
+        "date": "2026-09-17",
+        "committee": "보건복지위원회",
+        "yes": 154,
+        "no": 49,
+        "blank": 1,
+        "link": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_U2C6W0N9Q1D5D2V0X3Q1G4J5V5P0H4"
+      }
+    ],
+    "sample": true
+  },
+  "polls": [],
+  "warnings": [
+    "등록 여론조사 목록을 받지 못했습니다 — ReadTimeout"
+  ],
+  "tracked_pool": {
+    "지방자치법": {
+      "query": "지방자치법",
+      "count": 71,
+      "pending": null,
+      "name": "지방자치법 일부개정법률안",
+      "proposer": "윤용근의원 등 35인",
+      "date": "2026-09-03",
+      "stage": "소관위 회부",
+      "committee": "행정안전위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_G2C6C0A9B0A2A0Y8Z5H7F1G9E8F4D7&ageFrom=22&ageTo=22"
+    },
+    "소방공무원법": {
+      "query": "소방공무원법",
+      "count": 7,
+      "pending": null,
+      "name": "소방공무원법 일부개정법률안",
+      "proposer": "용혜인의원 등 15인",
+      "date": "2025-07-23",
+      "stage": "소관위 상정",
+      "committee": "행정안전위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_H2F5F0D7C0D9K1L3J1K4I0J5H4I8P4&ageFrom=22&ageTo=22"
+    },
+    "새마을금고법": {
+      "query": "새마을금고법",
+      "count": 17,
+      "pending": null,
+      "name": "새마을금고법 일부개정법률안",
+      "proposer": "이강일의원 등 14인",
+      "date": "2026-07-28",
+      "stage": "소관위 회부",
+      "committee": "행정안전위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_E2N6N0L7M2K1K1I9J2I2I3G9H1P5N2&ageFrom=22&ageTo=22"
+    },
+    "행정수도특별법": {
+      "query": "행정수도특별법",
+      "count": 1,
+      "pending": 1,
+      "name": "행정수도특별법안",
+      "proposer": "김종민의원 등 11인",
+      "date": "2025-11-04",
+      "stage": "소관위 상정",
+      "committee": "국토교통위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_A2B5Z1A0O2P9N1O6M3N3L4M3T3S6T0&ageFrom=22&ageTo=22"
+    }
+  },
+  "pool_queried": [
+    "클래리티법",
+    "자본법",
+    "지방자치법",
+    "소방공무원법",
+    "새마을금고법",
+    "행정수도특별법",
+    "특검법",
+    "부회장법"
+  ],
+  "prefetched_at": "2026-09-19T23:41:04+00:00"
+}
