@@ -1,0 +1,106 @@
+{
+  "date": "2026-09-21",
+  "summary": {
+    "ok": 10,
+    "warn": 3,
+    "fail": 0
+  },
+  "items": [
+    {
+      "key": "numbers",
+      "level": "ok",
+      "title": "수치 1건 모두 기사 원문에서 확인",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "links",
+      "level": "warn",
+      "title": "출처 링크 1개가 열리지 않음",
+      "detail": "'기사 원문' 페이지의 ⚠️ 표시를 보고 링크를 바꾸거나 빼세요. [기사 원문 열기](sources.html)",
+      "lines": [
+        "https://www.newsis.com/view/NISX20260919_0003796693"
+      ]
+    },
+    {
+      "key": "banned",
+      "level": "ok",
+      "title": "금지 표현 없음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "balance",
+      "level": "ok",
+      "title": "양쪽 언급 균형 (언급 더불어민주당 4 · 국민의힘 3 · 인용 더불어민주당 0 · 국민의힘 1)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "blog_len",
+      "level": "ok",
+      "title": "블로그 본문 1,402자",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "tags",
+      "level": "ok",
+      "title": "태그 30개",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "keyword",
+      "level": "ok",
+      "title": "대표 검색어 '김승원 후보자 사퇴' 가 제목·첫 문단·소제목에 모두 있음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "overlap",
+      "level": "ok",
+      "title": "지난 글과 겹치는 문장 0%",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shape",
+      "level": "ok",
+      "title": "소제목 4개 · 메인 하나에 집중",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "readability",
+      "level": "warn",
+      "title": "긴 문장 2개 — 휴대폰에서 답답해 보입니다",
+      "detail": "문장은 둘로 나누고, 문단은 두세 문장에서 끊으세요.",
+      "lines": [
+        "김 의원은 사퇴 기자회견에서 \"직은 내려놓아도 진실은 포기하지 않겠다\"며 \"윤석열·한동훈 정치 검찰의 표적 …",
+        "실제 수사 착수 여부, 청와대의 탄원서 접수·검증 라인 공개 여부, 그리고 국민의힘이 요구한 김현지 대통령제…"
+      ]
+    },
+    {
+      "key": "photos",
+      "level": "warn",
+      "title": "직접 넣을 사진 자리 2곳",
+      "detail": "'네이버 블로그 글' 페이지의 점선 상자 아래 '사진 찾기' 링크를 쓰세요. [네이버 블로그 글 열기](blog-naver.html)",
+      "lines": []
+    },
+    {
+      "key": "shorts_len",
+      "level": "ok",
+      "title": "쇼츠 발화 275자 (약 50초)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shorts_voice",
+      "level": "ok",
+      "title": "쇼츠 자막이 문장으로 이어집니다 (35%)",
+      "detail": "",
+      "lines": []
+    }
+  ]
+}
