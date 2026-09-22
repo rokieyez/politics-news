@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>대법관 재제청 거부, 9월 23일 여야·청와대 공방 정리</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  /* 바탕색은 body 가 아니라 뒤에 깔린 고정 층(body::before)에 칠한다.
+     Chrome 은 '본문 복사' 때 글자 덩어리마다 조상(html·body 까지)의 배경색을 찾아
+     background-color 로 박아 넣는다. 그래서 body 에 회색을 칠하면 네이버에 붙였을 때
+     문단마다 연한 회색 형광펜이 깔린다 (2026-09-08 실측: 문단·제목 18곳에
+     rgb(245,246,248)). html·body·.card 를 전부 투명하게 두면 그 배경색이 사라진다.
+     .card 의 흰색도 같은 이유로 그림자·테두리로만 구분한다. */
+  html, body { background: transparent; }
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; background: #f5f6f8;
+  }
+  body {
+    margin: 0; padding: 0 16px 80px;
+    color: #1a1a1a;
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.8; font-size: 16px;
+  }
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    margin: 0 -16px 20px; padding: 12px 16px;
+    background: #03c75a; color: #fff;
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  }
+  .bar strong { margin-right: auto; font-size: 15px; }
+  .bar button {
+    border: 0; border-radius: 6px; padding: 8px 14px;
+    background: rgba(255,255,255,.18); color: #fff;
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    font-family: inherit;
+  }
+  .bar button:hover { background: rgba(255,255,255,.3); }
+  .bar button.done { background: #fff; color: #03c75a; }
+  .bar a.write {
+    border-radius: 6px; padding: 8px 14px; background: #fff; color: #03c75a;
+    font-size: 14px; font-weight: 700; text-decoration: none;
+  }
+  @media (max-width: 560px) {
+    /* 휴대폰에서는 제목 줄을 따로 두고 버튼을 꽉 채운다 */
+    .bar { gap: 6px; }
+    .bar strong { flex-basis: 100%; margin: 0 0 4px; font-size: 14px; }
+    .bar button, .bar a.write { flex: 1 1 0; text-align: center; padding: 10px 6px; font-size: 13px; }
+    .card { padding: 22px 16px; }
+    .title { font-size: 21px; }
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  /* 흰 바탕 대신 테두리 — 배경을 칠하면 복사본에 흰 형광펜이 실린다 (위 설명). */
+  .card { background: transparent; border: 1px solid #e4e7ea; border-radius: 10px; padding: 32px 28px; }
+  .title { font-size: 24px; font-weight: 700; line-height: 1.45; margin: 0 0 6px; }
+  .meta { color: #888; font-size: 13px; margin-bottom: 28px; }
+  /* 구분선은 **꼭지와 꼭지 사이**에 둔다 — 둘째 소제목부터 앞에 <hr> 이 온다
+     (render.section_dividers). 예전에는 h2 의 border-top 으로 그었는데, 네이버 에디터가
+     제목의 테두리를 받지 않고 얇은 회색 선으로 바꿨다 (2026-09-08). <hr> 로 보내면
+     에디터가 제 구분선 부품으로 바꾼다. 색은 네이버에서 고를 수 없어 회색이 된다 —
+     여기 초록은 미리보기용이다. */
+  #post h2 { font-size: 20px; font-weight: 700; margin: 8px 0 16px; }
+  #post hr { border: 0; border-top: 2px solid #03c75a; margin: 56px 0 26px; }
+  #post h3 { font-size: 17px; font-weight: 700; margin: 38px 0 10px; }
+  #post p { margin: 0 0 18px; }
+  #post ul, #post ol { margin: 0 0 18px; padding-left: 22px; }
+  #post li { margin-bottom: 8px; }
+  #post table { border-collapse: collapse; width: 100%; margin: 0 0 20px; font-size: 15px; }
+  #post th, #post td { border: 1px solid #ddd; padding: 9px 12px; text-align: left; }
+  #post th { background: #f2f4f6; font-weight: 700; }
+  #post blockquote {
+    margin: 0 0 18px; padding: 12px 16px;
+    background: #f7f8fa; border-left: 4px solid #03c75a; color: #444;
+  }
+  #post a { color: #0068c3; }
+  .imgslot {
+    margin: 0 0 20px; padding: 22px 16px; text-align: center;
+    border: 2px dashed #c9cdd2; border-radius: 8px;
+    background: #fafbfc; color: #6b7178; font-size: 14px;
+  }
+  .imgslot.has-file { border-color: #03c75a; background: #f2fbf5; color: #2c6e45; }
+  .photo-links { margin: -12px 0 20px; font-size: 13px; color: #6b7178; text-align: center; }
+  .photo-links a { color: #0068c3; }
+  .imgslot small { display: block; margin-top: 6px; font-size: 13px; color: #5a6a60; }
+  .preview { display: block; max-width: 100%; height: auto; margin: -8px 0 22px; border: 1px solid #e4e7ea; border-radius: 8px; }
+  .tags { margin: 36px 0 0; color: #0068c3; font-size: 15px; word-break: keep-all; }
+  .hint {
+    max-width: 720px; margin: 20px auto 0; padding: 16px 18px;
+    background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px;
+    font-size: 14px; line-height: 1.75; color: #5f4b16;
+  }
+  .hint ol { margin: 8px 0 0; padding-left: 20px; }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <strong>네이버 블로그 붙여넣기</strong>
+  <button type="button" data-copy="title">제목 복사</button>
+  <button type="button" data-copy="post">본문 복사</button>
+  <button type="button" data-copy="tags">태그 복사</button>
+  <a class="write" href="https://blog.naver.com/keyboardpolitics?Redirect=Write&amp;" target="_blank" rel="noopener">글쓰기 열기</a>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h1 class="title" id="title">대법관 재제청 거부, 9월 23일 여야·청와대 공방 정리</h1>
+    <div class="meta">2026-09-23 · 정치</div>
+
+    <div id="post">
+<div class="imgslot has-file">📷 대표 이미지 — 검색 목록에 이 그림이 썸네일로 뜹니다<br><small>→ 파일 <b>img-0-cover.png</b> 을 <b>글 맨 위</b>에 올리고 상자는 지웁니다</small></div><img class="preview nocopy" src="img-0-cover.png" alt="대표 이미지"><p style="margin:0 0 14px;font-size:14px;color:#767676">이 글은 2026년 9월 23일 기준으로 정리한 내용입니다.</p><div style="background-color:#f2f8ff;border-left:4px solid #256abf;padding:14px 16px;margin:0 0 22px"><b style="font-size:15px">3줄 요약</b><ul style="margin:8px 0 0;padding-left:18px"><li style="margin-bottom:6px">조희대 대법원장이 22일 대법관 재제청 거부 입장을 냈습니다</li><li style="margin-bottom:6px">청와대는 같은 날 두 차례 입장문, 민주당은 논평 5건을 냈습니다</li><li style="margin-bottom:6px">다음은 헌재 권한쟁의심판 청구와 국정감사 출석 요구 여부입니다</li></ul></div><p>오늘 정리할 소식은 <strong>대법관 재제청 거부</strong>입니다. 조희대 대법원장이 22일 청와대의 대법관 후보 재제청 요구에 응하지 않겠다고 밝혔습니다.</p>
+<p>청와대는 유감을 표명하며 헌법재판소 권한쟁의심판 청구를 검토 중이고, 대법관 자리는 200일 넘게 비어 있습니다.</p>
+<div class="imgslot">📷 이미지 — 대법원 청사 외관 사진</div><div class="photo-links nocopy">사진 찾기: <a href="https://unsplash.com/s/photos/supreme-court-building-korea" target="_blank" rel="noopener">언스플래시</a> · <a href="https://www.pexels.com/ko-kr/search/supreme%20court%20building%20korea/" target="_blank" rel="noopener">펙셀스</a> · <a href="https://pixabay.com/ko/images/search/supreme%20court%20building%20korea/" target="_blank" rel="noopener">픽사베이</a></div>
+<h2>대법관 재제청 거부, 무슨 일이 있었나</h2>
+<p>대법관은 대법원장이 후보를 제청하고 대통령이 국회 동의를 받아 임명합니다. 제청은 "이 사람을 임명해 달라"고 공식 추천하는 절차입니다.</p>
+<p>청와대는 지난달 28일 조 대법원장에게 다른 후보를 다시 제청해 달라고 요청했습니다. 조 대법원장은 25일 뒤인 22일 "응할 수 없다"고 답했습니다.</p>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>재제청 요구~거부까지</td>
+<td>25일(8/28~9/22)</td>
+</tr>
+<tr>
+<td>청와대 입장문</td>
+<td>하루 <span class="hl" style="background-color:#fff59d"><strong>2회</strong></span></td>
+</tr>
+<tr>
+<td>민주당 규탄 논평</td>
+<td>당일 <span class="hl" style="background-color:#fff59d"><strong>5건</strong></span></td>
+</tr>
+</tbody>
+</table>
+<p>조 대법원장은 청와대 문서에 구체적 사유와 헌법적 근거가 없었다고 밝혔습니다. 또 대통령의 국법상 행위는 국무총리 등이 부서(서명)한 문서로 한다는 헌법 82조를 근거로 들었습니다.</p>
+<p>반면 청와대는 헌법 104조 2항과 법원조직법 41조 2항을 근거로 재제청을 요청했다고 전해졌습니다. 강유정 청와대 수석대변인은 "대법원장의 제청권은 대통령의 임명권을 대체하거나 무력화하는 권한이 아니"라고 주장했습니다.</p>
+<div class="imgslot has-file">📷 이미지 — 청와대 입장문 발표 횟수를 보여주는 그래픽<br><small>→ 파일 <b>img-2-stat-card.png</b> 을 이 자리에 올리고 상자는 지웁니다</small></div><img class="preview nocopy" src="img-2-stat-card.png" alt="청와대 입장문 발표 횟수를 보여주는 그래픽">
+<hr><h2>여야는 각각 어떻게 말했나</h2>
+<p>김민석 민주당 대표는 22일 국회 규탄대회에서 이를 "대통령의 헌법적 임명권을 침해하는 도발"이라고 말했습니다. 서영교 국회 법사위원장은 기자들에게 "나는 탄핵이라고 몇 번씩 말했다"고 말했습니다.</p>
+<p>한민수 민주당 최고위원은 SNS에 "사퇴하지 않는다면 탄핵을 포함한 모든 대응책을 검토할 것"이라고 적었습니다. 다만 뉴시스 보도에 따르면 당내에도 신중론이 있어, 탄핵 추진은 지도부의 공식 결정이 아닙니다.</p>
+<p>장동혁 국민의힘 대표는 같은 날 기자회견에서 "헌법에 따른 지극히 당연한 결정"이라고 반박했습니다. 국민의힘 법사위 소속 박형수·김민전·주진우 의원은 "즉각 손봉기 대법관 후보자에 대한 국회 임명동의 절차를 밟으라"고 대통령 측에 촉구했습니다.</p>
+<p>김민전 의원은 "대장동 판사를 대법관으로 지명하려는 것 아니냐는 의혹을 가질 수밖에 없다"고 말했습니다. 이는 의혹 제기이며, 사실로 확인된 내용은 아닙니다.</p>
+<div class="imgslot">📷 이미지 — 국회 본청 전경 사진</div><div class="photo-links nocopy">사진 찾기: <a href="https://unsplash.com/s/photos/korea-national-assembly-building" target="_blank" rel="noopener">언스플래시</a> · <a href="https://www.pexels.com/ko-kr/search/korea%20national%20assembly%20building/" target="_blank" rel="noopener">펙셀스</a> · <a href="https://pixabay.com/ko/images/search/korea%20national%20assembly%20building/" target="_blank" rel="noopener">픽사베이</a></div>
+<hr><h2>대법관 재제청 거부, 다음 절차는</h2>
+<p>권한쟁의심판은 국가기관끼리 "이 권한은 누구 것이냐"를 헌법재판소가 가려 주는 절차입니다. 청와대는 현재 청구를 "검토" 중이며, 청구 여부와 시점은 정해지지 않았습니다.</p>
+<p>조 대법원장은 후임 인선을 위한 후속 방안을 내놓지 않았습니다. 뉴시스는 갈등이 심화되면 조 대법원장 퇴임까지 공석이 이어질 수 있다는 우려가 커질 전망이라고 보도했습니다.</p>
+<p>동아일보는 대통령이 재제청을 요구하고 대법원장이 거부한 사례는 헌정사상 사실상 처음이라고 전했습니다. 양측의 헌법 해석이 정반대라 절차적 교착이 이어지고 있습니다.</p>
+<hr><h2>그 밖의 오늘 소식</h2>
+<ul>
+<li>국회 법사위, 조 대법원장 국정감사 출석 요구 검토(일정 미정)</li>
+<li>대통령의 손봉기 후보자 임명동의안 국회 제출 여부 미정</li>
+<li>23일 민주당·국민의힘 최고위원회의 등 정무 일정 예정</li>
+</ul><div style="background-color:#f2f8ff;border-left:4px solid #256abf;padding:14px 16px;margin:26px 0 0"><b style="font-size:15px">그래서 나는?</b><ul style="margin:8px 0 0;padding-left:18px"><li style="margin-bottom:6px">재판 당사자라면, 대법관 공백이 사건 처리 속도에 영향을 줄 수 있습니다</li><li style="margin-bottom:6px">정치 뉴스를 따라가는 분이라면, 헌재 권한쟁의심판 청구 여부를 확인해 보세요</li><li style="margin-bottom:6px">이번 국정감사를 보는 유권자라면, 법사위 일정 발표를 지켜보시면 됩니다</li></ul></div><div style="margin:28px 0 0;padding:16px 18px"><b>직접 센 숫자 — 국회·여론조사 (최근 7일)</b><p style="margin:10px 0 0">국회의원 발의 법률안 <b>148건</b>. 가장 최근은 기술보증기금법 일부개정법률안(김원이의원 등 17인).</p><p style="margin:8px 0 0;font-size:15px;color:#555555">본회의 처리 법률안 <b>71건</b> — 철회 1건 · 원안가결 40건 · 수정가결 30건</p><p style="margin:12px 0 4px"><b>이번 주 등록된 선거 여론조사 9건</b></p><ul style="margin:0;padding-left:18px;font-size:15px"><li>전국 정당지지도 — (주)에스티아이 · 한겨레 의뢰 · 2026-09-15~20 · 1,592명 · 인터넷조사 · 응답률 96.5% · 95% 신뢰수준에 ±2.5%p</li><li>전국 정기(정례)조사 정당지지도 대통령선거 — 조원씨앤아이 · 스트레이트뉴스 의뢰 · 2026-09-19~21 · 2,007명 · 무선 ARS · 응답률 4.1% · 95% 신뢰수준에 ±2.2%p</li><li>전국 정기(정례)조사 정당지지도 — 여론조사공정(주) · 펜앤마이크 의뢰 · 2026-09-20~21 · 1,009명 · 무선 ARS · 응답률 2.8% · 95% 신뢰수준에 ±3.1%p</li></ul><p style="margin:12px 0 4px"><b>오늘 이슈에 나온 법안은 지금 어디에</b></p><ul style="margin:0;padding-left:18px;font-size:15px"><li>법원조직법 — 제22대 발의 67건(계류 51) · 최근 「법원조직법 일부개정법률안」(최은석의원 등 11인, 2026-09-16) · 소관위 회부</li></ul><p style="margin:12px 0 0;font-size:13px;color:#888888">열린국회정보·중앙선거여론조사심의위원회 자료를 직접 셌습니다. 여론조사의 자세한 사항은 중앙선거여론조사심의위원회 홈페이지를 참조하세요.</p></div><p style="padding:14px 16px;margin:28px 0 0"><b>여러분은 이런 기관 사이 권한 다툼을 뉴스에서 볼 때, 어떤 정보가 가장 먼저 궁금해지시나요?</b><br><span style="font-size:14px;color:#666666">댓글로 알려 주시면 다음 글에 반영하겠습니다.</span></p>
+      <p class="tags" id="tags">#정치 #국회 #대법관재제청거부 #조희대 #대법원장 #대법관공백 #손봉기 #권한쟁의심판 #헌법재판소 #청와대 #더불어민주당 #국민의힘 #김민석 #장동혁 #서영교 #한민수 #강유정 #법제사법위원회 #국정감사 #헌법104조 #헌법82조 #법원조직법 #대법관임명동의 #사법부 #삼권분립 #탄핵 #정치브리핑 #시사상식 #방구석배경지식 #20260923</p>
+    </div>
+  </div>
+
+  <div class="hint">
+    <strong>쓰는 법</strong>
+    <ol>
+      <li><b>글쓰기 열기</b> → 네이버 블로그 글쓰기 화면이 새 탭에서 열립니다</li>
+      <li><b>제목 복사</b> → 제목 칸에 붙여넣기</li>
+      <li><b>본문 복사</b> → 본문 칸에 붙여넣기. 소제목·표·굵게가 그대로 살아납니다.</li>
+      <li>점선 상자(<span style="color:#6b7178">📷 이미지</span>) 자리에 사진을 넣고 상자는 지웁니다.
+        <b>초록 상자</b>는 자동 생성된 그림이 있는 자리입니다 — 상자에 적힌 파일명을 같은 폴더에서 찾아 올리세요.
+        미리보기 그림은 복사에 포함되지 않습니다.</li>
+      <li><span style="background-color:#fff59d">형광펜</span>은 오늘의 핵심 수치가 <b>처음 나온 자리</b>에만 칠합니다.
+        같은 수치가 다시 나와도 표시하지 않습니다 — 강조가 많으면 아무것도 강조가 아니니까요.
+        붙여넣으면 그대로 따라가고, 마음에 안 들면 에디터에서 지우세요.</li>
+      <li>맨 아래 해시태그는 그대로 두면 네이버가 태그로 인식합니다.</li>
+      <li><b>올린 뒤</b> 깃허브 → Actions → <b>발행 기록</b> 에 글 주소를 적고, 하루 이틀 뒤 같은 곳에
+        <b>조회수</b>를 적어 주세요 (date 칸에 <b>2026-09-23</b>). 이 두 숫자가 쌓여야 어떤 제목과 주제가
+        사람을 데려오는지 알 수 있습니다 — 안 적으면 아무것도 재지 못합니다.</li>
+    </ol>
+    이 안내문은 복사에 포함되지 않습니다.
+  </div>
+</div>
+
+<script>
+// 버튼이 지정한 영역만 클립보드에 담는다. 안내문과 상단 바는 복사되지 않는다.
+document.querySelectorAll("[data-copy]").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var node = document.getElementById(btn.dataset.copy);
+    if (!node) return;
+
+    // 미리보기 이미지(.nocopy)는 빼고 복사한다. 상대 경로 <img> 가 붙여넣기에 섞이면
+    // 네이버 에디터에 깨진 그림이 생긴다. 복사용 사본을 만들어 그것만 선택한다.
+    // 사본은 언제나 body 바로 아래에 둔다 — Chrome 이 복사본에 조상의 배경색을 박아
+    // 넣으므로, 흰 .card 안에서 복사하면 문단마다 흰 형광펜이 실린다. html·body 는
+    // 투명이라 body 아래에서 복사하면 배경색이 붙지 않는다 (2026-09-08 실측).
+    var clone = node.cloneNode(true);
+    clone.querySelectorAll(".nocopy").forEach(function (el) { el.remove(); });
+    clone.style.position = "fixed"; clone.style.left = "-9999px"; clone.style.top = "0";
+    document.body.appendChild(clone);
+    var copyNode = clone;
+
+    // 서식을 살리려면 선택 영역을 만들어 복사해야 한다.
+    // execCommand 는 구식이지만 file:// 에서 서식 복사가 확실하게 되는 유일한 방법이다.
+    var range = document.createRange();
+    range.selectNodeContents(copyNode);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    sel.removeAllRanges();
+    var plainText = copyNode.innerText;
+    clone.remove();
+
+    if (!ok && navigator.clipboard) {
+      navigator.clipboard.writeText(plainText).then(flash, function () {
+        alert("복사에 실패했습니다. 직접 드래그해서 복사해 주세요.");
+      });
+      return;
+    }
+    flash();
+
+    function flash() {
+      var original = btn.textContent;
+      btn.textContent = "복사됨 ✓";
+      btn.classList.add("done");
+      setTimeout(function () {
+        btn.textContent = original;
+        btn.classList.remove("done");
+      }, 1400);
+    }
+  });
+});
+</script>
+</body>
+</html>
