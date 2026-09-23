@@ -1,0 +1,86 @@
+{
+  "as_of": "2026-09-24",
+  "days": 7,
+  "since": "2026-09-17",
+  "sample": true,
+  "bills": {
+    "count": null,
+    "latest": [
+      {
+        "name": "소득세법 일부개정법률안",
+        "proposer": "정태호의원 등 11인",
+        "date": "2026-09-23",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Z2X6Y0G9E1F7D1E4C0D9K1J7K7I8I5&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "개발이익 환수에 관한 법률 일부개정법률안",
+        "proposer": "박정의원 등 11인",
+        "date": "2026-09-23",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2K6I0J9H1G8G1C7D4B3Z5A0Z2H5I6&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "지방세특례제한법 일부개정법률안",
+        "proposer": "박정의원 등 11인",
+        "date": "2026-09-23",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Y2Z6X0Y9W1V8V1R7S4Q3R1P2N0O3W9&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "접경지역 지원 특별법 일부개정법률안",
+        "proposer": "박정의원 등 10인",
+        "date": "2026-09-23",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Y2Y6X0V9W1R8S1Q7R4P2Q2O8W3X3V0&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "민사소송법 일부개정법률안",
+        "proposer": "전은수의원 등 10인",
+        "date": "2026-09-23",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Y2Z6X0X9W2U1V1C0E0C0C2A3B5A6H9&ageFrom=22&ageTo=22",
+        "committee": ""
+      }
+    ],
+    "sample": true,
+    "age_total": 19651
+  },
+  "plenary": {},
+  "polls": [],
+  "warnings": [
+    "본회의 처리안건을 받지 못했습니다 — ReadTimeout",
+    "등록 여론조사 목록을 받지 못했습니다 — ReadTimeout"
+  ],
+  "tracked_pool": {
+    "행정법": {
+      "query": "행정법",
+      "count": 5,
+      "pending": 4,
+      "name": "행정법제 혁신을 위한 국민 안전교육 진흥 기본법 등 9개 법률의 일부개정에 관한 법률안",
+      "proposer": "조은희의원 등 10인",
+      "date": "2025-02-18",
+      "stage": "소관위 상정",
+      "committee": "행정안전위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2D4B0A9A1Y0Z1H3I0G2G0F6D5E7L7&ageFrom=22&ageTo=22"
+    },
+    "방지법": {
+      "query": "방지법",
+      "count": 66,
+      "pending": null,
+      "name": "공직자의 이해충돌 방지법 일부개정법률안",
+      "proposer": "황명선의원 등 10인",
+      "date": "2026-09-09",
+      "stage": "소관위 회부",
+      "committee": "정무위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_U2V6T0S9S0A1B1Z5A3Y0Y2X8T5T5R8&ageFrom=22&ageTo=22"
+    }
+  },
+  "pool_queried": [
+    "행정법",
+    "토지법",
+    "행정위반처리법",
+    "디지털자산법",
+    "방지법"
+  ],
+  "prefetched_at": "2026-09-23T23:45:03+00:00"
+}
