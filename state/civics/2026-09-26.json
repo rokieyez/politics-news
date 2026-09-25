@@ -1,0 +1,80 @@
+{
+  "as_of": "2026-09-26",
+  "days": 7,
+  "since": "2026-09-19",
+  "sample": true,
+  "bills": {
+    "count": null,
+    "latest": [
+      {
+        "name": "소득세법 일부개정법률안",
+        "proposer": "정태호의원 등 11인",
+        "date": "2026-09-23",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Z2X6Y0G9E1F7D1E4C0D9K1J7K7I8I5&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "개발이익 환수에 관한 법률 일부개정법률안",
+        "proposer": "박정의원 등 11인",
+        "date": "2026-09-23",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2K6I0J9H1G8G1C7D4B3Z5A0Z2H5I6&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "지방세특례제한법 일부개정법률안",
+        "proposer": "박정의원 등 11인",
+        "date": "2026-09-23",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Y2Z6X0Y9W1V8V1R7S4Q3R1P2N0O3W9&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "접경지역 지원 특별법 일부개정법률안",
+        "proposer": "박정의원 등 10인",
+        "date": "2026-09-23",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Y2Y6X0V9W1R8S1Q7R4P2Q2O8W3X3V0&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "민사소송법 일부개정법률안",
+        "proposer": "전은수의원 등 10인",
+        "date": "2026-09-23",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Y2Z6X0X9W2U1V1C0E0C0C2A3B5A6H9&ageFrom=22&ageTo=22",
+        "committee": ""
+      }
+    ],
+    "sample": true,
+    "age_total": 19651
+  },
+  "plenary": {
+    "count": null,
+    "by_result": {},
+    "items": [],
+    "sample": true
+  },
+  "polls": [],
+  "warnings": [
+    "등록 여론조사 목록을 받지 못했습니다 — ReadTimeout"
+  ],
+  "tracked_pool": {
+    "국가보안법": {
+      "query": "국가보안법",
+      "count": 3,
+      "pending": 3,
+      "name": "국가보안법 일부개정법률안",
+      "proposer": "박지원의원 등 14인",
+      "date": "2026-06-22",
+      "stage": "소관위 회부",
+      "committee": "법제사법위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_R2Q6Q0Y6Y1X7X1W3U4V3Q5R2Q8Q3P0&ageFrom=22&ageTo=22"
+    }
+  },
+  "pool_queried": [
+    "이분법",
+    "국가보안법",
+    "국보법",
+    "계산법",
+    "문화산업진흥법",
+    "암표방지법"
+  ],
+  "prefetched_at": "2026-09-25T22:26:19+00:00"
+}
