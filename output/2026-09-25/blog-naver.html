@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DMZ 지뢰 사고 현장조사 연기, 9월 25일 정치 브리핑</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  /* 바탕색은 body 가 아니라 뒤에 깔린 고정 층(body::before)에 칠한다.
+     Chrome 은 '본문 복사' 때 글자 덩어리마다 조상(html·body 까지)의 배경색을 찾아
+     background-color 로 박아 넣는다. 그래서 body 에 회색을 칠하면 네이버에 붙였을 때
+     문단마다 연한 회색 형광펜이 깔린다 (2026-09-08 실측: 문단·제목 18곳에
+     rgb(245,246,248)). html·body·.card 를 전부 투명하게 두면 그 배경색이 사라진다.
+     .card 의 흰색도 같은 이유로 그림자·테두리로만 구분한다. */
+  html, body { background: transparent; }
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; background: #f5f6f8;
+  }
+  body {
+    margin: 0; padding: 0 16px 80px;
+    color: #1a1a1a;
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.8; font-size: 16px;
+  }
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    margin: 0 -16px 20px; padding: 12px 16px;
+    background: #03c75a; color: #fff;
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  }
+  .bar strong { margin-right: auto; font-size: 15px; }
+  .bar button {
+    border: 0; border-radius: 6px; padding: 8px 14px;
+    background: rgba(255,255,255,.18); color: #fff;
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    font-family: inherit;
+  }
+  .bar button:hover { background: rgba(255,255,255,.3); }
+  .bar button.done { background: #fff; color: #03c75a; }
+  .bar a.write {
+    border-radius: 6px; padding: 8px 14px; background: #fff; color: #03c75a;
+    font-size: 14px; font-weight: 700; text-decoration: none;
+  }
+  @media (max-width: 560px) {
+    /* 휴대폰에서는 제목 줄을 따로 두고 버튼을 꽉 채운다 */
+    .bar { gap: 6px; }
+    .bar strong { flex-basis: 100%; margin: 0 0 4px; font-size: 14px; }
+    .bar button, .bar a.write { flex: 1 1 0; text-align: center; padding: 10px 6px; font-size: 13px; }
+    .card { padding: 22px 16px; }
+    .title { font-size: 21px; }
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  /* 흰 바탕 대신 테두리 — 배경을 칠하면 복사본에 흰 형광펜이 실린다 (위 설명). */
+  .card { background: transparent; border: 1px solid #e4e7ea; border-radius: 10px; padding: 32px 28px; }
+  .title { font-size: 24px; font-weight: 700; line-height: 1.45; margin: 0 0 6px; }
+  .meta { color: #888; font-size: 13px; margin-bottom: 28px; }
+  /* 구분선은 **꼭지와 꼭지 사이**에 둔다 — 둘째 소제목부터 앞에 <hr> 이 온다
+     (render.section_dividers). 예전에는 h2 의 border-top 으로 그었는데, 네이버 에디터가
+     제목의 테두리를 받지 않고 얇은 회색 선으로 바꿨다 (2026-09-08). <hr> 로 보내면
+     에디터가 제 구분선 부품으로 바꾼다. 색은 네이버에서 고를 수 없어 회색이 된다 —
+     여기 초록은 미리보기용이다. */
+  #post h2 { font-size: 20px; font-weight: 700; margin: 8px 0 16px; }
+  #post hr { border: 0; border-top: 2px solid #03c75a; margin: 56px 0 26px; }
+  #post h3 { font-size: 17px; font-weight: 700; margin: 38px 0 10px; }
+  #post p { margin: 0 0 18px; }
+  #post ul, #post ol { margin: 0 0 18px; padding-left: 22px; }
+  #post li { margin-bottom: 8px; }
+  #post table { border-collapse: collapse; width: 100%; margin: 0 0 20px; font-size: 15px; }
+  #post th, #post td { border: 1px solid #ddd; padding: 9px 12px; text-align: left; }
+  #post th { background: #f2f4f6; font-weight: 700; }
+  #post blockquote {
+    margin: 0 0 18px; padding: 12px 16px;
+    background: #f7f8fa; border-left: 4px solid #03c75a; color: #444;
+  }
+  #post a { color: #0068c3; }
+  .imgslot {
+    margin: 0 0 20px; padding: 22px 16px; text-align: center;
+    border: 2px dashed #c9cdd2; border-radius: 8px;
+    background: #fafbfc; color: #6b7178; font-size: 14px;
+  }
+  .imgslot.has-file { border-color: #03c75a; background: #f2fbf5; color: #2c6e45; }
+  .photo-links { margin: -12px 0 20px; font-size: 13px; color: #6b7178; text-align: center; }
+  .photo-links a { color: #0068c3; }
+  .imgslot small { display: block; margin-top: 6px; font-size: 13px; color: #5a6a60; }
+  .preview { display: block; max-width: 100%; height: auto; margin: -8px 0 22px; border: 1px solid #e4e7ea; border-radius: 8px; }
+  .tags { margin: 36px 0 0; color: #0068c3; font-size: 15px; word-break: keep-all; }
+  .hint {
+    max-width: 720px; margin: 20px auto 0; padding: 16px 18px;
+    background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px;
+    font-size: 14px; line-height: 1.75; color: #5f4b16;
+  }
+  .hint ol { margin: 8px 0 0; padding-left: 20px; }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <strong>네이버 블로그 붙여넣기</strong>
+  <button type="button" data-copy="title">제목 복사</button>
+  <button type="button" data-copy="post">본문 복사</button>
+  <button type="button" data-copy="tags">태그 복사</button>
+  <a class="write" href="https://blog.naver.com/keyboardpolitics?Redirect=Write&amp;" target="_blank" rel="noopener">글쓰기 열기</a>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h1 class="title" id="title">DMZ 지뢰 사고 현장조사 연기, 9월 25일 정치 브리핑</h1>
+    <div class="meta">2026-09-25 · 정치</div>
+
+    <div id="post">
+<div class="imgslot has-file">📷 대표 이미지 — 검색 목록에 이 그림이 썸네일로 뜹니다<br><small>→ 파일 <b>img-0-cover.png</b> 을 <b>글 맨 위</b>에 올리고 상자는 지웁니다</small></div><img class="preview nocopy" src="img-0-cover.png" alt="대표 이미지"><p style="margin:0 0 14px;font-size:14px;color:#767676">이 글은 2026년 9월 25일 기준으로 정리한 내용입니다.</p><div style="background-color:#f2f8ff;border-left:4px solid #256abf;padding:14px 16px;margin:0 0 22px"><b style="font-size:15px">3줄 요약</b><ul style="margin:8px 0 0;padding-left:18px"><li style="margin-bottom:6px">서부전선 DMZ에서 지뢰 추정 폭발, 현장조사는 추석 연휴 이후로 연기됐습니다.</li><li style="margin-bottom:6px">한동훈 의원은 24일 기준 사고 사흘째까지 조사가 시작되지 않았다고 말했습니다.</li><li style="margin-bottom:6px">연휴 이후 실제 조사 착수 시점과 유엔사 참여 여부가 다음 확인 지점입니다.</li></ul></div><p>DMZ 지뢰 사고 현장조사가 추석 연휴 이후로 미뤄졌습니다. 서부전선 비무장지대(DMZ)에서 지뢰로 추정되는 폭발 사고가 있었지만, 아직 조사는 시작되지 않은 상태입니다.</p>
+<p>국민의힘은 이 지연을 두고 정부와 군을 강하게 비판했습니다. 정부·여당의 공개 반박은 오늘 수집된 자료에서는 확인되지 않았습니다.</p>
+<div class="imgslot">📷 이미지 — 비무장지대 철책과 경고 표지판이 보이는 전경 사진</div><div class="photo-links nocopy">사진 찾기: <a href="https://unsplash.com/s/photos/korea-dmz-fence" target="_blank" rel="noopener">언스플래시</a> · <a href="https://www.pexels.com/ko-kr/search/korea%20dmz%20fence/" target="_blank" rel="noopener">펙셀스</a> · <a href="https://pixabay.com/ko/images/search/korea%20dmz%20fence/" target="_blank" rel="noopener">픽사베이</a></div>
+<h2>DMZ 지뢰 사고 현장조사, 왜 미뤄졌나</h2>
+<p>군 당국은 현장조사를 추석 연휴 이후로 미루겠다는 방침을 밝혔습니다. 국방부는 그 이유로 장병들의 '트라우마'를 들었습니다.</p>
+<p>다만 조사를 언제 다시 시작하는지, 구체적인 일정은 자료에 나와 있지 않습니다. 지뢰를 누가 매설했는지도 아직 조사되지 않은 단계입니다.</p>
+<p>한동훈 무소속 의원은 24일 기준으로 사고가 난 지 사흘이 지나도록 현장조사가 시작되지 않았다고 말했습니다.</p>
+<div class="imgslot has-file">📷 이미지 — 사고 발생 후 경과일 수치 그래픽<br><small>→ 파일 <b>img-2-stat-card.png</b> 을 이 자리에 올리고 상자는 지웁니다</small></div><img class="preview nocopy" src="img-2-stat-card.png" alt="사고 발생 후 경과일 수치 그래픽">
+<hr><h2>야당은 무엇을 문제 삼았나</h2>
+<p>장동혁 국민의힘 대표는 유엔사(유엔군사령부)가 즉각 현장조사를 시작하려 했으나 우리 군이 이를 거부했다고 주장했습니다.</p>
+<p>한동훈 의원은 24일 국방부 앞에서 즉각적인 현장조사를 촉구하는 1인 시위를 했습니다. 윤상현 국민의힘 의원은 국회 기자회견에서 사고 원인과 관련해 북한 목함지뢰 가능성을 언급했습니다.</p>
+<p>이 주장들에 대한 국방부나 여당의 반박·해명은 이번 자료에 담겨 있지 않습니다. 한쪽 이야기만 전해진 상태라는 점을 감안해 읽으시는 편이 좋겠습니다.</p>
+<div class="imgslot">📷 이미지 — 국회 기자회견장에서 발언하는 의원의 모습</div><div class="photo-links nocopy">사진 찾기: <a href="https://unsplash.com/s/photos/press-conference-podium-microphones" target="_blank" rel="noopener">언스플래시</a> · <a href="https://www.pexels.com/ko-kr/search/press%20conference%20podium%20microphones/" target="_blank" rel="noopener">펙셀스</a> · <a href="https://pixabay.com/ko/images/search/press%20conference%20podium%20microphones/" target="_blank" rel="noopener">픽사베이</a></div>
+<hr><h2>사실과 주장은 이렇게 나뉩니다</h2>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>확인된 사실</td>
+<td>DMZ 지뢰 추정 폭발 발생, 현장조사 연기 방침</td>
+</tr>
+<tr>
+<td>아직 주장</td>
+<td>유엔사 조사 거부, 북한 목함지뢰 가능성</td>
+</tr>
+</tbody>
+</table>
+<p>매설 주체와 사고 원인은 조사 전이라 확정된 것이 없습니다. 윤 의원이 말한 목함지뢰 역시 확인된 원인이 아니라 가능성 제기 단계입니다.</p>
+<p>그래서 DMZ 지뢰 사고 현장조사가 실제로 언제, 누구 주도로 시작되는지가 다음 단계의 갈림길입니다. 조사 방식에 따라 원인 규명 결과와 후속 대응의 수위가 달라질 수 있기 때문입니다.</p>
+<p>당장 영향을 받는 쪽은 DMZ 인근에서 근무하는 장병들과 국방부·합참 관계자, 그리고 이 사안을 다룰 국회 국방위원회입니다.</p>
+<hr><h2>그 밖의 오늘 소식</h2>
+<ul>
+<li>이재명 대통령, 22일 이정현 검찰총장 직무대행 임명안 재가</li>
+<li>'내란 사건 특별수사본부' 구성 검토 알려져 여야 공방</li>
+<li>중대범죄수사청 출범 D-7, 청장·인력 확정 여부는 미정</li>
+</ul><div style="background-color:#f2f8ff;border-left:4px solid #256abf;padding:14px 16px;margin:26px 0 0"><b style="font-size:15px">그래서 나는?</b><ul style="margin:8px 0 0;padding-left:18px"><li style="margin-bottom:6px">군 복무 가족을 둔 분이라면, 연휴 이후 현장조사 착수 여부를 확인해 보세요.</li><li style="margin-bottom:6px">안보 뉴스를 챙기는 유권자라면, 국회 국방위원회 일정도 함께 볼 만합니다.</li><li style="margin-bottom:6px">지지율 기사를 보는 분이라면, 조사기관과 오차범위부터 확인해 보세요.</li></ul></div><div style="margin:28px 0 0;padding:16px 18px"><b>직접 센 숫자 — 국회·여론조사 (최근 7일)</b><p style="margin:10px 0 0">국회의원 발의 법률안 <b>133건</b>. 가장 최근은 소득세법 일부개정법률안(정태호의원 등 11인).</p><p style="margin:8px 0 0;font-size:15px;color:#555555">본회의 처리 법률안 <b>1건</b> — 철회 1건</p><p style="margin:12px 0 4px"><b>이번 주 등록된 선거 여론조사 12건</b></p><ul style="margin:0;padding-left:18px;font-size:15px"><li>전국 정기(정례)조사 대통령선거 정당지지도 국정현안 등 — (주)코리아정보리서치 · 천지일보 의뢰 · 2026-09-21~22 · 1,004명 · 무선 ARS · 응답률 4.5% · 95% 신뢰수준에 ±3.1%p</li><li>전국 정당지지도 대통령선거 — (주)피앰아이 · 이데일리 의뢰 · 2026-09-12~18 · 1,003명 · 인터넷조사 · 응답률 3.4% · 95% 신뢰수준에 ±3.1%p</li><li>전국 정기(정례)조사 국회의원선거 대통령선거 — 리서치웰 · 뉴데일리 의뢰 · 2026-09-21~22 · 1,000명 · 무선 ARS · 응답률 2.9% · 95% 신뢰수준에 ±3.1%p</li></ul><p style="margin:12px 0 0;font-size:13px;color:#888888">열린국회정보·중앙선거여론조사심의위원회 자료를 직접 셌습니다. 여론조사의 자세한 사항은 중앙선거여론조사심의위원회 홈페이지를 참조하세요.</p></div><p style="padding:14px 16px;margin:28px 0 0"><b>여러분은 사고 원인을 밝히는 일에서 조사의 속도와 신중함 중 어느 쪽이 더 앞서야 한다고 보시나요?</b><br><span style="font-size:14px;color:#666666">댓글로 알려 주시면 다음 글에 반영하겠습니다.</span></p>
+      <p class="tags" id="tags">#DMZ지뢰사고 #DMZ지뢰사고현장조사 #비무장지대 #서부전선 #현장조사 #국방부 #유엔사 #목함지뢰 #장동혁 #한동훈 #윤상현 #국민의힘 #더불어민주당 #이재명 #정점식 #김민석 #국회 #국방위원회 #정치브리핑 #오늘의정치 #정치뉴스정리 #검찰총장직무대행 #이정현 #중대범죄수사청 #중수청출범 #내란특수본 #특별수사본부 #여론조사 #리얼미터 #방구석배경지식</p>
+    </div>
+  </div>
+
+  <div class="hint">
+    <strong>쓰는 법</strong>
+    <ol>
+      <li><b>글쓰기 열기</b> → 네이버 블로그 글쓰기 화면이 새 탭에서 열립니다</li>
+      <li><b>제목 복사</b> → 제목 칸에 붙여넣기</li>
+      <li><b>본문 복사</b> → 본문 칸에 붙여넣기. 소제목·표·굵게가 그대로 살아납니다.</li>
+      <li>점선 상자(<span style="color:#6b7178">📷 이미지</span>) 자리에 사진을 넣고 상자는 지웁니다.
+        <b>초록 상자</b>는 자동 생성된 그림이 있는 자리입니다 — 상자에 적힌 파일명을 같은 폴더에서 찾아 올리세요.
+        미리보기 그림은 복사에 포함되지 않습니다.</li>
+      <li><span style="background-color:#fff59d">형광펜</span>은 오늘의 핵심 수치가 <b>처음 나온 자리</b>에만 칠합니다.
+        같은 수치가 다시 나와도 표시하지 않습니다 — 강조가 많으면 아무것도 강조가 아니니까요.
+        붙여넣으면 그대로 따라가고, 마음에 안 들면 에디터에서 지우세요.</li>
+      <li>맨 아래 해시태그는 그대로 두면 네이버가 태그로 인식합니다.</li>
+      <li><b>올린 뒤</b> 깃허브 → Actions → <b>발행 기록</b> 에 글 주소를 적고, 하루 이틀 뒤 같은 곳에
+        <b>조회수</b>를 적어 주세요 (date 칸에 <b>2026-09-25</b>). 이 두 숫자가 쌓여야 어떤 제목과 주제가
+        사람을 데려오는지 알 수 있습니다 — 안 적으면 아무것도 재지 못합니다.</li>
+    </ol>
+    이 안내문은 복사에 포함되지 않습니다.
+  </div>
+</div>
+
+<script>
+// 버튼이 지정한 영역만 클립보드에 담는다. 안내문과 상단 바는 복사되지 않는다.
+document.querySelectorAll("[data-copy]").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var node = document.getElementById(btn.dataset.copy);
+    if (!node) return;
+
+    // 미리보기 이미지(.nocopy)는 빼고 복사한다. 상대 경로 <img> 가 붙여넣기에 섞이면
+    // 네이버 에디터에 깨진 그림이 생긴다. 복사용 사본을 만들어 그것만 선택한다.
+    // 사본은 언제나 body 바로 아래에 둔다 — Chrome 이 복사본에 조상의 배경색을 박아
+    // 넣으므로, 흰 .card 안에서 복사하면 문단마다 흰 형광펜이 실린다. html·body 는
+    // 투명이라 body 아래에서 복사하면 배경색이 붙지 않는다 (2026-09-08 실측).
+    var clone = node.cloneNode(true);
+    clone.querySelectorAll(".nocopy").forEach(function (el) { el.remove(); });
+    clone.style.position = "fixed"; clone.style.left = "-9999px"; clone.style.top = "0";
+    document.body.appendChild(clone);
+    var copyNode = clone;
+
+    // 서식을 살리려면 선택 영역을 만들어 복사해야 한다.
+    // execCommand 는 구식이지만 file:// 에서 서식 복사가 확실하게 되는 유일한 방법이다.
+    var range = document.createRange();
+    range.selectNodeContents(copyNode);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    sel.removeAllRanges();
+    var plainText = copyNode.innerText;
+    clone.remove();
+
+    if (!ok && navigator.clipboard) {
+      navigator.clipboard.writeText(plainText).then(flash, function () {
+        alert("복사에 실패했습니다. 직접 드래그해서 복사해 주세요.");
+      });
+      return;
+    }
+    flash();
+
+    function flash() {
+      var original = btn.textContent;
+      btn.textContent = "복사됨 ✓";
+      btn.classList.add("done");
+      setTimeout(function () {
+        btn.textContent = original;
+        btn.classList.remove("done");
+      }, 1400);
+    }
+  });
+});
+</script>
+</body>
+</html>
