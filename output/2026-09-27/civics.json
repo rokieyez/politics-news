@@ -72,6 +72,25 @@
       "summary": "(주)코리아정보리서치 · 천지일보 의뢰 · 2026-09-21~22 · 1,004명 · 무선 ARS · 응답률 4.5% · 95% 신뢰수준에 ±3.1%p"
     },
     {
+      "reg_no": "17284",
+      "agency": "(주)리얼미터",
+      "client": "에너지경제신문",
+      "method": "무선 ARS",
+      "title": "전국 정기(정례)조사 정당지지도 9월 4주차 주간집계",
+      "registered": "2026-09-23",
+      "region": "전국",
+      "ntt_id": "19537",
+      "period": "2026-09-22~23",
+      "sample_size": 1005,
+      "response_rate": "3.5%",
+      "margin": "95% 신뢰수준에 ±3.1%p",
+      "outlet": "에너지경제신문",
+      "publish_at": "2026-09-27 14시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19537&menuNo=200467",
+      "extra": {},
+      "summary": "(주)리얼미터 · 에너지경제신문 의뢰 · 2026-09-22~23 · 1,005명 · 무선 ARS · 응답률 3.5% · 95% 신뢰수준에 ±3.1%p"
+    },
+    {
       "reg_no": "17283",
       "agency": "(주)피앰아이",
       "client": "이데일리",
@@ -194,17 +213,18 @@
       "registered": "2026-09-20",
       "region": "전국",
       "ntt_id": "19525",
-      "period": "2026-09-14~17",
-      "sample_size": 2000,
-      "response_rate": "4.6%",
-      "margin": "95% 신뢰수준에 ±2.2%p",
-      "outlet": "한국일보",
-      "publish_at": "2026-09-21 04시 00분",
+      "period": "",
+      "sample_size": null,
+      "response_rate": "",
+      "margin": "",
+      "outlet": "",
+      "publish_at": "",
       "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19525&menuNo=200467",
       "extra": {},
-      "summary": "(주)에스티아이 · 한국일보 의뢰 · 2026-09-14~17 · 2,000명 · 스마트폰앱조사 · 응답률 4.6% · 95% 신뢰수준에 ±2.2%p"
+      "summary": "(주)에스티아이 · 한국일보 의뢰 · 스마트폰앱조사"
     }
   ],
   "warnings": [],
-  "filled_from_prefetch": []
+  "filled_from_prefetch": [],
+  "tracked": []
 }
