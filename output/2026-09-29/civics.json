@@ -53,6 +53,25 @@
   },
   "polls": [
     {
+      "reg_no": "17287",
+      "agency": "한길리서치",
+      "client": "KNA25/폴리뉴스",
+      "method": "무선 ARS",
+      "title": "전국 정당지지도 정기(정례)조사 대통령선거",
+      "registered": "2026-09-29",
+      "region": "전국",
+      "ntt_id": "19540",
+      "period": "2026-09-27~28",
+      "sample_size": 1011,
+      "response_rate": "2.6%",
+      "margin": "95% 신뢰수준에 ±3.1%p",
+      "outlet": "KNA25, 폴리뉴스",
+      "publish_at": "2026-09-29 14시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19540&menuNo=200467",
+      "extra": {},
+      "summary": "한길리서치 · KNA25/폴리뉴스 의뢰 · 2026-09-27~28 · 1,011명 · 무선 ARS · 응답률 2.6% · 95% 신뢰수준에 ±3.1%p"
+    },
+    {
       "reg_no": "17286",
       "agency": "미디어토마토",
       "client": "뉴스토마토",
@@ -194,15 +213,15 @@
       "registered": "2026-09-22",
       "region": "전국",
       "ntt_id": "19531",
-      "period": "2026-09-19~21",
-      "sample_size": 2007,
-      "response_rate": "4.1%",
-      "margin": "95% 신뢰수준에 ±2.2%p",
-      "outlet": "스트레이트뉴스 홈페이지",
-      "publish_at": "2026-09-23 05시 00분",
+      "period": "",
+      "sample_size": null,
+      "response_rate": "",
+      "margin": "",
+      "outlet": "",
+      "publish_at": "",
       "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19531&menuNo=200467",
       "extra": {},
-      "summary": "조원씨앤아이 · 스트레이트뉴스 의뢰 · 2026-09-19~21 · 2,007명 · 무선 ARS · 응답률 4.1% · 95% 신뢰수준에 ±2.2%p"
+      "summary": "조원씨앤아이 · 스트레이트뉴스 의뢰 · 무선 ARS"
     },
     {
       "reg_no": "17278",
@@ -225,5 +244,6 @@
     }
   ],
   "warnings": [],
-  "filled_from_prefetch": []
+  "filled_from_prefetch": [],
+  "tracked": []
 }
