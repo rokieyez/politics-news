@@ -1,0 +1,232 @@
+{
+  "as_of": "2026-09-30",
+  "days": 7,
+  "since": "2026-09-23",
+  "sample": true,
+  "bills": {
+    "count": null,
+    "latest": [
+      {
+        "name": "섬진강수계 물관리 및 주민지원 등에 관한 법률안",
+        "proposer": "안호영의원 등 10인",
+        "date": "2026-09-29",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_W2U6Q0R9P1Q4O1P3N3N5V5U8U1S3U2&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "영산강수계 물관리 및 주민지원 등에 관한 법률안",
+        "proposer": "안호영의원 등 10인",
+        "date": "2026-09-29",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_D2C6C0K9K1J4H1I3G3H6P5P3N5M0N0&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "연안사고 예방에 관한 법률 일부개정법률안",
+        "proposer": "김승수의원 등 11인",
+        "date": "2026-09-29",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_F2D6L0L9K2K2J1J4I5I7E4C0D9C0C3&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "지능형 로봇 개발 및 보급 촉진법 일부개정법률안",
+        "proposer": "최은석의원 등 11인",
+        "date": "2026-09-29",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2J6K0I9J0H3I1G7O0P5N3N3L7N8L5&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "정당법 일부개정법률안",
+        "proposer": "문대림의원 등 11인",
+        "date": "2026-09-29",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Y2T6U0S9T0R9S1Q8Y3Z6X5X1W2W5V0&ageFrom=22&ageTo=22",
+        "committee": ""
+      }
+    ],
+    "sample": true,
+    "age_total": 19691
+  },
+  "plenary": {
+    "count": null,
+    "by_result": {},
+    "items": [],
+    "sample": true
+  },
+  "polls": [
+    {
+      "reg_no": "17287",
+      "agency": "한길리서치",
+      "client": "KNA25/폴리뉴스",
+      "method": "무선 ARS",
+      "title": "전국 정당지지도 정기(정례)조사 대통령선거",
+      "registered": "2026-09-29",
+      "region": "전국",
+      "ntt_id": "19540",
+      "period": "2026-09-27~28",
+      "sample_size": 1011,
+      "response_rate": "2.6%",
+      "margin": "95% 신뢰수준에 ±3.1%p",
+      "outlet": "KNA25, 폴리뉴스",
+      "publish_at": "2026-09-29 14시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19540&menuNo=200467",
+      "extra": {},
+      "summary": "한길리서치 · KNA25/폴리뉴스 의뢰 · 2026-09-27~28 · 1,011명 · 무선 ARS · 응답률 2.6% · 95% 신뢰수준에 ±3.1%p"
+    },
+    {
+      "reg_no": "17286",
+      "agency": "미디어토마토",
+      "client": "뉴스토마토",
+      "method": "무선 ARS",
+      "title": "전국 정기(정례)조사 정당지지도",
+      "registered": "2026-09-27",
+      "region": "전국",
+      "ntt_id": "19539",
+      "period": "2026-09-25~26",
+      "sample_size": 1040,
+      "response_rate": "2.3%",
+      "margin": "95% 신뢰수준에 ±3.0%p",
+      "outlet": "뉴스토마토",
+      "publish_at": "2026-09-28 06시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19539&menuNo=200467",
+      "extra": {},
+      "summary": "미디어토마토 · 뉴스토마토 의뢰 · 2026-09-25~26 · 1,040명 · 무선 ARS · 응답률 2.3% · 95% 신뢰수준에 ±3.0%p"
+    },
+    {
+      "reg_no": "17285",
+      "agency": "(주)코리아정보리서치",
+      "client": "천지일보",
+      "method": "무선 ARS",
+      "title": "전국 정기(정례)조사 대통령선거 정당지지도 국정현안 등",
+      "registered": "2026-09-23",
+      "region": "전국",
+      "ntt_id": "19538",
+      "period": "2026-09-21~22",
+      "sample_size": 1004,
+      "response_rate": "4.5%",
+      "margin": "95% 신뢰수준에 ±3.1%p",
+      "outlet": "천지일보",
+      "publish_at": "2026-09-24 01시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19538&menuNo=200467",
+      "extra": {},
+      "summary": "(주)코리아정보리서치 · 천지일보 의뢰 · 2026-09-21~22 · 1,004명 · 무선 ARS · 응답률 4.5% · 95% 신뢰수준에 ±3.1%p"
+    },
+    {
+      "reg_no": "17284",
+      "agency": "(주)리얼미터",
+      "client": "에너지경제신문",
+      "method": "무선 ARS",
+      "title": "전국 정기(정례)조사 정당지지도 9월 4주차 주간집계",
+      "registered": "2026-09-23",
+      "region": "전국",
+      "ntt_id": "19537",
+      "period": "2026-09-22~23",
+      "sample_size": 1005,
+      "response_rate": "3.5%",
+      "margin": "95% 신뢰수준에 ±3.1%p",
+      "outlet": "에너지경제신문",
+      "publish_at": "2026-09-27 14시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19537&menuNo=200467",
+      "extra": {},
+      "summary": "(주)리얼미터 · 에너지경제신문 의뢰 · 2026-09-22~23 · 1,005명 · 무선 ARS · 응답률 3.5% · 95% 신뢰수준에 ±3.1%p"
+    },
+    {
+      "reg_no": "17283",
+      "agency": "(주)피앰아이",
+      "client": "이데일리",
+      "method": "인터넷조사",
+      "title": "전국 정당지지도 대통령선거",
+      "registered": "2026-09-23",
+      "region": "전국",
+      "ntt_id": "19529",
+      "period": "2026-09-12~18",
+      "sample_size": 1003,
+      "response_rate": "3.4%",
+      "margin": "95% 신뢰수준에 ±3.1%p",
+      "outlet": "이데일리",
+      "publish_at": "2026-09-24 00시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19529&menuNo=200467",
+      "extra": {},
+      "summary": "(주)피앰아이 · 이데일리 의뢰 · 2026-09-12~18 · 1,003명 · 인터넷조사 · 응답률 3.4% · 95% 신뢰수준에 ±3.1%p"
+    },
+    {
+      "reg_no": "17282",
+      "agency": "리서치웰",
+      "client": "뉴데일리",
+      "method": "무선 ARS",
+      "title": "전국 정기(정례)조사 국회의원선거 대통령선거",
+      "registered": "2026-09-23",
+      "region": "전국",
+      "ntt_id": "19535",
+      "period": "2026-09-21~22",
+      "sample_size": 1000,
+      "response_rate": "2.9%",
+      "margin": "95% 신뢰수준에 ±3.1%p",
+      "outlet": "뉴데일리",
+      "publish_at": "2026-09-23 14시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19535&menuNo=200467",
+      "extra": {},
+      "summary": "리서치웰 · 뉴데일리 의뢰 · 2026-09-21~22 · 1,000명 · 무선 ARS · 응답률 2.9% · 95% 신뢰수준에 ±3.1%p"
+    }
+  ],
+  "warnings": [],
+  "tracked_pool": {
+    "지방의회법": {
+      "query": "지방의회법",
+      "count": 6,
+      "pending": null,
+      "name": "지방의회법안",
+      "proposer": "신정훈의원 등 11인",
+      "date": "2026-08-14",
+      "stage": "소관위 회부",
+      "committee": "행정안전위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Z2X6X0W8W1E2D1D7B1D9B2B8J6I9I6&ageFrom=22&ageTo=22"
+    },
+    "공직선거법": {
+      "query": "공직선거법",
+      "count": 325,
+      "pending": null,
+      "name": "공직선거법 일부개정법률안",
+      "proposer": "박지혜의원 등 10인",
+      "date": "2026-09-28",
+      "stage": "소관위 회부",
+      "committee": "행정안전위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2N6L0M9K1J4J1R0S2Q6R0P2N4O6W8&ageFrom=22&ageTo=22"
+    },
+    "정치자금법": {
+      "query": "정치자금법",
+      "count": 45,
+      "pending": null,
+      "name": "정치자금법 일부개정법률안",
+      "proposer": "박범계의원 등 10인",
+      "date": "2026-05-15",
+      "stage": "소관위 상정",
+      "committee": "행정안전위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2N6C0D5B1A1A1Y0Z2H0I3G1G0F2D0&ageFrom=22&ageTo=22"
+    },
+    "반헌법": {
+      "query": "반헌법",
+      "count": 2,
+      "pending": 2,
+      "name": "반헌법행위조사특별위원회 설치ㆍ운영에 관한 특별법안",
+      "proposer": "김선민의원 등 13인",
+      "date": "2025-08-29",
+      "stage": "소관위 상정",
+      "committee": "행정안전위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_J2K5J0I8Q2P6N1M0N1V9T5S0R2S2Z8&ageFrom=22&ageTo=22"
+    }
+  },
+  "pool_queried": [
+    "특검법",
+    "최고인민법",
+    "지방의회법",
+    "공직선거법",
+    "산안법",
+    "도정법",
+    "조작기소특검법",
+    "정치자금법",
+    "반헌법",
+    "응급의료법",
+    "위탁선거법",
+    "쟁점법"
+  ],
+  "prefetched_at": "2026-09-29T21:45:19+00:00"
+}
