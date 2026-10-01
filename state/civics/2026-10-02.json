@@ -260,6 +260,17 @@
   ],
   "warnings": [],
   "tracked_pool": {
+    "산업안전보건법": {
+      "query": "산업안전보건법",
+      "count": 136,
+      "pending": null,
+      "name": "산업안전보건법 일부개정법률안",
+      "proposer": "이용우의원 등 12인",
+      "date": "2026-09-02",
+      "stage": "소관위 회부",
+      "committee": "기후에너지환경노동위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_U2T6A0B8Z2A5Y1X4X2F3G3E6F9D6B2&ageFrom=22&ageTo=22"
+    },
     "정치자금법": {
       "query": "정치자금법",
       "count": 45,
@@ -328,18 +339,18 @@
     }
   },
   "pool_queried": [
+    "산업안전보건법",
     "정치자금법",
+    "토지법",
     "지원법",
     "선원법",
     "농어업경영체법",
-    "토지법",
     "산안법",
     "도정법",
     "특검법",
     "국민체육진흥법",
     "문학진흥법",
-    "공직선거법",
-    "마약류관리법"
+    "공직선거법"
   ],
-  "prefetched_at": "2026-10-01T21:45:13+00:00"
+  "prefetched_at": "2026-10-01T22:25:12+00:00"
 }
