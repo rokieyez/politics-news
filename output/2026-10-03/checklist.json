@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-03",
+  "summary": {
+    "ok": 10,
+    "warn": 3,
+    "fail": 0
+  },
+  "items": [
+    {
+      "key": "numbers",
+      "level": "ok",
+      "title": "수치 10건 모두 기사 원문에서 확인",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "links",
+      "level": "ok",
+      "title": "출처 링크 26개 모두 정상",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "banned",
+      "level": "ok",
+      "title": "금지 표현 없음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "balance",
+      "level": "ok",
+      "title": "양쪽 언급 균형 (언급 더불어민주당 3 · 국민의힘 3 · 인용 더불어민주당 0 · 국민의힘 0)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "blog_len",
+      "level": "ok",
+      "title": "블로그 본문 1,595자",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "tags",
+      "level": "ok",
+      "title": "태그 30개",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "keyword",
+      "level": "ok",
+      "title": "대표 검색어 '김지용 인사청문회 일정' 가 제목·첫 문단·소제목에 모두 있음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "overlap",
+      "level": "ok",
+      "title": "지난 글과 겹치는 문장 0%",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shape",
+      "level": "ok",
+      "title": "소제목 4개 · 메인 하나에 집중",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "readability",
+      "level": "warn",
+      "title": "긴 문장 1개 — 휴대폰에서 답답해 보입니다",
+      "detail": "문장은 둘로 나누고, 문단은 두세 문장에서 끊으세요.",
+      "lines": [
+        "김 후보자가 윤석열 전 대통령 장모 모해위증교사 무혐의 사건에 재수사명령을 내린 뒤 좌천됐다는 점을 들어 \"…"
+      ]
+    },
+    {
+      "key": "photos",
+      "level": "warn",
+      "title": "직접 넣을 사진 자리 2곳",
+      "detail": "'네이버 블로그 글' 페이지의 점선 상자 아래 '사진 찾기' 링크를 쓰세요. [네이버 블로그 글 열기](blog-naver.html)",
+      "lines": []
+    },
+    {
+      "key": "shorts_len",
+      "level": "ok",
+      "title": "쇼츠 발화 278자 (약 51초)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shorts_voice",
+      "level": "warn",
+      "title": "쇼츠 자막이 제목 나열처럼 읽힙니다 — 문장으로 끝나는 컷이 28%",
+      "detail": "예: 전두환, 윤석열은 / 국민의힘 김태규 의원이 / 이렇게 말하자 → 종결어미로 맺는 문장으로 고치세요.",
+      "lines": []
+    }
+  ]
+}
