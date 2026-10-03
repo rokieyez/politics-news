@@ -260,6 +260,17 @@
   ],
   "warnings": [],
   "tracked_pool": {
+    "정치자금법": {
+      "query": "정치자금법",
+      "count": 45,
+      "pending": null,
+      "name": "정치자금법 일부개정법률안",
+      "proposer": "박범계의원 등 10인",
+      "date": "2026-05-15",
+      "stage": "소관위 상정",
+      "committee": "행정안전위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2N6C0D5B1A1A1Y0Z2H0I3G1G0F2D0&ageFrom=22&ageTo=22"
+    },
     "국민연금법": {
       "query": "국민연금법",
       "count": 110,
@@ -293,17 +304,6 @@
       "committee": "농림축산식품해양수산위원회",
       "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2T5U0T9R1Q6L1K4L4K9I3R1P7Q3P8&ageFrom=22&ageTo=22"
     },
-    "정치자금법": {
-      "query": "정치자금법",
-      "count": 45,
-      "pending": null,
-      "name": "정치자금법 일부개정법률안",
-      "proposer": "박범계의원 등 10인",
-      "date": "2026-05-15",
-      "stage": "소관위 상정",
-      "committee": "행정안전위원회",
-      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2N6C0D5B1A1A1Y0Z2H0I3G1G0F2D0&ageFrom=22&ageTo=22"
-    },
     "주택법": {
       "query": "주택법",
       "count": 83,
@@ -328,6 +328,7 @@
     }
   },
   "pool_queried": [
+    "정치자금법",
     "문화산업진흥법",
     "국민연금법",
     "토지법",
@@ -336,10 +337,9 @@
     "지원법",
     "안보법",
     "아웃법",
-    "정치자금법",
     "주택법",
     "행복도시법",
     "화장품법"
   ],
-  "prefetched_at": "2026-10-03T21:45:13+00:00"
+  "prefetched_at": "2026-10-03T22:25:12+00:00"
 }
