@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-05T00:18:47",
-  "count": 31,
+  "updated_at": "2026-10-06T02:02:06",
+  "count": 32,
   "entries": [
     {
       "date": "2026-09-08",
@@ -1315,6 +1315,56 @@
           "output_tokens": 12978,
           "cache_read_tokens": 0,
           "cache_write_tokens": 11542,
+          "usd": 0.0
+        }
+      ]
+    },
+    {
+      "date": "2026-10-06",
+      "kind": "daily",
+      "run_at": "2026-10-06T02:02:06",
+      "model": "claude-opus-5",
+      "calls": 4,
+      "input_tokens": 3299,
+      "output_tokens": 28334,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 36295,
+      "usd": 0.0,
+      "by_call": [
+        {
+          "kind": "브리핑",
+          "model": "claude-sonnet-5",
+          "input_tokens": 2,
+          "output_tokens": 9613,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 14516,
+          "usd": 0.0
+        },
+        {
+          "kind": "블로그",
+          "model": "claude-opus-5",
+          "input_tokens": 2,
+          "output_tokens": 4680,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 10109,
+          "usd": 0.0
+        },
+        {
+          "kind": "정책 요약",
+          "model": "claude-haiku-4-5",
+          "input_tokens": 3293,
+          "output_tokens": 6161,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "usd": 0.0
+        },
+        {
+          "kind": "영상 대본",
+          "model": "claude-sonnet-5",
+          "input_tokens": 2,
+          "output_tokens": 7880,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 11670,
           "usd": 0.0
         }
       ]

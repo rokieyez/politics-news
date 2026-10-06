@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-06",
+  "summary": {
+    "ok": 11,
+    "warn": 3,
+    "fail": 0
+  },
+  "items": [
+    {
+      "key": "numbers",
+      "level": "ok",
+      "title": "수치 3건 모두 기사 원문에서 확인",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "links",
+      "level": "ok",
+      "title": "출처 링크 18개 모두 정상",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "banned",
+      "level": "ok",
+      "title": "금지 표현 없음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "balance",
+      "level": "ok",
+      "title": "양쪽 언급 균형 (언급 더불어민주당 5 · 국민의힘 6 · 인용 더불어민주당 1 · 국민의힘 2)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "blog_len",
+      "level": "ok",
+      "title": "블로그 본문 1,433자",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "tags",
+      "level": "ok",
+      "title": "태그 30개",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "keyword",
+      "level": "ok",
+      "title": "대표 검색어 '김재섭 소환' 가 제목·첫 문단·소제목에 모두 있음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "overlap",
+      "level": "ok",
+      "title": "지난 글과 겹치는 문장 0%",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shape",
+      "level": "ok",
+      "title": "소제목 3개 · 메인 하나에 집중",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "readability",
+      "level": "warn",
+      "title": "긴 문장 4개 — 휴대폰에서 답답해 보입니다",
+      "detail": "문장은 둘로 나누고, 문단은 두세 문장에서 끊으세요.",
+      "lines": [
+        "국정감사(국회가 정해진 기간에 정부와 기관의 업무를 집중 점검하는 절차) 첫날, 김 의원은 피의자 신분(수사…",
+        "김 의원은 지난 3월 31일 국회 기자회견에서 정원오 전 서울시장 후보가 성동구청장 재임 때 공무원 임모씨와…",
+        "국민의힘 정점식 원내대표는 국정감사대책회의에서 \"정치경찰의 보복 수사\"라며 \"검찰을 해체하고 경찰에 권력을 …"
+      ]
+    },
+    {
+      "key": "photos",
+      "level": "warn",
+      "title": "직접 넣을 사진 자리 1곳",
+      "detail": "'네이버 블로그 글' 페이지의 점선 상자 아래 '사진 찾기' 링크를 쓰세요. [네이버 블로그 글 열기](blog-naver.html)",
+      "lines": []
+    },
+    {
+      "key": "shorts_len",
+      "level": "ok",
+      "title": "쇼츠 발화 323자 (약 59초)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shorts_voice",
+      "level": "ok",
+      "title": "쇼츠 자막이 문장으로 이어집니다 (34%)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "repeat",
+      "level": "warn",
+      "title": "'김지용 중수청장 인사청문회 일정' 은 1일 전에도 다뤘습니다",
+      "detail": "그대로 또 쓰면 재탕으로 보입니다. 그때와 달라진 숫자를 앞세우거나 후속 국면을 잡으세요.",
+      "lines": [
+        "2026-10-05 · 김지용 중수청장 인선 갈등"
+      ]
+    }
+  ]
+}
