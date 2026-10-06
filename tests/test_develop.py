@@ -353,6 +353,25 @@ def test_axis_ticks_are_round_numbers_and_cover_data():
     assert nice_ticks(0, 4200)[0] == 0
 
 
+def test_blog_page_gets_attachment_download_button(cfg, tmp_path):
+    # 지난 날짜 블로그 글에도 그날 첨부파일 받기 단추가 붙는다 (2026-10-06 사용자 요청)
+    from rebrief.site import build_site
+
+    day = cfg.output_dir / "2026-09-07"
+    day.mkdir(parents=True)
+    (day / "img-0-cover.png").write_bytes(b"\x89PNG")
+    (day / "blog-naver.html").write_text(
+        '<div class="bar">\n  <a class="write" href="https://blog.naver.com/x" target="_blank">글쓰기 열기</a>\n</div>',
+        encoding="utf-8")
+
+    dest = build_site(cfg, tmp_path / "site")
+    button = '<a class="write" href="2026-09-07_blogfiles.zip" download>첨부파일 받기</a>'
+    for folder in ("2026-09-07", "latest"):
+        html = (dest / folder / "blog-naver.html").read_text(encoding="utf-8")
+        assert html.count(button) == 1
+        assert html.index("글쓰기 열기") < html.index(button) < html.index("</div>")   # 막대 오른쪽 끝
+
+
 def test_site_bundles_attachments_into_one_zip(cfg, tmp_path):
     import zipfile
 

@@ -529,6 +529,24 @@ def _build_zip(dest: Path, name: str = "files.zip",
             "size": f"{size / 1024 / 1024:.1f}MB" if size >= 1024 * 1024 else f"{size / 1024:.0f}KB"}
 
 
+def _add_bundle_button(page: Path, href: str) -> None:
+    """블로그 글 페이지 위 막대 오른쪽 끝에 「첨부파일 받기」 단추를 붙인다 (2026-10-06 사용자 요청).
+
+    지난 날짜 글을 다시 올릴 때 그날 그림을 따로 찾지 않게. 블로그 글 HTML 은 만든 날 그대로
+    복사되므로 템플릿이 아니라 여기서 끼워 넣어야 옛 날짜에도 붙는다.
+    """
+    if not page.exists():
+        return
+    html = page.read_text(encoding="utf-8")
+    button = f'<a class="write" href="{href}" download>첨부파일 받기</a>'
+    if button in html:
+        return
+    # 휴대폰에서는 다섯 단추가 한 줄에 끼어 글자가 꺾이므로 받기 단추만 아래 줄로
+    button = '<style>@media (max-width:560px){.bar a[download]{flex-basis:100%}}</style>' + button
+    html = re.sub(r'(<a class="write"[^>]*>.*?</a>)', lambda m: m.group(1) + "\n  " + button, html, count=1)
+    page.write_text(html, encoding="utf-8")
+
+
 def _build_day(env, day: Path, dest: Path, cfg: Config) -> dict:
     dest.mkdir(parents=True, exist_ok=True)
     pages: list[dict] = []
@@ -581,6 +599,8 @@ def _build_day(env, day: Path, dest: Path, cfg: Config) -> dict:
     assets = _copy_assets(day, dest)
     bundle = _build_zip(dest, f"{day.name}_blogfiles.zip")
     cards = _build_zip(dest, f"{day.name}_card_news.zip", CARD_GLOBS)
+    if bundle:
+        _add_bundle_button(dest / "blog-naver.html", bundle["href"])
     if assets:
         # 그림 모아보기 페이지. 휴대폰에서 길게 눌러 저장하면 바로 블로그에 올릴 수 있다.
         html = env.get_template("site_images.html.j2").render(
