@@ -179,6 +179,25 @@
   },
   "polls": [
     {
+      "reg_no": "17299",
+      "agency": "한길리서치",
+      "client": "뉴시스 전남광주 취재본부/무등일보/광주MBC",
+      "method": "무선 ARS",
+      "title": "전남광주통합특별시 전체 정당지지도",
+      "registered": "2026-10-06",
+      "region": "전남광주통합특별시",
+      "ntt_id": "19553",
+      "period": "2026-10-03~05",
+      "sample_size": 1001,
+      "response_rate": "0.5%",
+      "margin": "95% 신뢰수준에 ±3.1%p",
+      "outlet": "뉴시스, 무등일보, 광주MBC",
+      "publish_at": "2026-10-07 17시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19553&menuNo=200467",
+      "extra": {},
+      "summary": "한길리서치 · 뉴시스 전남광주 취재본부/무등일보/광주MBC 의뢰 · 2026-10-03~05 · 1,001명 · 무선 ARS · 응답률 0.5% · 95% 신뢰수준에 ±3.1%p"
+    },
+    {
       "reg_no": "17298",
       "agency": "조원씨앤아이",
       "client": "스트레이트뉴스",
@@ -320,15 +339,15 @@
       "registered": "2026-09-30",
       "region": "전국",
       "ntt_id": "19544",
-      "period": "2026-09-28~30",
-      "sample_size": 1000,
-      "response_rate": "18.8%",
-      "margin": "95% 신뢰수준에 ±3.1%p",
-      "outlet": "NBS 홈페이지 (http://nbsurvey.kr/)",
-      "publish_at": "2026-10-01 11시 00분",
+      "period": "",
+      "sample_size": null,
+      "response_rate": "",
+      "margin": "",
+      "outlet": "",
+      "publish_at": "",
       "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19544&menuNo=200467",
       "extra": {},
-      "summary": "(주)코리아리서치인터내셔널 · ㈜코리아리서치인터내셔널, ㈜엠브레인퍼블릭, 케이스탯리서치, ㈜한국리서치 의뢰 · 2026-09-28~30 · 1,000명 · 무선전화면접 · 응답률 18.8% · 95% 신뢰수준에 ±3.1%p"
+      "summary": "(주)코리아리서치인터내셔널 · ㈜코리아리서치인터내셔널, ㈜엠브레인퍼블릭, 케이스탯리서치, ㈜한국리서치 의뢰 · 무선전화면접"
     },
     {
       "reg_no": "17290",
@@ -369,5 +388,6 @@
       "summary": "(주)에이스리서치 · 뉴시스 의뢰 · 무선 ARS"
     }
   ],
-  "warnings": []
+  "warnings": [],
+  "tracked": []
 }
