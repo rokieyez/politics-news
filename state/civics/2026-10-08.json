@@ -298,6 +298,17 @@
   ],
   "warnings": [],
   "tracked_pool": {
+    "방지법": {
+      "query": "방지법",
+      "count": 66,
+      "pending": null,
+      "name": "공직자의 이해충돌 방지법 일부개정법률안",
+      "proposer": "황명선의원 등 10인",
+      "date": "2026-09-09",
+      "stage": "소관위 회부",
+      "committee": "정무위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_U2V6T0S9S0A1B1Z5A3Y0Y2X8T5T5R8&ageFrom=22&ageTo=22"
+    },
     "정치자금법": {
       "query": "정치자금법",
       "count": 45,
@@ -322,6 +333,7 @@
     }
   },
   "pool_queried": [
+    "방지법",
     "정치자금법",
     "산안법",
     "자본시장법",
@@ -329,5 +341,5 @@
     "응급의료법",
     "내부통제법"
   ],
-  "prefetched_at": "2026-10-07T21:45:13+00:00"
+  "prefetched_at": "2026-10-07T22:25:13+00:00"
 }
