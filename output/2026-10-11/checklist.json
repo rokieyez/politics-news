@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-11",
+  "summary": {
+    "ok": 10,
+    "warn": 4,
+    "fail": 0
+  },
+  "items": [
+    {
+      "key": "numbers",
+      "level": "ok",
+      "title": "수치 2건 모두 기사 원문에서 확인",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "links",
+      "level": "ok",
+      "title": "출처 링크 9개 모두 정상",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "banned",
+      "level": "ok",
+      "title": "금지 표현 없음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "poll",
+      "level": "ok",
+      "title": "여론조사 인용 표기 갖춤",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "balance",
+      "level": "warn",
+      "title": "언급이 한쪽에 몰렸습니다 (더불어민주당 9 · 국민의힘 0)",
+      "detail": "'더불어민주당' 이야기만 9번 나옵니다. 상대편 입장이 자료에 없으면 '○○ 측 입장은 확인되지 않았다' 한 줄이라도 넣으세요.",
+      "lines": []
+    },
+    {
+      "key": "blog_len",
+      "level": "ok",
+      "title": "블로그 본문 1,660자",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "tags",
+      "level": "ok",
+      "title": "태그 30개",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "keyword",
+      "level": "ok",
+      "title": "대표 검색어 '김지용 중수청장 인사청문회' 가 제목·첫 문단·소제목에 모두 있음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "overlap",
+      "level": "ok",
+      "title": "지난 글과 겹치는 문장 0%",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shape",
+      "level": "ok",
+      "title": "소제목 4개 · 메인 하나에 집중",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "readability",
+      "level": "warn",
+      "title": "긴 문장 4개 — 휴대폰에서 답답해 보입니다",
+      "detail": "문장은 둘로 나누고, 문단은 두세 문장에서 끊으세요.",
+      "lines": [
+        "이재명 대통령은 SNS에 \"사심으로 인사와 구체적 수사공소 업무까지 좌지우지하려 해서는 안 될 것\"이라고 적…",
+        "박원석 전 정의당 의원은 9일 CBS 라디오에서, 추미애 경기도지사가 후보자 철회를 요구하는 상황을 두고 \"…",
+        "박성준 민주당 수석대변인은 2022년 11월 경찰이 한 의원 딸의 '허위 스펙' 의혹 수사를 위해 미국에 사…"
+      ]
+    },
+    {
+      "key": "photos",
+      "level": "warn",
+      "title": "직접 넣을 사진 자리 2곳",
+      "detail": "'네이버 블로그 글' 페이지의 점선 상자 아래 '사진 찾기' 링크를 쓰세요. [네이버 블로그 글 열기](blog-naver.html)",
+      "lines": []
+    },
+    {
+      "key": "shorts_len",
+      "level": "ok",
+      "title": "쇼츠 발화 292자 (약 53초)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shorts_voice",
+      "level": "warn",
+      "title": "쇼츠 자막이 제목 나열처럼 읽힙니다 — 문장으로 끝나는 컷이 26%",
+      "detail": "예: 민주당, 한동훈 의원에 / '딸 사건 덮었나' 물었고 / 2022년 11월 → 종결어미로 맺는 문장으로 고치세요.",
+      "lines": []
+    }
+  ]
+}
