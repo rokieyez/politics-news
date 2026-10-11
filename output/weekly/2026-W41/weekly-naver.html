@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이번 주 정치 결산: 지지율 37%와 국감 첫 주의 충돌</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  /* 바탕색은 body 가 아니라 뒤에 깔린 고정 층(body::before)에 칠한다.
+     Chrome 은 '본문 복사' 때 글자 덩어리마다 조상(html·body 까지)의 배경색을 찾아
+     background-color 로 박아 넣는다. 그래서 body 에 회색을 칠하면 네이버에 붙였을 때
+     문단마다 연한 회색 형광펜이 깔린다 (2026-09-08 실측: 문단·제목 18곳에
+     rgb(245,246,248)). html·body·.card 를 전부 투명하게 두면 그 배경색이 사라진다.
+     .card 의 흰색도 같은 이유로 그림자·테두리로만 구분한다. */
+  html, body { background: transparent; }
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; background: #f5f6f8;
+  }
+  body {
+    margin: 0; padding: 0 16px 80px;
+    color: #1a1a1a;
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.8; font-size: 16px;
+  }
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    margin: 0 -16px 20px; padding: 12px 16px;
+    background: #03c75a; color: #fff;
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  }
+  .bar strong { margin-right: auto; font-size: 15px; }
+  .bar button {
+    border: 0; border-radius: 6px; padding: 8px 14px;
+    background: rgba(255,255,255,.18); color: #fff;
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    font-family: inherit;
+  }
+  .bar button:hover { background: rgba(255,255,255,.3); }
+  .bar button.done { background: #fff; color: #03c75a; }
+  .bar a.write {
+    border-radius: 6px; padding: 8px 14px; background: #fff; color: #03c75a;
+    font-size: 14px; font-weight: 700; text-decoration: none;
+  }
+  @media (max-width: 560px) {
+    /* 휴대폰에서는 제목 줄을 따로 두고 버튼을 꽉 채운다 */
+    .bar { gap: 6px; }
+    .bar strong { flex-basis: 100%; margin: 0 0 4px; font-size: 14px; }
+    .bar button, .bar a.write { flex: 1 1 0; text-align: center; padding: 10px 6px; font-size: 13px; }
+    .card { padding: 22px 16px; }
+    .title { font-size: 21px; }
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  /* 흰 바탕 대신 테두리 — 배경을 칠하면 복사본에 흰 형광펜이 실린다 (위 설명). */
+  .card { background: transparent; border: 1px solid #e4e7ea; border-radius: 10px; padding: 32px 28px; }
+  .title { font-size: 24px; font-weight: 700; line-height: 1.45; margin: 0 0 6px; }
+  .meta { color: #888; font-size: 13px; margin-bottom: 28px; }
+  /* 구분선은 **꼭지와 꼭지 사이**에 둔다 — 둘째 소제목부터 앞에 <hr> 이 온다
+     (render.section_dividers). 예전에는 h2 의 border-top 으로 그었는데, 네이버 에디터가
+     제목의 테두리를 받지 않고 얇은 회색 선으로 바꿨다 (2026-09-08). <hr> 로 보내면
+     에디터가 제 구분선 부품으로 바꾼다. 색은 네이버에서 고를 수 없어 회색이 된다 —
+     여기 초록은 미리보기용이다. */
+  #post h2 { font-size: 20px; font-weight: 700; margin: 8px 0 16px; }
+  #post hr { border: 0; border-top: 2px solid #03c75a; margin: 56px 0 26px; }
+  #post h3 { font-size: 17px; font-weight: 700; margin: 38px 0 10px; }
+  #post p { margin: 0 0 18px; }
+  #post ul, #post ol { margin: 0 0 18px; padding-left: 22px; }
+  #post li { margin-bottom: 8px; }
+  #post table { border-collapse: collapse; width: 100%; margin: 0 0 20px; font-size: 15px; }
+  #post th, #post td { border: 1px solid #ddd; padding: 9px 12px; text-align: left; }
+  #post th { background: #f2f4f6; font-weight: 700; }
+  #post blockquote {
+    margin: 0 0 18px; padding: 12px 16px;
+    background: #f7f8fa; border-left: 4px solid #03c75a; color: #444;
+  }
+  #post a { color: #0068c3; }
+  .imgslot {
+    margin: 0 0 20px; padding: 22px 16px; text-align: center;
+    border: 2px dashed #c9cdd2; border-radius: 8px;
+    background: #fafbfc; color: #6b7178; font-size: 14px;
+  }
+  .imgslot.has-file { border-color: #03c75a; background: #f2fbf5; color: #2c6e45; }
+  .photo-links { margin: -12px 0 20px; font-size: 13px; color: #6b7178; text-align: center; }
+  .photo-links a { color: #0068c3; }
+  .imgslot small { display: block; margin-top: 6px; font-size: 13px; color: #5a6a60; }
+  .preview { display: block; max-width: 100%; height: auto; margin: -8px 0 22px; border: 1px solid #e4e7ea; border-radius: 8px; }
+  .tags { margin: 36px 0 0; color: #0068c3; font-size: 15px; word-break: keep-all; }
+  .hint {
+    max-width: 720px; margin: 20px auto 0; padding: 16px 18px;
+    background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px;
+    font-size: 14px; line-height: 1.75; color: #5f4b16;
+  }
+  .hint ol { margin: 8px 0 0; padding-left: 20px; }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <strong>네이버 블로그 붙여넣기</strong>
+  <button type="button" data-copy="title">제목 복사</button>
+  <button type="button" data-copy="post">본문 복사</button>
+  <button type="button" data-copy="tags">태그 복사</button>
+  <a class="write" href="https://blog.naver.com/keyboardpolitics?Redirect=Write&amp;" target="_blank" rel="noopener">글쓰기 열기</a>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h1 class="title" id="title">이번 주 정치 결산: 지지율 37%와 국감 첫 주의 충돌</h1>
+    <div class="meta">2026-W41 · 정치</div>
+
+    <div id="post">
+<p style="margin:0 0 14px;font-size:14px;color:#767676">이 글은 2026년 41주차 기준으로 정리한 내용입니다.</p><p><strong>이번 주 다섯 줄</strong></p>
+<ol>
+<li>갤럽 李 <span class="hl" style="background-color:#fff59d">37%</span>·민주당 <span class="hl" style="background-color:#fff59d">35%</span>, 출범 후 최저 보도</li>
+<li>조희대 대법원장 국감 불출석, 대법관 공백 210여일</li>
+<li>검찰청 <span class="hl" style="background-color:#fff59d">78년</span> 만에 폐지, 중수청장 청문회 14일 추진</li>
+<li>국감 첫 주 8~10개 상임위 동시 개의, 발언권 정지 1건</li>
+<li>주우크라이나 대사 18년 만에 본국 소환</li>
+</ol>
+<p>이번 주 정치는 <strong>국정감사 첫 주의 충돌</strong>과 <strong>여론조사 하락</strong>이 동시에 겹친 한 주였습니다. 10월 6일 8개 상임위가 한꺼번에 국감을 시작한 가운데, 대법원장의 국감 출석 문제와 중앙수사청장 인선을 둘러싼 공방이 주 내내 이어졌고 주말에는 대통령 지지율이 정부 출범 후 최저치로 보도됐습니다.</p>
+<h2>대법원장 국감 출석, 사법부와 대통령실의 긴장</h2>
+<p>주의 출발점은 조희대 대법원장의 국감 불출석 통보였습니다. 대법원장 측은 대통령과의 협의 내용을 공개하는 것이 부적절하다는 이유를 의견서에 담았고, 더불어민주당은 "불출석하면 대법원장직에서 사퇴하라"고 압박했습니다. 국민의힘은 이를 "겁박 정치"로 규정했습니다.</p>
+<p>여기에는 대법관 재제청 문제가 깔려 있습니다. 노태악 전 대법관 후임 임명 제청이 지연되면서 10월 6일 기준 <strong>210여일</strong>의 공백이 이어지고 있다는 것이 보도된 수치입니다. 6일 법사위 국감에서는 대법원장의 이석(중간 퇴장) 여부를 두고 여야가 다시 충돌했습니다.</p>
+<p>여기서 사실과 주장을 구분하면, '불출석 의견서 제출'과 '210여일 공백'은 사실이고 '사퇴하라'와 '겁박 정치'는 양측의 주장입니다.</p>
+<hr><h2>검찰청 폐지 이후 — 중수청장 인선을 둘러싼 여권 내부 이견</h2>
+<p>10월 2일 검찰청이 <strong>78년</strong> 만에 문을 닫고 공소청·중수청 체제로 전환된 뒤, 첫 중수청장 인선이 이번 주의 또 다른 축이었습니다. 김지용 후보자를 두고 '친윤 검사' 의혹이 제기되자 민주당은 신중한 입장을 보였고, 당내 강경파의 반발은 주말까지 이어졌습니다.</p>
+<p>윤호중 행정안전부 장관은 후보자를 향한 '밀정' 비판에 반박했습니다. 여당은 인사청문회를 10월 14일에 열겠다는 목표를 공개했습니다. 이 사안은 10월 5일과 6일에 걸쳐 연이어 보도되며, '반대'에서 '일정 추진'으로 국면이 옮겨간 흐름을 보였습니다.</p>
+<table>
+<thead>
+<tr>
+<th>날짜</th>
+<th>항목</th>
+<th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10월 2일</td>
+<td>검찰청 존속 기간(폐지 시점 기준)</td>
+<td>78년</td>
+</tr>
+<tr>
+<td>10월 2일</td>
+<td>김지용 후보자 인사청문요청안 국회 제출</td>
+<td>대통령 재가 후 제출</td>
+</tr>
+<tr>
+<td>10월 6~7일</td>
+<td>인사청문회 추진 일자</td>
+<td>10월 14일</td>
+</tr>
+<tr>
+<td>10월 6일</td>
+<td>대법관 공백 기간</td>
+<td>210여일</td>
+</tr>
+</tbody>
+</table>
+<hr><h2>국감장의 온도 — 상임위 숫자와 파행 횟수</h2>
+<p>국감 규모 자체는 컸습니다. 6일 법사위·정무위·재정경제기획위 등 <strong>8개</strong> 상임위가 오전 10시 일괄 개의했고, 7일에는 <strong>10개</strong> 상임위에서 DMZ 지뢰, 부동산, 선관위 등이 다뤄졌습니다.</p>
+<p>충돌도 반복됐습니다. 6일 법사위에서는 고성과 삿대질 끝에 발언권 정지 1건이 발생했고, 야당의 항의에 여당은 "김태규 사죄부터"라고 맞섰습니다. 8일 법사위·재정경제기획위에서는 간사 간 항의와 피켓시위가 이어졌습니다. 법무부 국감에서는 이진수 대행이 "공소취소를 지휘하지 않았고, 이화영 가석방 신청도 없다"고 답했고, 여당은 "공소취소하면 이적행위", 야당은 "조작수사를 인정하라"며 맞붙었습니다.</p>
+<p>경찰의 김재섭 의원 소환도 쟁점이었습니다. 국민의힘은 "정치보복"이라고 반발했고, 김 의원은 피의자로 경찰에 출석해 "허위는 없다"고 주장했습니다. 선관위 국감에서는 여야가 투표용지 부족을 함께 질타했지만, 선관위원장 공석 문제에는 이견을 보였습니다. 윤건영 의원은 올림픽공원 관련 상황이 124일째 이어졌다고 지적했고, 양부남 의원은 10월 2일 개정된 선거관리규칙 제71조의2의 절차를 문제 삼았습니다.</p>
+<hr><h2>여론조사 — 대통령과 여당 지지율 동반 하락</h2>
+<p>10월 10일 한국갤럽 조사 결과가 다수 매체로 보도됐습니다. 이재명 대통령 국정 지지율은 37%, 부정평가는 <span class="hl" style="background-color:#fff59d">51%</span>였고 더불어민주당 지지율은 35%로 정부 출범 후 최저치로 보도됐습니다. 부동산 정책 부정평가는 61%였습니다.</p>
+<table>
+<thead>
+<tr>
+<th>날짜</th>
+<th>지표</th>
+<th>수치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10월 10일</td>
+<td>대통령 국정 지지율(갤럽)</td>
+<td>37%</td>
+</tr>
+<tr>
+<td>10월 10일</td>
+<td>대통령 부정평가(갤럽)</td>
+<td>51%</td>
+</tr>
+<tr>
+<td>10월 10일</td>
+<td>더불어민주당 지지율(갤럽)</td>
+<td>35%</td>
+</tr>
+<tr>
+<td>10월 10일</td>
+<td>부동산 정책 부정평가(갤럽)</td>
+<td>61%</td>
+</tr>
+<tr>
+<td>10월 10일</td>
+<td>부정평가 변동폭(한겨레 보도)</td>
+<td>-5%p</td>
+</tr>
+</tbody>
+</table>
+<p>한 가지 유의할 점이 있습니다. 부정평가를 두고 한겨레는 -5%p 변동으로, 다른 매체는 "51%로 하락"으로 표현해 방향이 일치하지 않았습니다. 같은 조사라도 어느 시점과 비교했는지에 따라 설명이 달라질 수 있으니, 여러분도 수치만큼 비교 기준을 함께 보시면 좋겠습니다.</p>
+<p>같은 날 이재명 대통령은 SNS에 범여권 강경파를 겨냥한 비판 글을 올렸고, 국민의힘은 장외집회보다 국감을 활용한 원내투쟁에 집중하는 기조로 보도됐습니다. 국민의힘 조경태 의원은 봉하마을에서 노무현 전 대통령 묘소를 참배하고 사과했습니다.</p>
+<hr><h2>그 밖에 짚어둘 사안</h2>
+<p>외교에서는 외교부가 주우크라이나 대사를 본국으로 소환했습니다. 북한군 포로 송환 관련 비공개 합의 파기에 항의하는 조치로, 이런 형태의 대사 소환은 <strong>18년</strong> 만이라고 보도됐습니다.</p>
+<p>주말에는 한동훈 전 대표의 딸 관련 수사 무마 의혹이 다시 불거졌습니다. 민주당은 2022년 11월 서울중앙지검이 미국 사법공조 요청을 법무부에 올리지 않고 멈춰 세웠다고 주장했는데, 박성준 수석대변인은 11일, 이주희 원내대변인은 열흘(10일)로 언급해 기간 수치가 엇갈렸습니다. 한동훈 전 대표는 "망상"이라고 반박했습니다. 김민석 대표는 국감 기간에 현장 민생 행보와 당내 이견 조율을 함께 진행했고, 박원석 전 의원은 추미애 의원을 향해 "경고 단계는 지났다"고 주장했습니다.</p>
+<hr><h2>다음 주 볼 것</h2>
+<ul>
+<li><strong>10월 14일 김지용 중수청장 후보자 인사청문회</strong> — 개최 여부와 여권 내부 이견이 어떻게 정리되는지</li>
+<li><strong>10월 12~16일 국정감사 2주차</strong> — 법사위·정무위·행안위 등 5개 이상 상임위 일정 예고</li>
+<li><strong>국감 증인채택 협상</strong> — 조희대 대법원장·김현지 실장·김용범 등 거론, 출석 여부가 쟁점</li>
+<li><strong>다음 주 여론조사 흐름</strong> — 대통령 37%·민주당 35%가 추세인지 일시적 조정인지</li>
+</ul>
+      <p class="tags" id="tags">#이번주정치 #주간정치결산 #국정감사 #국감2026 #조희대 #대법원장 #대법관공백 #중수청 #김지용 #인사청문회 #검찰청폐지 #공소청 #법사위 #행안위 #선관위국감 #투표용지 #김재섭 #한동훈 #이재명 #김민석 #더불어민주당 #국민의힘 #한국갤럽 #지지율 #부동산정책 #우크라이나대사소환 #외교부 #국회절차 #정치용어 #방구석배경지식</p>
+    </div>
+  </div>
+
+  <div class="hint">
+    <strong>쓰는 법</strong>
+    <ol>
+      <li><b>글쓰기 열기</b> → 네이버 블로그 글쓰기 화면이 새 탭에서 열립니다</li>
+      <li><b>제목 복사</b> → 제목 칸에 붙여넣기</li>
+      <li><b>본문 복사</b> → 본문 칸에 붙여넣기. 소제목·표·굵게가 그대로 살아납니다.</li>
+      <li>점선 상자(<span style="color:#6b7178">📷 이미지</span>) 자리에 사진을 넣고 상자는 지웁니다.
+        <b>초록 상자</b>는 자동 생성된 그림이 있는 자리입니다 — 상자에 적힌 파일명을 같은 폴더에서 찾아 올리세요.
+        미리보기 그림은 복사에 포함되지 않습니다.</li>
+      <li><span style="background-color:#fff59d">형광펜</span>은 오늘의 핵심 수치가 <b>처음 나온 자리</b>에만 칠합니다.
+        같은 수치가 다시 나와도 표시하지 않습니다 — 강조가 많으면 아무것도 강조가 아니니까요.
+        붙여넣으면 그대로 따라가고, 마음에 안 들면 에디터에서 지우세요.</li>
+      <li>맨 아래 해시태그는 그대로 두면 네이버가 태그로 인식합니다.</li>
+      <li><b>올린 뒤</b> 깃허브 → Actions → <b>발행 기록</b> 에 글 주소를 적고, 하루 이틀 뒤 같은 곳에
+        <b>조회수</b>를 적어 주세요 (date 칸에 <b>2026-W41</b>). 이 두 숫자가 쌓여야 어떤 제목과 주제가
+        사람을 데려오는지 알 수 있습니다 — 안 적으면 아무것도 재지 못합니다.</li>
+    </ol>
+    이 안내문은 복사에 포함되지 않습니다.
+  </div>
+</div>
+
+<script>
+// 버튼이 지정한 영역만 클립보드에 담는다. 안내문과 상단 바는 복사되지 않는다.
+document.querySelectorAll("[data-copy]").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var node = document.getElementById(btn.dataset.copy);
+    if (!node) return;
+
+    // 미리보기 이미지(.nocopy)는 빼고 복사한다. 상대 경로 <img> 가 붙여넣기에 섞이면
+    // 네이버 에디터에 깨진 그림이 생긴다. 복사용 사본을 만들어 그것만 선택한다.
+    // 사본은 언제나 body 바로 아래에 둔다 — Chrome 이 복사본에 조상의 배경색을 박아
+    // 넣으므로, 흰 .card 안에서 복사하면 문단마다 흰 형광펜이 실린다. html·body 는
+    // 투명이라 body 아래에서 복사하면 배경색이 붙지 않는다 (2026-09-08 실측).
+    var clone = node.cloneNode(true);
+    clone.querySelectorAll(".nocopy").forEach(function (el) { el.remove(); });
+    clone.style.position = "fixed"; clone.style.left = "-9999px"; clone.style.top = "0";
+    document.body.appendChild(clone);
+    var copyNode = clone;
+
+    // 서식을 살리려면 선택 영역을 만들어 복사해야 한다.
+    // execCommand 는 구식이지만 file:// 에서 서식 복사가 확실하게 되는 유일한 방법이다.
+    var range = document.createRange();
+    range.selectNodeContents(copyNode);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    sel.removeAllRanges();
+    var plainText = copyNode.innerText;
+    clone.remove();
+
+    if (!ok && navigator.clipboard) {
+      navigator.clipboard.writeText(plainText).then(flash, function () {
+        alert("복사에 실패했습니다. 직접 드래그해서 복사해 주세요.");
+      });
+      return;
+    }
+    flash();
+
+    function flash() {
+      var original = btn.textContent;
+      btn.textContent = "복사됨 ✓";
+      btn.classList.add("done");
+      setTimeout(function () {
+        btn.textContent = original;
+        btn.classList.remove("done");
+      }, 1400);
+    }
+  });
+});
+</script>
+</body>
+</html>

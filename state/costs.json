@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-11T00:36:53",
-  "count": 37,
+  "updated_at": "2026-10-11T02:02:52",
+  "count": 38,
   "entries": [
     {
       "date": "2026-09-08",
@@ -1597,6 +1597,38 @@
           "output_tokens": 13167,
           "cache_read_tokens": 0,
           "cache_write_tokens": 10330,
+          "usd": 0.0
+        }
+      ]
+    },
+    {
+      "date": "2026-10-11",
+      "kind": "weekly",
+      "run_at": "2026-10-11T02:02:52",
+      "model": "claude-opus-5",
+      "calls": 2,
+      "input_tokens": 4,
+      "output_tokens": 15694,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 20804,
+      "usd": 0.0,
+      "by_call": [
+        {
+          "kind": "주간 결산",
+          "model": "claude-opus-5",
+          "input_tokens": 2,
+          "output_tokens": 4818,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 8175,
+          "usd": 0.0
+        },
+        {
+          "kind": "주간 롱폼",
+          "model": "claude-sonnet-5",
+          "input_tokens": 2,
+          "output_tokens": 10876,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 12629,
           "usd": 0.0
         }
       ]
