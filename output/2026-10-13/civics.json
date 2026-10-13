@@ -4,7 +4,7 @@
   "since": "2026-10-06",
   "sample": false,
   "bills": {
-    "count": null,
+    "count": 84,
     "latest": [
       {
         "name": "주세법 일부개정법률안",
@@ -42,16 +42,68 @@
         "committee": ""
       }
     ],
-    "sample": true,
+    "sample": false,
     "age_total": 19891
   },
   "plenary": {
-    "count": null,
-    "by_result": {},
-    "items": [],
-    "sample": true
+    "count": 3,
+    "by_result": {
+      "철회": 3
+    },
+    "items": [
+      {
+        "name": "우키시마호 침몰 사건 진상규명 등에 관한 법률안(이상식의원 등 14인)",
+        "result": "철회",
+        "date": "2026-10-08",
+        "committee": "행정안전위원회",
+        "yes": null,
+        "no": null,
+        "blank": null,
+        "link": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2X6Y0W7X1V5U1U0C3D6B1C7A4Z7Z1"
+      },
+      {
+        "name": "제9회 전국동시지방선거 투표용지 부족 사태 등 국민참정권 침해 의혹 진상규명을 위한 특별검사의 임명 등에 관한 법률 일부개정법률안(김용민의원 등 10인)",
+        "result": "철회",
+        "date": "2026-10-07",
+        "committee": "법제사법위원회",
+        "yes": null,
+        "no": null,
+        "blank": null,
+        "link": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_D2E6C0B9B0Z8A1I7J0H1H3G3E0F9N7"
+      },
+      {
+        "name": "건설산업기본법 일부개정법률안(김남근의원 등 12인)",
+        "result": "철회",
+        "date": "2026-10-06",
+        "committee": "국토교통위원회",
+        "yes": null,
+        "no": null,
+        "blank": null,
+        "link": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_F2G6E0D8D2L7L1K7L0J2H5I9Q8Q2P0"
+      }
+    ],
+    "sample": false
   },
   "polls": [
+    {
+      "reg_no": "17308",
+      "agency": "한국갤럽조사연구소",
+      "client": "KBS광주방송총국",
+      "method": "무선전화면접",
+      "title": "전남광주통합특별시 전체 정당지지도",
+      "registered": "2026-10-12",
+      "region": "전남광주통합특별시",
+      "ntt_id": "19564",
+      "period": "2026-10-07~08",
+      "sample_size": 1204,
+      "response_rate": "13.7%",
+      "margin": "95% 신뢰수준에 ±2.8%p",
+      "outlet": "KBS광주방송총국",
+      "publish_at": "2026-10-13 15시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19564&menuNo=200467",
+      "extra": {},
+      "summary": "한국갤럽조사연구소 · KBS광주방송총국 의뢰 · 2026-10-07~08 · 1,204명 · 무선전화면접 · 응답률 13.7% · 95% 신뢰수준에 ±2.8%p"
+    },
     {
       "reg_no": "17307",
       "agency": "(주)여론조사꽃",
@@ -70,6 +122,25 @@
       "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19563&menuNo=200467",
       "extra": {},
       "summary": "(주)여론조사꽃 · 2026-10-09~10 · 1,004명 · 무선전화면접 · 응답률 9.3% · 95% 신뢰수준에 ±3.1%p"
+    },
+    {
+      "reg_no": "17306",
+      "agency": "(주)에브리리서치",
+      "client": "(주)에브리뉴스",
+      "method": "무선 ARS",
+      "title": "전국 정기(정례)조사 정당지지도",
+      "registered": "2026-10-10",
+      "region": "전국",
+      "ntt_id": "19562",
+      "period": "2026-10-09~10",
+      "sample_size": 1000,
+      "response_rate": "3.1%",
+      "margin": "95% 신뢰수준에 ±3.1%p",
+      "outlet": "(주)에브리뉴스",
+      "publish_at": "2026-10-13 09시 30분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19562&menuNo=200467",
+      "extra": {},
+      "summary": "(주)에브리리서치 · (주)에브리뉴스 의뢰 · 2026-10-09~10 · 1,000명 · 무선 ARS · 응답률 3.1% · 95% 신뢰수준에 ±3.1%p"
     },
     {
       "reg_no": "17305",
@@ -175,15 +246,15 @@
       "registered": "2026-10-07",
       "region": "전국",
       "ntt_id": "19555",
-      "period": "2026-10-05~06",
-      "sample_size": 1033,
-      "response_rate": "2.3%",
-      "margin": "95% 신뢰수준에 ±3.0%p",
-      "outlet": "뉴스토마토",
-      "publish_at": "2026-10-08 06시 00분",
+      "period": "",
+      "sample_size": null,
+      "response_rate": "",
+      "margin": "",
+      "outlet": "",
+      "publish_at": "",
       "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19555&menuNo=200467",
       "extra": {},
-      "summary": "미디어토마토 · 뉴스토마토 의뢰 · 2026-10-05~06 · 1,033명 · 무선 ARS · 응답률 2.3% · 95% 신뢰수준에 ±3.0%p"
+      "summary": "미디어토마토 · 뉴스토마토 의뢰 · 무선 ARS"
     },
     {
       "reg_no": "17299",
@@ -194,15 +265,15 @@
       "registered": "2026-10-06",
       "region": "전남광주통합특별시",
       "ntt_id": "19553",
-      "period": "2026-10-03~05",
-      "sample_size": 1001,
-      "response_rate": "0.5%",
-      "margin": "95% 신뢰수준에 ±3.1%p",
-      "outlet": "뉴시스, 무등일보, 광주MBC",
-      "publish_at": "2026-10-07 17시 00분",
+      "period": "",
+      "sample_size": null,
+      "response_rate": "",
+      "margin": "",
+      "outlet": "",
+      "publish_at": "",
       "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19553&menuNo=200467",
       "extra": {},
-      "summary": "한길리서치 · 뉴시스 전남광주 취재본부/무등일보/광주MBC 의뢰 · 2026-10-03~05 · 1,001명 · 무선 ARS · 응답률 0.5% · 95% 신뢰수준에 ±3.1%p"
+      "summary": "한길리서치 · 뉴시스 전남광주 취재본부/무등일보/광주MBC 의뢰 · 무선 ARS"
     },
     {
       "reg_no": "17298",
@@ -225,8 +296,6 @@
     }
   ],
   "warnings": [],
-  "filled_from_prefetch": [
-    "bills",
-    "plenary"
-  ]
+  "filled_from_prefetch": [],
+  "tracked": []
 }
