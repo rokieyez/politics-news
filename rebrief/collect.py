@@ -14,7 +14,7 @@ import feedparser
 import requests
 
 from .config import Config, Feed
-from .models import Article, _canonical_url
+from .models import Article, _canonical_url, _timestamp, to_kst
 
 log = logging.getLogger(__name__)
 
@@ -52,7 +52,7 @@ def collect(cfg: Config, now: datetime | None = None) -> tuple[list[Article], li
     articles = filter_by_time(articles, now, int(cfg.get("run.lookback_hours", 28)))
     articles = filter_excluded(articles, cfg.exclude_terms, cfg.exclude_patterns)
     articles = filter_required(articles, cfg.require_terms)
-    articles.sort(key=lambda a: a.published or datetime.min.replace(tzinfo=timezone.utc), reverse=True)
+    articles.sort(key=lambda a: _timestamp(a.published), reverse=True)
 
     limit = int(cfg.get("run.max_articles", 300))
     articles = articles[:limit]
@@ -157,8 +157,9 @@ def parse_published(entry) -> datetime | None:
     for key in ("published_parsed", "updated_parsed"):
         struct = getattr(entry, key, None)
         if struct:
-            # feedparser 는 UTC 기준 struct_time 을 준다.
-            return datetime.fromtimestamp(calendar.timegm(struct), tz=timezone.utc)
+            # feedparser 는 UTC 기준 struct_time 을 준다 → KST 로 바꿔 둔다.
+            return to_kst(datetime.fromtimestamp(calendar.timegm(struct), tz=timezone.utc))
+    # 한겨레 정치 RSS 처럼 날짜 칸이 아예 없는 피드도 있다 → None(시각 미상)으로 둔다.
     return None
 
 
@@ -192,7 +193,7 @@ def dedupe(articles: list[Article]) -> list[Article]:
 
 
 def filter_by_time(articles: list[Article], now: datetime, lookback_hours: int) -> list[Article]:
-    cutoff = now - timedelta(hours=lookback_hours)
+    cutoff = to_kst(now) - timedelta(hours=lookback_hours)
     kept = []
     for article in articles:
         # 발행 시각을 모르는 기사는 버리지 않고 남긴다 (피드가 시각을 안 주는 경우가 있음).

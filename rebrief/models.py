@@ -9,10 +9,31 @@ from __future__ import annotations
 
 import hashlib
 import re
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from typing import Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
+
+try:
+    from zoneinfo import ZoneInfo
+
+    KST = ZoneInfo("Asia/Seoul")
+except Exception:  # 시간대 자료가 없는 환경 대비
+    KST = timezone(timedelta(hours=9), "KST")
+
+
+def to_kst(moment: datetime | None) -> datetime | None:
+    """발행 시각을 KST 로 맞춘다. 시간대 없는 값은 KST 로 간주한다.
+
+    시간대 있는 값과 없는 값이 섞이면 비교·정렬에서 TypeError 가 나므로
+    (2026-10-18 아침 브리핑 실패), 모든 Article.published 는 이 함수를 거친다.
+    """
+    if moment is None:
+        return None
+    if moment.tzinfo is None or moment.utcoffset() is None:
+        return moment.replace(tzinfo=KST)
+    return moment.astimezone(KST)
+
 
 # ── 수집 단계 ────────────────────────────────────────────────
 
@@ -32,6 +53,12 @@ class Article(BaseModel):
     source_weight: float = 1.0
     tags: list[str] = Field(default_factory=list)   # [단독], [속보] 등
 
+    @field_validator("published", mode="after")
+    @classmethod
+    def _published_kst(cls, value: Optional[datetime]) -> Optional[datetime]:
+        # 수집처·저장본 어디서 오든 시간대를 KST 로 통일한다.
+        return to_kst(value)
+
     @staticmethod
     def make_id(url: str, title: str) -> str:
         """URL 우선, 없으면 제목으로 안정적인 해시 ID를 만든다."""
@@ -46,6 +73,13 @@ class Article(BaseModel):
     def best_text(self) -> str:
         """요약에 넣을 본문. 본문이 있으면 본문, 없으면 RSS 요약."""
         return self.body or self.summary
+
+
+def _timestamp(moment: datetime | None) -> float:
+    """정렬용 숫자 키. 시각이 없으면 가장 오래된 것으로 친다."""
+    if moment is None:
+        return float("-inf")
+    return to_kst(moment).timestamp()
 
 
 def _canonical_url(url: str) -> str:
@@ -68,9 +102,11 @@ class Cluster(BaseModel):
     @property
     def lead(self) -> Article:
         """대표 기사 — 본문이 있는 것 우선, 그다음 최신순."""
+        # 발행 시각은 타임스탬프(숫자)로 비교한다 — 시각 없는 기사(한겨레 RSS 는
+        # 날짜를 안 준다)는 맨 뒤로, 시간대가 섞여도 TypeError 가 나지 않는다.
         return sorted(
             self.articles,
-            key=lambda a: (bool(a.body), a.published or datetime.min),
+            key=lambda a: (bool(a.body), _timestamp(a.published)),
             reverse=True,
         )[0]
 

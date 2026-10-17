@@ -51,6 +51,28 @@ def test_title_parsing():
     assert strip_leading_tags("[단독][속보] 규제 완화") == ("규제 완화", ["단독", "속보"])
 
 
+def test_lead_survives_mixed_timezones():
+    """2026-10-18 실패 재현: 한겨레(시각 없음)·시간대 없는 값·UTC 값이 한 묶음에 섞여도 정렬된다."""
+    from datetime import timedelta
+
+    from rebrief.models import Article, Cluster
+
+    def art(i, published, body=""):
+        return Article(id=str(i), title=f"기사{i}", url=f"https://e.x/{i}", feed_id="f",
+                       feed_name="f", published=published, body=body)
+
+    no_time = art(1, None)                                   # 한겨레 RSS 처럼 날짜 칸이 없음
+    naive = art(2, datetime(2026, 10, 18, 8, 0))             # 시간대 없는 값 → KST 로 간주
+    utc = art(3, datetime(2026, 10, 17, 22, 0, tzinfo=timezone.utc))  # = KST 07:00
+    cluster = Cluster(key="k", articles=[no_time, utc, naive])
+    assert cluster.lead.id == "2"                            # 가장 최근(KST 08:00)
+    nine = timedelta(hours=9)
+    assert naive.published.utcoffset() == nine and utc.published.utcoffset() == nine
+    assert utc.published.hour == 7                           # UTC 22시 → KST 07시
+    # 본문 있는 기사가 시각보다 우선, 시각 없는 기사도 터지지 않는다
+    assert Cluster(key="k", articles=[utc, art(4, None, body="본문")]).lead.id == "4"
+
+
 def test_similarity_groups_same_story():
     threshold = 0.35   # config/settings.yaml 기본값
 

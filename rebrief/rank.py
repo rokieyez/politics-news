@@ -10,7 +10,7 @@ import math
 from datetime import datetime, timezone
 
 from .config import Config
-from .models import Cluster
+from .models import Cluster, to_kst
 
 
 def score_clusters(cfg: Config, clusters: list[Cluster], now: datetime | None = None) -> list[Cluster]:
@@ -94,7 +94,7 @@ def _recency(cluster: Cluster, now: datetime, lookback_hours: int) -> float:
     if not times:
         return 0.5
     newest = max(times)
-    hours = (now - newest).total_seconds() / 3600
+    hours = (to_kst(now) - newest).total_seconds() / 3600
     return max(0.0, min(1.0, 1.0 - hours / lookback_hours))
 
 
