@@ -169,6 +169,28 @@
   ],
   "warnings": [],
   "tracked_pool": {
+    "보호법": {
+      "query": "보호법",
+      "count": 380,
+      "pending": null,
+      "name": "개인정보 보호법 일부개정법률안",
+      "proposer": "조정훈의원 등 10인",
+      "date": "2026-10-12",
+      "stage": "소관위 회부",
+      "committee": "정무위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_0F0BF58DD05640E19B987CDAB90A13&ageFrom=22&ageTo=22"
+    },
+    "선거법": {
+      "query": "선거법",
+      "count": 325,
+      "pending": null,
+      "name": "공직선거법 일부개정법률안",
+      "proposer": "박지혜의원 등 10인",
+      "date": "2026-09-28",
+      "stage": "소관위 회부",
+      "committee": "행정안전위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2N6L0M9K1J4J1R0S2Q6R0P2N4O6W8&ageFrom=22&ageTo=22"
+    },
     "정치자금법": {
       "query": "정치자금법",
       "count": 45,
@@ -212,28 +234,18 @@
       "stage": "소관위 회부",
       "committee": "행정안전위원회",
       "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2O6O0N8L2M6L1L0T0R1S1Q6R6P9Q4&ageFrom=22&ageTo=22"
-    },
-    "선거법": {
-      "query": "선거법",
-      "count": 325,
-      "pending": null,
-      "name": "공직선거법 일부개정법률안",
-      "proposer": "박지혜의원 등 10인",
-      "date": "2026-09-28",
-      "stage": "소관위 회부",
-      "committee": "행정안전위원회",
-      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2N6L0M9K1J4J1R0S2Q6R0P2N4O6W8&ageFrom=22&ageTo=22"
     }
   },
   "pool_queried": [
+    "보호법",
+    "선거법",
     "정치자금법",
     "위헌법",
     "형법",
     "서비스법",
     "회계법",
     "토지법",
-    "서울고법",
-    "선거법"
+    "서울고법"
   ],
-  "prefetched_at": "2026-10-17T21:50:41+00:00"
+  "prefetched_at": "2026-10-17T22:25:13+00:00"
 }
