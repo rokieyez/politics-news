@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>조희대 대법원장 탄핵, 여야 공방 정리 10월 19일 브리핑</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  /* 바탕색은 body 가 아니라 뒤에 깔린 고정 층(body::before)에 칠한다.
+     Chrome 은 '본문 복사' 때 글자 덩어리마다 조상(html·body 까지)의 배경색을 찾아
+     background-color 로 박아 넣는다. 그래서 body 에 회색을 칠하면 네이버에 붙였을 때
+     문단마다 연한 회색 형광펜이 깔린다 (2026-09-08 실측: 문단·제목 18곳에
+     rgb(245,246,248)). html·body·.card 를 전부 투명하게 두면 그 배경색이 사라진다.
+     .card 의 흰색도 같은 이유로 그림자·테두리로만 구분한다. */
+  html, body { background: transparent; }
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; background: #f5f6f8;
+  }
+  body {
+    margin: 0; padding: 0 16px 80px;
+    color: #1a1a1a;
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.8; font-size: 16px;
+  }
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    margin: 0 -16px 20px; padding: 12px 16px;
+    background: #03c75a; color: #fff;
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  }
+  .bar strong { margin-right: auto; font-size: 15px; }
+  .bar button {
+    border: 0; border-radius: 6px; padding: 8px 14px;
+    background: rgba(255,255,255,.18); color: #fff;
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    font-family: inherit;
+  }
+  .bar button:hover { background: rgba(255,255,255,.3); }
+  .bar button.done { background: #fff; color: #03c75a; }
+  .bar a.write {
+    border-radius: 6px; padding: 8px 14px; background: #fff; color: #03c75a;
+    font-size: 14px; font-weight: 700; text-decoration: none;
+  }
+  @media (max-width: 560px) {
+    /* 휴대폰에서는 제목 줄을 따로 두고 버튼을 꽉 채운다 */
+    .bar { gap: 6px; }
+    .bar strong { flex-basis: 100%; margin: 0 0 4px; font-size: 14px; }
+    .bar button, .bar a.write { flex: 1 1 0; text-align: center; padding: 10px 6px; font-size: 13px; }
+    .card { padding: 22px 16px; }
+    .title { font-size: 21px; }
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  /* 흰 바탕 대신 테두리 — 배경을 칠하면 복사본에 흰 형광펜이 실린다 (위 설명). */
+  .card { background: transparent; border: 1px solid #e4e7ea; border-radius: 10px; padding: 32px 28px; }
+  .title { font-size: 24px; font-weight: 700; line-height: 1.45; margin: 0 0 6px; }
+  .meta { color: #888; font-size: 13px; margin-bottom: 28px; }
+  /* 구분선은 **꼭지와 꼭지 사이**에 둔다 — 둘째 소제목부터 앞에 <hr> 이 온다
+     (render.section_dividers). 예전에는 h2 의 border-top 으로 그었는데, 네이버 에디터가
+     제목의 테두리를 받지 않고 얇은 회색 선으로 바꿨다 (2026-09-08). <hr> 로 보내면
+     에디터가 제 구분선 부품으로 바꾼다. 색은 네이버에서 고를 수 없어 회색이 된다 —
+     여기 초록은 미리보기용이다. */
+  #post h2 { font-size: 20px; font-weight: 700; margin: 8px 0 16px; }
+  #post hr { border: 0; border-top: 2px solid #03c75a; margin: 56px 0 26px; }
+  #post h3 { font-size: 17px; font-weight: 700; margin: 38px 0 10px; }
+  #post p { margin: 0 0 18px; }
+  #post ul, #post ol { margin: 0 0 18px; padding-left: 22px; }
+  #post li { margin-bottom: 8px; }
+  #post table { border-collapse: collapse; width: 100%; margin: 0 0 20px; font-size: 15px; }
+  #post th, #post td { border: 1px solid #ddd; padding: 9px 12px; text-align: left; }
+  #post th { background: #f2f4f6; font-weight: 700; }
+  #post blockquote {
+    margin: 0 0 18px; padding: 12px 16px;
+    background: #f7f8fa; border-left: 4px solid #03c75a; color: #444;
+  }
+  #post a { color: #0068c3; }
+  .imgslot {
+    margin: 0 0 20px; padding: 22px 16px; text-align: center;
+    border: 2px dashed #c9cdd2; border-radius: 8px;
+    background: #fafbfc; color: #6b7178; font-size: 14px;
+  }
+  .imgslot.has-file { border-color: #03c75a; background: #f2fbf5; color: #2c6e45; }
+  .photo-links { margin: -12px 0 20px; font-size: 13px; color: #6b7178; text-align: center; }
+  .photo-links a { color: #0068c3; }
+  .imgslot small { display: block; margin-top: 6px; font-size: 13px; color: #5a6a60; }
+  .preview { display: block; max-width: 100%; height: auto; margin: -8px 0 22px; border: 1px solid #e4e7ea; border-radius: 8px; }
+  .tags { margin: 36px 0 0; color: #0068c3; font-size: 15px; word-break: keep-all; }
+  .hint {
+    max-width: 720px; margin: 20px auto 0; padding: 16px 18px;
+    background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px;
+    font-size: 14px; line-height: 1.75; color: #5f4b16;
+  }
+  .hint ol { margin: 8px 0 0; padding-left: 20px; }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <strong>네이버 블로그 붙여넣기</strong>
+  <button type="button" data-copy="title">제목 복사</button>
+  <button type="button" data-copy="post">본문 복사</button>
+  <button type="button" data-copy="tags">태그 복사</button>
+  <a class="write" href="https://blog.naver.com/keyboardpolitics?Redirect=Write&amp;" target="_blank" rel="noopener">글쓰기 열기</a>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h1 class="title" id="title">조희대 대법원장 탄핵, 여야 공방 정리 10월 19일 브리핑</h1>
+    <div class="meta">2026-10-19 · 정치</div>
+
+    <div id="post">
+<div class="imgslot has-file">📷 대표 이미지 — 검색 목록에 이 그림이 썸네일로 뜹니다<br><small>→ 파일 <b>img-0-cover.png</b> 을 <b>글 맨 위</b>에 올리고 상자는 지웁니다</small></div><img class="preview nocopy" src="img-0-cover.png" alt="대표 이미지"><p style="margin:0 0 14px;font-size:14px;color:#767676">이 글은 2026년 10월 19일 기준으로 정리한 내용입니다.</p><div style="background-color:#f2f8ff;border-left:4px solid #256abf;padding:14px 16px;margin:0 0 22px"><b style="font-size:15px">3줄 요약</b><ul style="margin:8px 0 0;padding-left:18px"><li style="margin-bottom:6px">민주당이 조희대 대법원장 탄핵 추진 논의를 공식화했습니다</li><li style="margin-bottom:6px">국민의힘은 18일 &#x27;모든 수단 동원해 저지&#x27; 방침을 밝혔습니다</li><li style="margin-bottom:6px">실제 탄핵안 발의 여부와 발의 시점이 다음 관전 포인트입니다</li></ul></div><p>조희대 대법원장 탄핵 추진을 두고 여야가 정면으로 부딪쳤습니다. 더불어민주당이 탄핵 추진 논의를 공식화했고, 국민의힘은 18일 저지 방침을 밝혔습니다.</p>
+<p>아직 탄핵안이 실제로 발의된 단계는 아닙니다. 오늘은 양측이 각각 무슨 말을 했는지, 절차상 다음이 무엇인지만 담담하게 정리해 보겠습니다.</p>
+<div class="imgslot">📷 이미지 — 서울 서초구 대법원 청사 외관 사진</div><div class="photo-links nocopy">사진 찾기: <a href="https://unsplash.com/s/photos/seoul-supreme-court-building" target="_blank" rel="noopener">언스플래시</a> · <a href="https://www.pexels.com/ko-kr/search/seoul%20supreme%20court%20building/" target="_blank" rel="noopener">펙셀스</a> · <a href="https://pixabay.com/ko/images/search/seoul%20supreme%20court%20building/" target="_blank" rel="noopener">픽사베이</a></div>
+<h2>조희대 대법원장 탄핵, 양측은 뭐라고 했나</h2>
+<p>먼저 용어부터 짚겠습니다. 탄핵소추는 국회가 고위공직자를 파면해 달라고 헌법재판소에 청구하는 절차입니다. 국회 의결과 헌재 심판이라는 두 단계를 거칩니다.</p>
+<p>국민의힘 정점식 원내대표는 18일 국회 기자간담회에서 민주당 김민석 대표를 향해 "탄핵 추진 여부를 조속히 결론 내리라"고 말했습니다.</p>
+<p>정점식 원내대표는 또 "본인들이 초래한 민생 파탄과 외교·안보 위기에서 국민의 관심을 돌리고 지지층을 다시 결집시키기 위해 탄핵이라는 카드를 꺼내 든 것"이라고 말했습니다. 민주당이 실제로 발의할 경우 "우리가 할 수 있는 모든 수단을 동원해 탄핵소추와 탄핵을 저지할 것"이라고도 했습니다.</p>
+<p>다만 민주당 김민석 대표가 탄핵 추진을 공식화하며 밝힌 발언의 원문은 제공된 자료에서 확인되지 않았습니다. 이 사안에 대한 민주당 측의 구체적 설명은 확인되지 않았다는 점을 함께 전해 드립니다.</p>
+<hr><h2>숫자로 본 양측 주장</h2>
+<p>양측이 각자 근거로 든 수치는 다음과 같습니다. 모두 발언 주체의 주장이며, 제3자 검증 내용은 자료에 없습니다.</p>
+<table>
+<thead>
+<tr>
+<th>수치</th>
+<th>내용</th>
+<th>말한 사람</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="hl" style="background-color:#fff59d"><strong>1년</strong></span> 4개월</td>
+<td>이재명 정부 집권 기간, "전방위로 나라를 절단내고 있다"며 언급</td>
+<td>국민의힘 정점식 원내대표</td>
+</tr>
+<tr>
+<td><span class="hl" style="background-color:#fff59d"><strong>15조 원</strong></span>대</td>
+<td>식품 담합 카르텔 매출 규모, 국감 성과로 거론</td>
+<td>민주당 김성회 원내대변인</td>
+</tr>
+</tbody>
+</table>
+<div class="imgslot has-file">📷 이미지 — 정점식 원내대표가 언급한 집권 기간 수치를 보여주는 그래픽<br><small>→ 파일 <b>img-2-stat-card.png</b> 을 이 자리에 올리고 상자는 지웁니다</small></div><img class="preview nocopy" src="img-2-stat-card.png" alt="정점식 원내대표가 언급한 집권 기간 수치를 보여주는 그래픽">
+<p>정점식 원내대표는 전시작전통제권(전시에 우리 군을 지휘·통제하는 권한) 조기 전환과 관련해서도 "대통령의 임기 시간표에 억지로 맞추려는 시도를 중단하라"고 말했습니다.</p>
+<hr><h2>국감 반환점, 서로 다른 평가</h2>
+<p>같은 날 이재명 정부 2년차 국정감사가 반환점을 돌았습니다.</p>
+<p>민주당 김성회 원내대변인은 서면브리핑에서 "국정과제를 점검하고 정부의 미비점은 보완하는 민생 국감을 만들어 왔다"고 밝혔습니다. 앞서 본 식품 담합 사안을 질타해 기업의 사과와 정부의 감독 개선 약속을 받아냈다는 주장입니다.</p>
+<p>김성회 원내대변인은 국민의힘을 향해 "팻말 시위로 회의를 지연시키고 북한 지뢰 도발 규탄 결의안마저 외면했다"고 말했습니다.</p>
+<p>이에 정점식 원내대표는 "김민석 대표는 정쟁 국감의 차원을 넘어 탄핵 국감을 만들고 있다"고 반박했습니다.</p>
+<div class="imgslot">📷 이미지 — 국회 상임위 국정감사 회의장 모습 사진</div><div class="photo-links nocopy">사진 찾기: <a href="https://unsplash.com/s/photos/korea-national-assembly-hearing" target="_blank" rel="noopener">언스플래시</a> · <a href="https://www.pexels.com/ko-kr/search/korea%20national%20assembly%20hearing/" target="_blank" rel="noopener">펙셀스</a> · <a href="https://pixabay.com/ko/images/search/korea%20national%20assembly%20hearing/" target="_blank" rel="noopener">픽사베이</a></div>
+<hr><h2>그 밖의 오늘 소식</h2>
+<ul>
+<li>조희대 대법원장, 지난 16일 대법원 출근 모습 보도</li>
+<li>국민의힘, 6일 법사위 국감서 서영교 위원장 진행방식에 항의</li>
+<li>'탄핵 사유 충분'·'정권 몰락 신호탄' 발언 구체 내용은 미확인</li>
+</ul>
+<p>조희대 대법원장 탄핵과 관련해 다음으로 볼 지점은 두 가지입니다. 민주당이 실제로 탄핵안을 발의할지, 그리고 남은 국감 일정에서 증인 채택을 둘러싼 공방이 이어질지입니다.</p><div style="background-color:#f2f8ff;border-left:4px solid #256abf;padding:14px 16px;margin:26px 0 0"><b style="font-size:15px">그래서 나는?</b><ul style="margin:8px 0 0;padding-left:18px"><li style="margin-bottom:6px">뉴스를 챙겨 보는 분이라면, 발의 여부부터 확인해 보세요</li><li style="margin-bottom:6px">국감에 관심 있는 분이라면, 후반 증인 채택 일정을 보세요</li><li style="margin-bottom:6px">용어가 낯선 분이라면, 탄핵소추와 심판의 차이를 기억해 두세요</li></ul></div><div style="margin:28px 0 0;padding:16px 18px"><b>직접 센 숫자 — 국회·여론조사 (최근 7일)</b><p style="margin:10px 0 0">국회의원 발의 법률안 <b>82건</b>. 가장 최근은 조세특례제한법 일부개정법률안(전은수의원 등 10인).</p><p style="margin:12px 0 4px"><b>이번 주 등록된 선거 여론조사 9건</b></p><ul style="margin:0;padding-left:18px;font-size:15px"><li>전국 정기(정례)조사 정당지지도 — (주)여론조사꽃 · 2026-10-16~17 · 1,001명 · 무선 ARS · 응답률 2.3% · 95% 신뢰수준에 ±3.1%p</li><li>전국 정기(정례)조사 정당지지도 — (주)여론조사꽃 · 2026-10-16~17 · 1,003명 · 무선전화면접 · 응답률 9.7% · 95% 신뢰수준에 ±3.1%p</li><li>전국 정기(정례)조사 정당지지도 10월 3주차 주간집계 — (주)리얼미터 · 아시아경제 의뢰 · 2026-10-15~16 · 1,005명 · 무선 ARS · 응답률 2.7% · 95% 신뢰수준에 ±3.1%p</li></ul><p style="margin:12px 0 0;font-size:13px;color:#888888">열린국회정보·중앙선거여론조사심의위원회 자료를 직접 셌습니다. 여론조사의 자세한 사항은 중앙선거여론조사심의위원회 홈페이지를 참조하세요.</p></div><p style="padding:14px 16px;margin:28px 0 0"><b>여러분은 이번 공방에서 어떤 절차가 가장 궁금하셨나요?</b><br><span style="font-size:14px;color:#666666">댓글로 알려 주시면 다음 글에 반영하겠습니다.</span></p>
+      <p class="tags" id="tags">#조희대 #조희대대법원장 #조희대대법원장탄핵 #탄핵소추 #탄핵안발의 #대법원장탄핵 #정점식 #정점식원내대표 #김민석 #김성회 #국민의힘 #더불어민주당 #국정감사 #국감2026 #국회법제사법위원회 #법사위 #서영교 #국회 #정치 #정치뉴스 #시사상식 #정치용어 #헌법재판소 #전작권 #전시작전통제권 #이재명정부 #국감반환점 #식품담합 #서울 #서초구</p>
+    </div>
+  </div>
+
+  <div class="hint">
+    <strong>쓰는 법</strong>
+    <ol>
+      <li><b>글쓰기 열기</b> → 네이버 블로그 글쓰기 화면이 새 탭에서 열립니다</li>
+      <li><b>제목 복사</b> → 제목 칸에 붙여넣기</li>
+      <li><b>본문 복사</b> → 본문 칸에 붙여넣기. 소제목·표·굵게가 그대로 살아납니다.</li>
+      <li>점선 상자(<span style="color:#6b7178">📷 이미지</span>) 자리에 사진을 넣고 상자는 지웁니다.
+        <b>초록 상자</b>는 자동 생성된 그림이 있는 자리입니다 — 상자에 적힌 파일명을 같은 폴더에서 찾아 올리세요.
+        미리보기 그림은 복사에 포함되지 않습니다.</li>
+      <li><span style="background-color:#fff59d">형광펜</span>은 오늘의 핵심 수치가 <b>처음 나온 자리</b>에만 칠합니다.
+        같은 수치가 다시 나와도 표시하지 않습니다 — 강조가 많으면 아무것도 강조가 아니니까요.
+        붙여넣으면 그대로 따라가고, 마음에 안 들면 에디터에서 지우세요.</li>
+      <li>맨 아래 해시태그는 그대로 두면 네이버가 태그로 인식합니다.</li>
+      <li><b>올린 뒤</b> 깃허브 → Actions → <b>발행 기록</b> 에 글 주소를 적고, 하루 이틀 뒤 같은 곳에
+        <b>조회수</b>를 적어 주세요 (date 칸에 <b>2026-10-19</b>). 이 두 숫자가 쌓여야 어떤 제목과 주제가
+        사람을 데려오는지 알 수 있습니다 — 안 적으면 아무것도 재지 못합니다.</li>
+    </ol>
+    이 안내문은 복사에 포함되지 않습니다.
+  </div>
+</div>
+
+<script>
+// 버튼이 지정한 영역만 클립보드에 담는다. 안내문과 상단 바는 복사되지 않는다.
+document.querySelectorAll("[data-copy]").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var node = document.getElementById(btn.dataset.copy);
+    if (!node) return;
+
+    // 미리보기 이미지(.nocopy)는 빼고 복사한다. 상대 경로 <img> 가 붙여넣기에 섞이면
+    // 네이버 에디터에 깨진 그림이 생긴다. 복사용 사본을 만들어 그것만 선택한다.
+    // 사본은 언제나 body 바로 아래에 둔다 — Chrome 이 복사본에 조상의 배경색을 박아
+    // 넣으므로, 흰 .card 안에서 복사하면 문단마다 흰 형광펜이 실린다. html·body 는
+    // 투명이라 body 아래에서 복사하면 배경색이 붙지 않는다 (2026-09-08 실측).
+    var clone = node.cloneNode(true);
+    clone.querySelectorAll(".nocopy").forEach(function (el) { el.remove(); });
+    clone.style.position = "fixed"; clone.style.left = "-9999px"; clone.style.top = "0";
+    document.body.appendChild(clone);
+    var copyNode = clone;
+
+    // 서식을 살리려면 선택 영역을 만들어 복사해야 한다.
+    // execCommand 는 구식이지만 file:// 에서 서식 복사가 확실하게 되는 유일한 방법이다.
+    var range = document.createRange();
+    range.selectNodeContents(copyNode);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    sel.removeAllRanges();
+    var plainText = copyNode.innerText;
+    clone.remove();
+
+    if (!ok && navigator.clipboard) {
+      navigator.clipboard.writeText(plainText).then(flash, function () {
+        alert("복사에 실패했습니다. 직접 드래그해서 복사해 주세요.");
+      });
+      return;
+    }
+    flash();
+
+    function flash() {
+      var original = btn.textContent;
+      btn.textContent = "복사됨 ✓";
+      btn.classList.add("done");
+      setTimeout(function () {
+        btn.textContent = original;
+        btn.classList.remove("done");
+      }, 1400);
+    }
+  });
+});
+</script>
+</body>
+</html>

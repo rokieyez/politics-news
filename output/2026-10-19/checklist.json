@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-19",
+  "summary": {
+    "ok": 10,
+    "warn": 3,
+    "fail": 0
+  },
+  "items": [
+    {
+      "key": "numbers",
+      "level": "ok",
+      "title": "수치 2건 모두 기사 원문에서 확인",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "links",
+      "level": "ok",
+      "title": "출처 링크 13개 모두 정상",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "banned",
+      "level": "ok",
+      "title": "금지 표현 없음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "balance",
+      "level": "ok",
+      "title": "양쪽 언급 균형 (언급 더불어민주당 8 · 국민의힘 5 · 인용 더불어민주당 1 · 국민의힘 3)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "blog_len",
+      "level": "ok",
+      "title": "블로그 본문 1,597자",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "tags",
+      "level": "ok",
+      "title": "태그 30개",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "keyword",
+      "level": "ok",
+      "title": "대표 검색어 '조희대 대법원장 탄핵' 가 제목·첫 문단·소제목에 모두 있음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "overlap",
+      "level": "ok",
+      "title": "지난 글과 겹치는 문장 0%",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shape",
+      "level": "ok",
+      "title": "소제목 4개 · 메인 하나에 집중",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "readability",
+      "level": "warn",
+      "title": "긴 문장 2개 — 휴대폰에서 답답해 보입니다",
+      "detail": "문장은 둘로 나누고, 문단은 두세 문장에서 끊으세요.",
+      "lines": [
+        "정점식 원내대표는 또 \"본인들이 초래한 민생 파탄과 외교·안보 위기에서 국민의 관심을 돌리고 지지층을 다시 …",
+        "정점식 원내대표는 전시작전통제권(전시에 우리 군을 지휘·통제하는 권한) 조기 전환과 관련해서도 \"대통령의 임…"
+      ]
+    },
+    {
+      "key": "photos",
+      "level": "warn",
+      "title": "직접 넣을 사진 자리 2곳",
+      "detail": "'네이버 블로그 글' 페이지의 점선 상자 아래 '사진 찾기' 링크를 쓰세요. [네이버 블로그 글 열기](blog-naver.html)",
+      "lines": []
+    },
+    {
+      "key": "shorts_len",
+      "level": "ok",
+      "title": "쇼츠 발화 286자 (약 52초)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shorts_voice",
+      "level": "warn",
+      "title": "쇼츠 자막이 제목 나열처럼 읽힙니다 — 문장으로 끝나는 컷이 25%",
+      "detail": "예: 조희대 대법원장 / 탄핵을 둘러싸고 / 민주당은 탄핵 추진을 → 종결어미로 맺는 문장으로 고치세요.",
+      "lines": []
+    }
+  ]
+}
