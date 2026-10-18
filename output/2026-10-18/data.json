@@ -1,0 +1,142 @@
+{
+  "date": "2026-10-18",
+  "headline": "추미애 소방발언 사과 후폭풍, 부천 소방관 순직 애도 이어져",
+  "market_temperature": "소방 관련 발언·순직 애도 성명과 조희대 대법원장 관련 공방 등 9건 이상의 관련 보도가 이어지며 여야 모두 논평·SNS 입장을 활발히 냈다.",
+  "issues": [
+    {
+      "title": "추미애 소방발언 사과 공방",
+      "category": "지방정치",
+      "one_liner": "추미애 지사 '재정 빨대' 발언 나흘 만에 사과, 국민의힘 '오만하다' 반박",
+      "numbers": [
+        {
+          "label": "발언부터 사과까지 기간",
+          "value": "4",
+          "unit": "일",
+          "period": "10월13일~10월17일",
+          "context": "국감 발언 나흘 만에 빈소 사과",
+          "source": "수원일보"
+        }
+      ]
+    },
+    {
+      "title": "부천 소방관 순직 애도",
+      "category": "대통령실·정부",
+      "one_liner": "부천 화재 순직 소방관에 여야·정부 애도, 19일 영결식",
+      "numbers": [
+        {
+          "label": "순직 소방관 나이",
+          "value": "44",
+          "unit": "세",
+          "period": "",
+          "context": "",
+          "source": ""
+        },
+        {
+          "label": "화재 중상자",
+          "value": "1",
+          "unit": "명",
+          "period": "",
+          "context": "",
+          "source": ""
+        },
+        {
+          "label": "화재 경상자(열탈진·연기흡입)",
+          "value": "4",
+          "unit": "명",
+          "period": "",
+          "context": "",
+          "source": ""
+        },
+        {
+          "label": "화상 등 치료 받은 공장관계자",
+          "value": "2",
+          "unit": "명",
+          "period": "",
+          "context": "",
+          "source": ""
+        },
+        {
+          "label": "영결식 일정",
+          "value": "10월19일 오전 10시",
+          "unit": "",
+          "period": "",
+          "context": "부천실내체육관",
+          "source": ""
+        }
+      ]
+    },
+    {
+      "title": "정점식 '데드덕' 발언 공방",
+      "category": "사법·수사",
+      "one_liner": "조희대 탄핵 관련 정점식 '데드덕' 발언에 민주당 반박",
+      "numbers": []
+    }
+  ],
+  "tomorrow_watch": [
+    "10월18일 국민의힘 지도부, 부천 순직 소방관 빈소 조문 예정",
+    "10월19일 오전 10시 순직 소방관 김진석 소방위 영결식, 부천실내체육관",
+    "국정감사 후반전 진행 중, 김현지·김용범 증인 출석 공방 지속"
+  ],
+  "datapoints": [
+    {
+      "label": "발언부터 사과까지 기간",
+      "value": "4",
+      "unit": "일",
+      "period": "10월13일~10월17일",
+      "context": "국감 발언 나흘 만에 빈소 사과",
+      "source": "수원일보",
+      "issue": "추미애 소방발언 사과 공방",
+      "category": "지방정치"
+    },
+    {
+      "label": "순직 소방관 나이",
+      "value": "44",
+      "unit": "세",
+      "period": "",
+      "context": "",
+      "source": "",
+      "issue": "부천 소방관 순직 애도",
+      "category": "대통령실·정부"
+    },
+    {
+      "label": "화재 중상자",
+      "value": "1",
+      "unit": "명",
+      "period": "",
+      "context": "",
+      "source": "",
+      "issue": "부천 소방관 순직 애도",
+      "category": "대통령실·정부"
+    },
+    {
+      "label": "화재 경상자(열탈진·연기흡입)",
+      "value": "4",
+      "unit": "명",
+      "period": "",
+      "context": "",
+      "source": "",
+      "issue": "부천 소방관 순직 애도",
+      "category": "대통령실·정부"
+    },
+    {
+      "label": "화상 등 치료 받은 공장관계자",
+      "value": "2",
+      "unit": "명",
+      "period": "",
+      "context": "",
+      "source": "",
+      "issue": "부천 소방관 순직 애도",
+      "category": "대통령실·정부"
+    },
+    {
+      "label": "영결식 일정",
+      "value": "10월19일 오전 10시",
+      "unit": "",
+      "period": "",
+      "context": "부천실내체육관",
+      "source": "",
+      "issue": "부천 소방관 순직 애도",
+      "category": "대통령실·정부"
+    }
+  ]
+}
