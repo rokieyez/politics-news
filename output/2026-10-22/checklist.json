@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-22",
+  "summary": {
+    "ok": 11,
+    "warn": 3,
+    "fail": 0
+  },
+  "items": [
+    {
+      "key": "numbers",
+      "level": "ok",
+      "title": "수치 7건 모두 기사 원문에서 확인",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "links",
+      "level": "ok",
+      "title": "출처 링크 13개 모두 정상",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "banned",
+      "level": "ok",
+      "title": "금지 표현 없음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "poll",
+      "level": "ok",
+      "title": "여론조사 인용 표기 갖춤",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "balance",
+      "level": "warn",
+      "title": "언급이 한쪽에 몰렸습니다 (더불어민주당 5 · 국민의힘 1)",
+      "detail": "'더불어민주당' 이야기만 5번 나옵니다. 상대편 입장이 자료에 없으면 '○○ 측 입장은 확인되지 않았다' 한 줄이라도 넣으세요.",
+      "lines": []
+    },
+    {
+      "key": "blog_len",
+      "level": "ok",
+      "title": "블로그 본문 1,368자",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "tags",
+      "level": "ok",
+      "title": "태그 30개",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "keyword",
+      "level": "ok",
+      "title": "대표 검색어 '김건희 추가 구속영장' 가 제목·첫 문단·소제목에 모두 있음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "overlap",
+      "level": "ok",
+      "title": "지난 글과 겹치는 문장 0%",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shape",
+      "level": "ok",
+      "title": "소제목 4개 · 메인 하나에 집중",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "readability",
+      "level": "warn",
+      "title": "긴 문장 2개 — 휴대폰에서 답답해 보입니다",
+      "detail": "문장은 둘로 나누고, 문단은 두세 문장에서 끊으세요.",
+      "lines": [
+        "민중기 특별검사팀이 윤석열 전 대통령 배우자 김건희씨에 대한 추가 구속영장 발부를 법원에 요청했고, 더불어민…",
+        "박성준 수석대변인은 지난 7월 24일 대법원이 선고를 하루 앞두고 사건을 전원합의체(대법관들이 함께 모여 심…"
+      ]
+    },
+    {
+      "key": "photos",
+      "level": "warn",
+      "title": "직접 넣을 사진 자리 2곳",
+      "detail": "'네이버 블로그 글' 페이지의 점선 상자 아래 '사진 찾기' 링크를 쓰세요. [네이버 블로그 글 열기](blog-naver.html)",
+      "lines": []
+    },
+    {
+      "key": "shorts_len",
+      "level": "ok",
+      "title": "쇼츠 발화 319자 (약 58초)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shorts_voice",
+      "level": "ok",
+      "title": "쇼츠 자막이 문장으로 이어집니다 (31%)",
+      "detail": "",
+      "lines": []
+    }
+  ]
+}
