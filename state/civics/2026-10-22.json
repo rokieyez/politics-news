@@ -296,6 +296,17 @@
   ],
   "warnings": [],
   "tracked_pool": {
+    "농지법": {
+      "query": "농지법",
+      "count": 53,
+      "pending": null,
+      "name": "농지법 일부개정법률안",
+      "proposer": "강승규의원 등 29인",
+      "date": "2026-10-14",
+      "stage": "소관위 회부",
+      "committee": "농림축산식품해양수산위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_849ED682AF0A4653BA9FB7063CF420&ageFrom=22&ageTo=22"
+    },
     "산업안전보건법": {
       "query": "산업안전보건법",
       "count": 137,
@@ -306,20 +317,10 @@
       "stage": "소관위 회부",
       "committee": "기후에너지환경노동위원회",
       "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_J2J6I0G9H1O6P1O4O1M4N2M8T9U9S2&ageFrom=22&ageTo=22"
-    },
-    "안전법": {
-      "query": "안전법",
-      "count": 103,
-      "pending": null,
-      "name": "항공안전법 일부개정법률안",
-      "proposer": "김정재의원 등 10인",
-      "date": "2026-10-19",
-      "stage": "소관위 회부",
-      "committee": "국토교통위원회",
-      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_D2E6M0K9L1J8K1I3J2E8D1D3C6C4B4&ageFrom=22&ageTo=22"
     }
   },
   "pool_queried": [
+    "농지법",
     "판별법",
     "초광역특구법",
     "사회보험법",
@@ -330,8 +331,7 @@
     "경찰권한법",
     "수사통제법",
     "통제법",
-    "소방재정법",
-    "안전법"
+    "소방재정법"
   ],
-  "prefetched_at": "2026-10-21T21:45:16+00:00"
+  "prefetched_at": "2026-10-21T22:25:15+00:00"
 }
