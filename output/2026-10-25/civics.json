@@ -1,0 +1,245 @@
+{
+  "as_of": "2026-10-25",
+  "days": 7,
+  "since": "2026-10-18",
+  "sample": false,
+  "bills": {
+    "count": 122,
+    "latest": [
+      {
+        "name": "국민건강보험법 일부개정법률안",
+        "proposer": "박용갑의원 등 14인",
+        "date": "2026-10-23",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_39AAB30937334A96B3087D22BCE1EF&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "아동수당법 일부개정법률안",
+        "proposer": "허종식의원 등 11인",
+        "date": "2026-10-23",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_BDEA8A988DB249A99D3AA578B22D1C&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "국민건강보험법 일부개정법률안",
+        "proposer": "이인영의원 등 11인",
+        "date": "2026-10-23",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_A2Z6Z0H9I1G5E1F0D0Z1A1Z5X1Y4W1&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "경찰관 직무집행법 일부개정법률안",
+        "proposer": "이상식의원 등 11인",
+        "date": "2026-10-23",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_256ABCA24B8F4E8D8902F122D733A8&ageFrom=22&ageTo=22",
+        "committee": ""
+      },
+      {
+        "name": "소득세법 일부개정법률안",
+        "proposer": "윤영석의원 등 10인",
+        "date": "2026-10-23",
+        "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_34D86913223F4978BA23B9B18691C3&ageFrom=22&ageTo=22",
+        "committee": ""
+      }
+    ],
+    "sample": false,
+    "age_total": 20080
+  },
+  "plenary": {
+    "count": 2,
+    "by_result": {
+      "철회": 2
+    },
+    "items": [
+      {
+        "name": "조세특례제한법 일부개정법률안(안상훈의원 등 11인)",
+        "result": "철회",
+        "date": "2026-10-23",
+        "committee": "재정경제기획위원회",
+        "yes": null,
+        "no": null,
+        "blank": null,
+        "link": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2D340C8F94F4F39A22B96B8FE3069"
+      },
+      {
+        "name": "조세특례제한법 일부개정법률안(문진석의원 등 14인)",
+        "result": "철회",
+        "date": "2026-10-20",
+        "committee": "",
+        "yes": null,
+        "no": null,
+        "blank": null,
+        "link": "https://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C5A2D52E82064D9FA49C88BF06A9BD"
+      }
+    ],
+    "sample": false
+  },
+  "polls": [
+    {
+      "reg_no": "17325",
+      "agency": "한국갤럽조사연구소",
+      "client": "한국갤럽 자체 조사",
+      "method": "무선전화면접",
+      "title": "전국 정기(정례)조사 정당지지도",
+      "registered": "2026-10-22",
+      "region": "전국",
+      "ntt_id": "19583",
+      "period": "2026-10-20~22",
+      "sample_size": 1001,
+      "response_rate": "10.6%",
+      "margin": "95% 신뢰수준에 ±3.1%p",
+      "outlet": "한국갤럽 홈페이지",
+      "publish_at": "2026-10-23 10시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19583&menuNo=200467",
+      "extra": {},
+      "summary": "한국갤럽조사연구소 · 한국갤럽 자체 조사 의뢰 · 2026-10-20~22 · 1,001명 · 무선전화면접 · 응답률 10.6% · 95% 신뢰수준에 ±3.1%p"
+    },
+    {
+      "reg_no": "17324",
+      "agency": "(주)리얼미터",
+      "client": "강원일보",
+      "method": "무선 ARS",
+      "title": "강원특별자치도 전체 정당지지도",
+      "registered": "2026-10-22",
+      "region": "강원특별자치도",
+      "ntt_id": "19582",
+      "period": "2026-10-20~21",
+      "sample_size": 2003,
+      "response_rate": "6.1%",
+      "margin": "95% 신뢰수준에 ±2.2%p",
+      "outlet": "강원일보",
+      "publish_at": "2026-10-23 00시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19582&menuNo=200467",
+      "extra": {},
+      "summary": "(주)리얼미터 · 강원일보 의뢰 · 2026-10-20~21 · 2,003명 · 무선 ARS · 응답률 6.1% · 95% 신뢰수준에 ±2.2%p"
+    },
+    {
+      "reg_no": "17323",
+      "agency": "(주)코리아정보리서치",
+      "client": "천지일보",
+      "method": "무선 ARS",
+      "title": "전국 정기(정례)조사 대통령선거 정당지지도 국정현안 등",
+      "registered": "2026-10-21",
+      "region": "전국",
+      "ntt_id": "19581",
+      "period": "2026-10-19~20",
+      "sample_size": 1004,
+      "response_rate": "3.7%",
+      "margin": "95% 신뢰수준에 ±3.1%p",
+      "outlet": "천지일보",
+      "publish_at": "2026-10-22 01시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19581&menuNo=200467",
+      "extra": {},
+      "summary": "(주)코리아정보리서치 · 천지일보 의뢰 · 2026-10-19~20 · 1,004명 · 무선 ARS · 응답률 3.7% · 95% 신뢰수준에 ±3.1%p"
+    },
+    {
+      "reg_no": "17322",
+      "agency": "미디어토마토",
+      "client": "뉴스토마토",
+      "method": "무선 ARS",
+      "title": "전국 정기(정례)조사 정당지지도",
+      "registered": "2026-10-21",
+      "region": "전국",
+      "ntt_id": "19580",
+      "period": "2026-10-19~20",
+      "sample_size": 1033,
+      "response_rate": "2.2%",
+      "margin": "95% 신뢰수준에 ±3.0%p",
+      "outlet": "뉴스토마토",
+      "publish_at": "2026-10-22 06시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19580&menuNo=200467",
+      "extra": {},
+      "summary": "미디어토마토 · 뉴스토마토 의뢰 · 2026-10-19~20 · 1,033명 · 무선 ARS · 응답률 2.2% · 95% 신뢰수준에 ±3.0%p"
+    },
+    {
+      "reg_no": "17321",
+      "agency": "한길리서치",
+      "client": "쿠키뉴스",
+      "method": "무선 ARS",
+      "title": "전국 정당지지도 정기(정례)조사",
+      "registered": "2026-10-20",
+      "region": "전국",
+      "ntt_id": "19577",
+      "period": "2026-10-17~19",
+      "sample_size": 1019,
+      "response_rate": "2.7%",
+      "margin": "95% 신뢰수준에 ±3.1%p",
+      "outlet": "쿠키뉴스",
+      "publish_at": "2026-10-21 05시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19577&menuNo=200467",
+      "extra": {},
+      "summary": "한길리서치 · 쿠키뉴스 의뢰 · 2026-10-17~19 · 1,019명 · 무선 ARS · 응답률 2.7% · 95% 신뢰수준에 ±3.1%p"
+    },
+    {
+      "reg_no": "17320",
+      "agency": "조원씨앤아이",
+      "client": "스트레이트뉴스",
+      "method": "무선 ARS",
+      "title": "전국 정기(정례)조사 정당지지도 대통령선거",
+      "registered": "2026-10-20",
+      "region": "전국",
+      "ntt_id": "19576",
+      "period": "2026-10-17~19",
+      "sample_size": 2000,
+      "response_rate": "3.4%",
+      "margin": "95% 신뢰수준에 ±2.2%p",
+      "outlet": "스트레이트뉴스 홈페이지",
+      "publish_at": "2026-10-21 05시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19576&menuNo=200467",
+      "extra": {},
+      "summary": "조원씨앤아이 · 스트레이트뉴스 의뢰 · 2026-10-17~19 · 2,000명 · 무선 ARS · 응답률 3.4% · 95% 신뢰수준에 ±2.2%p"
+    },
+    {
+      "reg_no": "17319",
+      "agency": "여론조사공정(주)",
+      "client": "펜앤마이크",
+      "method": "무선 ARS",
+      "title": "전국 정기(정례)조사 정당지지도",
+      "registered": "2026-10-19",
+      "region": "전국",
+      "ntt_id": "19575",
+      "period": "2026-10-18~19",
+      "sample_size": 1002,
+      "response_rate": "3.2%",
+      "margin": "95% 신뢰수준에 ±3.1%p",
+      "outlet": "펜앤마이크",
+      "publish_at": "2026-10-20 08시 00분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19575&menuNo=200467",
+      "extra": {},
+      "summary": "여론조사공정(주) · 펜앤마이크 의뢰 · 2026-10-18~19 · 1,002명 · 무선 ARS · 응답률 3.2% · 95% 신뢰수준에 ±3.1%p"
+    },
+    {
+      "reg_no": "17318",
+      "agency": "(주)비전코리아",
+      "client": "올리서치",
+      "method": "무선 ARS",
+      "title": "전국 정기(정례)조사 정당지지도 대통령선거",
+      "registered": "2026-10-19",
+      "region": "전국",
+      "ntt_id": "19574",
+      "period": "2026-10-16~17",
+      "sample_size": 1055,
+      "response_rate": "3.8%",
+      "margin": "95% 신뢰수준에 ±3.0%p",
+      "outlet": "올리서치 (www.allResearch.kr)",
+      "publish_at": "2026-10-19 14시 30분",
+      "link": "https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=19574&menuNo=200467",
+      "extra": {},
+      "summary": "(주)비전코리아 · 올리서치 의뢰 · 2026-10-16~17 · 1,055명 · 무선 ARS · 응답률 3.8% · 95% 신뢰수준에 ±3.0%p"
+    }
+  ],
+  "warnings": [],
+  "tracked": [
+    {
+      "query": "정치자금법",
+      "count": 45,
+      "pending": 45,
+      "name": "정치자금법 일부개정법률안",
+      "proposer": "박범계의원 등 10인",
+      "date": "2026-05-15",
+      "stage": "소관위 상정",
+      "committee": "행정안전위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2N6C0D5B1A1A1Y0Z2H0I3G1G0F2D0&ageFrom=22&ageTo=22"
+    }
+  ]
+}
