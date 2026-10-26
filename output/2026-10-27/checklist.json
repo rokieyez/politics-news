@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-27",
+  "summary": {
+    "ok": 11,
+    "warn": 6,
+    "fail": 0
+  },
+  "items": [
+    {
+      "key": "numbers",
+      "level": "warn",
+      "title": "수치 1건이 기사 원문에서 확인되지 않음",
+      "detail": "아래 '원문' 링크를 눌러 기사에서 직접 찾아보세요. 기사에 없는 값이면 글에서 빼는 게 안전합니다. [오늘의 정리 열기](brief.html)",
+      "lines": [
+        "김건희 여사 구속영장 심문 · 구속영장 심문 기일 시각 **14:30** — [원문](https://www.newsis.com/view/NISX20261026_0003841810)"
+      ]
+    },
+    {
+      "key": "links",
+      "level": "ok",
+      "title": "출처 링크 16개 모두 정상",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "banned",
+      "level": "ok",
+      "title": "금지 표현 없음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "poll",
+      "level": "ok",
+      "title": "여론조사 인용 표기 갖춤",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "balance",
+      "level": "ok",
+      "title": "양쪽 언급 균형 (언급 더불어민주당 6 · 국민의힘 2 · 인용 더불어민주당 1 · 국민의힘 2)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "blog_len",
+      "level": "ok",
+      "title": "블로그 본문 1,376자",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "tags",
+      "level": "ok",
+      "title": "태그 30개",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "keyword",
+      "level": "ok",
+      "title": "대표 검색어 '조희대 대법원장 탄핵' 가 제목·첫 문단·소제목에 모두 있음",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "overlap",
+      "level": "ok",
+      "title": "지난 글과 겹치는 문장 0%",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shape",
+      "level": "ok",
+      "title": "소제목 4개 · 메인 하나에 집중",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "readability",
+      "level": "ok",
+      "title": "문장·문단 길이 적당",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "photos",
+      "level": "warn",
+      "title": "직접 넣을 사진 자리 2곳",
+      "detail": "'네이버 블로그 글' 페이지의 점선 상자 아래 '사진 찾기' 링크를 쓰세요. [네이버 블로그 글 열기](blog-naver.html)",
+      "lines": []
+    },
+    {
+      "key": "shorts_len",
+      "level": "ok",
+      "title": "쇼츠 발화 311자 (약 57초)",
+      "detail": "",
+      "lines": []
+    },
+    {
+      "key": "shorts_voice",
+      "level": "warn",
+      "title": "쇼츠 자막이 제목 나열처럼 읽힙니다 — 문장으로 끝나는 컷이 21%",
+      "detail": "예: 오세훈 시장 무죄가 / 대법원장 탄핵 공방으로 / 10월26일 국회 법사위 → 종결어미로 맺는 문장으로 고치세요.",
+      "lines": []
+    },
+    {
+      "key": "repeat",
+      "level": "warn",
+      "title": "'오세훈 무죄·조희대 탄핵 공방' 은 2일 전에도 다뤘습니다",
+      "detail": "그대로 또 쓰면 재탕으로 보입니다. 그때와 달라진 숫자를 앞세우거나 후속 국면을 잡으세요.",
+      "lines": [
+        "2026-10-25 · 오세훈 무죄·조희대 탄핵론"
+      ]
+    },
+    {
+      "key": "repeat",
+      "level": "warn",
+      "title": "'김건희 여사 구속영장 심문' 은 5일 전에도 다뤘습니다",
+      "detail": "그대로 또 쓰면 재탕으로 보입니다. 그때와 달라진 숫자를 앞세우거나 후속 국면을 잡으세요.",
+      "lines": [
+        "2026-10-22 · 김건희 추가 구속영장 촉구"
+      ]
+    },
+    {
+      "key": "repeat",
+      "level": "warn",
+      "title": "'중수청장 배석·한강버스 의혹 공방' 은 5일 전에도 다뤘습니다",
+      "detail": "그대로 또 쓰면 재탕으로 보입니다. 그때와 달라진 숫자를 앞세우거나 후속 국면을 잡으세요.",
+      "lines": [
+        "2026-10-22 · 전날 국감 한강버스·중수청장 공방"
+      ]
+    }
+  ]
+}
