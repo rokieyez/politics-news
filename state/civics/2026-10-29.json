@@ -239,6 +239,17 @@
   ],
   "warnings": [],
   "tracked_pool": {
+    "모자보건법": {
+      "query": "모자보건법",
+      "count": 56,
+      "pending": null,
+      "name": "모자보건법 일부개정법률안",
+      "proposer": "김태호의원 등 11인",
+      "date": "2026-09-22",
+      "stage": "소관위 회부",
+      "committee": "보건복지위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_J2I6P0Q9O1P1N1O0M3M3V1T3T1S9T0&ageFrom=22&ageTo=22"
+    },
     "정치자금법": {
       "query": "정치자금법",
       "count": 46,
@@ -263,16 +274,15 @@
     }
   },
   "pool_queried": [
+    "모자보건법",
     "정치자금법",
-    "국조법",
     "특검법",
     "경쟁법",
     "행정수도특별법",
-    "도정법",
     "디지털자산법",
     "증권법",
-    "행복도시법",
+    "도정법",
     "삼권분립법"
   ],
-  "prefetched_at": "2026-10-28T21:50:53+00:00"
+  "prefetched_at": "2026-10-28T22:34:04+00:00"
 }
