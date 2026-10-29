@@ -242,17 +242,6 @@
       "committee": "문화체육관광위원회",
       "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_A2B6Z0Y9Y2W1X1T5T2S4Q0R1P3P9Y5&ageFrom=22&ageTo=22"
     },
-    "형법": {
-      "query": "형법",
-      "count": 183,
-      "pending": null,
-      "name": "형법 일부개정법률안",
-      "proposer": "고동진의원 등 10인",
-      "date": "2026-08-31",
-      "stage": "소관위 회부",
-      "committee": "법제사법위원회",
-      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_X2X6W0W8V2V7U1C2C4A9B0Z9A2Y4Z6&ageFrom=22&ageTo=22"
-    },
     "정치자금법": {
       "query": "정치자금법",
       "count": 46,
@@ -272,12 +261,11 @@
     "노후안전망법",
     "안보긴장법",
     "발전법",
-    "형법",
     "자본시장법",
     "관료법",
     "정치자금법",
     "국방반도체법",
-    "수탁법"
+    "디지털금융안전법"
   ],
-  "prefetched_at": "2026-10-29T21:46:21+00:00"
+  "prefetched_at": "2026-10-29T22:32:10+00:00"
 }
