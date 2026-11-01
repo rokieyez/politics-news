@@ -226,6 +226,17 @@
   ],
   "warnings": [],
   "tracked_pool": {
+    "지방의회법": {
+      "query": "지방의회법",
+      "count": 6,
+      "pending": null,
+      "name": "지방의회법안",
+      "proposer": "신정훈의원 등 11인",
+      "date": "2026-08-14",
+      "stage": "소관위 회부",
+      "committee": "행정안전위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Z2X6X0W8W1E2D1D7B1D9B2B8J6I9I6&ageFrom=22&ageTo=22"
+    },
     "정치자금법": {
       "query": "정치자금법",
       "count": 46,
@@ -236,16 +247,29 @@
       "stage": "소관위 회부",
       "committee": "행정안전위원회",
       "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_5D72505C674D4E0096B0B7D4ED9952&ageFrom=22&ageTo=22"
+    },
+    "선거법": {
+      "query": "선거법",
+      "count": 330,
+      "pending": null,
+      "name": "공직선거법 일부개정법률안",
+      "proposer": "박형수의원 등 12인",
+      "date": "2026-10-29",
+      "stage": "소관위 회부",
+      "committee": "행정안전위원회",
+      "link": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2K6L0J7J2I3J1E4D1D0B1C4B7B9J6&ageFrom=22&ageTo=22"
     }
   },
   "pool_queried": [
+    "지방의회법",
     "특검법",
     "예산법",
     "청탁금지법",
     "쟁점법",
     "조작기소특검법",
     "국조법",
-    "정치자금법"
+    "정치자금법",
+    "선거법"
   ],
-  "prefetched_at": "2026-11-01T21:45:16+00:00"
+  "prefetched_at": "2026-11-01T22:25:13+00:00"
 }
