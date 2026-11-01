@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10월 정치 결산: 검찰청 78년 만의 폐지와 국감 21일</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  /* 바탕색은 body 가 아니라 뒤에 깔린 고정 층(body::before)에 칠한다.
+     Chrome 은 '본문 복사' 때 글자 덩어리마다 조상(html·body 까지)의 배경색을 찾아
+     background-color 로 박아 넣는다. 그래서 body 에 회색을 칠하면 네이버에 붙였을 때
+     문단마다 연한 회색 형광펜이 깔린다 (2026-09-08 실측: 문단·제목 18곳에
+     rgb(245,246,248)). html·body·.card 를 전부 투명하게 두면 그 배경색이 사라진다.
+     .card 의 흰색도 같은 이유로 그림자·테두리로만 구분한다. */
+  html, body { background: transparent; }
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; background: #f5f6f8;
+  }
+  body {
+    margin: 0; padding: 0 16px 80px;
+    color: #1a1a1a;
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.8; font-size: 16px;
+  }
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    margin: 0 -16px 20px; padding: 12px 16px;
+    background: #03c75a; color: #fff;
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  }
+  .bar strong { margin-right: auto; font-size: 15px; }
+  .bar button {
+    border: 0; border-radius: 6px; padding: 8px 14px;
+    background: rgba(255,255,255,.18); color: #fff;
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    font-family: inherit;
+  }
+  .bar button:hover { background: rgba(255,255,255,.3); }
+  .bar button.done { background: #fff; color: #03c75a; }
+  .bar a.write {
+    border-radius: 6px; padding: 8px 14px; background: #fff; color: #03c75a;
+    font-size: 14px; font-weight: 700; text-decoration: none;
+  }
+  @media (max-width: 560px) {
+    /* 휴대폰에서는 제목 줄을 따로 두고 버튼을 꽉 채운다 */
+    .bar { gap: 6px; }
+    .bar strong { flex-basis: 100%; margin: 0 0 4px; font-size: 14px; }
+    .bar button, .bar a.write { flex: 1 1 0; text-align: center; padding: 10px 6px; font-size: 13px; }
+    .card { padding: 22px 16px; }
+    .title { font-size: 21px; }
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  /* 흰 바탕 대신 테두리 — 배경을 칠하면 복사본에 흰 형광펜이 실린다 (위 설명). */
+  .card { background: transparent; border: 1px solid #e4e7ea; border-radius: 10px; padding: 32px 28px; }
+  .title { font-size: 24px; font-weight: 700; line-height: 1.45; margin: 0 0 6px; }
+  .meta { color: #888; font-size: 13px; margin-bottom: 28px; }
+  /* 구분선은 **꼭지와 꼭지 사이**에 둔다 — 둘째 소제목부터 앞에 <hr> 이 온다
+     (render.section_dividers). 예전에는 h2 의 border-top 으로 그었는데, 네이버 에디터가
+     제목의 테두리를 받지 않고 얇은 회색 선으로 바꿨다 (2026-09-08). <hr> 로 보내면
+     에디터가 제 구분선 부품으로 바꾼다. 색은 네이버에서 고를 수 없어 회색이 된다 —
+     여기 초록은 미리보기용이다. */
+  #post h2 { font-size: 20px; font-weight: 700; margin: 8px 0 16px; }
+  #post hr { border: 0; border-top: 2px solid #03c75a; margin: 56px 0 26px; }
+  #post h3 { font-size: 17px; font-weight: 700; margin: 38px 0 10px; }
+  #post p { margin: 0 0 18px; }
+  #post ul, #post ol { margin: 0 0 18px; padding-left: 22px; }
+  #post li { margin-bottom: 8px; }
+  #post table { border-collapse: collapse; width: 100%; margin: 0 0 20px; font-size: 15px; }
+  #post th, #post td { border: 1px solid #ddd; padding: 9px 12px; text-align: left; }
+  #post th { background: #f2f4f6; font-weight: 700; }
+  #post blockquote {
+    margin: 0 0 18px; padding: 12px 16px;
+    background: #f7f8fa; border-left: 4px solid #03c75a; color: #444;
+  }
+  #post a { color: #0068c3; }
+  .imgslot {
+    margin: 0 0 20px; padding: 22px 16px; text-align: center;
+    border: 2px dashed #c9cdd2; border-radius: 8px;
+    background: #fafbfc; color: #6b7178; font-size: 14px;
+  }
+  .imgslot.has-file { border-color: #03c75a; background: #f2fbf5; color: #2c6e45; }
+  .photo-links { margin: -12px 0 20px; font-size: 13px; color: #6b7178; text-align: center; }
+  .photo-links a { color: #0068c3; }
+  .imgslot small { display: block; margin-top: 6px; font-size: 13px; color: #5a6a60; }
+  .preview { display: block; max-width: 100%; height: auto; margin: -8px 0 22px; border: 1px solid #e4e7ea; border-radius: 8px; }
+  .tags { margin: 36px 0 0; color: #0068c3; font-size: 15px; word-break: keep-all; }
+  .hint {
+    max-width: 720px; margin: 20px auto 0; padding: 16px 18px;
+    background: #fff8e1; border: 1px solid #ffe082; border-radius: 8px;
+    font-size: 14px; line-height: 1.75; color: #5f4b16;
+  }
+  .hint ol { margin: 8px 0 0; padding-left: 20px; }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <strong>네이버 블로그 붙여넣기</strong>
+  <button type="button" data-copy="title">제목 복사</button>
+  <button type="button" data-copy="post">본문 복사</button>
+  <button type="button" data-copy="tags">태그 복사</button>
+  <a class="write" href="https://blog.naver.com/keyboardpolitics?Redirect=Write&amp;" target="_blank" rel="noopener">글쓰기 열기</a>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h1 class="title" id="title">10월 정치 결산: 검찰청 78년 만의 폐지와 국감 21일</h1>
+    <div class="meta">2026-10 · 정치</div>
+
+    <div id="post">
+<p style="margin:0 0 14px;font-size:14px;color:#767676">이 글은 2026년 10월 기준으로 정리한 내용입니다.</p><p><strong>2026년 10월 다섯 줄</strong></p>
+<ol>
+<li>검찰청 <span class="hl" style="background-color:#fff59d">78년</span> 만에 폐지, 중수청·공소청 체제로</li>
+<li>김지용 중수청장, 지명 37일 만에 임명 재가</li>
+<li>국감 내내 조희대 공방, 11월 5일 국정조사로</li>
+<li>이 대통령 지지율 <span class="hl" style="background-color:#fff59d">37%</span>→<span class="hl" style="background-color:#fff59d">40%</span>, 민주 <span class="hl" style="background-color:#fff59d">35%</span>→37%</li>
+<li>오세훈 2심 무죄, 김건희 추가구속 심문 27일</li>
+<li>특별감찰관 <span class="hl" style="background-color:#fff59d">10년</span> 공백, 청문보고서 채택으로 해소</li>
+</ol>
+<p>여러분, 2026년 10월 정치는 한 문장으로 말하면 <strong>"수사기관의 간판이 바뀌고, 공방의 무대가 국정감사로 옮겨간 달"</strong> 이었습니다. 검찰청이 78년 만에 문을 닫은 10월 2일로 시작해, 대법원장 국정조사 추진으로 월말을 맞았습니다.</p>
+<p>아래 내용은 모두 10월 한 달간의 브리핑과 그 안에 담긴 수치에 근거했습니다. 사실과 각 정당·인물의 주장을 구분해 적었고, 보도 간 수치가 어긋나는 부분은 그대로 적어두었습니다.</p>
+<h2>검찰청 78년, 문을 닫았습니다</h2>
+<p>10월 2일 검찰청이 설립 78년 만에 폐지되고, 중대범죄수사청(중수청)과 공소청 체제로 전환됐습니다. 수사와 기소를 나누는 구조 개편이 문서가 아니라 실제 조직으로 작동하기 시작한 날입니다.</p>
+<p>다만 중수청은 수장 없이 출범했습니다. 김지용 중수청장 후보자의 인사청문요청안은 10월 2일 국회에 제출됐고, 청문회는 10월 14일 열렸습니다. 지명 37일 만이었고, 청문회는 약 12시간 진행됐습니다.</p>
+<p>청문 과정에서는 후보자 재산이 쟁점이 됐습니다. 전체 신고액은 <span class="hl" style="background-color:#fff59d">38억</span>759만원(동아일보·뉴시스 표기, 연합뉴스는 38억700만원)으로, 2023년 광주고검 차장검사 시절 26억9457만원 대비 11억1300만원 늘었습니다. 야당은 '친윤' 인사라는 비판을 제기했고, 이재명 대통령은 추천위원회가 4배수로 압축한 후보 중 한 명이라며 이를 반박했습니다.</p>
+<p>여권 내부에서도 이견이 있었습니다. 추미애 경기지사가 공개적으로 후보자를 비판하는 등 갈등이 이어졌지만, 10월 15일 임명이 재가됐습니다. 중수청 출범으로부터는 약 2주일, 지명일로부터는 37일째였습니다. 이후 관심은 '1호 수사'가 무엇이 될지로 옮겨갔습니다.</p>
+<hr><h2>국정감사 21일, 숫자로 남은 장면들</h2>
+<p>국정감사는 10월 6일 시작해 26일 종합감사까지 이어졌습니다. 13일에는 12개 상임위, 22일에는 10개(연합뉴스) 또는 11개(뉴시스) 상임위, 26일에는 4개 상임위에서 감사가 진행됐습니다. 상임위 수조차 매체별로 다르게 집계된 점은 참고해두시면 좋겠습니다.</p>
+<p>가장 자주 등장한 쟁점은 한동훈 의원 딸의 허위 스펙 의혹과 김재섭 의원 소환이었습니다. 경찰청 국감에서는 1년 8개월간 고발인 조사가 6회였던 반면 피고발인 서면조사는 1회였다는 지적이 나왔고, 김재섭 의원 소환조사 시간은 16시간46분(뉴시스 3-1·3-2) 또는 16시간40분(뉴시스 1-1)으로 표기가 갈렸습니다. 여당은 수사의 형평성을, 야당은 정치보복을 각각 주장했습니다.</p>
+<p>과방위는 10월 16일 오후 2시35분 개의한 뒤 6시13분 중지됐고, 밤 11시30분까지 속개되지 못한 채 파행했습니다. 추미애 지사의 소방 관련 발언은 나흘 뒤 빈소에서의 사과로 이어졌고, 부승찬 의원의 '소방 예산 90% 지자체 부담' 발언도 논란이 됐습니다.</p>
+<hr><h2>사법부를 둘러싼 공방, 탄핵에서 국정조사로</h2>
+<p>조희대 대법원장의 국감 불출석과 이석을 두고 10월 초부터 충돌이 이어졌습니다. 노태악 전 대법관 후임 제청이 늦어져 대법관 공백은 10월 6일 기준 210여 일에 달했고, 재제청 문제가 반복 거론됐습니다.</p>
+<p>10월 24일 오세훈 서울시장이 항소심에서 무죄를 받자(1심은 벌금 1000만원·추징금 2100만원) 공방은 한층 격해졌습니다. 여당 일부는 탄핵을 주장했고, 국민의힘 정점식 원내대표는 탄핵 저지를 선언하며 '국정조사는 탄핵 간보기'라고 비판했습니다.</p>
+<p>결과적으로 민주당은 탄핵 대신 국정조사를 택했습니다. 요구서는 11월 5일 본회의 보고, 조사계획서는 11월 12일 또는 19일 처리가 목표로 제시됐습니다. 한국갤럽 조사(10월 20~22일)에서 탄핵 반대는 <span class="hl" style="background-color:#fff59d">39%</span>, 찬성은 34%로 오차범위(±3.1%p) 안이었습니다.</p>
+<p>한편 특별감찰관은 2016년 이석수 초대 감찰관 사퇴 이후 10년 공백이 이어졌는데, 최길수 후보자 청문보고서가 10월 22일 채택돼 임명 절차가 풀렸습니다. 9월 18일 청문회 이후 한 달 넘게 지연된 끝이었습니다.</p>
+<hr><h2>숫자로 보는 10월</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>수치</th>
+<th>메모</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>검찰청 폐지까지 기간</td>
+<td>78년</td>
+<td>10월 2일 중수청·공소청 체제 전환</td>
+</tr>
+<tr>
+<td>김지용 지명→임명</td>
+<td>37일</td>
+<td>청문회 10월 14일, 약 12시간</td>
+</tr>
+<tr>
+<td>김지용 신고 재산</td>
+<td>38억759만원</td>
+<td>연합뉴스는 38억700만원</td>
+</tr>
+<tr>
+<td>대법관 공백</td>
+<td>210여 일</td>
+<td>10월 6일 기준</td>
+</tr>
+<tr>
+<td>특별감찰관 공백</td>
+<td>10년</td>
+<td>2016~2026</td>
+</tr>
+<tr>
+<td>이 대통령 지지율</td>
+<td>37%→40%</td>
+<td>갤럽, 10월 20~22일 40%</td>
+</tr>
+<tr>
+<td>민주당 지지율</td>
+<td>35%→37%</td>
+<td>35%는 정부 출범 후 최저 보도</td>
+</tr>
+<tr>
+<td>국민의힘 지지율</td>
+<td>28%</td>
+<td>직전 <span class="hl" style="background-color:#fff59d">27%</span>, 무당층 27%</td>
+</tr>
+<tr>
+<td>부동산 정책 부정평가</td>
+<td>61%</td>
+<td>갤럽</td>
+</tr>
+<tr>
+<td>조희대 탄핵 찬반</td>
+<td>34% / 39%</td>
+<td>오차범위 ±3.1%p 내</td>
+</tr>
+<tr>
+<td>오세훈 1심</td>
+<td>벌금 1000만원·추징 2100만원</td>
+<td>2심 무죄, 특검 상고</td>
+</tr>
+<tr>
+<td>추경호 구형</td>
+<td>20년</td>
+<td>9월 30일, 계엄 해제 표결 방해 혐의</td>
+</tr>
+<tr>
+<td>장동혁 대표 재임</td>
+<td>426일</td>
+<td>조선일보 기준 최장수 기록</td>
+</tr>
+<tr>
+<td>법무부 장관 공석</td>
+<td>2개월</td>
+<td>9월 19일 김승원 사퇴 이후</td>
+</tr>
+</tbody>
+</table>
+<p>수치를 볼 때 기준이 다를 수 있다는 점도 함께 기억해두시면 좋겠습니다. 수도권 주택 공급 목표는 2030년까지 착공 기준으로 135만채(동아일보)와 139만호(뉴시스)로 달리 보도됐고, 세종 이전은 44개 기관·공무원 1만명 규모인데 신규 입주 아파트는 0채로 전해졌습니다.</p>
+<hr><h2>지지율은 최저를 찍고 다시 올랐습니다</h2>
+<p>10월 10일 한국갤럽 조사에서 이재명 대통령 국정 지지율은 37%, 부정평가는 51%였고 민주당 지지율 35%는 정부 출범 후 최저치로 보도됐습니다. 부동산 정책 부정평가는 61%였습니다. 같은 수치를 두고 한겨레는 부정평가 '-5%p'로, 다른 매체는 '51%로 하락'으로 표현해 방향이 엇갈렸습니다.</p>
+<p>10월 20~22일 조사에서는 긍정 40%, 부정 50%로 바뀌었습니다. 직전 조사 39%에서 오른 수치이며, 9월 셋째주 37%가 취임 후 최저, 부정평가 56%가 최고치였습니다. 민주당 37%, 국민의힘 28%, 무당층 27%였습니다.</p>
+<p>김민석 국무총리가 '차근차근'을 언급한 발언도 지지도가 40%대를 기록한 일부 조사와 함께 보도됐습니다. 다만 해당 조사의 기관과 기간은 기사에 적혀 있지 않았다는 점은 밝혀둡니다.</p>
+<hr><h2>다음 달 볼 것</h2>
+<p>첫째, 11월 5일 조희대 대법원장 국정조사 요구서의 본회의 보고와 11월 12일 또는 19일로 예고된 조사계획서 처리입니다. 국민의힘이 반발하고 있어 처리 과정 자체가 쟁점이 될 수 있습니다.</p>
+<p>둘째, 김건희씨 사건입니다. 구속기간 만료일은 10월 31일이었고 10월 27일 오후 2시30분 대법원에서 추가 구속영장 심문이 열렸습니다. 7월 24일 전원합의체 회부 이후 선고기일이 지정되지 않은 상태라는 점도 함께 지켜볼 지점입니다.</p>
+<p>셋째, 2개월간 공석인 법무부 장관 인선과 최길수 특별감찰관 임명 후속 절차입니다. 넷째, 민주당이 법사위 상정을 예고한 조작기소 특검법과 중수청의 '1호 수사' 방향입니다.</p>
+<p>단정적인 전망은 피하겠습니다. 어느 쪽으로 가든, 11월 5일과 12일·19일이라는 날짜와 위에 정리한 숫자를 손에 들고 보시면 흐름을 따라가기가 한결 수월할 겁니다.</p>
+      <p class="tags" id="tags">#10월정치결산 #정치결산 #검찰청폐지 #중수청 #공소청 #김지용 #중수청장 #국정감사 #국감2026 #조희대 #대법원장 #국정조사 #탄핵논란 #오세훈 #항소심무죄 #김건희 #구속영장 #특별감찰관 #최길수 #한국갤럽 #지지율 #이재명 #더불어민주당 #국민의힘 #장동혁 #정점식 #추미애 #한동훈 #법무부장관 #방구석배경지식</p>
+    </div>
+  </div>
+
+  <div class="hint">
+    <strong>쓰는 법</strong>
+    <ol>
+      <li><b>글쓰기 열기</b> → 네이버 블로그 글쓰기 화면이 새 탭에서 열립니다</li>
+      <li><b>제목 복사</b> → 제목 칸에 붙여넣기</li>
+      <li><b>본문 복사</b> → 본문 칸에 붙여넣기. 소제목·표·굵게가 그대로 살아납니다.</li>
+      <li>점선 상자(<span style="color:#6b7178">📷 이미지</span>) 자리에 사진을 넣고 상자는 지웁니다.
+        <b>초록 상자</b>는 자동 생성된 그림이 있는 자리입니다 — 상자에 적힌 파일명을 같은 폴더에서 찾아 올리세요.
+        미리보기 그림은 복사에 포함되지 않습니다.</li>
+      <li><span style="background-color:#fff59d">형광펜</span>은 오늘의 핵심 수치가 <b>처음 나온 자리</b>에만 칠합니다.
+        같은 수치가 다시 나와도 표시하지 않습니다 — 강조가 많으면 아무것도 강조가 아니니까요.
+        붙여넣으면 그대로 따라가고, 마음에 안 들면 에디터에서 지우세요.</li>
+      <li>맨 아래 해시태그는 그대로 두면 네이버가 태그로 인식합니다.</li>
+      <li><b>올린 뒤</b> 깃허브 → Actions → <b>발행 기록</b> 에 글 주소를 적고, 하루 이틀 뒤 같은 곳에
+        <b>조회수</b>를 적어 주세요 (date 칸에 <b>2026-10</b>). 이 두 숫자가 쌓여야 어떤 제목과 주제가
+        사람을 데려오는지 알 수 있습니다 — 안 적으면 아무것도 재지 못합니다.</li>
+    </ol>
+    이 안내문은 복사에 포함되지 않습니다.
+  </div>
+</div>
+
+<script>
+// 버튼이 지정한 영역만 클립보드에 담는다. 안내문과 상단 바는 복사되지 않는다.
+document.querySelectorAll("[data-copy]").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var node = document.getElementById(btn.dataset.copy);
+    if (!node) return;
+
+    // 미리보기 이미지(.nocopy)는 빼고 복사한다. 상대 경로 <img> 가 붙여넣기에 섞이면
+    // 네이버 에디터에 깨진 그림이 생긴다. 복사용 사본을 만들어 그것만 선택한다.
+    // 사본은 언제나 body 바로 아래에 둔다 — Chrome 이 복사본에 조상의 배경색을 박아
+    // 넣으므로, 흰 .card 안에서 복사하면 문단마다 흰 형광펜이 실린다. html·body 는
+    // 투명이라 body 아래에서 복사하면 배경색이 붙지 않는다 (2026-09-08 실측).
+    var clone = node.cloneNode(true);
+    clone.querySelectorAll(".nocopy").forEach(function (el) { el.remove(); });
+    clone.style.position = "fixed"; clone.style.left = "-9999px"; clone.style.top = "0";
+    document.body.appendChild(clone);
+    var copyNode = clone;
+
+    // 서식을 살리려면 선택 영역을 만들어 복사해야 한다.
+    // execCommand 는 구식이지만 file:// 에서 서식 복사가 확실하게 되는 유일한 방법이다.
+    var range = document.createRange();
+    range.selectNodeContents(copyNode);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    sel.removeAllRanges();
+    var plainText = copyNode.innerText;
+    clone.remove();
+
+    if (!ok && navigator.clipboard) {
+      navigator.clipboard.writeText(plainText).then(flash, function () {
+        alert("복사에 실패했습니다. 직접 드래그해서 복사해 주세요.");
+      });
+      return;
+    }
+    flash();
+
+    function flash() {
+      var original = btn.textContent;
+      btn.textContent = "복사됨 ✓";
+      btn.classList.add("done");
+      setTimeout(function () {
+        btn.textContent = original;
+        btn.classList.remove("done");
+      }, 1400);
+    }
+  });
+});
+</script>
+</body>
+</html>
